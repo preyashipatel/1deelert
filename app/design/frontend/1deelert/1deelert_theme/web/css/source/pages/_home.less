@@ -1,0 +1,193 @@
+/*------- SLIDER CSS --------*/
+#homeSlider {
+    .image-slider {
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: @color-2_dark;
+            z-index: 1;
+            opacity: 0.3;
+        }
+    }
+
+    &.owl-carousel {
+        .owl-item {
+            img {
+                height: 100vh;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .owl-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 2;
+            color: @color-5;
+
+            @media (max-width: @screen__xl) {
+                max-width: 600px;
+            }
+
+            h4 {
+                color: @color-1;
+                font-size: 26px;
+                font-weight: 500;
+                padding-bottom: 10px;
+
+                @media (max-width: @screen__xl) {
+                    font-size: 22px;
+                }
+            }
+
+            h2 {
+                font-size: 62px;
+                color: @color-5;
+                text-shadow: 0px 6px 9px #7A430C73;
+                opacity: 0.85;
+                letter-spacing: 2px;
+                line-height: 1.2;
+                font-weight: 500;
+                padding-bottom: 20px;
+
+                @media (max-width: @screen__xl) {
+                    font-size: 48px;
+                }
+            }
+
+            .button-primary {
+                text-transform: uppercase;
+                min-width: 230px;
+                border-radius: 5px;
+
+                @media (max-width: @screen__xl) {
+                    min-width: 180px;
+                }
+
+                &:hover {
+                    background: @color-5;
+                    border: 1px solid @color-5;
+                    color: @color-1;
+                }
+            }
+        }
+
+        .owl-nav {
+            max-width: 1800px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+            @media (max-width: @screen__xxl) {
+                max-width: 1440px;
+            }
+
+            @media (max-width: @screen__xl) {
+                max-width: 1140px;
+            }
+
+            @media (max-width: @screen__lg) {
+                max-width: 960px;
+            }
+
+            @media (max-width: @screen__md) {
+                max-width: 740px;
+            }
+
+            @media (max-width: @screen__sm) {
+                max-width: 540px;
+            }
+
+            @media (max-width: @screen__xs) {
+                max-width: 100%;
+            }
+
+            button[class*='owl-'] {
+                font-size: 0;
+                line-height: 0;
+                background: url('../images/slider-arrow-left.png');
+                width: 35px;
+                height: 35px;
+                opacity: 1 !important;
+                margin-top: -18px;
+                min-width: auto;
+            }
+
+            button.owl-next {
+                transform: scaleX(-1);
+                margin-top: -35px;
+            }
+        }
+
+        .owl-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+
+            .owl-dot {
+                span {
+                    background: transparent;
+                    border: 1px solid @color-5;
+                    width: 10px;
+                    height: 10px;
+                    margin: 0 7px;
+                }
+
+                &.active {
+                    span {
+                        background: @color-5;
+                        width: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*-------- NEW PRODUCT CSS -------------*/
+.new-product-section {
+    padding: 50px 0;
+}
+
+.new-product-image {
+    padding: 0 0 30px;
+
+    .image-block {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+
+        &:hover {
+            img {
+                transform: scale(1.2);
+                .transition(all 0.5s ease);
+            }
+        }
+
+        img {
+            transform: scale(1);
+            border-radius: 15px;
+            .transition(all 0.5s ease);
+        }
+    }
+
+    h4 {
+        padding: 15px 0 0 0;
+        text-align: center;
+        font-weight: 600;
+    }
+}

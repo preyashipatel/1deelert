@@ -1,0 +1,288 @@
+#cookie-status {
+    display: none;
+}
+
+.page-header {
+    border: 0;
+}
+
+.header-row {
+    .justify-content (flex-start);
+    flex-wrap: wrap;
+}
+
+.header-main {
+    padding: 25px 0;
+
+    @media (max-width: @screen__xl) {
+        padding: 20px 0;
+    }
+
+    .header-left {
+        min-width: 15%;
+        flex: 0 0 15%;
+        max-width: 15%;
+        padding: 0;
+    }
+
+    .header-center {
+        flex: 0 0 30%;
+        max-height: 30%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-right {
+        flex: 0 0 55%;
+        max-width: 55%;
+        padding: 0;
+
+        > div {
+            margin: 0 25px;
+            position: relative;
+
+            @media (max-width: @screen__xl) {
+                margin: 0 15px;
+            }
+
+            &.minicart-wrapper {
+                margin-right: 0;
+            }
+
+            &.switcher-language {
+                order: inherit;
+                margin: 0 15px;
+
+                @media (max-width: @screen__xl) {
+                    margin: 0 5px 0 15px;
+                }
+
+                strong {
+                    text-transform: uppercase;
+                    color: @color-1;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+
+            &.header-contact {
+                margin: 0 15px 0 5px;
+                position: relative;
+
+                @media (max-width: @screen__xl) {
+                    margin: 0 5px 0 0;
+                }
+
+                ul.header.links {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 150px;
+                    margin: 0;
+                    padding: 10px;
+                    list-style: none;
+                    display: none;
+                }
+            }
+
+            &.home-link,
+            &.about-link,
+            &.store-link,
+            &.contact-link {
+                &:hover {
+                    &:before {
+                        width: 100%;
+                        .transition(all 0.5s ease);
+                    }
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 0%;
+                    height: 2px;
+                    background: @color-1;
+                    .transition(all 0.5s ease);
+                }
+            }
+
+            a {
+                font-size: 18px;
+
+                @media (max-width: @screen__xl) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.store-link {
+    ul.store-li {
+        position: absolute;
+        top: 100%;
+        opacity: 0;
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        list-style: none;
+        padding: 10px;
+        .transition(all 0.5s ease);
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        li {
+            position: relative;
+            margin: 15px 10px;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0.8px;
+            color: @color-1;
+
+            a {
+                color: @color-1;
+            }
+        }
+    }
+
+    &:hover {
+        ul.store-li {
+            opacity: 1;
+            visibility: visible;
+            .transition(all 0.5s ease);
+        }
+    }
+}
+
+.header-right {
+    a {
+        color: @color-4;
+
+        &:hover {
+            color: @color-1;
+        }
+    }
+}
+
+.page-header .switcher .options ul.dropdown a,
+.page-footer .switcher .options ul.dropdown a {
+    font-size: 14px;
+}
+
+.my-account {
+    .porto-icon-user-2:before {
+        content: '';
+        background: url('../images/header-user.png');
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        vertical-align: middle;
+        margin-right: 0;
+
+        @media (max-width: @screen__xl) {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+.cart-design-2 {
+    .action.showcart {
+        .minicart-icon {
+            width: 25px;
+            height: 25px;
+            border: 0;
+            border-radius: 0;
+            position: relative;
+            opacity: 1;
+            margin: 0;
+            font-size: 0;
+            line-height: 0;
+            background: url('../images/min-cart.png');
+            background-size: cover;
+
+            @media (max-width: @screen__xl) {
+                width: 20px;
+                height: 20px;
+            }
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+.page-header .switcher .options .action.toggle::after,
+.minicart-wrapper .action.showcart::after,
+.my-account .porto-icon-user-2:after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 7px 0 7px;
+    border-color: @color-1 transparent transparent transparent;
+    content: '';
+    margin: 0 0 0 7px !important;
+    vertical-align: middle;
+
+    @media (max-width: @screen__xl) {
+        border-width: 6px 5px 0 5px;
+    }
+}
+
+.page-header.type2 .search-area {
+    @media (max-width: @screen__xl) {
+        padding-left: 35px;
+    }
+}
+
+.nav-sections {
+    display: none !important;
+}
+
+.page-header.type2 .block-search {
+    margin: 0;
+
+    input {
+        border: 1px solid @color-3_light;
+        border-radius: 5px;
+        height: 45px;
+        color: @color-2_dark;
+        padding-left: 50px;
+
+        @media (max-width: @screen__xl) {
+            height: 40px;
+        }
+    }
+
+    .actions button {
+        height: 45px;
+        width: 45px;
+        line-height: 43px;
+        right: auto;
+        left: 0;
+
+        @media (max-width: @screen__xl) {
+            height: 40px;
+            width: 40px;
+            line-height: 38px;
+        }
+
+        &:before {
+            font-size: 16px;
+            color: @color-2_dark;
+        }
+    }
+}

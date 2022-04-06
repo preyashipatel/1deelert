@@ -1,0 +1,221 @@
+.login-container {
+    max-width: 720px;
+    margin: 50px auto 20px;
+    border: 1px solid @color-4_light;
+    border-radius: 15px;
+    padding: 0;
+
+    ul#tabs {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        .flex();
+        .align-items(center);
+
+        li {
+            max-width: 50%;
+            flex: 0 0 50%;
+            text-align: center;
+            background: @color-5_light;
+
+            &:first-child {
+                border-radius: 15px 0 0 0;
+                border-right: 1px solid @color-4_light;
+            }
+
+            &:lasr-child {
+                border-radius: 0 15px 0 0;
+            }
+
+            a {
+                color: @color-3_light;
+                text-transform: capitalize;
+                padding: 15px;
+                display: block;
+                font-size: 18px;
+                line-height: 24px;
+                cursor: pointer;
+                border-bottom: 2px solid;
+
+                &:not(.inactive) {
+                    color: @color-1;
+                }
+            }
+        }
+    }
+
+    .block {
+        width: 100%;
+
+        .block-title {
+            font-size: 24px;
+            line-height: 36px;
+            margin: 0;
+            padding: 0 0 20px;
+
+            @media (max-width: @screen__xl) {
+                font-size: 22px;
+                line-height: 30px;
+                padding: 0 0 10px;
+            }
+
+            strong {
+                color: @color-2_dark;
+                font-weight: 400;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .form.create.account,
+    .form.form-login {
+        .actions-toolbar {
+            max-width: 100%;
+
+            > .primary {
+                margin: 0;
+
+                .action.primary {
+                    background: @color-1;
+                    font-weight: 700;
+                    padding: 15px 20px;
+                    border: 1px solid;
+
+                    @media (max-width: @screen__xl) {
+                        padding: 12px 20px;
+                    }
+
+                    &:hover {
+                        background: @color-6;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-acoount {
+    padding: 30px;
+}
+
+.form.create.account {
+    max-width: 100%;
+    padding: 0;
+    margin: 0 -15px;
+
+    > .fieldset {
+        padding: 0;
+        width: 100%;
+        float: none;
+        margin: 0 0 10px;
+
+        > .legend {
+            font-size: 22px;
+            padding: 0 15px 15px;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+
+        > .field {
+            width: 50%;
+            float: left;
+            padding: 0 15px 25px;
+
+            &.email {
+                width: 100%;
+            }
+
+            &.confirmation {
+                min-height: 140px;
+            }
+        }
+    }
+}
+
+.form.form-login {
+    .field {
+        &.secondary {
+            width: 50%;
+            float: right;
+            text-align: right;
+            margin-left: auto;
+            margin-top: -50px;
+            padding-bottom: 50px;
+            font-size: 16px;
+        }
+    }
+}
+
+.login-container .fieldset:after {
+    margin-top: 0;
+}
+
+.social-login-authentication-channel.account-social-login {
+    display: block;
+    overflow: hidden;
+
+    .block-content {
+        .flex();
+        padding: 50px 30px;
+        position: relative;
+
+        &:before {
+            content: "Or";
+            position: absolute;
+            top: 0px;
+            left: 0;
+            right: 0;
+            font-size: 16px;
+            color: @color-3;
+        }
+
+        .actions-toolbar.social-btn {
+            width: 50%;
+            flex: 0 0 50%;
+            padding: 0 15px;
+
+            .btn-social {
+                background: @color-6;
+                border: 1px solid @color-4_light;
+                border-radius: 8px;
+                color: @color-4;
+                padding: 10px;
+                font-size: 18px;
+                text-align: center;
+                line-height: 30px;
+
+                @media (max-width: @screen__xl) {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+
+                span.fa {
+                    width: 25px;
+                    height: 25px;
+                    line-height: 0;
+                    font-size: 0;
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    border: 0;
+                    background-repeat: no-repeat;
+                    background-size: cover !important;
+
+                    @media (max-width: @screen__xl) {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &.fa-google {
+                        background: url('../images/google-social.png') no-repeat;
+                    }
+
+                    &.fa-facebook {
+                        background: url('../images/facebook-social.png') no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}

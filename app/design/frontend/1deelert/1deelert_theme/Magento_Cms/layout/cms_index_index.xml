@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+       <referenceBlock name="page.main.title" remove="true"/>
+     <referenceContainer name="content">
+        <container name="home-slider" htmlTag="section" htmlClass="desktop-slider-section">
+            <block class="Elsnertech\Homeslider\Block\Index" name="Homeslider_index_index" template="Magento_Cms::slider.phtml" />
+        </container>
+        <container name="new-product1" htmlTag="section" htmlClass="new-section">
+            <block class="Magento\Cms\Block\Block" name="Promo">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">new_product</argument>
+                </arguments>
+            </block>
+        </container>
+        <container name="latest-product" htmlTag="section" htmlClass="latest-section">
+            <block class="Magento\Cms\Block\Block" name="latest">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">latest_product</argument>
+                </arguments>
+            </block>
+        </container>
+        <container name="home-block-custom" htmlTag="section" htmlClass="home-block-section">
+            <block class="Magento\Cms\Block\Block" name="home-block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">home-block</argument>
+                </arguments>
+            </block>
+        </container>
+        <container name="promotion_block" htmlTag="section" htmlClass="promotion-section">
+            <block class="Magento\Cms\Block\Block" name="promotion">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">promotion</argument>
+                </arguments>
+            </block>
+        </container>
+        <container name="Shopee_block" htmlTag="section" htmlClass="shopee-section">
+            <block class="Magento\Cms\Block\Block" name="shopee-block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">shopee-block</argument>
+                </arguments>
+            </block>
+        </container>
+         <container name="testimonial_block" htmlTag="section" htmlClass="testimonial-section">
+            <block class="Magento\Cms\Block\Block" name="testimonial-block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">testimonial-block</argument>
+                </arguments>
+            </block>
+        </container>
+        
+    </referenceContainer>
+ </body>
+</page>

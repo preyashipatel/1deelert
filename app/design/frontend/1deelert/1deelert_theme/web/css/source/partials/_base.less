@@ -1,0 +1,517 @@
+/*-------- THEME CSS ----------*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: @font-1;
+    font-size: @body-text;
+    line-height: @body-line_height;
+    color: @color-2_light;
+    font-weight: 400;
+    letter-spacing: 0.18px;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+address {
+    margin-bottom: 20px;
+    font-style: normal;
+    line-height: inherit;
+}
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+blockquote {
+    margin: 0 0 20px;
+}
+
+dfn {
+    font-style: italic;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+sup {
+    top: -.5em;
+}
+
+figure {
+    margin: 0 0 20px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+.h1 {
+    font-size: @font-size_1;
+}
+
+h2,
+.h2 {
+    font-size: @font-size_2;
+}
+
+h3,
+.h3 {
+    font-size: @font-size_3;
+}
+
+h4,
+.h4 {
+    font-size: @font-size_4;
+}
+
+h5,
+.h5 {
+    font-size: @font-size_5;
+}
+
+h6,
+.h6 {
+    font-size: @font-size_6;
+}
+
+a,
+.alink {
+    color: @link-font_color;
+    .transition(all 0.5s ease);
+
+    &:hover {
+        color: @link_hover-font_color;
+        .transition(all 0.5s ease);
+    }
+
+    &:visited {
+        color: @link-font_color;
+    }
+}
+
+.button-primary,
+button.button-primary,
+a.button-primary,
+.action.primary {
+    padding: 13px 20px;
+    font-size: @button-font_size;
+    line-height: @button-line_height;
+    font-weight: 400;
+    background: @button-background_color;
+    color: @button-font_color;
+    border-radius: @button-border_radius;
+    border: 1px solid;
+    border-color: @button-border_color;
+    letter-spacing: 1.8px;
+    .transition(all 0.5s ease);
+
+    @media (max-width: @screen__xl) {
+        padding: 10px 15px;
+        font-size: @font-size_6;
+        line-height: 24px;
+    }
+
+    &:hover {
+        background: @button-hover-background_color;
+        color: @button-hover-font_color;
+        border-color: @button-hover_border_color;
+        .transition(all 0.5s ease);
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+.action {
+
+    &.secondary,
+    .button-secondary {
+        padding: 10px 20px;
+        font-size: @button-font_size;
+        font-weight: 400;
+        border: @button-border_style;
+        border-radius: @button-border_radius;
+        background: @button-secondary-background_color;
+        color: @button-secondary-font_color;
+        border-color: @button-secondary-border_color;
+        .transition(all 0.5s ease);
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:hover {
+            background: @button-secondary-hover-background_color;
+            color: @button-secondary-hover-font_color;
+            .transition(all 0.5s ease);
+        }
+    }
+}
+
+.container,
+.container-fluid {
+    padding: 0 15px;
+}
+
+.row {
+    margin: 0 -15px;
+}
+
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+    padding: 0 15px;
+}
+
+.header.content,
+.container {
+    max-width: 1800px;
+    padding: 0 15px;
+
+    @media (max-width: @screen__xxl) {
+        max-width: 1440px;
+    }
+
+    @media (max-width: @screen__xl) {
+        max-width: 1140px;
+    }
+
+    @media (max-width: @screen__lg) {
+        max-width: 960px;
+    }
+
+    @media (max-width: @screen__md) {
+        max-width: 740px;
+    }
+
+    @media (max-width: @screen__sm) {
+        max-width: 540px;
+    }
+
+    @media (max-width: @screen__xs) {
+        max-width: 100%;
+    }
+}
+
+.inner-banner {
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: @color-2_dark;
+        opacity: 0.54;
+    }
+
+    .banner-image {
+        img {
+            min-height: 300px;
+            width: 100%;
+            object-fit: cover;
+
+            @media (max-width: @screen__xl) {
+                min-height: 250px;
+            }
+        }
+    }
+}
+
+.breadcumb-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFF;
+
+    h4 {
+        font-size: @font-size_1;
+        line-height: 1;
+
+        @media (max-width: @screen__xl) {
+            font-size: @font-size_2;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 16px;
+        .flex();
+        .align-items(center);
+        .justify-content(center);
+
+        @media (max-width: @screen__xl) {
+            font-size: @font-size_7;
+        }
+
+        li {
+            margin: 0 12px;
+            position: relative;
+
+            &:before {
+                content: '/';
+                position: absolute;
+                right: -15px;
+            }
+
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.page-main .columns {
+    padding: 0;
+}
+
+.fieldset {
+    > .field {
+        margin: 0;
+        padding: 0 0 25px;
+
+        @media (max-width: @screen__xl) {
+            padding: 0 0 15px;
+        }
+
+        .label {
+            font-size: 18px;
+            margin: 0 0 5px;
+            color: @color-4;
+            text-transform: capitalize;
+
+            @media (max-width: @screen__xl) {
+                font-size: 16px;
+            }
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="url"],
+        input[type="tel"],
+        input[type="search"],
+        input[type="number"],
+        input[type*="date"],
+        input[type="email"] {
+            background: rgba(102, 102, 102, 0.05);
+            border: 0;
+            border-radius: 8px;
+            color: @color-2_dark;
+            font-size: 15px;
+            padding: 8px 15px;
+
+            @media (max-width: @screen__xl) {
+                padding: 5px 15px;
+            }
+        }
+
+        &.choice {
+            .label {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+input[type="checkbox"] {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid @color-4_light;
+    background: @color-6;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] + label:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    background: url(../images/icon-chek.png);
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background: @color-1;
+    border: 1px solid @color-1;
+}
+
+input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    visibility: visible;
+}
+
+input[type="checkbox"]:checked + label span {
+    color: @color-1;
+}
+
+
+.block-title {
+    text-align: center;
+    padding: 0 0 15px;
+
+    h2 {
+        font-weight: 600;
+        color: @color-2;
+    }
+}

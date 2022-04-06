@@ -72,10 +72,30 @@
         </div>
       </div>
       <div class="header-right">
+        <div class="home-link">
+          <a href="#"><span><?= __('Home');?></span></a>
+        </div>
+        <div class="about-link">
+          <a href="#"><span><?= __('About us');?></span></a>
+        </div>
+        <div class="store-link">
+          <span><?= __('store');?></span>
+          <ul class="store-li">
+            <li><a href="#"><?= __('Office');?></a></li>
+            <li><a href="#"><?= __('mattress');?></a></li>
+            <li><a href="#"><?= __('kitchen and dining room');?></a></li>
+            <li><a href="#"><?= __('tv cabinet');?></a></li>
+            <li><a href="#"><?= __('shoe cabinet');?></a></li>
+          </ul>
+        </div>
+         <div class="contact-link">
+            <a href="#"><span><?= __('contact');?></span></a>
+          </div>
         <?php echo $this->getChildHtml("store_language"); ?>
         <div class="header-contact">
           <?php //echo $this->getChildHtml("custom_block"); ?>
           <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <?php echo $this->getChildHtml('header.links'); ?>
         </div>
         <?php echo $this->getChildHtml("minicart"); ?>
       </div>

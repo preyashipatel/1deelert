@@ -12,13 +12,7 @@
         </referenceContainer>
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
         <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/>
-       
-        <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>
-        <move element="product.info.social" destination="product.info.main" after="product.info.stock.sku"/>
-        <move element="product.info.addtocart" destination="product.info.main" after="product.info.price"/>
 
-    <move element="product.info.overview" destination="product.info.details" />
-    <move element="product.info.description" destination="product.info.details" />
 
         <referenceContainer name="after.body.start">
             <block class="Magento\Catalog\Block\Product\View" name="product_custom" template="Magento_Catalog::product/view/product_custom.phtml" before="-"/>

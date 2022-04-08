@@ -53,3 +53,14 @@
     -moz-transition: @transition;
     transition: @transition;
 }
+
+.product-item-name() {
+    font-size: @font-size_6;
+    line-height: 20px;
+    color: @color-2;
+    margin: 0;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_7;
+    }
+}

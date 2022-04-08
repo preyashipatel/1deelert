@@ -12,14 +12,17 @@
         <container name="home-slider" htmlTag="section" htmlClass="desktop-slider-section">
             <block class="Elsnertech\Homeslider\Block\Index" name="Homeslider_index_index" template="Magento_Cms::slider.phtml" />
         </container>
-        <container name="new-product1" htmlTag="section" htmlClass="new-section">
+        <container name="flase-sale" htmlTag="section" htmlClass="flase-sale-section">
+            <block class="Elsnertech\Flashsale\Block\Flashsale" template="Elsnertech_Flashsale::html/flashsale.phtml"/>
+        </container>
+        <container name="new-product1" htmlTag="section" htmlClass="new-product-section">
             <block class="Magento\Cms\Block\Block" name="Promo">
                 <arguments>
                     <argument name="block_id" xsi:type="string">new_product</argument>
                 </arguments>
             </block>
         </container>
-        <container name="latest-product" htmlTag="section" htmlClass="latest-section">
+        <container name="latest-product" htmlTag="section" htmlClass="latest-product-section">
             <block class="Magento\Cms\Block\Block" name="latest">
                 <arguments>
                     <argument name="block_id" xsi:type="string">latest_product</argument>

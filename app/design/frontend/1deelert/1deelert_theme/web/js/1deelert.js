@@ -4,8 +4,10 @@ define([
         "use strict";
        return function customFooter(config, element) {
          $(".social-chat").on('click',function(){
-            $('.footer-social-icon').toggleClass("show");
-            $('.close-icon').toggleClass("show");
+            // $('.footer-social-icon').toggleClass("show");
+            // $('.close-icon').toggleClass("show");
+            $(this).toggleClass('social-active');
+            $(this).next().toggleClass('active');
          });
 
             $('#tabs li a:not(:first)').addClass('inactive');

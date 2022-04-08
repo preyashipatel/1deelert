@@ -11,6 +11,16 @@ body {
     color: @color-2_light;
     font-weight: 400;
     letter-spacing: 0.18px;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_6;
+        line-height: 26px;
+    }
+
+    @media (max-width: @screen__lg) {
+        font-size: @font-size_7;
+        line-height: 22px;
+    }
 }
 
 h1,
@@ -31,6 +41,8 @@ h6,
 
 p {
     margin-bottom: 20px;
+    line-height: inherit;
+    letter-spacing: inherit;
 }
 
 address {
@@ -109,31 +121,55 @@ img {
 h1,
 .h1 {
     font-size: @font-size_1;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_2;
+    }
 }
 
 h2,
 .h2 {
     font-size: @font-size_2;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_3;
+    }
 }
 
 h3,
 .h3 {
     font-size: @font-size_3;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_4;
+    }
 }
 
 h4,
 .h4 {
     font-size: @font-size_4;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_5;
+    }
 }
 
 h5,
 .h5 {
     font-size: @font-size_5;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_6;
+    }
 }
 
 h6,
 .h6 {
     font-size: @font-size_6;
+
+    @media (max-width: @screen__xl) {
+        font-size: @font-size_7;
+    }
 }
 
 a,
@@ -152,9 +188,8 @@ a,
 }
 
 .button-primary,
-button.button-primary,
-a.button-primary,
-.action.primary {
+.action.primary,
+.box-tocart .action.tocart {
     padding: 13px 20px;
     font-size: @button-font_size;
     line-height: @button-line_height;
@@ -167,11 +202,18 @@ a.button-primary,
     letter-spacing: 1.8px;
     .transition(all 0.5s ease);
 
+    @media (max-width: @screen__xxl) {
+        font-size: @font-size_5;
+        line-height: 24px;
+    }
+
     @media (max-width: @screen__xl) {
         padding: 10px 15px;
         font-size: @font-size_6;
         line-height: 24px;
     }
+
+    @media (max-width: @screen__md) {}
 
     &:hover {
         background: @button-hover-background_color;
@@ -186,39 +228,57 @@ a.button-primary,
 }
 
 
-.action {
+.action.secondary,
+.button-secondary {
+    padding: 10px 20px;
+    font-size: @button-font_size;
+    font-weight: 400;
+    border: 1px solid;
+    border-radius: @button-border_radius;
+    background: @button-secondary-background_color;
+    color: @button-secondary-font_color;
+    border-color: @button-secondary-border_color;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    .transition(all 0.5s ease);
 
-    &.secondary,
-    .button-secondary {
-        padding: 10px 20px;
-        font-size: @button-font_size;
-        font-weight: 400;
-        border: @button-border_style;
-        border-radius: @button-border_radius;
-        background: @button-secondary-background_color;
-        color: @button-secondary-font_color;
-        border-color: @button-secondary-border_color;
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        background: @button-secondary-hover-background_color;
+        color: @button-secondary-hover-font_color;
         .transition(all 0.5s ease);
+    }
 
-        &:focus {
-            outline: 0;
-        }
+    @media (max-width: @screen__xxl) {
+        font-size: @font-size_5;
+        line-height: 24px;
+    }
 
-        &:hover {
-            background: @button-secondary-hover-background_color;
-            color: @button-secondary-hover-font_color;
-            .transition(all 0.5s ease);
-        }
+    @media (max-width: @screen__xl) {
+        padding: 10px 15px;
+        font-size: @font-size_6;
+        line-height: 24px;
     }
 }
 
 .container,
 .container-fluid {
     padding: 0 15px;
+
+    @media (max-width: @screen__sm) {
+        padding: 0 20px;
+    }
 }
 
 .row {
     margin: 0 -15px;
+
+    @media (max-width: @screen__sm) {
+        margin: 0 -20px;
+    }
 }
 
 .col,
@@ -292,10 +352,15 @@ a.button-primary,
 .col-xl-9,
 .col-xl-auto {
     padding: 0 15px;
+
+    @media (max-width: @screen__sm) {
+        padding: 0 20px;
+    }
 }
 
 .header.content,
-.container {
+.container,
+.page-main {
     max-width: 1800px;
     padding: 0 15px;
 
@@ -317,6 +382,7 @@ a.button-primary,
 
     @media (max-width: @screen__sm) {
         max-width: 540px;
+        padding: 0 20px;
     }
 
     @media (max-width: @screen__xs) {
@@ -338,6 +404,10 @@ a.button-primary,
         opacity: 0.54;
     }
 
+    .category-image {
+        margin-bottom: 0;
+    }
+
     .banner-image {
         img {
             min-height: 300px;
@@ -349,6 +419,63 @@ a.button-primary,
             }
         }
     }
+
+    > .breadcrumbs {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: @color-5;
+
+        h4 {
+            font-size: @font-size_1;
+            line-height: 1;
+
+            @media (max-width: @screen__xl) {
+                font-size: @font-size_2;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 16px;
+            .flex();
+            .align-items(center);
+            .justify-content(center);
+
+            @media (max-width: @screen__xl) {
+                font-size: @font-size_7;
+            }
+
+            li {
+                margin: 0 12px;
+                position: relative;
+
+                a {
+                    color: @color-5;
+                }
+
+                &:before {
+                    content: '/';
+                    position: absolute;
+                    right: -15px;
+                }
+
+                &:last-child {
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                strong {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
 }
 
 .breadcumb-wrapper {
@@ -357,7 +484,7 @@ a.button-primary,
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #FFF;
+    color: @color-5;
 
     h4 {
         font-size: @font-size_1;
@@ -395,6 +522,14 @@ a.button-primary,
                 &:before {
                     display: none;
                 }
+            }
+
+            a {
+                color: @color-5;
+            }
+
+            strong {
+                font-weight: 400;
             }
         }
     }
@@ -510,8 +645,136 @@ input[type="checkbox"]:checked + label span {
     text-align: center;
     padding: 0 0 15px;
 
+    @media (max-width: @screen__xl) {
+        padding: 0 0 8px;
+    }
+
     h2 {
         font-weight: 600;
         color: @color-2;
     }
+}
+
+.columns .column.main {
+    padding: 0;
+}
+
+
+.social-chat {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 999;
+    background: @color-5;
+    padding: 17px 30px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px #4e245e8c;
+    font-weight: 500;
+    cursor: pointer;
+
+    @media (max-width: @screen__lg) {
+        bottom: 20px;
+        right: 30px;
+        padding: 15px 30px;
+    }
+
+    .help-btn {
+        font-size: @font-size_5;
+        line-height: 24px;
+        color: @color-2_dark;
+
+        @media (max-width: @screen__lg) {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    &:hover {
+        background: @color-1;
+        .transition(all 0.3s ease);
+
+        .help-btn {
+            color: @color-5;
+        }
+    }
+
+    &.social-active {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        bottom: 80px;
+        right: 70px;
+        background: @color-1 url('../images/chat-close.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 35px;
+
+        @media (max-width: @screen__lg) {
+            bottom: 20px;
+            right: 35px;
+        }
+
+        .help-btn {
+            display: none;
+        }
+    }
+}
+
+
+.footer-social-icon {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+    right: 60px;
+    bottom: 140px;
+    z-index: 999;
+    height: 0;
+    overflow: hidden;
+    .transition(all 0.3s ease);
+
+    @media (max-width: @screen__lg) {
+        right: 25px;
+        bottom: 85px;
+    }
+
+    li {
+        margin: 0;
+
+        a {
+            display: block;
+        }
+
+        img {
+            max-width: 70px;
+        }
+    }
+
+    &.active {
+        height: 205px;
+        .transition(all 0.3s ease);
+    }
+}
+
+
+.product-item-name a {
+    letter-spacing: 0;
+}
+
+
+.mfp-iframe-holder .mfp-close {
+    width: 40px;
+    height: 40px;
+    right: -20px;
+    padding: 0;
+}
+
+
+.box-tocart .action.tocart {
+    height: auto;
+}
+
+.mfp-preloader {
+    width: 40px;
+    height: 40px;
 }

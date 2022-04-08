@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright Â© 2021 Deelert. All rights reserved.
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>        
+        <referenceContainer name="product.info.main">
+            <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Magento_Catalog::product/view/getCategory.phtml"/>
+        </referenceContainer>
+
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+        <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/>
+        <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>
+        <move element="product.info.social" destination="product.info.main" after="product.info.stock.sku"/>
+        <move element="product.info.overview" destination="product.info.details" />
+        <move element="product.info.description" destination="product.info.details" />
+        <move element="catalog.product.related" destination="page.bottom.container" />
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Product Details</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.info.overview">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Description</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

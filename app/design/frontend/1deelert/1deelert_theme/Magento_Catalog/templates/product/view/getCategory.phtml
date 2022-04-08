@@ -1,0 +1,18 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Elsnertech\Customisation\Block\GetCategory
+ */
+?>
+<?php
+$productId = $block->getCurrentProduct()->getId();
+$product = $block->getProductById($productId);
+$categoryIds = $product->getCategoryIds();
+$categories = $block->getCategoryCollection()
+                    ->addAttributeToFilter('entity_id', $categoryIds);
+ foreach ($categories as $category) {
+    $allCategory[] = $category->getName();
+ }
+?>
+<div class="product-category"><?=  "Categories : ".implode(",", $allCategory); ?></div>

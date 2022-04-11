@@ -112,6 +112,11 @@
         text-align: center;
         .justify-content(space-between);
         .align-items(center);
+
+        @media (max-width: @screen__lg) {
+            max-width: 90%;
+            .justify-content(space-between) !important;
+        }
     }
 
     .custom-block {
@@ -119,12 +124,15 @@
         font-size: 14px;
         color: @color-2_light;
         width: 33.33%;
-        padding-top: 10px;
+        padding: 10px 0 0 !important;
+
+        @media (max-width: @screen__lg) {
+            width: auto;
+        }
 
         &.f-right {
             margin: 0;
             order: inherit;
-            padding: 0;
             flex: inherit;
             text-align: right;
         }
@@ -155,6 +163,11 @@
 
     @media (max-width: @screen__xl) {
         font-size: 24px;
+    }
+
+    @media (max-width: @screen__sm) {
+        font-size: 22px;
+        margin: 0;
     }
 }
 
@@ -193,6 +206,11 @@
 
 .social-link > a {
     margin-right: 20px;
+
+    @media (max-width: @screen__sm) {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
 }
 
 .minicart-wrapper {

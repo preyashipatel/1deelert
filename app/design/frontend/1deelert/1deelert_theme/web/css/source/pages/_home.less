@@ -51,6 +51,10 @@
                 max-width: 500px;
             }
 
+            @media (max-width: @screen__sm) {
+                max-width: 400px;
+            }
+
             h4 {
                 color: @color-1;
                 font-size: 26px;
@@ -68,6 +72,10 @@
 
                 @media (max-width: @screen__md) {
                     font-size: 20px;
+                }
+
+                @media (max-width: @screen__sm) {
+                    font-size: 18px;
                 }
             }
 
@@ -93,6 +101,11 @@
                 @media (max-width: @screen__md) {
                     font-size: 38px;
                 }
+
+                @media (max-width: @screen__sm) {
+                    font-size: 30px;
+                    padding: 0;
+                }
             }
 
             .button-primary {
@@ -102,6 +115,10 @@
 
                 @media (max-width: @screen__xl) {
                     min-width: 180px;
+                }
+
+                @media (max-width: @screen__sm) {
+                    min-width: 150px;
                 }
 
                 &:hover {
@@ -152,11 +169,22 @@
                 opacity: 1 !important;
                 margin-top: -18px;
                 min-width: auto;
+                background-size: cover;
+
+                @media (max-width: @screen__md) {
+                    width: 25px;
+                    height: 25px;
+                    margin-top: -13px;
+                }
             }
 
             button.owl-next {
                 transform: scaleX(-1);
                 margin-top: -35px;
+
+                @media (max-width: @screen__md) {
+                    margin-top: -23px;
+                }
             }
         }
 
@@ -233,6 +261,12 @@
         padding: 5px;
         position: relative;
         z-index: 1;
+
+        @media (max-width: @screen__sm) {
+            margin-right: 13px;
+            width: 35px;
+            height: 35px;
+        }
 
         &:before {
             content: "";
@@ -397,6 +431,12 @@
         padding: 20px 0;
     }
 
+    .home-block {
+        @media (max-width: @screen__sm) {
+            padding-top: 30px;
+        }
+    }
+
     .home-block-image {
         position: relative;
 
@@ -510,6 +550,15 @@
             }
         }
     }
+
+    .shopee-block {
+        .col-md-3 {
+            @media (max-width: @screen__sm) {
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+        }
+    }
 }
 
 .cms-home .weltpixel-quickview {
@@ -556,6 +605,10 @@
 
 .flase-sale-section {
     padding: 50px 0 30px;
+
+    @media (max-width: @screen__sm) {
+        padding: 30px 0;
+    }
 
     .block-title {
         text-align: left;

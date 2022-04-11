@@ -43,6 +43,7 @@
                       <textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="8" data-validate="{required:true}"></textarea>
                   </div>
               </div>
+              <?php echo $block->getChildHtml('form.additional.info'); ?>
             </div>
         </div>
     </fieldset>

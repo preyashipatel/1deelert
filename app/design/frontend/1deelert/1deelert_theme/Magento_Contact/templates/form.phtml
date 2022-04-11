@@ -16,7 +16,7 @@
     <fieldset class="fieldset">
         <legend class="legend"><span><?php echo __('Write') ?> <b><?php echo __('Us') ?></b></span></legend><br />
         <div class="fieldset row">
-            <div class="fields col-md-6">
+            <div class="fields col-md-12">
               <div class="field name required">
                   <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
                   <div class="control">
@@ -35,14 +35,13 @@
                       <input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>" value="" class="input-text" type="text" />
                   </div>
               </div>
-            </div>
-            <div class="fields col-md-6">
               <div class="field comment required">
                   <label class="label" for="comment"><span><?php echo __('What’s on your mind?') ?></span></label>
                   <div class="control">
                       <textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="8" data-validate="{required:true}"></textarea>
                   </div>
               </div>
+              <?php echo $block->getChildHtml('form.additional.info'); ?>
             </div>
         </div>
     </fieldset>

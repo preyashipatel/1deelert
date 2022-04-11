@@ -213,7 +213,11 @@ a,
         line-height: 24px;
     }
 
-    @media (max-width: @screen__md) {}
+    @media (max-width: @screen__sm) {
+        padding: 10px;
+        font-size: 14px;
+        line-height: 20px;
+    }
 
     &:hover {
         background: @button-hover-background_color;
@@ -360,7 +364,8 @@ a,
 
 .header.content,
 .container,
-.page-main {
+.page-main,
+.nav-sections .navigation {
     max-width: 1800px;
     padding: 0 15px;
 

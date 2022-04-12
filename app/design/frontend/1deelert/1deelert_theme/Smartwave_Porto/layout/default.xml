@@ -7,11 +7,9 @@
 -->
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="page.top">
-            <container name="custom-header-top"  htmlTag="div" htmlClass="custom-header-top"></container>
-        </referenceContainer>
-        <move element="store.settings" destination="custom-header-top" before="-"/>
-        <!-- <move element="custom-header-top" destination="store.menu" before="-"/> -->
-<move element="custom-header-top" destination="catalog.topnav" before="-"/>
+        
+        
+        
+
     </body>
 </page>

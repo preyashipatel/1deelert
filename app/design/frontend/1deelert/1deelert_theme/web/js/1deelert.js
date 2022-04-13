@@ -1,11 +1,10 @@
 define([
-        "jquery"
+        "jquery",
+        'owl.carousel/owl.carousel.min'
     ], function($){
         "use strict";
        return function customFooter(config, element) {
          $(".social-chat").on('click',function(){
-            // $('.footer-social-icon').toggleClass("show");
-            // $('.close-icon').toggleClass("show");
             $(this).toggleClass('social-active');
             $(this).next().toggleClass('active');
          });
@@ -25,11 +24,29 @@ define([
                 $('#'+ t + 'C').fadeIn('slow');
              }
             });
-        
-       }
 
-       return function headerTab(config, element) {
-        console.log('call');
-        
+            $('.menu-slider').owlCarousel({
+                margin: 45,
+                autoWidth: true,
+                responsiveClass: true,
+                loop: false,
+                nav: false,
+                dots: false,
+                autoplay: false,
+                autoplayTimeout: 3000,
+                smartSpeed: 1000,
+                responsive:{
+                    0:{
+                      margin: 20,
+                    },
+                    768:{
+                      margin: 30,
+                    },
+                    1500:{
+                      margin: 45,
+                    }
+                }
+           });
+
        }
 });

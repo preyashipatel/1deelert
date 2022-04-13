@@ -15,11 +15,13 @@
     $_helper = $this->helper('Smartwave\Megamenu\Helper\Data');
     $_config = $_helper->getConfig('sw_megamenu');
     $columnsLimit = 0;
+    $header_type = $_helper->getConfig('porto_settings/header/header_type');
+
     if($_config['general']['enable']) {
 ?>
 <?php $_menu = $block->getMegamenuHtml(); ?>
 
-<nav class="navigation sw-megamenu" role="navigation">
+<nav class="navigation sw-megamenu <?php if($header_type == 7 || $header_type == 8  || $header_type == 18 || $header_type == 22): ?>side-megamenu<?php endif; ?>" role="navigation">
     <ul class="owl-carousel owl-theme menu-slider">
         <?php echo $_menu; ?>
     </ul>

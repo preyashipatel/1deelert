@@ -15,11 +15,7 @@ $groupCss = $block->getGroupCss();
     <div class="sections <?= $block->escapeHtmlAttr($groupCss) ?>">
         <?php $layout = $block->getLayout(); ?>
         <div class="custom-top-div">
-            <?=  $this->getLayout()
-                ->createBlock('Magento\Cms\Block\Block')
-                ->setBlockId('logo')
-                ->toHtml();
-            ?>
+            <?= $this->getLayout()->createBlock("Magento\Theme\Block\Html\Header\Logo")->setTemplate("Magento_Theme::html/header/logo.phtml")->toHtml();?>
             <?= $block->getChildHtml('store.settings'); ?>
         </div>
         <div class="section-items <?= $block->escapeHtmlAttr($groupCss) ?>-items"

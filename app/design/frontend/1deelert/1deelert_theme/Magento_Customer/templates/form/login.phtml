@@ -9,13 +9,13 @@
 /** @var \Magento\Customer\Block\Form\Login $block */
 ?>
 <ul id="tabs">
-    <li><a id="login"><?= __('Login');?></a></li>
-    <li><a id="registre"><?= __('Register');?></a></li>
+    <li><a id="login"><?= __('Sign In');?></a></li>
+    <li><a id="registre"><?= __('Sign Up');?></a></li>
 </ul>
 <div class="container-acoount" id="loginC">
 <div class="block block-customer-login">
     <div class="block-title">
-        <strong id="block-customer-login-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Registered Customers')) ?></strong>
+        <strong id="block-customer-login-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__(' Customers Login')) ?></strong>
     </div>
     <div class="block-content" aria-labelledby="block-customer-login-heading">
         <form class="form form-login"
@@ -25,9 +25,9 @@
               data-mage-init='{"validation":{}}'>
             <?= $block->getBlockHtml('formkey') ?>
             <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
-                <div class="field note"><?= $block->escapeHtml(__('If you have an account, sign in with your email address.')) ?></div>
+                
                 <div class="field email required">
-                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email ID')) ?></span></label>
                     <div class="control">
                         <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>"
                             <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?>

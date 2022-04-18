@@ -38,14 +38,14 @@ $formData = $block->getFormData();
                 ->setForceUseCustomerAttributes(true)
                 ->toHtml() ?>
         <div class="field email required">
-            <label for="email_address" class="label"><span><?= $escaper->escapeHtml(__('Email')) ?></span></label>
+            <label for="email_address" class="label"><span><?= $escaper->escapeHtml(__('Email ID')) ?></span></label>
             <div class="control">
                 <input type="email"
                        name="email"
                        autocomplete="email"
                        id="email_address"
                        value="<?= $escaper->escapeHtmlAttr($formData->getEmail()) ?>"
-                       title="<?= $escaper->escapeHtmlAttr(__('Email')) ?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('Email ID')) ?>"
                        class="input-text"
                        data-mage-init='{"mage/trim-input":{}}'
                        data-validate="{required:true, 'validate-email':true}">

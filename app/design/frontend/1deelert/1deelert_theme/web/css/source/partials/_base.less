@@ -134,6 +134,7 @@ h2,
     @media (max-width: @screen__xl) {
         font-size: @font-size_3;
     }
+
     @media (max-width: @screen__sm) {
         font-size: @font-size_4;
     }
@@ -270,7 +271,7 @@ a,
         line-height: 24px;
     }
 
-    @media (max-width: @screen__sm){
+    @media (max-width: @screen__sm) {
         padding: 5px 15px;
         font-size: @font-size_8;
         border-radius: 4px;
@@ -424,13 +425,25 @@ a,
 
     .banner-image {
         img {
-            min-height: 300px;
+            height: 300px;
             width: 100%;
             object-fit: cover;
             max-height: 400px;
 
             @media (max-width: @screen__xl) {
-                min-height: 250px;
+                height: 250px;
+            }
+
+            @media (max-width: @screen__lg) {
+                height: 200px;
+            }
+
+            @media (max-width: @screen__md) {
+                height: 180px;
+            }
+
+            @media (max-width: @screen__xs) {
+                height: 160px;
             }
         }
     }
@@ -508,6 +521,7 @@ a,
         @media (max-width: @screen__xl) {
             font-size: @font-size_2;
         }
+
         @media (max-width: @screen__md) {
             font-size: @font-size_4;
             margin-bottom: 5px;
@@ -696,7 +710,8 @@ input[type="checkbox"]:checked + label span {
         right: 30px;
         padding: 15px 30px;
     }
-    @media (max-width: @screen__sm){
+
+    @media (max-width: @screen__sm) {
         padding: 6px 18px;
         right: 20px;
     }
@@ -710,6 +725,7 @@ input[type="checkbox"]:checked + label span {
             font-size: 16px;
             line-height: 20px;
         }
+
         @media (max-width: @screen__sm) {
             font-size: 13px;
             line-height: 1.2;
@@ -804,4 +820,10 @@ input[type="checkbox"]:checked + label span {
 .mfp-preloader {
     width: 40px;
     height: 40px;
+}
+
+
+div.mage-error[generated] {
+    font-size: 14px;
+    line-height: 20px;
 }

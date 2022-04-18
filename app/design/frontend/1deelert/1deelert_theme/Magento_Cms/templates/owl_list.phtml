@@ -61,7 +61,7 @@ if($product_type == null) {
     ?>
     <div class="products wrapper <?php echo $viewMode; ?> products-<?php echo $viewMode; ?> <?php if($product_type == 2): ?>no-padding divider-line<?php endif; ?> <?php if($product_type == 5 || $product_type == 6 || $product_type == 7 || $product_type == 8): ?>no-padding<?php endif; ?> <?php if($product_type == 6): ?>divider-line<?php endif; ?>">
         <?php $iterator = 1; ?>
-        <div class="filterproducts products products-slider list items product-items owl-carousel <?php echo $extra_class;?>">
+        <div class="filterproducts products products-slider list items product-items slider slick-slider latest-product-slider <?php echo $extra_class;?>">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product): ?>
                 <?php echo($iterator++ == 1) ? '<div class="item product product-item">' : '</div><div class="item product product-item">' ?>
@@ -238,6 +238,7 @@ if($product_type == null) {
                 <?php echo($iterator == count($_productCollection)+1) ? '</div>' : '' ?>
             <?php endforeach; ?>
         </div>
+        <a href="#" class="see-all-btn">See All</a>
     </div>
     <?php if (!$_dailydealhelper->isLoadedTimer()): ?>
     <script type="text/javascript">

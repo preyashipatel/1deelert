@@ -1,14 +1,17 @@
 define([
         "jquery",
-        'owl.carousel/owl.carousel.min'
+        'slick'
     ], function($){
         "use strict";
        return function customFooter(config, element) {
-         $(".social-chat").on('click',function(){
-            $(this).toggleClass('social-active');
-            $(this).next().toggleClass('active');
-         });
-
+            $(".social-chat").on('click',function(){
+                $(this).toggleClass('social-active');
+                $(this).next().toggleClass('active');
+            });
+            $(".account-icon").on('click',function(){
+                $(this).toggleClass('account-active');
+                $(this).next().toggleClass('active');
+            });
             $('#tabs li a:not(:first)').addClass('inactive');
             $('.container-acoount').hide();
             $('.container-acoount:first').show();
@@ -24,29 +27,153 @@ define([
                 $('#'+ t + 'C').fadeIn('slow');
              }
             });
+            var viewportWidth = $(window).width();
+            if (viewportWidth > 481) {
+                $('.menu-slider').slick({
+                    draggable: true,
+                    accessibility: false,
+                    variableWidth: true,
+                    slidesToShow: 1,
+                    arrows: false,
+                    dots: false,
+                    swipeToSlide: true,
+                    infinite: false,
+                    speed: 500,
+                }); 
+            }
+            $('.menu-slider-custom').slick({
+                    draggable: true,
+                    accessibility: false,
+                    variableWidth: true,
+                    slidesToShow: 1,
+                    arrows: false,
+                    dots: false,
+                    swipeToSlide: true,
+                    infinite: false,
+                    speed: 500,
+                }); 
 
-            $('.menu-slider').owlCarousel({
-                margin: 45,
-                autoWidth: true,
-                responsiveClass: true,
-                loop: false,
-                nav: false,
-                dots: false,
-                autoplay: false,
-                autoplayTimeout: 3000,
-                smartSpeed: 1000,
-                responsive:{
-                    0:{
-                      margin: 20,
-                    },
-                    768:{
-                      margin: 30,
-                    },
-                    1500:{
-                      margin: 45,
-                    }
+            $(document).ready(function() {
+                $('.flaseSale').slick({
+                    draggable: true,
+                    accessibility: false,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false,
+                    swipeToSlide: true,
+                    infinite: true,
+                    speed: 500,
+                    responsive: [
+                        {
+                        breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 5,
+                            }
+                        },
+                        {
+                        breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 4,
+                            }
+                        },
+                        {
+                        breakpoint: 767,
+                            settings: {
+                                slidesToShow: 2,
+                                centerMode: true,
+                                centerPadding: '50px',
+                            }
+                        },
+                        {
+                        breakpoint: 575,
+                            settings: {
+                                slidesToShow: 1,
+                                centerMode: true,
+                                centerPadding: '70px',
+                            }
+                        }
+                    ]
+                });
+
+                $(".latest-product-slider").slick({
+                    draggable: true,
+                    accessibility: false,
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false,
+                    swipeToSlide: true,
+                    infinite: true,
+                    speed: 500,
+                    responsive: [
+                        {
+                        breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 5,
+                            }
+                        },
+                        {
+                        breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 4,
+                            }
+                        },
+                        {
+                        breakpoint: 767,
+                            settings: {
+                                slidesToShow: 3,
+                            }
+                        },
+                    ]
+                });
+
+                // promotion-section js
+                if ($(window).width() <= 767) {
+                    $('.promotion-slider').slick({
+                        draggable: true,
+                        accessibility: false,
+                        slidesToShow: 2,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: false,
+                        swipeToSlide: true,
+                        infinite: true,
+                        speed: 500,
+                    });
                 }
-           });
 
-       }
-});
+                // our article section js
+                $(".article-slider").slick({
+                    draggable: true,
+                    accessibility: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true,
+                    swipeToSlide: true,
+                    infinite: true,
+                    speed: 500,
+                    responsive: [
+                        {
+                        breakpoint: 991,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
+                        breakpoint: 575,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        },
+                    ]
+                });
+
+            });
+
+        }
+    });
+

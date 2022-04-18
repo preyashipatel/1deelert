@@ -5,19 +5,25 @@
    $showCart = true;
    $flashDetails = $block->getFlashsaleDetails();
    $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+   $_helper = $this->helper('Magento\Catalog\Helper\Output');
+    $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
+    $_product_label_config = $_portohelper->getConfig('porto_settings/product_label');
+
 ?>
 
 <div class="container">
-    <div class="text-right">
-        <div id="countdown">   
-          <span><span id="days"></span></span>
-          <span><span id="hours"></span></span>
-          <span><span id="minutes"></span></span>
-          <span><span id="seconds"></span></span>
-      </div>
-  </div>
-    <div class="block-title">
-        <h2 class="title"><?= $block->getFlashsaleProductsName() ?></h2>
+    <div class="flase-sale-wrap">
+        <div class="text-right width60">
+            <div id="countdown">   
+            <span><span id="days"></span></span>
+            <span><span id="hours"></span></span>
+            <span><span id="minutes"></span></span>
+            <span><span id="seconds"></span></span>
+        </div>
+        </div>
+        <div class="block-title width40">
+            <h2 class="title"><?= $block->getFlashsaleProductsName() ?></h2>
+        </div>
     </div>
     <?php if (empty($products)): ?>
     <div class="message info empty">
@@ -26,7 +32,7 @@
     <?php else: ?>
     <div class="products-grid grid">
         <ol class="product-items widget-product-grid">
-            <div class="owl-carousel" id="flaseSale">
+            <div class="slider slick-slider flaseSale" id="flaseSale">
                 <?php foreach ($products as $_product): ?>
                 <?php $postParams = $block->getAddToCartPostParameters($_product); ?>
                 <li class="product-item item">
@@ -41,6 +47,30 @@
                                 <span class="product-image-wrapper" style="padding-bottom: 125%;">
                                     <img class="product-image-photo" src="<?= $productImageUrl ?>" alt="flash-sale" width="300" height="300" /></span>
                             </span>
+                            <?php
+                            $product_label = "";
+                            if($_product_label_config['sale_label']) {
+                                $orgprice = $_product->getPrice();
+                                $specialprice = $_product->getSpecialPrice();
+                                $specialfromdate = $_product->getSpecialFromDate();
+                                $specialtodate = $_product->getSpecialToDate();
+                                $today = time();
+                                if(!$specialprice)
+                                    $specialprice = $orgprice;
+                                if($specialprice < $orgprice) {
+                                    if((is_null($specialfromdate) && is_null($specialtodate)) || ($today >= strtotime($specialfromdate) && is_null($specialtodate)) || ($today <= strtotime($specialtodate) && is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))){
+                                        if($_product_label_config['sale_label_percent']) {
+                                            $save_percent = 100-round(($specialprice/$orgprice)*100);
+                                            $product_label .= '<div class="product-label sale-label">'.'-'.$save_percent.'%'.'<span>off</span></div>';
+                                        } else {
+                                            $product_label .= '<div class="product-label sale-label">'.$_product_label_config['sale_label_text'].'<span>off</span></div>';
+                                        }
+                                    }
+                                }
+                            }
+                            if($product_label)
+                                echo '<div class="product-labels">'.$product_label.'</div>';
+                        ?>
                         </a>
                         <div class="product-item-details">
                             <strong class="product-item-name">
@@ -57,43 +87,11 @@
                 <?php endforeach ?>
             </div>
         </ol>
+        <a href="#" class="see-all-btn">See All</a>
     </div>
 </div>
 
-<script>
-    require(['jquery', 'owlcarousel'], function($) {
-        $(document).ready(function() {
-            $('#flaseSale').owlCarousel({
-                loop: true,
-                nav: false,
-                dots: false,
-                autoplay: true,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 2
-                    },
-                    767: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 5
-                    },
-                    1469: {
-                        items: 6
-                    }
-                }
-            });
-        });
-    });
 
-</script>
 <script type="text/javascript">(function () {
   const second = 1000,
         minute = second * 60,

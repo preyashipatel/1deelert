@@ -55,7 +55,11 @@
     }
 }
 
-.cart-design-2 {
+.minicart-wrapper.cart-design-2 {
+    @media (max-width: @screen__lg) {
+        margin-left: 10px;
+    }
+    
     .action.showcart {
         .minicart-icon {
             width: 25px;
@@ -74,9 +78,19 @@
                 width: 20px;
                 height: 20px;
             }
+            @media (max-width: @screen__md){
+                width: 28px;
+                height: 28px;
+            }
 
             &:before {
                 display: none;
+            }
+        }
+        .counter.qty {
+            @media (max-width: @screen__md){
+                right: -6px;
+                top: -6px;
             }
         }
     }
@@ -98,6 +112,14 @@
     @media (max-width: @screen__xl) {
         border-width: 6px 5px 0 5px;
     }
+    @media (max-width: @screen__md) {
+        display: none;
+    }
+}
+.page-header .switcher .options.active .action.toggle::after,
+.my-account.account-active .porto-icon-user-2::after  {
+    transform: rotate(180deg);
+    border-color: #FF0000 transparent transparent transparent;
 }
 
 header.page-header.type2{
@@ -110,7 +132,7 @@ header.page-header.type2{
         }
 
         @media (max-width: @screen__md) {
-            padding: 20px 0 0;
+            padding: 5px 0 0;
         }
     
         .header-left {
@@ -129,6 +151,21 @@ header.page-header.type2{
                     max-width: 150px;
                 }
             }
+            .nav-toggle{
+                @media (max-width: @screen__md) {
+                    margin-top: 0;
+                    z-index: 999999;
+                }
+                &::before{
+                    @media (max-width: @screen__md){
+                        background-image: url("../images/hammenu.svg");
+                        content: "";
+                        width: 28px;
+                        height: 28px;
+                        background-size: contain;
+                    }
+                }
+            }
         }
     
         .header-center {
@@ -144,15 +181,6 @@ header.page-header.type2{
             .search-toggle-icon {
                 @media (max-width: @screen__md){
                     display: none;
-                }
-            }
-            .block.block-search{
-                @media (max-width: @screen__md){
-                    right: 0;
-                    display: block;
-                    position: relative;
-                    border: 0;
-                    margin: 10px 0;
                 }
             }
         }
@@ -208,22 +236,180 @@ header.page-header.type2{
                 }
     
                 &.header-contact {
-                    margin: 0 15px 0 5px;
+                    margin: 0;
                     position: relative;
     
                     @media (max-width: @screen__xl) {
                         margin: 0 5px 0 0;
                     }
     
+                    @media (max-width: @screen__md) {
+                        margin: 0;
+                        .justify-content(flex-end);
+                        .flex-direction(row-reverse);
+                    }
+                    .my-account {
+                        cursor: pointer;
+                        padding: 0;
+                        margin: 0;
+                        @media (max-width: @screen__lg) {
+                            margin: 0;
+                        }
+                        .porto-icon-user-2{
+                            &::before {
+                                content: '';
+                                background: url('../images/header-user.png');
+                                width: 30px;
+                                height: 30px;
+                                background-size: cover;
+                                vertical-align: middle;
+                                margin-right: 0;
+                        
+                                @media (max-width: @screen__xl) {
+                                    width: 25px;
+                                    height: 25px;
+                                }
+                        
+                                @media (max-width: @screen__lg) {
+                                    width: 22px;
+                                    height: 22px;
+                                }
+                                @media (max-width: @screen__md) {
+                                    width: 28px;
+                                    height: 28px;
+                                    background: url('../images/Login-mob.png');
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                    .panel.header{
+                        @media (max-width: @screen__md){
+                            display: block;
+                            height: auto;
+                            width: auto;
+                            background: none !important;
+                            margin: 0;
+
+                            ul.header.links{
+                                border: 0;
+                                display: block;
+                                min-width: auto;
+
+                                &::after, &::before{
+                                    display: none;
+                                }
+                                li{
+                                    display: none;
+                                    padding: 0 !important;
+                                    &.greet.welcome{
+                                        display: block;
+                                        max-width: 58px;
+                                        margin-left: auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                  
                     ul.header.links {
                         position: absolute;
-                        top: 100%;
-                        left: 0;
+                        top: ~"calc(100% + 30px)";
+                        left: auto;
                         width: 150px;
                         margin: 0;
-                        padding: 10px;
                         list-style: none;
-                        display: none;
+                        display: none; 
+                        right: 0;
+                        backdrop-filter: blur(30px);
+                        background: linear-gradient(to top, @color-5_light, transparent);
+                        flex-direction: column;
+                        z-index: 9;
+                        padding: 0;
+                        @media (max-width: @screen__md) {
+                            border: 0;
+                            display: block;
+                            position: relative;
+                            top: 0;
+                            width: auto;
+                            background: none !important;
+                            backdrop-filter: none;
+                            left: 0;
+                            box-shadow: none;
+                        }
+                        li {
+                            display: block;
+                            width: 100%;
+                            margin: 0;
+                            a{
+                                display: block;
+                                border-bottom: 1px solid @color-1_light;
+                                color: @color-1;
+                                font-size: 17px;
+                            }
+                            &.greet.welcome {
+                                padding: 0;
+                                .logged-in {
+                                    display: block;
+                                    font-size: 14px;
+                                    line-height: 1.3;
+                                    padding: 10px 12px 8px;
+                                    color: @color-1;
+                                    border-bottom: 1px solid @color-1_light;
+                                    @media (max-width: @screen__md){
+                                        padding: 0;
+                                        border: 0;
+                                        font-size: 12px;
+                                        color: @color-4;
+                                        font-weight: 700;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: initial;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 1;
+                                        -webkit-box-orient: vertical;
+                                        text-transform: none;
+                                    }
+                                }
+                            }
+                            &.customer-welcome{
+                                span.customer-name {
+                                    display: none !important;
+                                }
+                                .customer-menu {
+                                    display: block;
+                                    ul.header {
+                                        position: relative;
+                                        top: 0;
+                                        background: transparent;
+                                        border: 0;
+                                        box-shadow: none;
+                                        width: auto;
+                                        backdrop-filter: none;
+                                        left: 0;
+                                        min-width: auto;
+                                        &::after, &::before{
+                                            display: none;
+                                        }
+
+                                        a{
+                                            padding: 8px 15px;
+                                            color: @color-1 !important;
+                                            font-size: 17px;
+                                            text-align: left;
+                                        }
+                                        li.link.authorization-link{
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .show-icon-tablet.active{
+                        ul.header.links{
+                            display: block;
+                        }
                     }
                 }
     
@@ -275,6 +461,25 @@ header.page-header.type2{
                     display: none;
                 }
             }
+            .store-lang{
+                .view-th {
+                    text-transform: uppercase;
+                    color: @color-1;
+                    font-size: 17px;
+                }
+                ul.dropdown.switcher-dropdown{
+                    border: 0 !important;
+                    &::before, &::after{
+                        display: none;
+                    }
+                    li{
+                        a{
+                            font-size: @font-size_7;
+                            padding: 2px 15px;
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -301,69 +506,72 @@ header.page-header.type2{
         }
     }
 
-    .block-search {
-        margin: 0;
-    
-        input {
-            border: 1px solid rgba(152, 152, 152, 0.5);
-            border-radius: 5px;
-            height: 45px;
-            color: @color-2_dark;
-            padding-left: 50px;
-    
-            @media (max-width: @screen__xl) {
-                height: 40px;
-            }
-        }
-    
-        .actions button {
-            height: 45px;
-            width: 45px;
-            line-height: 43px;
-            right: auto;
-            left: 0;
-    
-            @media (max-width: @screen__xl) {
-                height: 40px;
-                width: 40px;
-                line-height: 38px;
-            }
-    
-            &:before {
-                font-size: 16px;
-                color: @color-2_dark;
-            }
-        }
-    }
-
-    .header-contact .my-account {
-        @media (max-width: @screen__lg) {
+    .search-area.show-icon-tablet{
+        .block-search {
             margin: 0;
-        }
-        .porto-icon-user-2:before {
-            content: '';
-            background: url('../images/header-user.png');
-            width: 30px;
-            height: 30px;
-            background-size: cover;
-            vertical-align: middle;
-            margin-right: 0;
-    
-            @media (max-width: @screen__xl) {
-                width: 25px;
-                height: 25px;
+            @media (max-width: @screen__md){
+                right: 0;
+                display: block;
+                position: relative;
+                border: 0;
+                margin: 10px 0;
+                width: 100%;
+                min-width: 100%;
             }
     
-            @media (max-width: @screen__lg) {
-                width: 22px;
-                height: 22px;
+            form#search_mini_form {
+                @media (max-width: @screen__md){
+                    border-radius: 5px;
+                    .flex();
+                    .flex-direction(row-reverse);
+                    box-shadow: 0px 2px 4px #4e245e40;
+                }
             }
-        }
-    }
+    
+            input {
+                border: 1px solid rgba(152, 152, 152, 0.5);
+                border-radius: 5px;
+                height: 45px;
+                color: @color-2_dark;
+                padding-left: 50px;
+                padding-right: 20px;
 
-    .minicart-wrapper {
-        @media (max-width: @screen__lg) {
-            margin-left: 10px;
+                @media (max-width: @screen__xl) {
+                    padding-left: 42px;
+                }
+                @media (max-width: @screen__md) {
+                    height: auto;
+                    border: 0;
+                    padding: 0 15px 0 0;
+                    font-size: 12px;
+                    letter-spacing: 0.5px;
+                    min-height: 40px;
+                }
+            }
+        
+            .actions button {
+                height: 45px;
+                width: 45px;
+                line-height: 43px;
+                right: auto;
+                left: 0;
+        
+                @media (max-width: @screen__md) {
+                    height: 40px;
+                    width: 40px;
+                    line-height: 38px;
+                    position: relative;
+                }
+        
+                &:before {
+                    font-size: 16px;
+                    color: @color-7;
+                    @media (max-width: @screen__md) {
+                        font-size: @font-size_4;
+                        color: @color-7;
+                    }
+                }
+            }
         }
     }
 
@@ -372,6 +580,7 @@ header.page-header.type2{
         li.level0.fullwidth > .submenu {
             padding: 0 !important;
             height: 0;
+            width: 0;
         
             @media (max-width: @screen__xl) {
                 padding: 15px 15px 0;
@@ -404,23 +613,167 @@ header.page-header.type2{
             }
         }
     }
-}
 
-.nav-sections {
-    border-top: 1px solid rgba(152, 152, 152, 0.5);
-    min-height: 50px !important;
-    padding-top: 2px;
-    .custom-top-div {
-        display: none;
+    .nav-sections {
+        border-top: 1px solid rgba(152, 152, 152, 0.5);
+        min-height: 50px !important;
+        padding-top: 2px;
+        @media (max-width: @screen__md){
+            background: @color-5;
+            padding-top: 0;
+        }
+        .custom-top-div {
+            display: none;
+            @media (max-width: @screen__md){
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 20px;
+                background: @color-5;
+                position: relative;
+                z-index: 7;
+            }
+            .logo {
+                @media (max-width: @screen__md){
+                    max-width: 50%;
+                    margin-left: 40px;
+                    img {
+                        width: 100%;
+                        max-width: 135px;
+                    }
+                }
+            }
+            .switcher {
+                @media (max-width: @screen__md){
+                    border-bottom: 0;
+                    font-weight: bold;
+                    margin: 0;
+                    padding: 5px 0;
+                    height: auto;
+                    color: #4E245E;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                }
+                .switcher-options{
+                    .switcher-trigger{
+                        &::after{
+                            display: block;
+                            border-color: #4e245e transparent transparent transparent;
+                            content: "";
+                            width: 8px;
+                            height: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-sections-items{
+            @media (max-width: @screen__md){
+                background-color: @color-5;
+                min-height: 100%;
+            }
+            .section-item-title{
+                width: 50% !important;
+                background: #ebecee3d;
+                border-bottom: 2px solid transparent;
+                margin-top: 10px;
+                padding: 10px;
+                height: auto;
+                
+                @media (max-width: @screen__md){
+                    &[aria-controls="store.settings"]{
+                        display: none;
+                    }
+                }
+                &.active{
+                    border-bottom: 2px solid @color-1;
+                    a{
+                        color: @color-1;
+                    }
+                }
+
+                a{
+                    color: #A1A1A1;
+                    font-size: 16px;
+                    &::before{
+                        display: none;
+                    }
+                }
+            }
+            div#store\.settings {
+                @media (max-width: @screen__md){
+                    display: none !important;
+                }
+            }
+            .nav-sections-item-content{
+                ul.header.links{
+                    li{
+                        border-bottom: 1px solid @colo7-7_light;
+                        color: @color-2;
+                        font-size: 16px;
+                        a{
+                            color: @color-2;
+                            font-size: 16px;
+                        }
+                    }
+                }
+                nav.navigation.sw-megamenu{
+                    padding: 0;
+                    ul{
+                        li{
+                            margin: 0;
+                            border-bottom: 1px solid @colo7-7_light;
+                            a{
+                                color: @color-2;
+                                font-size: 16px;
+                                padding: 15px 20px;
+                                background: transparent;
+                                &::after{
+                                    right: 5px;
+                                    position: absolute;
+                                    top: 15px;
+                                }
+                            }
+                            .submenu.opened {
+                                width: 100% !important;
+                                height: auto !important;
+                                background: transparent;
+                                ul.subchildmenu{
+                                    padding-left: 35px;
+                                    li{
+                                        a{
+                                            color: @color-2;
+                                            font-size: 15px;
+                                            &::before{
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+    
 }
-
 
 .page-header.type2 .navigation:not(.side-megamenu) {
     ul{
         .level0 {
-            margin-right: 0;
+            margin-right: 45px;
             border: 0;
+            @media (max-width: @screen__xl) {
+                margin-right: 40px;
+            }
+            @media (max-width: @screen__md) {
+                margin-right: 30px;
+            }
+            @media (max-width: @screen__sm) {
+                margin-right: 20px;
+            }
         
             .level-top {
                 font-size: @font-size_6;
@@ -432,7 +785,10 @@ header.page-header.type2{
 
                 &::after{
                     @media (max-width: @screen__md) {
-                        font-size: 18px;
+                        font-size: 16px;
+                        position: relative;
+                        right: 0;
+                        top: -2px;
                     }
                 }
         
@@ -440,6 +796,27 @@ header.page-header.type2{
                     font-size: 14px;
                     padding: 10px 0;
                 }
+                @media (max-width: @screen__sm) {
+                    padding: 8px 0;
+                }
+            }
+        }
+    }
+}
+
+.nav-open {
+    .page-wrapper {
+        left: 0;
+        .nav-toggle{
+            &::before{
+                @media (max-width: @screen__md){
+                    background-image: url(../images/close-menu.svg) !important;
+                    position: relative;
+                    top: 2px;                
+                }
+            }
+            &::after{
+                display: none;
             }
         }
     }

@@ -96,7 +96,7 @@
           </div>
         <div class="header-contact">
           <?php //echo $this->getChildHtml("custom_block"); ?>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <span class="my-account account-icon" title="My Account"><i class="porto-icon-user-2"></i></span>
           <div class="panel header show-icon-tablet">
             <?php echo $this->getChildHtml("header.links"); ?>
           </div>
@@ -104,7 +104,7 @@
         <?php echo $this->getChildHtml("minicart"); ?>
       </div>
       <div class="header-menu-custom">
-             <?= $this->getLayout()->createBlock("Smartwave\Megamenu\Block\Topmenu")->setTemplate("Smartwave_Megamenu::topmenu.phtml")->toHtml();?>
+             <?= $this->getLayout()->createBlock("Smartwave\Megamenu\Block\Topmenu")->setTemplate("Smartwave_Megamenu::topmenuCustom.phtml")->toHtml();?>
       </div>
     </div>
   </div>

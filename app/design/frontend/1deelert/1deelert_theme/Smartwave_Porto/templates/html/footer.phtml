@@ -19,20 +19,26 @@
                                             <?= __('Samut Prakan Province 10270') ?>, <?= __('Thailand') ?>.</span>
                                     </li>
 
-                                    <li><b><?= __('Tel: 02-7455981, 02-7455982 Fax: 02-7455598') ?></b></li>
+                                    <li><b class='tel-no'><?= __('Tel: 02-7455981, 02-7455982') ?></b><b class='fax-no'><?= __('Fax: 02-7455598') ?></b></li>
                                     <li>
-                                        <div>
+                                        <div class="map-footer">
                                             <iframe width="300px" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%E0%B8%96%E0%B8%99%E0%B8%99%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%B8%E0%B8%A1%E0%B8%A7%E0%B8%B4%E0%B8%97,%20%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%8B%E0%B8%AD%E0%B8%A2%2076%20(%E0%B8%9D%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%B4%E0%B8%A1%E0%B8%9E%E0%B8%B5%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%A5%E0%B8%AA%E0%B8%B3%E0%B9%82%E0%B8%A3%E0%B8%87)%20,%20%E0%B8%88%E0%B8%B1%E0%B8%87%E0%B8%AB%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%2010270,%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B9%84%E0%B8%97%E0%B8%A2.+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/marine-gps/">shipping gps</a>
                                             </iframe>
                                         </div>
                                     </li>
                                 </ul>
+                                <div class="desktop-hide-cont">
+                                    <h3 class="widget-title"><?= __('Hotline') ?></h3>
+                                    <div class="footer-call">
+                                        <a href="tel:086-600-4332"> 086-600-4332 </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                     <div data-content-type="html" data-appearance="default" data-element="main" data-decoded="true">
                         <div class="widget_text widget widget_custom_html">
                             <h3 class="widget-title"><?= __('help') ?></h3>
@@ -49,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                     <div data-content-type="html" data-appearance="default" data-element="main" data-decoded="true">
                         <div class="widget_text widget widget_custom_html">
                             <h3 class="widget-title"><?= __('website menu') ?></h3>
@@ -72,9 +78,11 @@
                         <div class="row">
                             <div>
                                 <div class="column-inner">
-                                    <h3 class="widget-title"><?= __('Hotline') ?></h3>
-                                    <div class="footer-call">
-                                        <a href="tel:086-600-4332"> 086-600-4332 </a>
+                                    <div class="desktop-call">
+                                        <h3 class="widget-title"><?= __('Hotline') ?></h3>
+                                        <div class="footer-call">
+                                            <a href="tel:086-600-4332"> 086-600-4332 </a>
+                                        </div>
                                     </div>
                                     <div class="footer-line">
                                         <span><?= __('Line ID:') ?></span><a href="Https://line.me/R/ti/p/%40nrb3227f" target="_blank">@ 1deelert</a>
@@ -90,7 +98,7 @@
                                             <img src="<?= $mediaUrl.'theme/icon-link.png'?>" alt="footer" width="29" height="29">
                                         </a>
                                     </div>
-                                    <div class="widget widget_media_image">
+                                    <div class="widget widget_media_image mbile-hide">
                                         <picture>
                                             <img src="<?= $mediaUrl.'theme/footer-1.png'?>" alt="footer" width="230" height="48">
                                         </picture>
@@ -103,7 +111,8 @@
 
             </div>
             <div class="footer-last">
-                <img src="<?= $mediaUrl.'theme/footer-bottom.png'?>" alt="footer" width="915" height="74">
+                <img class="desktop-imagelast" src="<?= $mediaUrl.'theme/footer-bottom.png'?>" alt="footer" width="915" height="74">
+                <img class="mobile-imagelast" src="<?= $mediaUrl.'theme/footer-mb.png'?>" alt="footer" width="915" height="74">
             </div>
         </div>
         <div class="footer-bottom">
@@ -127,9 +136,9 @@
     <span class="help-btn"><?= __('Need help?');?></span>
 </div>
 <ul class="footer-social-icon">
-    <li><a href="" rel="nofollow" target="_blank" title="Facebook" class="share-facebook"><img src="<?= $mediaUrl.'theme/default/footer-messanger.png'?>" alt="footer" width="80" height="80" /></a></li>
-    <li><a href="" rel="nofollow" target="_blank" title="Line" class="share-Line"><img src="<?= $mediaUrl.'theme/default/facebook-line.png'?>" alt="footer" width="80" height="80" /></a></li>
-    <li><a href="" rel="nofollow" target="_blank" title="Instagram" class="share-instagram"><img src="<?= $mediaUrl.'theme/default/footer-call.png'?>" alt="footer" width="80" height="80" /></a></li>
+    <li><a href="https://www.facebook.com/1deelert/" rel="nofollow" target="_blank" title="Facebook" class="share-facebook"><img src="<?= $mediaUrl.'theme/default/footer-messanger.png'?>" alt="footer" width="80" height="80" /></a></li>
+    <li><a href="https://line.me/R/ti/p/%40nrb3227f" rel="nofollow" target="_blank" title="Line" class="share-Line"><img src="<?= $mediaUrl.'theme/default/facebook-line.png'?>" alt="footer" width="80" height="80" /></a></li>
+    <li><a href="https://www.instagram.com/1deelert/" rel="nofollow" target="_blank" title="Instagram" class="share-instagram"><img src="<?= $mediaUrl.'theme/default/footer-call.png'?>" alt="footer" width="80" height="80" /></a></li>
 </ul>
 
 <a href="javascript:void(0)" id="totop"><em class="porto-icon-up-open"></em></a>

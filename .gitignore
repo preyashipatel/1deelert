@@ -70,14 +70,3 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
-/pub/media/amasty/
-licenses/
-/pub/connector.php
-/pub/le_connector/
-/pub/media/content/
-/pub/media/js/
-/pub/media/mageplaza/
-/pub/media/porto/
-/pub/media/utsav/
-/pub/pub/
-

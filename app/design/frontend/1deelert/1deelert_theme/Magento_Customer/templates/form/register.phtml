@@ -88,8 +88,9 @@ $formData = $block->getFormData();
                        autocomplete="off">
             </div>
         </div>
-          <div class="field choice" data-bind="scope: 'showPassword'">
-            <!-- ko template: getTemplate() --><!-- /ko -->
+         <div class="field choice">
+            <input type="checkbox" name="show-password" title="Show Password" id="showPasswordReg" class="checkbox" data-role="show-password">
+            <label for="showPasswordReg" class="label"><span><?= __('Show Password');?></span></label>
         </div>
         <?php if ($block->isNewsletterEnabled()): ?>
             <div class="field choice newsletter">
@@ -368,14 +369,6 @@ script;
         "*": {
             "Magento_Customer/js/block-submit-on-send": {
                 "formId": "form-validate"
-            },
-            "Magento_Ui/js/core/app": {
-                "components": {
-                    "showPassword": {
-                        "component": "Magento_Customer/js/show-password",
-                        "passwordSelector": "#password,#password-confirmation"
-                    }
-                }
             }
         }
     }

@@ -15,7 +15,10 @@ $groupCss = $block->getGroupCss();
     <div class="sections <?= $block->escapeHtmlAttr($groupCss) ?>">
         <?php $layout = $block->getLayout(); ?>
         <div class="custom-top-div">
-            <?= $this->getLayout()->createBlock("Magento\Theme\Block\Html\Header\Logo")->setTemplate("Magento_Theme::html/header/logo.phtml")->toHtml();?>
+            <div class="logo-mob">
+                <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
+                <?= $this->getLayout()->createBlock("Magento\Theme\Block\Html\Header\Logo")->setTemplate("Magento_Theme::html/header/logo.phtml")->toHtml();?>
+            </div>
             <?= $block->getChildHtml('store.settings'); ?>
         </div>
         <div class="section-items <?= $block->escapeHtmlAttr($groupCss) ?>-items"

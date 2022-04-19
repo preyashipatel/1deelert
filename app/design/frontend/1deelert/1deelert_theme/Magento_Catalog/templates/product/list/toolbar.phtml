@@ -25,7 +25,7 @@ use Magento\Catalog\Model\Product\ProductList\Toolbar;
         <?php echo $block->getPagerHtml() ?>
 
         <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
-        <div class="product-count"><?=  count($block->getCollection()).'  Items';?></div>
+        <div class="product-count"><?=  count($block->getCollection()).__('  Items');?></div>
         <?php if ($block->isExpanded()): ?>
             <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
         <?php endif; ?>

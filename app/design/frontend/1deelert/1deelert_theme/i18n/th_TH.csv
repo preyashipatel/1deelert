@@ -42,3 +42,7 @@ Customers Login,ลูกค้าเข้าสู่ระบบ
 Last Name,นามสกุล
 First Name,ชื่อจริง
 Sign Up,ลงชื่อ
+Price - Low To High,ราคา - ต่ำไปสูง
+Price - High To Low,ราคา - สูงไปต่ำ
+  Items,  รายการ
+Category,หมวดหมู่

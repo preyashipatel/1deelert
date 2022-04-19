@@ -1,9 +1,13 @@
 .login-container {
     max-width: 720px;
-    margin: 50px auto 20px;
+    margin: 50px auto 80px;
     border: 1px solid @color-4_light;
     border-radius: 15px;
     padding: 0;
+    @media (max-width: @screen__sm) {
+        border: 0;
+        margin-bottom: 30px;
+    }
 
     ul#tabs {
         margin: 0;
@@ -17,6 +21,10 @@
             flex: 0 0 50%;
             text-align: center;
             background: @color-5_light;
+            
+            &:last-child{
+                border-top-right-radius: 15px;
+            }
 
             &:first-child {
                 border-radius: 15px 0 0 0;
@@ -32,10 +40,14 @@
                 text-transform: capitalize;
                 padding: 15px;
                 display: block;
-                font-size: 18px;
-                line-height: 24px;
+                font-size: 24px;
+                line-height: 1.2;
                 cursor: pointer;
                 border-bottom: 2px solid;
+                @media (max-width: @screen__md) {
+                    font-size: 16px;
+                    line-height: 1;
+                }
 
                 &:not(.inactive) {
                     color: @color-1;
@@ -51,12 +63,18 @@
             font-size: 24px;
             line-height: 36px;
             margin: 0;
-            padding: 0 0 20px;
+            padding: 0 0 25px;
+            text-align: left;
 
             @media (max-width: @screen__xl) {
                 font-size: 22px;
                 line-height: 30px;
                 padding: 0 0 10px;
+            }
+            @media (max-width: @screen__md) {
+                font-size: 18px;
+                line-height: 1.2;
+                padding: 0 0 20px;
             }
 
             strong {
@@ -82,6 +100,7 @@
                     border: 1px solid;
                     height: auto !important;
                     line-height: 1.3;
+                    text-transform: capitalize;
 
                     @media (max-width: @screen__xl) {
                         padding: 12px 20px;
@@ -98,6 +117,9 @@
 
 .container-acoount {
     padding: 30px;
+    @media (max-width: @screen__sm) {
+        padding: 25px 0;
+    }
 }
 
 .form.create.account {
@@ -120,6 +142,11 @@
             padding: 0 15px 15px;
             font-weight: 400;
             text-transform: capitalize;
+            @media (max-width: @screen__sm) {
+                font-size: 18px;
+                line-height: 1.2;
+                padding: 0 0 10px;
+            }
         }
 
         > .field {
@@ -138,10 +165,18 @@
 
             &.confirmation {
                 min-height: 140px;
+                @media (max-width: @screen__sm){
+                    min-height: auto;
+                }
             }
 
             &.choice {
                 width: 100%;
+                .label {
+                    @media (max-width: @screen__sm) {
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }
@@ -163,10 +198,18 @@
             }
 
             @media (max-width: @screen__sm) {
-                float: left;
-                text-align: left;
-                margin-top: 0;
-                width: 100%;
+                font-size: 12px;
+                // float: left;
+                // text-align: left;
+                // margin-top: 0;
+                // width: 100%;
+            }
+        }
+        &.choice {
+            .label {
+                @media (max-width: @screen__sm) {
+                    font-size: 12px;
+                }
             }
         }
     }
@@ -177,13 +220,18 @@
 }
 
 .social-login-authentication-channel.account-social-login {
-    display: block;
+    display: block !important;
     overflow: hidden;
 
     .block-content {
         .flex();
         padding: 50px 30px;
         position: relative;
+        @media (max-width: @screen__sm) {
+            padding: 0;
+            display: block;
+            padding-top: 35px !important;
+        }
 
         &:before {
             content: "Or";
@@ -193,12 +241,21 @@
             right: 0;
             font-size: 16px;
             color: @color-3;
+            @media (max-width: @screen__sm){
+                font-size: 14px;
+            }
         }
 
         .actions-toolbar.social-btn {
             width: 50%;
             flex: 0 0 50%;
             padding: 0 15px;
+            @media (max-width: @screen__sm){
+                width: 100%;
+                flex: 0 0 100%;
+                padding: 0;
+                margin: 0;
+            }
 
             .btn-social {
                 background: @color-6;
@@ -213,6 +270,11 @@
                 @media (max-width: @screen__xl) {
                     font-size: 16px;
                     line-height: 24px;
+                }
+                @media (max-width: @screen__sm) {
+                    font-size: 14px;
+                    line-height: 1.5;
+                    border-radius: 4px;
                 }
 
                 span.fa {

@@ -1,28 +1,42 @@
 <?php
 namespace Elsnertech\Customisation\Plugin\Catalog\Block;
-class Toolbar
+
+class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
 {
-public function aroundSetCollection(\Magento\Catalog\Block\Product\ProductList\Toolbar $subject,
-\Closure $proceed, $collection)
-{
-	$currentOrder = $subject->getCurrentOrder();
-	$result = $proceed($collection);
-	if($currentOrder)
-	{
-	if($currentOrder == 'high_to_low')
-		{
-			$subject->getCollection()->setOrder('price', 'desc');
-		}
-		elseif ($currentOrder == 'low_to_high')
-		{
-			$subject->getCollection()->setOrder('price', 'asc');
-		}
-		}
-		else
-		{
-			$subject->getCollection()->getSelect()->reset('order');
-			$subject->getCollection()->setOrder('price', 'asc');
-		}
-		return $result;
-	}
+
+    /**
+     * Set collection to pager
+     *
+     * @param \Magento\Framework\Data\Collection $collection
+     * @return \Magento\Catalog\Block\Product\ProductList\Toolbar
+     */
+    public function setCollection($collection)
+    {
+        $this->_collection = $collection;
+
+        $this->_collection->setCurPage($this->getCurrentPage());
+
+        // we need to set pagination only if passed value integer and more that 0
+        $limit = (int)$this->getLimit();
+        if ($limit) {
+            $this->_collection->setPageSize($limit);
+        }
+        if ($this->getCurrentOrder()) {
+            if (($this->getCurrentOrder()) == 'position') {
+                $this->_collection->addAttributeToSort(
+                    $this->getCurrentOrder(),
+                    $this->getCurrentDirection()
+                );
+            } else {
+                if ($this->getCurrentOrder() == 'high_to_low') {
+                    $this->_collection->setOrder('price', 'desc');
+                } elseif ($this->getCurrentOrder() == 'low_to_high') {
+                    $this->_collection->setOrder('price', 'asc');
+                }
+
+            }
+        }
+        return $this;
+    }
+
 }

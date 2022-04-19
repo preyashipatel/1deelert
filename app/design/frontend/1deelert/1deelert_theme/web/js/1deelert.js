@@ -18,7 +18,6 @@ define([
 
         $('#tabs li a').click(function () {
             var t = $(this).attr('id');
-            console.log(t);
             if ($(this).hasClass('inactive')) { //this is the start of our condition 
                 $('#tabs li a').addClass('inactive');
                 $(this).removeClass('inactive');
@@ -27,6 +26,12 @@ define([
                 $('#' + t + 'C').fadeIn('slow');
             }
         });
+        //Show hide passowrd 
+         $("#showPasswordReg").click(function(){
+            console.log('call');
+            $(this).prop("checked") ?  $("#password").prop("type", "text") : $("#password").prop("type", "password");
+            $(this).prop("checked") ?  $("#password-confirmation").prop("type", "text") : $("#password-confirmation").prop("type", "password");
+        });
         var viewportWidth = $(window).width();
         if (viewportWidth > 481) {
             $('.menu-slider').slick({
@@ -34,7 +39,7 @@ define([
                 accessibility: false,
                 variableWidth: true,
                 slidesToShow: 1,
-                arrows: false,
+                arrows: true,
                 dots: false,
                 swipeToSlide: true,
                 infinite: false,
@@ -46,7 +51,7 @@ define([
             accessibility: false,
             variableWidth: true,
             slidesToShow: 1,
-            arrows: false,
+            arrows: true,
             dots: false,
             swipeToSlide: true,
             infinite: false,

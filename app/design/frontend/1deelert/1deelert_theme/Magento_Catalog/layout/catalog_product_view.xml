@@ -7,7 +7,7 @@
 <page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>        
         <referenceContainer name="product.info.main">
-            <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Magento_Catalog::product/view/getCategory.phtml"/>
+            <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Magento_Catalog::product/view/get-category.phtml"/>
         </referenceContainer>
         <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/>
         <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>

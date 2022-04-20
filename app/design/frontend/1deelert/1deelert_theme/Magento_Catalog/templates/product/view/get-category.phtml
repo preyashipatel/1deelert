@@ -15,4 +15,6 @@ $categories = $block->getCategoryCollection()
     $allCategory[] = $category->getName();
  }
 ?>
-<div class="product-category"><?=  "Categories : ".implode(",", $allCategory); ?></div>
+<p class="product-category">
+   <span class="attr-label">Categories :</span><span><?= implode(",", $allCategory); ?></span>
+</p>

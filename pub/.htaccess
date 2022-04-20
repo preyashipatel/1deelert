@@ -1,7 +1,3 @@
-<FilesMatch \.php$>
-      # For Apache version 2.4.10 and above, use SetHandler to run PHP as a fastCGI process server
-      SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
-</FilesMatch>
 ############################################
 ## Optional override of deployment mode. We recommend you use the
 ## command bin/magento deploy:mode:set to switch modes instead

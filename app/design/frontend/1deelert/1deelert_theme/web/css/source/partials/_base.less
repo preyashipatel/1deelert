@@ -706,6 +706,7 @@ input[type="checkbox"]:checked + label span {
         width: 100%;
         background: @color-5;
         padding: 0 10px 0 20px;
+        z-index: 999;
     }
 }
 
@@ -732,6 +733,8 @@ input[type="checkbox"]:checked + label span {
         box-shadow: none;
         right: auto;
         padding: 0 15px;
+        background: transparent !important;
+        transition: none !important;
     }
 
     .help-btn {
@@ -748,6 +751,7 @@ input[type="checkbox"]:checked + label span {
             font-size: 14px;
             line-height: 1.2;
             font-weight: 600;
+            color: @color-2 !important;
         }
     }
 
@@ -820,8 +824,9 @@ input[type="checkbox"]:checked + label span {
         display: flex;
         align-items: center;
         width: 100%;
-        justify-content: flex-end;
         background: @color-5;
+        flex-direction: row-reverse;
+        justify-content: flex-start !important;
     }
 
     li {
@@ -877,4 +882,57 @@ input[type="checkbox"]:checked + label span {
 div.mage-error[generated] {
     font-size: 14px;
     line-height: 20px;
+}
+
+.page-wrapper{
+    .breadcrumb-wrapper{
+        border-bottom: 1px solid @colo7-7_light;
+        .breadcrumbs{
+            background-color: transparent;
+            color: @color-4;
+            ul.items{
+                padding: 10px 0;
+                display: block;
+                li {
+                    display: inline-block;
+                    &:not(:last-child){
+                        &::after{
+                            content: "/";
+                            font-family: 'Noto Sans Thai', sans-serif;
+                            right: 0;
+                            font-size: 18px;
+                            top: 1px;
+                            margin: 0 5px;
+                            position: relative;
+                            left: 0;
+                        }
+                    }
+                    &.home{
+                        a {
+                            width: auto;
+                            text-indent: 0;
+                            &::before{
+                                content: "";
+                                background-image: url(../images/home-icon.svg);
+                                width: 15px;
+                                height: 15px;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                margin-right: 10px;
+                                position: relative;
+                                top: 1px;
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    a, strong{
+                        font-size: @font-size_6;
+                        text-transform: none;
+                        font-weight: 500;
+                        color: @color-2;
+                    }
+                }
+            }
+        }
+    }
 }

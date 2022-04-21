@@ -5,18 +5,41 @@
             .flex();
         }
     }
+
     .product.media{
         width: 45%;
         padding-right: 55px;
         float: none;
         order: 1;
+        @media (max-width: @screen__sm){
+            width: 100%;
+        }
+
+        .fotorama-item{
+            .fotorama__stage {
+                border: 0;
+            }
+            .fotorama__nav-wrap{
+                .fotorama__nav__shaft{
+                    .fotorama__thumb-border {
+                        border-radius: 8px;
+                        border-color: @color-1;
+                    }
+                }
+            }
+        }
     }
+
     .product-info-main{
         width: 55%;
         max-width: 900px;
         margin-left: 0;
         float: none;
         order: 2;
+        @media (max-width: @screen__sm){
+            width: 100%;
+        }
+
         .page-title-wrapper{
             max-width: 100%;
             .flex();
@@ -133,6 +156,11 @@
                             padding-right: 10px;
                             color: @color-1;
                         }
+                        span.old-price{
+                            span.price{
+                                font-size: 20px;
+                            }
+                        }
                     }
                 }
                 .product-options-bottom{
@@ -140,30 +168,67 @@
                         border: 0;
                         padding: 0;
                         border-bottom: 1px solid #0003;
-                        .field.qty {
-                            margin-bottom: 10px;
-                            padding: 0;
-                            .control {
-                                border: 1px solid @color-3;
-                                border-radius: 8px;
-                                .qty-changer a {
-                                    border: 0;
-                                    border-radius: 0;
-                                    background: transparent;
-                                    height: auto;
-                                    padding: 16px 5px;
-                                    top: 6px;
-                                    &.qty-inc {
-                                        border-left: 1px solid @color-3;
+                        .fieldset {
+                            .flex();
+                            .field.qty {
+                                margin-bottom: 20px;
+                                padding: 0;
+                                margin-right: 20px;
+                                .control {
+                                    border: 1px solid @color-3;
+                                    border-radius: 4px;
+                                    .qty-changer a {
+                                        border: 0;
+                                        border-radius: 0;
+                                        background: transparent;
+                                        height: auto;
+                                        padding: 16px 5px;
+                                        top: 7px;
+                                        &.qty-inc {
+                                            border-left: 1px solid @color-3_light;
+                                        }
+                                        &.qty-dec {
+                                            border-right: 1px solid @color-3_light;
+                                        }
                                     }
-                                    &.qty-dec {
-                                        border-right: 1px solid @color-3;
+                                    input{
+                                        background-color: transparent;
+                                        height: auto;
+                                        padding: 11px;
                                     }
                                 }
-                                input{
-                                    background-color: transparent;
-                                    height: auto;
-                                    padding: 10px;
+                            }
+                            .actions{
+                                margin-bottom: 20px;
+                                margin-right: 20px;
+                                .action.tocart {
+                                    padding: 12px 20px;
+                                    letter-spacing: 0.5px;
+                                    font-weight: 600;
+                                    text-transform: capitalize;
+                                    font-size: @font-size_6;
+                                    line-height: 1.2;
+                                }
+                            }
+                            .moved-add-to-links {
+                                display: block;
+                                width: 100%;
+                                a.action {
+                                    margin: 0 20px 20px 0;
+                                    border: 1px solid @color-3;
+                                    border-radius: 4px;
+                                    &::before{
+                                        font-size: @font-size_4;
+                                    }
+                                    &.tocompare{
+                                        background-image: url(../images/compare.svg);
+                                        background-repeat: no-repeat;
+                                        background-position: center;
+                                        background-size: 22px;
+                                        &::before{
+                                            display: none;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -171,11 +236,44 @@
                 }
             }
         }
+
+        .product-category {
+            font-size: 16px;
+            margin-bottom: 3px;
+            line-height: 1.5;
+            span.attr-label {
+                color: @color-1;
+            }
+        }
     }
 
-    .product.info.detailed {
+    .product.info {
         clear: both;
         order: 3;
         width: 100%;
+        .data.item.title{
+            padding: 0;
+            a{
+                color: @color-2;
+                text-transform: capitalize;
+                font-size: 20px;
+                font-weight: 400;
+            }
+            &.active, &:hover{
+                border-color: @color-1;
+                a{
+                    color: @color-1;
+                }
+            }
+        }
+        .item.content{
+            border: 0;
+            padding: 15px 0;
+            .product.description {
+                span {
+                    font-size: @font-size_5;
+                }
+            }
+        }
     }
 }

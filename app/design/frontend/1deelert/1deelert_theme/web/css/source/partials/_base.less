@@ -890,6 +890,9 @@ div.mage-error[generated] {
         .breadcrumbs{
             background-color: transparent;
             color: @color-4;
+            @media (max-width: @screen__sm){
+                padding: 0 10px;
+            }
             ul.items{
                 padding: 10px 0;
                 display: block;
@@ -930,6 +933,9 @@ div.mage-error[generated] {
                         text-transform: none;
                         font-weight: 500;
                         color: @color-2;
+                        @media (max-width: @screen__sm){
+                            font-size: 14px;
+                        }
                     }
                 }
             }

@@ -100,6 +100,47 @@ define([
                         }
                     ]
             });
+            $('.relate-product-slick').slick({
+                draggable: true,
+                accessibility: false,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: false,
+                swipeToSlide: true,
+                infinite: true,
+                speed: 500,
+                responsive: [
+                    {
+                        breakpoint: 1470,
+                        settings: {
+                            slidesToShow: 5,
+                        }
+                        },
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 4,
+                        }
+                        },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            centerMode: true,
+                            centerPadding: '50px',
+                        }
+                        },
+                    {
+                        breakpoint: 575,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: true,
+                            centerPadding: '70px',
+                        }
+                        }
+                    ]
+            });
 
             $(".latest-product-slider").slick({
                 draggable: true,

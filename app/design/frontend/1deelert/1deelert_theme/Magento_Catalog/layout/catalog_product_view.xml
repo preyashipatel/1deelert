@@ -9,11 +9,11 @@
         <referenceContainer name="product.info.main">
             <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Magento_Catalog::product/view/get-category.phtml"/>
         </referenceContainer>
-        <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/>
+        <!-- <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/> -->
         <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>
         <move element="product.info.overview" destination="product.info.details" />
         <move element="product.info.description" destination="product.info.details" />
-        <move element="catalog.product.related" destination="page.bottom.container" />
+        <move element="catalog.product.related" destination="columns" after='-'/>
         <move element="product.info.stock.sku" destination="page.main.title" after='-'/>
         <move element="product.info.social" destination="product.info.main" after='page.main.title'/>
         <move element="product.info.price" destination="product.info.form.options" after='product.info.options.wrapper'/>

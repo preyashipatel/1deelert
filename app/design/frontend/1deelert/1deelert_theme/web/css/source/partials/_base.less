@@ -765,8 +765,8 @@ input[type="checkbox"]:checked + label span {
     }
 
     &.social-active {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         padding: 0;
         bottom: 80px;
         right: 70px;
@@ -805,8 +805,8 @@ input[type="checkbox"]:checked + label span {
     padding: 0;
     list-style: none;
     position: fixed;
-    right: 60px;
-    bottom: 140px;
+    right: 65px;
+    bottom: 150px;
     z-index: 999;
     height: 0;
     overflow: hidden;
@@ -821,31 +821,40 @@ input[type="checkbox"]:checked + label span {
         height: auto;
         bottom: 0;
         right: 0;
-        display: flex;
-        align-items: center;
+        .flex();
+        .align-items(center);
         width: 100%;
         background: @color-5;
-        flex-direction: row-reverse;
-        justify-content: flex-start !important;
+        .flex-direction(row-reverse);
+        .justify-content(flex-start) !important;
+        padding-right: 10px;
     }
 
     li {
-        margin: 0;
+        box-shadow: 0px 3px 10px #00000066;
+        padding: 11px;
+        border-radius: 100%;
+        margin: 20px 10px;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        @media (max-width: @screen__sm){
+            box-shadow: none;
+            margin: 10px 0;
+        }
 
         a {
             display: block;
         }
 
         img {
-            max-width: 70px;
-            @media (max-width: @screen__sm){
-                max-width: 60px;
-            }
+            max-width: 50px;
+            width: 100%;
         }
     }
 
     &.active {
-        height: 205px;
+        height: auto;
         .transition(all 0.3s ease);
 
         @media (max-width: @screen__sm){
@@ -860,14 +869,12 @@ input[type="checkbox"]:checked + label span {
     letter-spacing: 0;
 }
 
-
 .mfp-iframe-holder .mfp-close {
     width: 40px;
     height: 40px;
     right: -20px;
     padding: 0;
 }
-
 
 .box-tocart .action.tocart {
     height: auto;
@@ -877,7 +884,6 @@ input[type="checkbox"]:checked + label span {
     width: 40px;
     height: 40px;
 }
-
 
 div.mage-error[generated] {
     font-size: 14px;

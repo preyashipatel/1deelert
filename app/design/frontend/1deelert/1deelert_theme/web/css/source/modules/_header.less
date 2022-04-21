@@ -142,6 +142,7 @@
 
 header.page-header.type2 {
     border: 0;
+    z-index: 99999;
 
     .header-main {
         padding: 25px 0;
@@ -168,8 +169,11 @@ header.page-header.type2 {
             }
 
             .logo {
-                @media (max-width: @screen__md) {
+                @media (max-width: @screen__sm) {
                     max-width: 150px;
+                    img{
+                        max-width: 132px;
+                    }
                 }
             }
 
@@ -710,6 +714,7 @@ header.page-header.type2 {
         min-height: 50px !important;
         padding-top: 2px;
         border-bottom: 1px solid @colo7-7_light;
+        z-index: 999999;
 
         @media (max-width: @screen__md) {
             background: @color-5;

@@ -716,7 +716,7 @@ sup {font-size: 50%;}
 @media (max-width:1199px){.grid-images .grid1{margin-bottom:9px}}
 @media (max-width:767px){.grid-images .grid2{margin-bottom:9px}}
 @media (min-width:992px){.lg-order-12{-webkit-order:12;-moz-order:12;-ms-flex-order:12;order:12}}
-@media (min-width:768px){.md-order-12{-webkit-order:12;-moz-order:12;-ms-flex-order:12 order:12}}
+@media (min-width:768px){.md-order-12{-webkit-order:12;-moz-order:12;-ms-flex-order:12; order:12}}
 
 .social-icons [class^=porto-icon-]{color:#fff}
 .sidebar-title{margin-bottom:17px;font-size:16px;font-weight:700;text-transform:uppercase;color:#313131;line-height:1}

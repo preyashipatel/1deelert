@@ -59,6 +59,7 @@ define([
         });
 
         $(document).ready(function () {
+            var viewportWidth = $(window).width();
             $('.flaseSale').slick({
                 draggable: true,
                 accessibility: false,
@@ -100,6 +101,7 @@ define([
                         }
                     ]
             });
+            if (viewportWidth > 481) {
             $('.relate-product-slick').slick({
                 draggable: true,
                 accessibility: false,
@@ -141,6 +143,17 @@ define([
                         }
                     ]
             });
+        }else{
+            console.log($('.relate-product-slick .product-item').length);
+            $('.relate-product-slick .product-item').each(function(i) {
+                if ( i < 4 ) {
+                   $(this).addClass('active');
+                }
+            });
+            $('.show-more').on('click', function () {
+                $('.relate-product-slick .product-item').addClass('active');
+            })
+        }
 
             $(".latest-product-slider").slick({
                 draggable: true,
@@ -173,6 +186,8 @@ define([
                         },
                     ]
             });
+
+
 
             // promotion-section js
             if ($(window).width() <= 767) {

@@ -765,24 +765,44 @@
         }
     }
 }
+.fotorama__fullscreen {
+    .fotorama--fullscreen{
+        backdrop-filter: blur(10px);
+        background: #27272766;
+        .fotorama__fullscreen-icon{
+            &::before{
+                opacity: 0;
+            }
+        }
+        .fotorama__zoom-in, .fotorama__zoom-out{
+            &::before{
+                opacity: 0;
+            }
+        }
+        .fotorama__stage{
+            border: 0;
+            @media (min-width: @screen__md){
+                max-width: ~"calc(100% - 200px)";
+                margin-left: auto;
+            }
+        }
+        .fotorama__nav-wrap {
+            @media (min-width: @screen__md){
+                padding: 50px 50px;
+                min-width: 200px;
+                left: 100px;
+            }
+            .fotorama__nav__shaft {
+                background: transparent;
+                .fotorama__thumb-border{
+                    border-color: @color-1;
+                    border-radius: 8px;
+                }
+                .fotorama__thumb{
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
 
-// .mfp-iframe-holder{
-//     .mfp-content{
-//         button.mfp-close{
-//             background: @color-5;
-//             opacity: 1;
-//             color: @color-4;
-//             border-radius: 100%;
-//             top: -15px;
-//             box-shadow: 0 0 5px 1px @color-1_light;
-//             width: 40px;
-//             height: 40px;
-//             transition: 0.4s linear;
-
-//             @media (max-width: @screen__md){
-//                 top: 0;
-//                 right: 0;
-//             }
-//         }
-//     }
-// }

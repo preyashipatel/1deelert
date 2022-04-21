@@ -58,7 +58,7 @@ $suffix = $block->showSuffix();
         </div>
     <?php endif; ?>
         <div class="field field-name-firstname required">
-            <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>"><span>First Name</span></label>
+            <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>"><span><?=__('First Name');?></span></label>
             <div class="control">
                 <input type="text" id="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>"
                        name="<?= $block->escapeHtmlAttr($block->getFieldName('firstname')) ?>"
@@ -81,7 +81,7 @@ $suffix = $block->showSuffix();
         </div>
     <?php endif; ?>
         <div class="field field-name-lastname required">
-            <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"><span>Last Name</span></label>
+            <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"><span><?= __('Last Name'); ?></span></label>
             <div class="control">
                 <input type="text" id="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"
                        name="<?= $block->escapeHtmlAttr($block->getFieldName('lastname')) ?>"

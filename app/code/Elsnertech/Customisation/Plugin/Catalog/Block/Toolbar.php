@@ -33,6 +33,10 @@ class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
                 } elseif ($this->getCurrentOrder() == 'low_to_high') {
                     $this->_collection->setOrder('price', 'asc');
                 }
+                if ($this->getCurrentOrder() == "newest_product") {
+                    $direction = $this->getCurrentDirection();
+                    $this->_collection->getSelect()->order('created_at',$direction);
+                }
 
             }
         }

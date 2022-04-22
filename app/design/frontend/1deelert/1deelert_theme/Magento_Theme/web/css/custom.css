@@ -834,7 +834,7 @@ i.ajax-loader.large{width:32px;height:32px;border-width:2.5px}
 .account .sidebar .product-items .product-item-name a{overflow:visible;white-space:normal;text-overflow:unset}
 .account .block-reorder .product-item{padding:5px 0}
 .account .block-reorder .product-item .field.item{display:inline-block;vertical-align:top}
-.account .block-reorder .product-item-name{display:inline-block;width:calc(100% - 30px);vertical-align:top} }
+.account .block-reorder .product-item-name{display:inline-block;width:calc(100% - 30px);vertical-align:top}
 .account-nav .nav>li{padding:0;position:relative;line-height:1.3;margin:0}
 .account-nav .nav>li>a{color:#777;padding:8px 15px;border-bottom:1px solid #ddd;display:block}
 .account-nav .nav>li>a:focus,.account-nav .nav>li>a:hover{background:0 0}
@@ -848,7 +848,11 @@ i.ajax-loader.large{width:32px;height:32px;border-width:2.5px}
 .column.main{transition:all .5s}
 .column.main.toggle-close{width:100%!important}
 .sidebar.sidebar-main.toggle-close{margin-left:-300px;opacity:0;visibility:hidden}}
-@media(max-width:767px){.product-tabs-container.has-sticky-header:not(.has-mobile-sticky-header){top:0}
+@media(max-width:767px){
+    #totop {
+        bottom: 60px;
+    }    
+.product-tabs-container.has-sticky-header:not(.has-mobile-sticky-header){top:0}
 .product-tabs-container.has-sticky-header.has-mobile-sticky-header{top:64px}
 .block-header-customer-login{display:none}}
 

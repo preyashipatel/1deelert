@@ -715,10 +715,10 @@ header.page-header.type2 {
         padding-top: 2px;
         border-bottom: 1px solid @colo7-7_light;
         z-index: 999999;
-
         @media (max-width: @screen__md) {
             background: @color-5;
             padding-top: 0;
+            overflow: hidden;
         }
 
         .custom-top-div {
@@ -855,6 +855,10 @@ header.page-header.type2 {
 
                     ul {
                         padding: 0 20px 0 10px;
+                        @media (max-width: @screen__md){
+                            max-height: ~"calc(100vh - 120px)";
+                            overflow-y: auto;
+                        }
                         li {
                             margin: 0;
                             border-bottom: 0;

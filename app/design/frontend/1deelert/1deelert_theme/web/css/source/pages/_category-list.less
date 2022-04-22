@@ -38,6 +38,7 @@
         @media (max-width: @screen__md) {
             padding: 0;
             border: 0;
+            border-radius: 0;
         }
 
         .product-item-photo {
@@ -111,6 +112,22 @@
             font-size: 14px;
             line-height: 20px;
             padding: 0 0 5px;
+            @media (max-width: @screen__sm){
+                color: @color-2;
+            }
+
+            span.sku-number{
+                @media (max-width: @screen__sm){
+                    color: @color-1;
+                    padding-left: 6px;
+                    position: relative;
+                    &::before{
+                        content: ":";
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
         }
 
         .product-item-name {
@@ -632,16 +649,15 @@
     border: 0;
     padding-top: 10px;
 
-    @media (max-width: @screen__md) {
-        display: none !important;
-    }
-
     .field.limiter {
         display: flex;
         font-size: @font-size_6;
         color: @color-2_dark;
         margin: 0 10px 0 0;
         font-weight: 600;
+        @media (max-width: @screen__md) {
+            display: none !important;
+        }
 
         select {
             background-color: #F5F5F5;
@@ -652,9 +668,34 @@
         }
     }
 
-    .product-count,
-    .pages {
+    .product-count{
         display: none;
+    }
+    .pages{
+        @media (max-width: @screen__md){
+            margin: 0 auto;
+        }
+        ul{
+            li{
+                .page{
+                    font-weight: 400;
+                    border-radius: 6px;
+                    &:hover{
+                        border-color: @color-1;
+                    }
+                }
+                .action{
+                    border-radius: 6px;
+                }
+                &.current{
+                    .page {
+                        background: @color-1;
+                        color: @color-5 !important;
+                        border-color: @color-1;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -743,10 +784,10 @@
 .small-list.products-grid .product-items .product-item-info {
     .product-item-photo {
         @media (max-width: @screen__xl) {
-            width: 64px;
-            -ms-flex: 0 0 64px;
-            flex: 0 0 64px;
-            margin-right: 10px;
+            width: 70px;
+            -ms-flex: 0 0 70px;
+            flex: 0 0 70px;
+            margin-right: 0;
         }
     }
 

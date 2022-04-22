@@ -18,6 +18,10 @@
         .fotorama-item{
             .fotorama__stage {
                 border: 0;
+                .fotorama__stage__frame img.zoomImg {
+                    width: 100% !important;
+                    height: 100% !important;
+                }
             }
             .fotorama__nav-wrap{
                 .fotorama__nav__shaft{
@@ -400,6 +404,17 @@
     width: 100%;
     .show-more {
         display: none;
+        border: 1px solid @color-1;
+        border-radius: 4px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 5px 15px;
+        font-size: 12px;
+        width: max-content;
+        font-weight: 600;
+        @media (max-width: @screen__sm){
+            .flex();
+        }
     }
     .filterproducts{
         .product.product-item{

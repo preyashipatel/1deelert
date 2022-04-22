@@ -12,6 +12,7 @@ class Config
         unset($options['price']);
         $options['low_to_high'] = 'Price - Low To High';
         $options['high_to_low'] = 'Price - High To Low';
+        $options['newest_product'] = 'Newley added product';
         return $options;
 
     }

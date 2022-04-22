@@ -427,3 +427,27 @@
         }
     }
 }
+
+
+
+.message-success.message{
+    background: @color-1;
+    color: @color-5;
+    border-radius: 10px;
+    font-size: 16px;
+    > * {
+        &:first-child{
+            &::before{
+                color: @color-5;
+                top: 26px;
+                width: 50px;
+                font-size: 20px;
+            }
+        }
+    }
+    a{
+        color: @color-5;
+        font-weight: 700;
+        padding: 0 6px;
+    }
+}

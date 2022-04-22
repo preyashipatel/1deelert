@@ -13,6 +13,10 @@ class Topmenu extends \Magento\Framework\View\Element\Template
     protected $_blockFactory;
     protected $_megamenuConfig;
     protected $_storeManager;
+     /**
+     * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
+     */
+    protected $_productCollectionFactory;
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
@@ -22,7 +26,8 @@ class Topmenu extends \Magento\Framework\View\Element\Template
         \Magento\Catalog\Model\CategoryFactory $categoryFactory,
         \Magento\Theme\Block\Html\Topmenu $topMenu,
         \Magento\Cms\Model\Template\FilterProvider $filterProvider,
-        \Magento\Cms\Model\BlockFactory $blockFactory
+        \Magento\Cms\Model\BlockFactory $blockFactory,
+        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
     ) {
 
         $this->_categoryHelper = $categoryHelper;
@@ -33,7 +38,7 @@ class Topmenu extends \Magento\Framework\View\Element\Template
         $this->_filterProvider = $filterProvider;
         $this->_blockFactory = $blockFactory;
         $this->_storeManager = $context->getStoreManager();
-
+        $this->_productCollectionFactory = $productCollectionFactory;
         parent::__construct($context);
     }
 
@@ -252,6 +257,7 @@ class Topmenu extends \Magento\Framework\View\Element\Template
                 $html .= '<span>'.$category->getName().'</span>';
                 if($sw_menu_cat_label)
                     $html .= '<span class="cat-label cat-label-'.$sw_menu_cat_label.'">'.$this->_megamenuConfig['cat_labels'][$sw_menu_cat_label].'</span>';
+                    $html .='<span class="product-count">('.$this->getProductCollectionByCategories($category->getId()).')</span>';
                 $html .= '</a>';
                 if(count($children) > 0 || (($menu_type=="fullwidth" || $menu_type=="staticwidth") && ($menu_top_content || $menu_left_content || $menu_right_content || $menu_bottom_content))) {
                     $html .= '<div class="level0 submenu"'.$custom_style.'>';
@@ -286,5 +292,20 @@ class Topmenu extends \Magento\Framework\View\Element\Template
         $html .= $this->getCustomBlockHtml('after');
 
         return $html;
+    }
+
+    public function getProductCollectionByCategories($ids)
+    {
+        //echo $ids;
+        if($ids != '' && !empty($ids)){
+            // return $ids;
+            $collection = $this->_productCollectionFactory->create();
+            $collection->addAttributeToSelect('*');
+            $collection->addCategoriesFilter(['in' => $ids]);
+            return count($collection);
+        }else{
+            return 0;
+        }
+        
     }
 }

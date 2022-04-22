@@ -32,6 +32,13 @@ define([
             $(this).prop("checked") ?  $("#password").prop("type", "text") : $("#password").prop("type", "password");
             $(this).prop("checked") ?  $("#password-confirmation").prop("type", "text") : $("#password-confirmation").prop("type", "password");
         });
+        
+        $('.category-lists').hide();
+        $(".down-arrow").click(function(){
+            $('.category-lists').toggle();
+            $(this).toggleClass('arrow-active');
+        });
+
         var viewportWidth = $(window).width();
         if (viewportWidth > 767) {
             $('.menu-slider').slick({
@@ -39,7 +46,7 @@ define([
                 accessibility: false,
                 variableWidth: true,
                 slidesToShow: 1,
-                arrows: true,
+                arrows: false,
                 dots: false,
                 swipeToSlide: true,
                 infinite: false,
@@ -51,7 +58,7 @@ define([
             accessibility: false,
             variableWidth: true,
             slidesToShow: 1,
-            arrows: true,
+            arrows: false,
             dots: false,
             swipeToSlide: true,
             infinite: false,
@@ -156,7 +163,7 @@ define([
         }
         $('.new-product-block .col-md-3').lenght
         $('.new-product-block .col-md-3').each(function(i) {
-            if ( i < 8 ) {
+            if ( i < 9 ) {
                $(this).addClass('active');
             }
         });

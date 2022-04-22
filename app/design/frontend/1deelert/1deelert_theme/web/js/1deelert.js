@@ -162,7 +162,7 @@ define([
         });
         $('.new-product-cta .button-secondary').on('click', function () {
             $('.new-product-block .col-md-3').addClass('active');
-            $('.show-more').hide();
+            $('.new-product-cta .button-secondary').hide();
         });
 
             $(".latest-product-slider").slick({

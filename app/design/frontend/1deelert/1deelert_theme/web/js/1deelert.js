@@ -150,27 +150,27 @@ define([
                         }
                     ]
             });
-        }else{
-            $('.relate-product-slick .product-item').each(function(i) {
-                if ( i < 4 ) {
-                   $(this).addClass('active');
+            }else{
+                $('.relate-product-slick .product-item').each(function(i) {
+                    if ( i < 4 ) {
+                    $(this).addClass('active');
+                    }
+                });
+                $('.show-more').on('click', function () {
+                    $('.relate-product-slick .product-item').addClass('active');
+                    $('.show-more').hide();
+                })
+            }
+            $('.new-product-block .col-md-3').lenght
+            $('.new-product-block .col-md-3').each(function(i) {
+                if ( i < 9 ) {
+                $(this).addClass('active');
                 }
             });
-            $('.show-more').on('click', function () {
-                $('.relate-product-slick .product-item').addClass('active');
-                $('.show-more').hide();
-            })
-        }
-        $('.new-product-block .col-md-3').lenght
-        $('.new-product-block .col-md-3').each(function(i) {
-            if ( i < 9 ) {
-               $(this).addClass('active');
-            }
-        });
-        $('.new-product-cta .button-secondary').on('click', function () {
-            $('.new-product-block .col-md-3').addClass('active');
-            $('.new-product-cta .button-secondary').hide();
-        });
+            $('.new-product-cta .button-secondary').on('click', function () {
+                $('.new-product-block .col-md-3').addClass('active');
+                $('.new-product-cta .button-secondary').hide();
+            });
 
             $(".latest-product-slider").slick({
                 draggable: true,
@@ -203,8 +203,6 @@ define([
                         },
                     ]
             });
-
-
 
             // promotion-section js
             if ($(window).width() <= 767) {
@@ -248,6 +246,19 @@ define([
                         }
                         },
                     ]
+            });
+
+
+            // sticky js
+            $(window).scroll(function(){
+                if ($(window).scrollTop() >= 300) {
+                    $('body').addClass('fixed-header');
+                    $('header.page-header').addClass('sticky-active');
+                }
+                else {
+                    $('body').removeClass('fixed-header');
+                    $('header.page-header').removeClass('sticky-active');
+                }
             });
 
         });

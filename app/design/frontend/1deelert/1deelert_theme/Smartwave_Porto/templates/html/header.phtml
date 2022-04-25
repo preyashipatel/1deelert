@@ -61,47 +61,49 @@
 <?php elseif($header_type == 2): ?>
   <div class="header-main">
     <div class="header content header-row">
-      <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
-      </div>
-      <div class="header-center">
-        <div class="search-area show-icon-tablet">
-          <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+      <div class="header-wrap">
+        <div class="header-left">
+          <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
+          <?php echo $this->getChildHtml("logo"); ?>
         </div>
-      </div>
-      <div class="header-right">
-        <div class="home-link mobile-hide">
-          <a href="#"><span><?= __('Home');?></span></a>
-        </div>
-        <div class="about-link mobile-hide">
-          <a href="#"><span><?= __('About us');?></span></a>
-        </div>
-        <div class="store-link mobile-hide">
-          <span><?= __('store');?></span>
-          <ul class="store-li">
-            <li><a href="#"><?= __('Office');?></a></li>
-            <li><a href="#"><?= __('mattress');?></a></li>
-            <li><a href="#"><?= __('kitchen and dining room');?></a></li>
-            <li><a href="#"><?= __('tv cabinet');?></a></li>
-            <li><a href="#"><?= __('shoe cabinet');?></a></li>
-          </ul>
-        </div>
-         <div class="contact-link mobile-hide">
-            <a href="#"><span><?= __('contact');?></span></a>
-          </div>
-          <div class="mobile-hide store-lang">
-            <?php echo $this->getChildHtml("store_language"); ?>
-          </div>
-        <div class="header-contact">
-          <?php //echo $this->getChildHtml("custom_block"); ?>
-          <span class="my-account account-icon" title="My Account"><i class="porto-icon-user-2"></i></span>
-          <div class="panel header show-icon-tablet">
-            <?php echo $this->getChildHtml("header.links"); ?>
+        <div class="header-center">
+          <div class="search-area show-icon-tablet">
+            <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
+            <?php echo $this->getChildHtml("top.search"); ?>
           </div>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <div class="header-right">
+          <div class="home-link mobile-hide">
+            <a href="#"><span><?= __('Home');?></span></a>
+          </div>
+          <div class="about-link mobile-hide">
+            <a href="#"><span><?= __('About us');?></span></a>
+          </div>
+          <div class="store-link mobile-hide">
+            <span><?= __('store');?></span>
+            <ul class="store-li">
+              <li><a href="#"><?= __('Office');?></a></li>
+              <li><a href="#"><?= __('mattress');?></a></li>
+              <li><a href="#"><?= __('kitchen and dining room');?></a></li>
+              <li><a href="#"><?= __('tv cabinet');?></a></li>
+              <li><a href="#"><?= __('shoe cabinet');?></a></li>
+            </ul>
+          </div>
+          <div class="contact-link mobile-hide">
+              <a href="#"><span><?= __('contact');?></span></a>
+            </div>
+            <div class="mobile-hide store-lang">
+              <?php echo $this->getChildHtml("store_language"); ?>
+            </div>
+          <div class="header-contact">
+            <?php //echo $this->getChildHtml("custom_block"); ?>
+            <span class="my-account account-icon" title="My Account"><i class="porto-icon-user-2"></i></span>
+            <div class="panel header show-icon-tablet">
+              <?php echo $this->getChildHtml("header.links"); ?>
+            </div>
+          </div>
+          <?php echo $this->getChildHtml("minicart"); ?>
+        </div>
       </div>
       <div class="header-menu-custom">
              <?= $this->getLayout()->createBlock("Smartwave\Megamenu\Block\Topmenu")->setTemplate("Smartwave_Megamenu::topmenuCustom.phtml")->toHtml();?>

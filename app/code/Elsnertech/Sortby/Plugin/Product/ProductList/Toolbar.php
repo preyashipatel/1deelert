@@ -1,5 +1,5 @@
 <?php
-namespace Elsnertech\Customisation\Plugin\Catalog\Block;
+namespace Elsnertech\Sortby\Plugin\Product\ProductList;
 
 class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
 {
@@ -27,19 +27,20 @@ class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
                     $this->getCurrentOrder(),
                     $this->getCurrentDirection()
                 );
+            }elseif($this->getCurrentOrder() == "newest_product"){
+                $direction = $this->getCurrentDirection();
+                // $this->_collection->getSelect()->orderBy('created_at',$direction);
+                $this->_collection->getSelect()->order('created_at', $this->getCurrentDirection());
             } else {
-                if ($this->getCurrentOrder() == 'high_to_low') {
-                    $this->_collection->setOrder('price', 'desc');
-                } elseif ($this->getCurrentOrder() == 'low_to_high') {
-                    $this->_collection->setOrder('price', 'asc');
-                }
-                if ($this->getCurrentOrder() == "newest_product") {
-                    $direction = $this->getCurrentDirection();
-                    $this->_collection->getSelect()->order('created_at',$direction);
-                }
-
+                $this->_collection->setOrder($this->getCurrentOrder(), $this->getCurrentDirection());
             }
         }
+        // if ($this->getCurrentOrder()) {
+        //     if ($this->getCurrentOrder() == "newest_product") {
+        //             $direction = $this->getCurrentDirection();
+        //             $this->_collection->getSelect()->order('created_at',$direction);
+        //         }
+        // }
         return $this;
     }
 

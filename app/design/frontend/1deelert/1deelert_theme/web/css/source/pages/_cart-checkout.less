@@ -1,8 +1,18 @@
 .checkout-cart-index{
     .cart-container{
+        padding-bottom: 60px;
+
         .cart-summary {
             border-width: 1px;
             padding: 25px;
+            @media (max-width: @screen__xl){
+                width: 25%;
+                padding: 20px;
+            }
+            @media (max-width: @screen__lg){
+                width: 100%;
+            }
+
             .summary.title {
                 letter-spacing: 0;
                 padding: 0 10px;
@@ -60,6 +70,13 @@
             }
             .cart-totals {
                 font-size: 15px;
+                tbody{
+                    .grand.totals{
+                        .amount{
+                            font-size: 16px;
+                        }
+                    }
+                }
             }
             .checkout-methods-items{
                 margin: 0;
@@ -88,6 +105,10 @@
         }
 
         .form.form-cart{
+            @media (max-width: @screen__lg){
+                width: 100%;
+                padding: 0;
+            }
             .cart.table-wrapper{
                 table{
                     thead{
@@ -108,7 +129,44 @@
                             font-size: 18px;
                             color: @color-2;
                         }
+                        tr.item-actions{
+                            a{
+                                background: @color-1;
+                                color: @color-5;
+                                height: 30px;
+                                width: 30px;
+                                text-align: center;
+                                line-height: 30px;
+                                &::before{
+                                    color: @color-5;
+                                }
+                            }
+                            td{
+                                @media (max-width: @screen__sm){
+                                    padding: 0;
+                                }
+                            }
+                        }
                     }
+                }
+            }
+            .cart.actions{
+                button.action{
+                    background-color: @color-1;
+                    color: @color-5;
+                    border-radius: 8px !important;
+                }
+            }
+        }
+        .cart-discount{
+            input{
+                border-radius: 8px 0 0 8px;
+            }
+            .actions-toolbar{
+                button.action{
+                    background-color: @color-1;
+                    color: @color-5;
+                    border-radius:0 8px 8px 0;
                 }
             }
         }

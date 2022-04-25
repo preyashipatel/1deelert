@@ -14,5 +14,10 @@
         <move element="checkout.cart.crosssell" destination="checkout.cart.container" after="-" />
         <move element="checkout.cart.coupon" destination="cart.discount" />
         <move element="checkout.cart.shortcut.buttons" destination="checkout.cart.methods" after="checkout.cart.methods.onepage.bottom"/>
+         <referenceContainer name="page.wrapper">
+            <container name="cart.banner" as="banner"  before="main.content">
+                <block class="Magento\Framework\View\Element\Template" name="custom.file" template="Magento_Customer::form/banner.phtml" />
+            </container>
+        </referenceContainer>
     </body>
 </page>

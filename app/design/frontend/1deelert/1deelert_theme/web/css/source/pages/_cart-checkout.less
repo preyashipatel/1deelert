@@ -204,50 +204,72 @@
 
 // checkout less start
 .checkout-index-index{
+    aside.modal-popup{
+        header.modal-header{
+            @media (max-width: @screen__md){
+                padding: 0 2rem 1.5rem;
+            }
+            button.action-close {
+                top: 12px;
+            }
+            .modal-title {
+                border-color: @color-2;
+                font-size: 20px;
+            }
+        }
+        .modal-content{
+            @media (max-width: @screen__md){
+                padding: 0 2rem;
+            }
+            .form-shipping-address{
+                max-width: 100%;
+                .fieldset{
+                    .field{
+                        margin-bottom: 15px;
+                        padding: 0;
+                        select {
+                            background-color: #6666660d;
+                            border: 0;
+                            border-radius: 8px;
+                            color: @color-2;
+                            font-size: 15px;
+                            padding: 13px 15px;
+                        }
+                    }
+                    label{
+                        font-size: 14px;
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                    span.note{
+                        font-size: 12px;
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+        footer.modal-footer{
+            @media (max-width: @screen__md){
+                padding: 2rem;
+            }
+            button.action-save-address {
+                font-size: 16px;
+                line-height: 1;
+                background-color: @color-1;
+                color: @color-5;
+                border: 1px solid @color-1;
+            }
+            button.action.secondary{
+                color: @color-1;
+            }
+        }
+    }
+
     .checkout-container{
         padding: 40px 0;
         .authentication-wrapper {
             @media (min-width: @screen__sm){
                 width: 30%;
-            }
-        }
-        aside.modal-popup{
-            header.modal-header{
-                button.action-close {
-                    top: 12px;
-                }
-                .modal-title {
-                    border-color: @color-2;
-                    font-size: 20px;
-                }
-            }
-            .modal-content{
-                .form-shipping-address{
-                    max-width: 100%;
-                    .fieldset{
-                        .field{
-                            margin-bottom: 15px;
-                            padding: 0;
-                            select {
-                                background-color: #6666660d;
-                                border: 0;
-                                border-radius: 8px;
-                                color: @color-2;
-                                font-size: 15px;
-                                padding: 13px 15px;
-                            }
-                        }
-                        label{
-                            font-size: 14px;
-                            font-weight: 600;
-                            margin: 0;
-                        }
-                        span.note{
-                            font-size: 12px;
-                            margin-top: 0;
-                        }
-                    }
-                }
             }
         }
         button.action{
@@ -302,6 +324,9 @@
                 border-color: @color-1;
                 font-size: 15px;
                 line-height: 1.6;
+                &::after{
+                    background: @color-1;
+                }
             }
             .checkout-shipping-address{
                 .step-content{

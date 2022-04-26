@@ -209,6 +209,7 @@ a,
     border-color: @button-border_color;
     letter-spacing: 1.8px;
     .transition(all 0.5s ease);
+    outline: 0;
 
     @media (max-width: @screen__xxl) {
         font-size: @font-size_5;
@@ -227,15 +228,11 @@ a,
         line-height: 20px;
     }
 
-    &:hover {
+    &:hover, &:focus, &:active {
         background: @button-hover-background_color;
         color: @button-hover-font_color;
         border-color: @button-hover_border_color;
         .transition(all 0.5s ease);
-    }
-
-    &:focus {
-        outline: 0;
     }
 }
 

@@ -68,26 +68,19 @@
                 </field>
             </group>
         </section>
-        <!-- <tab id="elsnertech_contactus_tab" translate="label" sortOrder="1001">
-            <label>Elsnertech</label>
-        </tab>
-        <section id="custome_contact_us_tab" translate="label" sortOrder="131" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Contact Page</label>
-            <tab>custome_contact_us_tab</tab>
+        <section id="blogpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Blog Page</label>
+            <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
-            <group id="mainConfigcontact" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Contact page config</label>
-                  <field id="contact_banner_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+             <group id="mainConfigblog" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Blog us page config </label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Select Image</label>
                     <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
-                <field id="contact_us_content" translate="label" type="editor" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                        <label>Content</label>
-                         <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
-                </field>
             </group>
-           
-        </section> -->
+        </section>
+       
     </system>
 </config>

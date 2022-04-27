@@ -2,6 +2,7 @@
     $footer = $this->getConfig('porto_settings/footer');
     $helper = $this->helper('Elsnertech\Customisation\Helper\Data');
    $mediaUrl = $helper->getMediaUrl();
+   $storeUrl = $helper->getBaseUrl();
 ?>
 <div class="footer">
 
@@ -49,7 +50,7 @@
                                     <li><a href="#"><?= __('for wholesalers') ?></a></li>
                                     <li><a href="#"><?= __('Requirements') ?></a></li>
                                     <li><a href="#"><?= __('operating rules') ?></a></li>
-                                    <li><a href="#"><?= __('contact us') ?></a></li>
+                                    <li><a href="<?= $storeUrl.'contact';?>"><?= __('contact us') ?></a></li>
                                 </ul>
                             </div>
                         </div>

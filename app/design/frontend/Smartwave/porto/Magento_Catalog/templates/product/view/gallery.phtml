@@ -15,6 +15,7 @@
 <?php
 $helper = $block->getData('imageHelper');
 $porto_helper = $this->helper('Smartwave\Porto\Helper\Data');
+$deelert_helper = $this->helper('Elsnertech\Customisation\Helper\Data');
 $_config = $porto_helper->getConfig('porto_settings/product');
 $image_width = (isset($_config['ratio_width']) && $_config['ratio_width'])?$_config['ratio_width']:600;
 $image_height = (isset($_config['ratio_height']) && $_config['ratio_height'])?$_config['ratio_height']:600;
@@ -37,6 +38,10 @@ if($page_type == 'wide_grid') {
     $thumb_height = 100;
 }
 ?>
+<div class="product-sku">
+    <?= __('SKU')." ".$deelert_helper->getCurrentProduct()?>
+</div>
+
 <?php if($page_type == 'carousel'): ?>
 <?php
     $gallery_images = json_decode($block->getGalleryImagesJson());

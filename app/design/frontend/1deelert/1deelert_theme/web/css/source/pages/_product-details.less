@@ -15,6 +15,18 @@
             width: 100%;
         }
 
+        .product-sku{
+            border-radius: 4px;
+            background: @color-1;
+            color: @color-5;
+            font-size: 12px;
+            padding: 7px 12px;
+            line-height: 1.4;
+            display: none;
+            @media (max-width: @screen__sm){
+                display: inline-block;
+            }
+        }
         .fotorama-item{
             .fotorama__stage {
                 border: 0;
@@ -191,6 +203,7 @@
                             font-size: @font-size_3;
                             @media (max-width: @screen__sm){
                                 font-size: 18px;
+                                color: @color-1;
                             }
                         }
 

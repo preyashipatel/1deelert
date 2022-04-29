@@ -894,6 +894,9 @@ div.mage-error[generated] {
 .page-wrapper{
     .breadcrumb-wrapper{
         border-bottom: 1px solid @colo7-7_light;
+        @media (max-width: @screen__md){
+            border-top: 1px solid @colo7-7_light;
+        }
         .breadcrumbs{
             background-color: transparent;
             color: @color-4;
@@ -941,7 +944,7 @@ div.mage-error[generated] {
                         font-weight: 500;
                         color: @color-2;
                         @media (max-width: @screen__sm){
-                            font-size: 14px;
+                            font-size: 12px;
                         }
                     }
                 }

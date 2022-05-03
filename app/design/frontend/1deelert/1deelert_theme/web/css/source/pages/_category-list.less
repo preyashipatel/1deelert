@@ -528,8 +528,8 @@
     padding-right: 10px;
 
     @media (max-width: @screen__md) {
-        margin-bottom: 0;
-        padding: 0;
+        margin: 0 auto;
+        padding: 8px 0 15px;
     }
 
     .sorter-label {
@@ -558,7 +558,8 @@
         @media (max-width: @screen__md) {
             width: max-content;
             font-size: 13px;
-            background-size: 12px;
+            background-size: 10px;
+            height: auto;
         }
     }
 
@@ -571,6 +572,10 @@
         background-repeat: no-repeat;
 
         &:before {
+            display: none;
+        }
+
+        @media (max-width: @screen__md){
             display: none;
         }
     }
@@ -623,21 +628,39 @@
 
 .field.limiter {
     display: none;
+    margin-right: 0;
 
     @media (max-width: @screen__md) {
         display: block;
         span{
             display: none !important;
         }
-
+        .action.sorter-action {
+            height: 100%;
+            &::before{
+                content: "";
+                background: url(../images/sorter.png);
+                width: 18px;
+                height: 36px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+        }
         select {
-            background-color: #F5F5F5;
             border-radius: 2px;
             font-size: 13px;
             letter-spacing: 0px;
             color: @color-2_dark;
             font-weight: 500;
             line-height: 1.5;
+            border: 0;
+            background: url(../images/select-arrow.png);
+            background-repeat: no-repeat;
+            background-position: ~" calc(100% - 12px)" center;
+            background-color: @color-9;
+            background-size: 10px;
+            padding-right: 30px;
         }
     }
 }
@@ -659,7 +682,7 @@
         }
 
         select {
-            background-color: #F5F5F5;
+            background-color: @color-9;
             border: 0;
             height: 45px;
             padding: 0 30px 0 15px;

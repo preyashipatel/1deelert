@@ -682,7 +682,7 @@ header.page-header.type2 {
                     background: @color-5;
                     width: 100%;
                     transition: 0.3s ease-in-out;
-                    z-index: 89898988;
+                    z-index: 89899;
 
                     &::after{
                         content: "";
@@ -1053,9 +1053,10 @@ header.page-header.type2 {
                         padding-right: 30px;
 
                         @media (max-width: @screen__md){
-                            max-height: 70vh;
+                            max-height: ~"calc(100vh - 100px)";
                             overflow-y: auto;
                             padding-right: 0;
+                            padding-bottom: 75px;
                         }
                         li {
                             margin: 0;
@@ -1243,6 +1244,10 @@ header.page-header.type2 {
                 letter-spacing: 0;
                 text-transform: capitalize;
                 font-weight: 500;
+
+                &:hover, &:focus{
+                    color: @color-1 !important;
+                }
 
                 &::after {
                     @media (max-width: @screen__md) {

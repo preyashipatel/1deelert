@@ -1,0 +1,169 @@
+.sidebar-content {
+    border: 0 !important;
+    padding-right: 30px;
+    @media (max-width: @screen__md){
+        padding: 0 !important;
+    }
+
+    .side-custom-block {
+        @media (max-width: @screen__md){
+            display: none;
+        }
+    }
+
+    .block.filter {
+        margin-bottom: 20px;
+
+        .filter-options-item {
+            border-bottom: 1px solid #70707070;
+            @media (max-width: @screen__md){
+                padding: 14px 20px !important;
+            }
+
+            span.toggle{
+                @media (max-width: @screen__md){
+                    &::after{
+                        width: auto;
+                        height: auto;
+                        margin-left: -5px;
+                        margin-top: 0;
+                        content: '\f101';
+                        font-family: 'pagebuilder-font';
+                        background: transparent;
+                        top: 2px;
+                        font-size: 12px;
+                    }
+                    &::before{
+                        display: none;
+                    }
+                }
+            }
+
+            &.active{
+                span.toggle{
+                    @media (max-width: @screen__md){
+                        &::after{
+                            content: '\f104';
+                        }
+                    }
+                }
+            }
+        }
+
+        .filter-options-title {
+            font-size: @font-size_4;
+            color: @color-2_dark;
+            font-weight: 500;
+        }
+
+        .filter-options-content {
+
+            input[type="checkbox"] + label:before {
+                border: 1px solid @color-3_light;
+            }
+
+            a {
+                font-size: @font-size_5;
+                color: @color-2_dark  !important;
+
+                &:hover {
+                    color: @color-1  !important;
+                }
+
+                .count {
+                    color: @color-2_dark;
+                }
+            }
+        }
+    }
+
+    .custom-block {
+        h2 {
+            font-size: 22px;
+            color: @color-2_dark;
+            font-weight: 500;
+            padding-bottom: 10px;
+        }
+
+        .product-item-photo {
+            position: relative !important;
+
+            img {
+                border-radius: 16px;
+            }
+
+            .action.towishlist {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+                height: 21px;
+                width: 21px;
+                border: 0;
+                background: @color-5;
+                padding: 0;
+                border-radius: 4px;
+
+                &:before {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+        }
+
+        .products.list {
+            margin: 0;
+
+            .product-item-info {
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+                margin: 0 0 20px;
+
+                .product-item-details {
+                    padding-left: 15px;
+                }
+            }
+        }
+
+        .product-item-details {
+            .sidebar-sku {
+                color: @color-3;
+                font-size: 12px;
+                line-height: 20px;
+            }
+
+            a {
+                font-size: 16px !important;
+                line-height: 24px !important;
+                color: @color-2_dark  !important;
+                margin: 0 0 5px !important;
+            }
+
+            .price-box .price {
+                font-size: 16px !important;
+                line-height: 24px !important;
+                color: @color-1;
+            }
+        }
+    }
+}
+
+@media (max-width: @screen__md){
+    html.sidebar-opened{
+        div.page-wrapper {
+            left: 0;
+        }
+    }
+
+    .sidebar.sidebar-main.mobile-sidebar {
+        transform: translateX(0%);
+        left: -100%;
+        transition: all 0.3s;
+    }
+    .sidebar-overlay.active{
+        + .sidebar.sidebar-main.mobile-sidebar {
+            left: 0;
+        }
+    }
+}

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">homeslider_record_homeslider_list.homeslider_record_homeslider_list_data_source</item>
+            <item name="deps" xsi:type="string">homeslider_record_homeslider_list.homeslider_record_homeslider_list_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">Homeslider_records_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Add New Banner</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/addrow</item>
+            </item>
+        </item>
+    </argument>
+
+    <dataSource name="homeslider_record_homeslider_list_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">homeslider_record_homeslider_list_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+          <item name="update_url" xsi:type="url" path="mui/index/render"/>
+          <item name="storageConfig" xsi:type="array">
+            <item name="indexField" xsi:type="string">id</item>
+          </item>
+        </item>
+      </argument>
+        </argument>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+       <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+        <filterSearch name="fulltext"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">homeslider_record_homeslider_list.homeslider_record_homeslider_list.Homeslider_records_columns.ids</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <!-- Mass actions which you want to add in your Homeslider-->
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="homeslider/homeslider/massdelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete</item>
+                            <item name="message" xsi:type="string" translate="true">Do you want to delete selected row record?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+    </listingToolbar>
+
+    <columns name="Homeslider_records_columns">
+       <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="resizeConfig" xsi:type="array">
+                    <item name="enabled" xsi:type="boolean">true</item>
+                </item>
+            </item>
+        </argument>
+        <selectionsColumn name="ids">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="indexField" xsi:type="string">id</item>
+                   <item name="sorting" xsi:type="string">desc</item>
+                   <item name="sortOrder" xsi:type="number">0</item>
+                   <item name="resizeEnabled" xsi:type="boolean">true</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">30</item>
+               </item>
+           </argument>
+       </selectionsColumn>
+       <column name="id">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="filter" xsi:type="string">textRange</item>
+                   <item name="label" xsi:type="string" translate="true">Id</item>
+                   <item name="resizeEnabled" xsi:type="boolean">true</item>
+                   <item name="resizeDefaultWidth" xsi:type="string">60</item>
+               </item>
+           </argument>
+       </column>
+       <column name="image_text">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="filter" xsi:type="string">text</item>
+                   <item name="label" xsi:type="string" translate="true">Image Content</item>
+                   <item name="resizeEnabled" xsi:type="boolean">true</item>
+                   <item name="resizeDefaultWidth" xsi:type="string">100</item>
+               </item>
+           </argument>
+       </column>
+	   <column name="link">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="filter" xsi:type="string">text</item>
+                   <item name="label" xsi:type="string" translate="true">Link</item>
+                   <item name="resizeEnabled" xsi:type="boolean">true</item>
+                   <item name="resizeDefaultWidth" xsi:type="string">100</item>
+               </item>
+           </argument>
+       </column>
+       <column name="image" class="Elsnertech\Homeslider\Ui\Component\Listing\Column\Logo">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="has_preview" xsi:type="string">1</item>                    
+                    <item name="label" xsi:type="string" translate="true">image</item>
+                    <item name="resizeEnabled" xsi:type="boolean">true</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">300</item>
+                </item>
+            </argument>
+        </column>
+        <column name="store_id" class="Elsnertech\Homeslider\Ui\Component\Listing\Column\Store">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+               <item name="component" xsi:type="string">Elsnertech_Homeslider/js/ui/grid/columns/html</item>
+               <item name="sortable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Store View</item>
+               </item>
+           </argument>
+       </column>
+       <!-- Add Action with each row of Homeslider and for this we will create a class Action -->
+       <actionsColumn name="actions" class="Elsnertech\Homeslider\Ui\Component\Listing\Homeslider\Column\Action">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="resizeEnabled" xsi:type="boolean">false</item>
+                   <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                   <item name="indexField" xsi:type="string">id</item>
+               </item>
+           </argument>
+       </actionsColumn>
+    </columns>
+</listing>

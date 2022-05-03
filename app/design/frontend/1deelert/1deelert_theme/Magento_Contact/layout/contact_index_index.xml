@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Contact Us</title>
+    </head>
+    <body>
+       <referenceContainer name="page.wrapper">
+            <container name="contactus.banner" as="banner"  before="main.content">
+                <block class="Magento\Framework\View\Element\Template" name="custom.file" template="Magento_Contact::form/banner.phtml" />
+            </container>        
+            <container name="contact_top_information" htmlTag="section" htmlClass="contact_top_information" before="main.content">
+                <block class="Magento\Cms\Block\Block" name="content_top">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">contact_top_information</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>  
+        <referenceBlock name="google_map" remove="true"/>
+        <referenceContainer name="form.additional.info" remove="true"/>
+   </body>
+</page>

@@ -1,0 +1,57 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Blog
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\Blog\Block\Widget\Posts;
+
+/** @var Posts $block */
+$posts = $block->getCollection();
+?>
+<section class="our-article-section">
+<div class="article-block">
+        <div class="container">
+            <div class="block-title">
+                <h2><?= __('our article');?></h2>
+            </div>
+            <div class="block-content">
+                <div class="slider slick-slider article-slider">
+                    <?php foreach ($posts as $post) : ?>
+                    <div class="article-items">
+                        <div class="image-block">
+                            <a href="#">
+                                <img src="<?= $block->escapeUrl($block->resizeImage($post->getImage(), '400x')) ?>"
+                                    alt="new-products" width="420" height="370">
+                            </a>
+                        </div>
+                        <p class="date"><?= /** @noEscape */ $block->getDateFormat($post->getPublishDate()); ?></p>
+                        <h4>
+                            <a class="post-link-title" title="<?= $block->escapeHtmlAttr($post->getName()) ?>"
+                               href="<?= $block->escapeUrl($post->getUrl()) ?>">
+                                <?= $block->escapeHtml($post->getName()) ?>
+                            </a>
+                        </h4>
+                    </div>
+                    <?php endforeach; ?>
+                     
+            </div>
+        </div>
+    </div>
+</div>
+</section>

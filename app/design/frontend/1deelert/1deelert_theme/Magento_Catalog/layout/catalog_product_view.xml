@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright Â© 2021 Deelert. All rights reserved.
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>        
+        <referenceContainer name="product.info.main">
+            <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Magento_Catalog::product/view/get-category.phtml"/>
+        </referenceContainer>
+        <!-- <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/> -->
+        <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>
+        <move element="product.info.overview" destination="product.info.details" />
+        <move element="product.info.description" destination="product.info.details" />
+        <move element="catalog.product.related" destination="columns" after='-'/>
+        <move element="product.info.stock.sku" destination="page.main.title" after='-'/>
+        <move element="product.info.social" destination="product.info.main" after='page.main.title'/>
+        <move element="product.info.price" destination="product.info.form.options" after='product.info.options.wrapper'/>
+        <move element="extra.attr" destination="product.info.main" after='product.info.social'/>
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Product Details</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">More Information</argument>
+            </arguments>
+        </referenceBlock>
+           <referenceContainer name="content">
+                <block class="Magento\Catalog\Block\Product\View" name="extra.attr" template="Magento_Catalog::product/view/extra_attr.phtml"/>
+            </referenceContainer>
+        <referenceBlock name="product.info.overview">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Description</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="prev_next_products" remove="true"/>
+        <referenceBlock name="product.info.sku" remove="true"/>
+    </body>
+</page>

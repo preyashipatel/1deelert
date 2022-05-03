@@ -1,0 +1,52 @@
+version: '3'
+services:
+  web:
+    image: webdevops/php-apache-dev:7.4
+    container_name: 1deelert
+    restart: always
+    user: application
+    environment:
+      - WEB_ALIAS_DOMAIN=http://192.168.5.2/
+      - WEB_DOCUMENT_ROOT=/app/pub
+      - PHP_DATE_TIMEZONE=EST
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_MEMORY_LIMIT=2048M
+      - PHP_MAX_EXECUTION_TIME=300
+      - PHP_POST_MAX_SIZE=500M
+      - PHP_UPLOAD_MAX_FILESIZE=1024M
+    volumes:
+      - /var/www/html/1deelert:/app:cached
+    ports:
+      - "243:80"
+    links:
+      - mysql
+  mysql:
+    image: mariadb:10.4
+    container_name: 1deelert-mysql
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=magento
+      - MYSQL_USER=1deelert
+    volumes:
+      - db-data:/var/lib/mysql
+  elasticsearch:
+    image: elasticsearch:7.17.2 
+    environment:
+      - "discovery.type=single-node"
+      ## Set custom heap size to avoid memory errors
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      ## Avoid test failures due to small disks
+      ## More info at https://github.com/markshust/docker-magento/issues/488
+      - "cluster.routing.allocation.disk.threshold_enabled=false"
+      - "index.blocks.read_only_allow_delete"
+    volumes:
+      - 'elasticsearch_data:/var/lib/elasticsearch/data'
+
+volumes:
+  db-data:
+    external: false
+  elasticsearch_data:
+    driver: local

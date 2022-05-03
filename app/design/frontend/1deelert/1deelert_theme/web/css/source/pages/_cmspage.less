@@ -1,0 +1,190 @@
+// contact us page less
+.contact-index-index{
+    .page-main, .container{
+        @media (min-width: @screen__xl) {
+            max-width: 1320px;
+        }
+    }
+}
+.contact_top_information {
+    padding: 70px 0;  
+    @media (max-width: @screen__sm){
+        padding: 50px 0 30px;
+    }
+    .new-product-image {
+        border: 1px solid #00000026;
+        border-radius: 16px;
+        padding: 35px;
+        text-align: center;
+        @media (max-width: @screen__xl){
+            padding: 35px 20px;
+        }
+        @media (max-width: @screen__sm){
+            margin-bottom: 20px;
+            padding: 20px 15px;
+        }
+        img {
+            max-width: 66px;
+            margin-bottom: 15px;
+            @media (max-width: @screen__sm){
+                max-width: 40px;
+                margin-bottom: 5px;
+            }
+        }
+        h1 {
+            font-size: @font-size_4;
+            border-bottom: 1px solid #00000066;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            max-width: 270px;
+            text-align: center;
+            @media (max-width: @screen__xl){
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+                font-size: @font-size_5;
+            }
+            @media (max-width: @screen__xl){
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                font-size: @font-size_6;
+            }
+        }
+        p{
+            font-size: 15px;
+            margin: 0;
+            @media (max-width: @screen__xl){
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.contact-form{
+    padding-bottom: 70px;
+    @media (max-width: @screen__sm){
+        padding-bottom: 50px;
+    }
+    .contactform {
+        border: 1px solid #00000026;
+        border-radius: 16px;
+        padding: 70px 45px;
+        @media (max-width: @screen__md){
+            padding: 50px 35px;
+        }
+        @media (max-width: @screen__sm){
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+        }
+        label.label{
+            margin: 0;
+            span {
+                font-size: @font-size_5;
+                @media (max-width: @screen__md){
+                    font-size: @font-size_6;
+                }
+                @media (max-width: @screen__sm){
+                    font-size: @font-size_7;
+                }
+            }
+        }
+        .control{
+            input, textarea {
+                background: #6666660d;
+                border: 0;
+                border-radius: 8px;
+                padding: 16px;
+                outline: none;
+                @media (max-width: @screen__md){
+                    padding: 14px;
+                }
+            }
+        }
+        .actions-toolbar {
+            text-align: center;
+            margin: 0;
+            .primary{
+                float: none;
+                .submit{
+                    margin: 0 auto;
+                    line-height: 1;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    letter-spacing: 0.5px;
+                    background-color: @color-1;
+                    color: @color-5;
+                    border: 1px solid @color-1;
+                    outline: none;
+                    width: auto;
+                    border-radius: 8px;
+                    padding: 12px 30px;
+                    height: auto;
+                    min-width: 100px;
+                }
+            }
+        }
+    }
+}
+
+
+// about page less start
+.work-section{
+    .row{
+        .align-items(center);
+    }
+    .about-work-first{
+        padding: 70px 0;
+        .work-content{
+            padding: 40px 0 40px 40px;
+        }
+    }
+    .about-work-second{
+        padding-bottom: 70px;
+        .work-content{
+            padding: 40px 40px 40px 0;
+        }
+    }
+    .work-image{
+        img {
+            width: 100%;
+        }
+    }
+    .work-content{
+        h4{
+            font-size:@font-size_1;
+            color: @color-4;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        p{
+            color: @color-8;
+            letter-spacing: 0.3px;
+        }
+    }
+}
+
+.why-choose-section{
+    .block-title{
+        text-align: center;
+        h1{
+            font-weight: 600;
+            color: @color-2;
+        }
+    }
+    .row{
+        padding: 30px 0;
+    }
+    .manage-info{
+        padding: 70px 0;
+        text-align: center;
+        border: 1px solid #000000A6;
+        color: #666666;
+        border-radius:16px;
+
+        h5{
+            line-height: 20px;
+            color:@color-8;
+        }
+    }
+}

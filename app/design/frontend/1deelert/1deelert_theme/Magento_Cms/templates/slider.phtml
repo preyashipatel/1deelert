@@ -1,0 +1,59 @@
+<?php
+$helper = $this->helper('Elsnertech\Homeslider\Helper\Data');
+$storeid = $helper->getStoreId();
+?>
+
+    <div id="homeSlider" class="owl-carousel owl-theme banner web-banner">
+
+        <?php
+          $collection = $block->getResult();
+          
+     foreach ($collection as $item) {
+      if($storeid == $item['store_id'] || $item['store_id'] == 0):?>
+
+        <div class="item">
+            <div data-th="Image" class="image-slider">
+                <img src="<?= $block->getBaseUrl().$item->getData('image'); ?>" />
+            </div>
+            <div class="owl-content">
+                <?= $item->getData('image_text');?>
+                <a href="<?= $block->getBaseLink().$item->getData('link'); ?>" class="banner-btn btn button-primary">
+                   <span> <?= __("Shop All");?> </span>
+                </a>
+            </div>
+        </div>
+        <?php endif;?>
+        <?php } ?>
+
+    </div>
+
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'owl.carousel/owl.carousel.min'
+    ], function($) {
+        $("#homeSlider").owlCarousel({
+            margin: 0,
+            nav: true,
+            navText: ["<i class='porto-icon-chevron-left'></i>", "<i class='porto-icon-chevron-right'></i>"],
+            dots: true,
+            autoplay: false,
+            autoplayTimeout: 4000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 1
+                },
+                992: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                }
+            }
+        });
+    });
+</script>

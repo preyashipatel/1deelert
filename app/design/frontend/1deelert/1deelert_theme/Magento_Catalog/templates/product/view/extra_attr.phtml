@@ -1,0 +1,34 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+$_product = $block->getProduct();
+$attribute = $_product->getResource()->getAttribute('warranty');
+$weight= $_product->getResource()->getAttribute('weight')->getFrontend()->getValue($_product);
+$warranty = $attribute->getFrontend()->getValue($_product);
+$dimension=$_product->getResource()->getAttribute('dimension')->getFrontend()->getValue($_product);
+
+if($weight != '' || $warranty != '' || $dimension != '' ):?>
+    <div class="product-attribute">
+    <?php if($weight != ''):?>
+        <p>
+            <span class="attr-label">Weight:</span>
+            <span><?=  $_product->getResource()->getAttribute('weight')->getFrontend()->getValue($_product);?></span>
+        </p>
+    <?php endif;?>
+    <?php if($warranty != ''):?>
+        <p>
+            <span class="attr-label">Warranty:</span>
+            <span><?= $attribute->getFrontend()->getValue($_product);?></span>
+        </p>
+    <?php endif;?>
+    <?php if($dimension != ''):?>
+        <p>
+            <span class="attr-label">Dimension:</span>
+            <span><?= $_product->getResource()->getAttribute('dimension')->getFrontend()->getValue($_product);?></span>
+        </p>
+    <?php endif;?>
+    </div>
+<?php endif;?>

@@ -38,9 +38,7 @@ if($page_type == 'wide_grid') {
     $thumb_height = 100;
 }
 ?>
-<div class="product-sku">
-    <?= __('SKU')." ".$deelert_helper->getCurrentProduct()?>
-</div>
+
 
 <?php if($page_type == 'carousel'): ?>
 <?php
@@ -337,6 +335,9 @@ $mainImageData = $mainImage ?
 
 ?>
 <div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+<div class="product-sku">
+    <?= __('SKU')." ".$deelert_helper->getCurrentProduct()?>
+</div>
     <img
         alt="main product photo"
         class="gallery-placeholder__image"

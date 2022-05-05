@@ -365,12 +365,13 @@
         padding: 20px 0;
     }
 
-    .block-content{
-        .new-product-image{
+    .block-content {
+        .new-product-image {
             display: none;
         }
-        .active{
-            .new-product-image{
+
+        .active {
+            .new-product-image {
                 display: block;
             }
         }
@@ -423,7 +424,8 @@
             padding: 10px 0 0;
             margin: 0;
         }
-        @media (max-width: @screen__sm){
+
+        @media (max-width: @screen__sm) {
             font-weight: 400;
         }
 
@@ -495,7 +497,6 @@
         }
 
         .product-item-name {
-            font-weight: 400;
             .product-item-name();
         }
     }
@@ -782,6 +783,7 @@
 
     .product-item {
         padding: 10px;
+
         @media (max-width: @screen__sm) {
             padding: 6px;
         }
@@ -796,6 +798,10 @@
         box-shadow: 0px 0px 8px #00000029;
         padding: 10px;
         border-radius: 10px;
+
+        @media (max-width: @screen__sm) {
+            padding: 5px;
+        }
 
         .product-item-photo {
             .product-labels {
@@ -840,9 +846,10 @@
         .align-items(flex-start);
         .justify-content(space-between);
         min-height: 40px;
-        @media (max-width: @screen__sm){
-            min-height: auto;
-        }
+
+        //        @media (max-width: @screen__sm) {
+        //            min-height: auto;
+        //        }
 
         .price-box {
             margin: 0;
@@ -879,8 +886,8 @@
     }
 
     .product-item-name {
-        font-weight: 400;
         .product-item-name();
+
         @media (max-width: @screen__sm) {
             font-size: 12px;
         }
@@ -928,6 +935,7 @@ a.see-all-btn {
             text-transform: uppercase;
             font-size: 15px;
             margin-bottom: 6px;
+
             @media (max-width: @screen__sm) {
                 font-size: 12px;
             }
@@ -962,7 +970,8 @@ a.see-all-btn {
             li {
                 width: 12px;
                 height: 12px;
-                @media (max-width: @screen__sm){
+
+                @media (max-width: @screen__sm) {
                     width: 10px;
                     height: 10px;
                 }
@@ -971,7 +980,8 @@ a.see-all-btn {
                     width: 12px;
                     height: 12px;
                     border: 1px solid @color-1;
-                    @media (max-width: @screen__sm){
+
+                    @media (max-width: @screen__sm) {
                         width: 10px;
                         height: 10px;
                     }

@@ -1048,7 +1048,7 @@ header.page-header.type2 {
                 nav.navigation.sw-megamenu {
                     padding: 0;
 
-                    ul {
+                    > ul {
                         padding: 0;
                         padding-right: 30px;
 
@@ -1076,10 +1076,14 @@ header.page-header.type2 {
                                 }
                             }
                             a {
-                                color: @color-2;
+                                color: @color-4;
                                 font-size: 16px;
                                 padding: 15px 20px;
                                 background: transparent;
+                                @media (max-width: @screen__md){
+                                    border-top: 1px solid @colo7-7_light;
+                                    padding: 17px 20px;
+                                }
 
                                 &::after {
                                     display: none;
@@ -1105,12 +1109,19 @@ header.page-header.type2 {
                                         a {
                                             color: @color-2;
                                             font-size: 15px;
+                                            border: 0;
 
                                             &::before {
                                                 display: none;
                                             }
                                         }
                                     }
+                                }
+                            }
+
+                            &:first-child{
+                                a{
+                                    border: 0;
                                 }
                             }
                         }
@@ -1279,6 +1290,7 @@ header.page-header.type2 {
             @media (max-width: @screen__md){
                 content: "";
                 background: #0000004d;
+                pointer-events: none;
                 width: 100%;
                 height: 100%;
                 position: absolute;

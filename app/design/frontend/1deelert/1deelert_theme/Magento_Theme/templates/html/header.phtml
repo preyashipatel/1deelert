@@ -39,3 +39,19 @@ $welcomeMessage = $block->getWelcome();
 <?php elseif ($block->getShowPart() == 'other') :?>
     <?= $block->getChildHtml() ?>
 <?php endif ?>
+
+
+<script>
+
+   require(['jquery'], function($){
+
+       $(document).on('mouseup', function(e) {
+          let targetEle = $('.page-header.type2 .nav-sections');
+           if (!$(e.target ).is(targetEle) && $(targetEle).has(e.target).length === 0) {
+              $('html').removeClass('nav-open');
+           }
+       });
+
+   });
+   
+</script>

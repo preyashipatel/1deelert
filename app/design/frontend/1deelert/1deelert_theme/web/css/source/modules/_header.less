@@ -259,8 +259,8 @@ header.page-header.type2 {
         }
 
         .header-center {
-            flex: 0 0 30%;
-            max-height: 30%;
+            flex: 0 0 35%;
+            max-height: 35%;
             margin: 0;
             padding: 0;
 
@@ -278,8 +278,8 @@ header.page-header.type2 {
         }
 
         .header-right {
-            flex: 0 0 55%;
-            max-width: 55%;
+            flex: 0 0 50%;
+            max-width: 50%;
             padding: 0;
             .flex();
             .align-items(center);
@@ -357,20 +357,15 @@ header.page-header.type2 {
                             &::before {
                                 content: '';
                                 background: url('../images/header-user.png');
-                                width: 30px;
-                                height: 30px;
+                                width: 25px;
+                                height: 28px;
                                 background-size: cover;
                                 vertical-align: middle;
                                 margin-right: 0;
 
                                 @media (max-width: @screen__xl) {
-                                    width: 25px;
-                                    height: 25px;
-                                }
-
-                                @media (max-width: @screen__lg) {
                                     width: 22px;
-                                    height: 22px;
+                                    height: 26px;
                                 }
 
                                 @media (max-width: @screen__md) {
@@ -591,8 +586,14 @@ header.page-header.type2 {
             }
 
             .store-lang {
+                div#switcher-language-trigger {
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: @color-1;
+                }
                 .switcher-dropdown{
-                    min-width: 130px;
+                    min-width: 145px;
                     padding: 8px 0 !important;
 
                     .switcher-option {
@@ -630,6 +631,20 @@ header.page-header.type2 {
                                     top: 11px;
                                     border-radius: 100%;
                                     background: #FF0000;
+                                }
+                                span{
+                                    &:last-child{
+                                        color: #FF0000;
+                                    }
+                                }
+
+                            }
+
+                            span{
+                                &:last-child{
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                    color: @color-1;
                                 }
                             }
                         }
@@ -778,7 +793,7 @@ header.page-header.type2 {
                 border-radius: 5px;
                 height: 45px;
                 color: @color-2_dark;
-                padding-left: 50px;
+                padding-left: 45px;
                 padding-right: 20px;
 
                 @media (max-width: @screen__xl) {
@@ -812,6 +827,13 @@ header.page-header.type2 {
                 &:before {
                     font-size: 16px;
                     color: @color-7;
+                    background-image: url(../images/search-icon.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    content: "";
+                    width: 18px;
+                    height: 100%;
+                    background-size: contain;
 
                     @media (max-width: @screen__md) {
                         font-size: @font-size_4;
@@ -932,6 +954,12 @@ header.page-header.type2 {
                     color: #4E245E;
                     text-transform: uppercase;
                     font-size: 11px;
+                    div#switcher-language-trigger-nav {
+                        flex-direction: column;
+                        strong.view-en{
+                            line-height: 1.5;
+                        }
+                    }
                 }
 
                 .switcher-options {
@@ -942,6 +970,9 @@ header.page-header.type2 {
                             content: "";
                             width: 8px;
                             height: 8px;
+                            @media (max-width: @screen__md){
+                                margin: 0 !important;
+                            }
                         }
                     }
                 }
@@ -952,7 +983,7 @@ header.page-header.type2 {
                     border: 0 !important;
                     right: 0!important;
                     left: auto;
-                    min-width: 140px;
+                    min-width: 105px;
     
                     &::before,
                     &::after {
@@ -966,22 +997,37 @@ header.page-header.type2 {
                             position: relative;
                             line-height: 1.3;
                             text-transform: none;
+                            text-align: right;
 
                             input {
                                 margin-right: 5px;
                                 position: relative;
                                 top: 2px;
+                                display: none;
                             }
                             &.active{
-                                &::after{
-                                    content: "";
-                                    width: 7px;
-                                    height: 7px;
-                                    position: absolute;
-                                    left: 18px;
-                                    top: 9px;
-                                    border-radius: 100%;
-                                    background: #FF0000;
+                                // &::after{
+                                //     content: "";
+                                //     width: 7px;
+                                //     height: 7px;
+                                //     position: absolute;
+                                //     left: 18px;
+                                //     top: 9px;
+                                //     border-radius: 100%;
+                                //     background: #FF0000;
+                                // }
+                                span{
+                                    &:last-child{
+                                        color: #FF0000;
+                                    }
+                                }
+                            }
+
+                            span{
+                                &:last-child{
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                    color: @color-1;
                                 }
                             }
                         }
@@ -1079,19 +1125,35 @@ header.page-header.type2 {
                             margin: 0;
                             border-bottom: 0;
 
-                            .open-children-toggle{
-                                @media (max-width: @screen__md) {
-                                    text-align: center;
-                                    line-height: 42px;
-                                    top: 3px;
-                                    &::after{
-                                        content: '\e81c';
-                                        font-family: 'porto-icons';
-                                        color: inherit;
-                                        font-size: 16px;
+                            @media (max-width: @screen__md){
+                                &.parent {
+                                    a.level-top{
+                                        &::after{
+                                            content: '\e81c';
+                                            font-family: 'porto-icons';
+                                            color: inherit;
+                                            font-size: 16px;
+                                            display: block;
+                                            margin-top: 3px;
+                                            right: 22px;
+                                        }
+                                        &.ui-state-active{
+                                            &::after{
+                                                transform: rotate(180deg);
+                                            }
+                                        }
                                     }
                                 }
                             }
+
+                            .open-children-toggle{
+                                @media (max-width: @screen__md) {
+                                    line-height: 42px;
+                                    top: 3px;
+                                    opacity: 0;
+                                }
+                            }
+                            
                             a {
                                 color: @color-4;
                                 font-size: 16px;

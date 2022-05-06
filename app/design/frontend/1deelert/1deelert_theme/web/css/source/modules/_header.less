@@ -413,6 +413,7 @@ header.page-header.type2 {
                                     }
                                 }
                             }
+                           
                         }
                     }
 
@@ -657,6 +658,9 @@ header.page-header.type2 {
             }
             .menu-slider-custom{
                 padding-right: 20px;
+                li.ui-menu-item.home-catagorylevel0 {
+                    display: none !important;
+                }
             }
             .category-menu{
                 position: relative;
@@ -710,7 +714,7 @@ header.page-header.type2 {
                                 border-radius: 24px;
                                 margin: 5px;
                                 display: inline-block;
-                                padding: 9px 10px;
+                                padding: 8px 10px;
                                 font-size: 13px;
                                 &:hover{
                                     border-color: @color-1;
@@ -1042,6 +1046,19 @@ header.page-header.type2 {
                             color: @color-2;
                             font-size: 16px;
                         }
+
+                        &.link.authorization-link{
+                            @media (max-width: @screen__md) {
+                                display: none;
+                            }
+                        }
+                    }
+                    + ul.header.links{
+                        li.link.authorization-link{
+                            @media (max-width: @screen__md) {
+                                display: block;
+                            }
+                        }
                     }
                 }
 
@@ -1080,9 +1097,10 @@ header.page-header.type2 {
                                 font-size: 16px;
                                 padding: 15px 20px;
                                 background: transparent;
+                                position: relative;
                                 @media (max-width: @screen__md){
                                     border-top: 1px solid @colo7-7_light;
-                                    padding: 17px 20px;
+                                    padding: 18px 20px;
                                 }
 
                                 &::after {
@@ -1106,10 +1124,14 @@ header.page-header.type2 {
                                     }
 
                                     li {
+                                        &::after{
+                                            display: none;
+                                        }
                                         a {
                                             color: @color-2;
                                             font-size: 15px;
                                             border: 0;
+                                            padding: 0;
 
                                             &::before {
                                                 display: none;
@@ -1120,8 +1142,27 @@ header.page-header.type2 {
                             }
 
                             &:first-child{
+                                &::after{
+                                    content: "";
+                                    width: 16px;
+                                    height: 16px;
+                                    position: absolute;
+                                    right: 20px;
+                                    top: 13px;
+                                    background-image: url(../images/home.svg);
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    background-size: contain;
+                                }
                                 a{
                                     border: 0;
+                                }
+                            }
+
+                            &.home-catagory{
+                                display: none !important;
+                                @media (max-width: @screen__md){
+                                    display: block !important; 
                                 }
                             }
                         }
@@ -1186,15 +1227,19 @@ header.page-header.type2 {
                                 border-top: 3px solid @color-1;
                                 z-index: 0;
                             }
-                            > ul{
+                            ul{
                                 padding: 0;
                                 position: relative;
                                 z-index: 2;
                                 li{
+                                    margin: 0;
                                     a {
                                         border: 1px solid @color-7_dark;
                                         border-radius: 24px;
                                         margin: 15px;
+                                        padding: 14px 20px;
+                                        font-weight: 600;
+
                                         @media (max-width: @screen__xl){
                                             margin: 10px;
                                             padding: 12px 16px;
@@ -1203,11 +1248,15 @@ header.page-header.type2 {
                                             border-color: @color-1;
                                             color: @color-1;
                                         }
+                                        &::after{
+                                            display: none;
+                                        }
     
                                         span.product-count{
                                             display: inline-block;
-                                            font-size: 14px;
+                                            font-size: 12px;
                                             padding-left: 2px;
+                                            font-weight: 400;
                                         }
                                         span{
                                             &::before, &::after{
@@ -1278,6 +1327,10 @@ header.page-header.type2 {
                 span.product-count{
                     display: none;
                 }
+            }
+
+            &.ui-menu-item.home-catagory {
+                display: none !important;
             }
         }
     }

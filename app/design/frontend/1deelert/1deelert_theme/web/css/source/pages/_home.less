@@ -123,7 +123,7 @@
                 min-width: 230px;
                 border-radius: 5px;
                 color: @button-font_color;
-                background: transparent linear-gradient(151deg, #4E245E 0%, #39054D 100%) 0% 0% no-repeat padding-box;
+                background: @color-1;
                 position: relative;
                 overflow: hidden;
 
@@ -895,28 +895,31 @@
 }
 
 a.see-all-btn {
-    display: none;
+    height: 32px;
     text-align: right;
     padding: 10px 25px 0;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     position: relative;
-    margin-right: 20px;
+    margin-right: 10px;
+    display: block;
+    @media (max-width: @screen__md) {
+        font-size: 12px;
+    }
 
     &::after {
         content: "";
         background-image: url('../images/alllink.svg');
         width: 20px;
-        height: 20px;
+        height: 28px;
         background-size: contain;
         position: absolute;
         background-repeat: no-repeat;
         right: 0;
         background-position: center;
-    }
-
-    @media (max-width: @screen__sm) {
-        display: block;
+        @media (max-width: @screen__sm){
+            height: 20px;
+        }
     }
 }
 

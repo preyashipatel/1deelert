@@ -40,7 +40,8 @@ $posts = $block->getCollection();
                                     alt="new-products" width="420" height="370">
                             </a>
                         </div>
-                        <p class="date"><?= /** @noEscape */ $block->getDateFormat($post->getPublishDate()); ?></p>
+                        <?php $pubisDate = date('j M Y',strtotime($post->getPublishDate()))?>
+                        <p class="date"><?= /** @noEscape */ $pubisDate; ?></p>
                         <h4>
                             <a class="post-link-title" title="<?= $block->escapeHtmlAttr($post->getName()) ?>"
                                href="<?= $block->escapeUrl($post->getUrl()) ?>">

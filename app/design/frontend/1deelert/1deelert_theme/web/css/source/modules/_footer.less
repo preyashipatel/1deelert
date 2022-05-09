@@ -9,11 +9,11 @@
 
 
     > .container {
-        max-width: 1800px;
+        max-width: 1600px;
         padding: 0 15px;
 
         @media (max-width: @screen__xxl) {
-            max-width: 1440px;
+            max-width: 1300px;
         }
 
         @media (max-width: @screen__xl) {
@@ -60,7 +60,7 @@
     }
 
     .contact-details {
-        max-width: 80%;
+        max-width: 350px;
 
         @media (max-width: @screen__xl) {
             max-width: 100%;
@@ -170,7 +170,7 @@
         border-top: 1px solid @color-1;
         padding-top: 20px;
         padding: 0;
-        max-width: 80%;
+        max-width: 75%;
         text-align: center;
         .justify-content(space-between);
         .align-items(center);
@@ -223,11 +223,12 @@
 
 .footer-call a {
     color: @color-1;
-    font-size: @font-size_2;
+    font-size: @font-size_3;
     font-weight: 700;
     margin-top: -10px;
     line-height: 1;
     display: inline-block;
+    letter-spacing: 2px;
 
     @media (max-width: @screen__xl) {
         font-size: 24px;

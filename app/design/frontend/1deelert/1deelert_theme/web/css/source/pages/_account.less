@@ -43,7 +43,7 @@
                 font-size: 24px;
                 line-height: 1.2;
                 cursor: pointer;
-                border-bottom: 2px solid;
+                border-bottom: 2px solid transparent;
                 @media (max-width: @screen__md) {
                     font-size: 16px;
                     line-height: 1;
@@ -51,6 +51,7 @@
 
                 &:not(.inactive) {
                     color: @color-1;
+                    border-color: @color-1;
                 }
             }
         }
@@ -139,8 +140,8 @@
 
         > .legend {
             font-size: 22px;
-            padding: 0 15px 15px;
-            font-weight: 400;
+            padding: 10px 15px 15px;
+            font-weight: 500;
             text-transform: capitalize;
             @media (max-width: @screen__sm) {
                 font-size: 18px;

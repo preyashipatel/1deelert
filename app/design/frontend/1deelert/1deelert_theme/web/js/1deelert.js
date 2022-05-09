@@ -260,8 +260,18 @@ define([
                     $('header.page-header').removeClass('sticky-active');
                 }
             });
-
+            
         });
-
+        $('body').append( "<div class='site_loader'></div>" );
+        $(window).on('load', function() {
+            $('body').addClass('loader-removed');
+        });
+        
     }
 });
+
+
+// window.addEventListener('load', () => {
+//     let bodyEle = document.querySelector('body');
+//     bodyEle.classList.add('loader-removed');
+// });

@@ -24,8 +24,7 @@ $_category_grid_config = $_portohelper->getConfig('porto_settings/category_grid'
 $_product_label_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/product_label');
 $_lazyload = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/optimization/lazyload');
 $extra_class = $this->getData("extra_class");
-// Daily deal Helper
-$_dailydealhelper =$this->helper('Smartwave\Dailydeals\Helper\Data');
+$currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
 
 $aspect_ratio = $this->getData("aspect_ratio");
 if($aspect_ratio == null) {
@@ -179,46 +178,7 @@ if($product_type == null) {
                             </div>
                         </div>
                         <?php endif; ?>
-                        <!-- Dailydeal Product data -->
-                        <?php if($_dailydealhelper->isDealProduct($_product->getId())) : ?>
-                        <?php $unique_id = $this->getData("name")."_".rtrim(base64_encode(md5(microtime())),"="); ?>
-                        <input type="hidden" id="todate_<?php echo $unique_id; ?>" value="<?php echo $_dailydealhelper->getDailydealToDate($_product->getSku()); ?>" >
-                        <input type="hidden" id="fromdate_<?php echo $unique_id; ?>" value="<?php echo $_dailydealhelper->getDailydealFromDate($_product->getSku()); ?>">
-                        <div class="sw-dailydeal-wrapper" style="display:none;" data-unique-id="<?php echo $unique_id; ?>">
-                            <div class="sw-dailydeal">
-                                <p id="expired_<?php echo $unique_id; ?>"></p>
-                                <div class="countdowncontainer countdowncontainer_<?php echo $unique_id; ?>" style="display:none;">
-                                    <span class="dailydeal-label">
-                                        <?php echo __('Ends In:'); ?>
-                                    </span>
-                                    <span class="number-wrapper">
-                                        <div class="line"></div>
-                                        <span class="number day"><p id="countdown_days_<?php echo $unique_id; ?>">00</p></span>
-                                        <div class="caption"><?php echo __('Day(s), '); ?></div>
-                                    </span>
-
-                                    <span class="number-wrapper">
-                                        <div class="line"></div>
-                                        <span class="number hour"><p id="countdown_hours_<?php echo $unique_id; ?>">00</p></span>
-                                        <div class="caption">:</div>
-                                    </span>
-
-                                    <span class="number-wrapper">
-                                        <div class="line"></div>
-                                        <span class="number min"><p id="countdown_minutes_<?php echo $unique_id; ?>">00</p></span>
-                                        <div class="caption">:</div>
-                                    </span>
-
-                                    <span class="number-wrapper">
-                                        <div class="line"></div>
-                                        <span class="number sec"><p id="countdown_seconds_<?php echo $unique_id; ?>">00</p></span>
-                                        <div class="caption"></div>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                        <!-- Dailydeal Product End -->
+                        
                     </div>
                     <div class="product details product-item-details">
                         <?php
@@ -228,7 +188,24 @@ if($product_type == null) {
                                 <?php echo 'SKU  '.$_helper->productAttribute($_product, $_product->getSku(), 'sku'); ?>
                         </strong>
                         <?php if($_category_config['product_price']): ?>
-                        <?php echo $block->getProductPrice($_product) ?>
+                        <?php //echo $block->getProductPrice($_product) ?>
+                        <?php if($_product->getSpecialPrice()):?>
+                            <div class="price-spacial-wrap">
+                                <span class="price-wrap">
+                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                    <span class="product-price-new"><?= number_format($_product->getSpecialPrice(), 2, ".", "") ?></span>
+                                </span>
+                                <span class="old-price-wrap">
+                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                    <span class="product-price-old" id="old-price-2"><?= number_format($_product->getPrice(), 2, ".", "") ?></span>
+                                </span>
+                            </div>
+                            <?php else:?>
+                                <span class="price-wrap">
+                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                    <span class="product-price"><?= number_format($_product->getPrice(), 2, ".", "") ?></span>
+                                </span>        
+                            <?php endif;?>
                         <?php endif; ?>
                         <?php echo $block->getProductDetailsHtml($_product); ?>
 
@@ -240,85 +217,6 @@ if($product_type == null) {
         </div>
         <a href="#" class="see-all-btn">See All</a>
     </div>
-    <?php if (!$_dailydealhelper->isLoadedTimer()): ?>
-    <script type="text/javascript">
-    require([
-        'jquery'
-    ], function ($) {
-    // Timer for LEFT time for Dailydeal product
-        var _second = 1000;
-        var _minute = _second * 60;
-        var _hour = _minute * 60;
-        var _day = _hour * 24;
-        var timer;
-
-        //Set date as magentodatetime
-        var date = new Date('<?php echo $_dailydealhelper->getcurrentDate() ?>');
-        var l_date = new Date();
-        var offset_date = l_date - date;
-
-        function showRemaining()
-        {
-            $(".sw-dailydeal-wrapper").each(function(){
-                var unique_id = $(this).attr("data-unique-id");
-                // get Value of dailydeal product
-                var cid='countdown_'+unique_id;
-                var daysid='countdown_days_'+unique_id;
-                var hoursid='countdown_hours_'+unique_id;
-                var minutesid='countdown_minutes_'+unique_id;
-                var secondsid='countdown_seconds_'+unique_id;
-
-                var startdateid='fromdate_'+unique_id;
-                var id='todate_'+unique_id;
-
-                var enddate = new Date($('#'+id).val());
-                var dealstartdate=new Date($('#'+startdateid).val());
-
-                var currentdate=new Date();
-
-                //Get Difference between Two dates
-                var distance = enddate - (currentdate - offset_date);
-
-                $('.sw-dailydeal-wrapper').show();
-
-                if (distance < 0) {
-                   // clearInterval(timer);
-                    $('#expired_'+unique_id).html("<span style='font-size:25px; color:#000;'>EXPIRED!<span>");
-
-                } else if(dealstartdate > currentdate) {
-                   $('.countdowncontainer_'+unique_id).hide();
-                   var msg="<span style='font-size:15px; color:#000;'> Coming Soon..<br>Deal Start at:<br>"+$('#'+startdateid).val()+"<span>";
-                   $('#expired_'+unique_id).html(msg);
-                } else {
-                    var days = Math.floor(distance / _day);
-                    var hours = Math.floor((distance % _day) / _hour);
-                    var minutes = Math.floor((distance % _hour) / _minute);
-                    var seconds = Math.floor((distance % _minute) / _second);
-
-                    if(hours < 10)
-                        hours = "0" + hours;
-                    if(minutes < 10)
-                        minutes = "0" + minutes;
-                    if(seconds < 10)
-                        seconds = "0" + seconds;
-                    $('.countdowncontainer_'+unique_id).show();
-                    $('#'+daysid).html(days);
-                    $('#'+hoursid).html(hours);
-                    $('#'+minutesid).html(minutes);
-                    $('#'+secondsid).html(seconds);
-                }
-            });
-        }
-
-        // Set Interval
-        timer = setInterval(function()
-        {
-            showRemaining();
-        }, 1000);
-    });
-    </script>
-    <?php $_dailydealhelper->setLoadedTimer(); ?>
-    <?php endif; ?>
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
         <script type="text/x-magento-init">
         {

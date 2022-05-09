@@ -975,3 +975,45 @@ div.mage-error[generated] {
         }
     }
 }
+
+
+body{
+    overflow: hidden;
+    &::after{
+        content: "";
+        background: #000000e6;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+    }
+    &::before{
+        content: "\f110";
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        z-index: 898989;
+        font-family: 'Font Awesome 5 Free'; 
+        font-size: 20px;
+        background: pink;
+        transform: translate(-50%, -50%);
+    }
+    .page-wrapper {
+        opacity: 0.4;
+    }
+
+    &.loader-removed{
+        overflow: auto;
+        &::after{
+            display: none;
+        }
+        .page-wrapper {
+            opacity: 1;
+        }
+    }
+}

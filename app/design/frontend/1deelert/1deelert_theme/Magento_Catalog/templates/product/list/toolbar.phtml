@@ -14,6 +14,7 @@
  * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
  */
 use Magento\Catalog\Model\Product\ProductList\Toolbar;
+$productTotalCount = $this->helper('Elsnertech\Customisation\Helper\Data');
 ?>
 <?php if ($block->getCollection()->getSize()): ?>
     <div class="toolbar toolbar-products demo" data-mage-init='<?php /* @escapeNotVerified */ echo $block->getWidgetOptionsJson(); ?>'>
@@ -25,7 +26,7 @@ use Magento\Catalog\Model\Product\ProductList\Toolbar;
         <?php echo $block->getPagerHtml() ?>
 
         
-        <div class="product-count"><?=  count($block->getCollection()).__('  Items');?></div>
+        <div class="product-count"><?=  $productTotalCount->getCurrentCategory() .__('  Items');?></div>
         <?php if ($block->isExpanded()): ?>
             <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
         <?php endif; ?>

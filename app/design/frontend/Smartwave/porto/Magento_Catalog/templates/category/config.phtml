@@ -18,13 +18,13 @@ require([
           var $ph = $obj.prev('.filter-placeholder'),
               scrollTop = $(window).scrollTop(),
               offset = sticky_height;
-          if ($ph.offset().top <= scrollTop + offset) {
-            $ph.css('height', $obj.outerHeight() + parseInt($obj.css('margin-bottom')));
-            $obj.addClass('sticky').css('top', offset);
-          } else {
+          // if ($ph.offset().top <= scrollTop + offset) {
+          //   $ph.css('height', $obj.outerHeight() + parseInt($obj.css('margin-bottom')));
+          //   $obj.addClass('sticky').css('top', offset);
+          // } else {
             $ph.css('height', '');
             $obj.removeClass('sticky');
-          }
+          // }
         };
         if (window.innerWidth < 992) {
           window.removeEventListener('scroll', init_filter_sticky);

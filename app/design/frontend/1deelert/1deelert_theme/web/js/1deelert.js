@@ -15,7 +15,10 @@ define([
         $('#tabs li a:not(:first)').addClass('inactive');
         $('.container-acoount').hide();
         $('.container-acoount:first').show();
-
+        $('.close-filter').click(function () {
+            $('.sidebar-overlay').removeClass('active');
+            $('html').removeClass('sidebar-opened');
+        });
         $('#tabs li a').click(function () {
             var t = $(this).attr('id');
             if ($(this).hasClass('inactive')) { //this is the start of our condition 
@@ -262,10 +265,29 @@ define([
             });
             
         });
-        $('body').append( "<div class='site_loader'></div>" );
+
+        // $('body').addClass('loader-removed');
         $(window).on('load', function() {
-            $('body').addClass('loader-removed');
+            $('body').removeClass('loader-removed');
         });
+        $('.weltpixel_quickview_button_v2').click(function () {
+            console.log("Caaaa");
+            $('body').removeClass('loader-removed');
+        });
+        // $(document).ready(function () {
+        //     console.log($("body.cms-home")[0]);
+        //     //$('body').removeClass('loader-removed');
+        //     if($("body.cms-home")[0]){
+        //         $('body.cms-home').removeClass('loader-removed');
+        //     }else{
+        //         console.log('caa2');
+        //         setTimeout(() => {
+        //             console.log('caa');
+        //             $('body').removeClass('loader-removed');
+        //         }, 10000);
+        //     }
+
+        // });
         
     }
 });

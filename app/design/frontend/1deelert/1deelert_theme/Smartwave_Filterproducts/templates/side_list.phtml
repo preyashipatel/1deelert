@@ -18,6 +18,7 @@ use Magento\Framework\App\Action\Action;
 $_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
 
 $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
 
@@ -122,7 +123,23 @@ if(!$image_height) {
                             </div>
                         <?php endif; ?>
                         <?php if($_category_config['product_price']): ?>
-                        <?php echo $block->getProductPrice($_product) ?>
+                            <?php if($_product->getSpecialPrice()):?>
+                            <div class="price-spacial-wrap">
+                                <span class="price-wrap">
+                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                    <span class="product-price-new"><?= number_format($_product->getSpecialPrice(), 2, ".", "") ?></span>
+                                </span>
+                                <span class="old-price-wrap">
+                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                    <span class="product-price-old" id="old-price-2"><?= number_format($_product->getPrice(), 2, ".", "") ?></span>
+                                </span>
+                            </div>
+                            <?php else:?>
+                                <span class="price-wrap">
+                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                    <span class="product-price"><?= number_format($_product->getPrice(), 2, ".", "") ?></span>
+                                </span>        
+                            <?php endif;?>
                         <?php endif; ?>
                         <?php echo $block->getProductDetailsHtml($_product); ?>
                     </div>

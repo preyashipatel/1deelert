@@ -42,7 +42,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function getCurrentCategory() {        
         $category = $this->_registry->registry('current_category');
-        return $category->getProductCount();
+        //print_r($category);exit;
+        if($category){
+            return $category->getProductCount();
+        }else{
+            return 0;
+        }
     } 
     public function getCurrentCurrencySymbol()
     {

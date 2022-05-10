@@ -357,7 +357,7 @@ html .background-color-secondary {
     margin-bottom: 15px;
 }
 .widget.contact-info li:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 .footer .contact-info .contact-details strong, .footer .contact-info .contact-details span {
      line-height: 20px;

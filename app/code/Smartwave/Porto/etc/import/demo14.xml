@@ -418,7 +418,7 @@ html .background-color-secondary {
     font-weight: 700;
 }
 .widget.contact-info li:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 .footer .follow-us .share-links a {
     width: 37px;

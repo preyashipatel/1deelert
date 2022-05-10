@@ -201,7 +201,7 @@
                 background: url('../images/slider-arrow-left.png');
                 width: 35px;
                 height: 35px;
-                opacity: 1 !important;
+                opacity: 1;
                 margin-top: -18px;
                 min-width: auto;
                 background-size: cover;
@@ -214,6 +214,11 @@
                     width: 25px;
                     height: 25px;
                     margin-top: -13px;
+                }
+
+                &.disabled {
+                    opacity: 0.2;
+                    pointer-events: none;
                 }
             }
 

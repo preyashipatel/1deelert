@@ -391,7 +391,7 @@ html .background-color-secondary {
     font-weight: 700;
 }
 .widget.contact-info li:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 .footer .contact-info .contact-details strong {
     text-transform: uppercase;

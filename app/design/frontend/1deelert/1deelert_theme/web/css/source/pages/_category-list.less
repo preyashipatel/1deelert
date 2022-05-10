@@ -23,8 +23,8 @@
         margin-bottom: 30px;
 
         @media (max-width: @screen__sm) {
-            padding: 0 15px;
-            margin-bottom: 25px;
+            padding: 0 10px;
+            margin-bottom: 20px;
         }
     }
 
@@ -126,14 +126,6 @@
             span.sku-number {
                 @media (max-width: @screen__sm) {
                     color: @color-1;
-                    padding-left: 6px;
-                    position: relative;
-
-                    &::before {
-                        content: ":";
-                        position: absolute;
-                        left: 0;
-                    }
                 }
             }
         }
@@ -145,44 +137,51 @@
                 font-size: @font-size_5;
                 color: @color-2_dark;
                 margin: 0 0 10px;
-
-                @media (max-width: @screen__sm) {
-                    font-size: 14px;
+                @media (max-width: @screen__xl) {
                     margin: 0 0 5px;
                 }
-            }
-        }
-
-        .price-box {
-            margin: 0;
-            .flex();
-
-            .price {
-                color: @color-1;
-                font-weight: 400;
-                font-size: 18px;
-                line-height: 1;
 
                 @media (max-width: @screen__sm) {
                     font-size: 14px;
-                    font-weight: 600;
-                }
-            }
-
-            .special-price {
-                order: 1;
-                padding-right: 10px;
-            }
-
-            .old-price {
-                order: 2;
-
-                .price {
-                    color: @color-7_dark;
-                    opacity: 0.7;
                 }
             }
         }
+
+        .price-wrap {
+            margin: 0;
+            font-weight: 500;
+            color: @color-1;
+            font-size: @font-size_5;
+            line-height: 1.2;
+            margin-right: 10px;
+
+            @media (max-width: @screen__xl) {
+                font-size: @font-size_7;
+            }
+            // @media (max-width: @screen__sm) {
+            //     font-size: @font-size_8;
+            // }
+        }
+
+        .price-spacial-wrap{
+            .flex();
+            .align-items(center);
+            
+            .old-price-wrap {
+                color: @color-9_dark;
+                font-size: @font-size_5;
+                font-weight: 500;
+                text-decoration: line-through;
+                line-height: 1.2;
+                @media (max-width: @screen__xl) {
+                    font-size: @font-size_7;
+                }
+                @media (max-width: @screen__sm) {
+                    font-size: @font-size_8;
+                }
+            }
+        }
+        
     }
 
     .products-list {
@@ -314,6 +313,7 @@
     .product-item .weltpixel-quickview.weltpixel_quickview_button_v2 {
         background-color: @color-1;
         letter-spacing: 1px;
+        padding: 2px;
 
         @media (max-width: @screen__md) {
             opacity: 1;
@@ -403,14 +403,14 @@
                 bottom: 0;
                 width: 35px;
                 top: 0;
-                height: 40px;
+                height: 45px;
                 visibility: visible;
                 opacity: 1;
                 color: @color-2_dark;
                 border-radius: 0;
                 border: 0;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-                line-height: 40px;
+                line-height: 45px;
                 display: block;
                 margin: 0 auto;
                 background: @color-6;
@@ -726,8 +726,13 @@
             background-color: @color-9;
             border: 0;
             height: 45px;
-            padding: 0 30px 0 15px;
+            padding: 0 35px 0 15px;
+            background-position-x: 30px;
             margin-right: 15px;
+            color: @color-2_dark;
+        }
+        .sorter-action{
+            display: none;
         }
     }
 
@@ -821,6 +826,7 @@
     .custom-block {
         .products.list {
             .product-item-info {
+
                 @media (max-width: @screen__lg) {
                     .flex-direction(column);
 

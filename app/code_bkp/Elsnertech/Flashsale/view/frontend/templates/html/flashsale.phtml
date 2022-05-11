@@ -1,0 +1,128 @@
+<?php
+   $products = $block->getFlashsaleProducts();
+   $showWishlist = true;
+   $showCompare = true;
+   $showCart = true;
+   $flashDetails = $block->getFlashsaleDetails();
+   $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+   $_helper = $this->helper('Magento\Catalog\Helper\Output');
+    $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
+    $_product_label_config = $_portohelper->getConfig('porto_settings/product_label');
+
+?>
+
+<div class="container">
+    <div class="flase-sale-wrap">
+        <div class="text-right width60">
+            <div id="countdown">   
+            <span><span id="days"></span></span>
+            <span><span id="hours"></span></span>
+            <span><span id="minutes"></span></span>
+            <span><span id="seconds"></span></span>
+        </div>
+        </div>
+        <div class="block-title width40">
+            <h2 class="title"><?= $block->getFlashsaleProductsName() ?></h2>
+        </div>
+    </div>
+    <?php if (empty($products)): ?>
+    <div class="message info empty">
+        <div><?= /* @noEscape */ __('No Flash Sale Product Found.') ?></div>
+    </div>
+    <?php else: ?>
+    <div class="products-grid grid">
+        <ol class="product-items widget-product-grid">
+            <div class="slider slick-slider flaseSale" id="flaseSale">
+                <?php foreach ($products as $_product): ?>
+                <?php $postParams = $block->getAddToCartPostParameters($_product); ?>
+                <li class="product-item item">
+                    <div class="product-item-info">
+                        <?php 
+                            $image = 'category_page_grid';
+                            $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE);
+                            $productImageUrl = $productImage->getUrl();
+                        ?>
+                        <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="product-item-photo">
+                            <span class="product-image-container" style="width: 240px;">
+                                <span class="product-image-wrapper" style="padding-bottom: 125%;">
+                                    <img class="product-image-photo" src="<?= $productImageUrl ?>" alt="flash-sale" width="300" height="300" /></span>
+                            </span>
+                            <?php
+                            $product_label = "";
+                            if($_product_label_config['sale_label']) {
+                                $orgprice = $_product->getPrice();
+                                $specialprice = $_product->getSpecialPrice();
+                                $specialfromdate = $_product->getSpecialFromDate();
+                                $specialtodate = $_product->getSpecialToDate();
+                                $today = time();
+                                if(!$specialprice)
+                                    $specialprice = $orgprice;
+                                if($specialprice < $orgprice) {
+                                    if((is_null($specialfromdate) && is_null($specialtodate)) || ($today >= strtotime($specialfromdate) && is_null($specialtodate)) || ($today <= strtotime($specialtodate) && is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))){
+                                        if($_product_label_config['sale_label_percent']) {
+                                            $save_percent = 100-round(($specialprice/$orgprice)*100);
+                                            $product_label .= '<div class="product-label sale-label">'.'-'.$save_percent.'%'.'<span>off</span></div>';
+                                        } else {
+                                            $product_label .= '<div class="product-label sale-label">'.$_product_label_config['sale_label_text'].'<span>off</span></div>';
+                                        }
+                                    }
+                                }
+                            }
+                            if($product_label)
+                                echo '<div class="product-labels">'.$product_label.'</div>';
+                        ?>
+                        </a>
+                        <div class="product-item-details">
+                            <strong class="product-item-name">
+                                <?= $block->escapeHtml('SKU  '.$_product->getSku()) ?>
+                            </strong>
+                            <?= /* @noEscape */ $block->getPrice($_product) ?>
+                            <?php
+                        if ($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
+                                 echo $block->getProductDetailsHtml($_product);
+                        } ?>
+                        </div>
+                    </div>
+                </li>
+                <?php endforeach ?>
+            </div>
+        </ol>
+        <a href="#" class="see-all-btn">See All</a>
+    </div>
+</div>
+
+
+<script type="text/javascript">(function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+   let toDate = new Date('<?=$flashDetails['end_date'] ?>');
+   let today = new Date(),
+      dd = String(today.getDate()).padStart(2, "0"),
+      mm = String(today.getMonth() + 1).padStart(2, "0"),
+      yyyy = today.getFullYear(),
+      end_date = new Date('<?=$flashDetails['end_date'] ?>');
+
+  const countDown = new Date(end_date).getTime(),
+      x = setInterval(function() {    
+
+        const now = new Date().getTime(),
+              distance = countDown - now;
+        var tag = document.createElement("span");
+         
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+        //do something later when date is reached
+        if (distance < 0) {
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          clearInterval(x);
+        }
+        //seconds
+      }, 0)
+  }());</script>
+<?php endif; ?>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <head>
+        <css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+        <link src="Elsnertech_Flashsale::js/flashsale.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Elsnertech\Flashsale\Block\Adminhtml\Flashsale\Edit" name="elsnertech_flashsale_flashsale_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Elsnertech\Flashsale\Block\Adminhtml\Flashsale\Edit\Tabs" name="elsnertech_flashsale_flashsale_edit_tabs">
+                <block class="Elsnertech\Flashsale\Block\Adminhtml\Flashsale\Edit\Tab\Main" name="elsnertech_flashsale_flashsale_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main</argument>
+                    <argument name="block" xsi:type="string">elsnertech_flashsale_flashsale_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

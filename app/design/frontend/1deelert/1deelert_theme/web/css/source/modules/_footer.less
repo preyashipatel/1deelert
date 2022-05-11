@@ -59,54 +59,57 @@
         }
     }
 
-    .contact-details {
-        max-width: 350px;
-
-        @media (max-width: @screen__xl) {
-            max-width: 100%;
-        }
-
-        li {
-            font-size: @font-size_7;
-            line-height: 18px;
-            margin: 0 0 20px;
-
-            @media (max-width: @screen__sm) {
-                font-size: @font-size_8;
+    .contact-info.contact-info-block{
+        .contact-details {
+            max-width: 350px;
+    
+            @media (max-width: @screen__xl) {
+                max-width: 100%;
             }
-
-            iframe {
-                box-shadow: 0px 0px 6px #00000029;
-                background: @color-5;
-                padding: 3px;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .tel-no {
-                padding-right: 15px;
-            }
-
-            .fax-no {
+    
+            li {
+                font-size: @font-size_7;
+                line-height: 18px;
+                margin: 0 0 20px;
+    
                 @media (max-width: @screen__sm) {
-                    padding-left: 18px;
-                    position: relative;
-
-                    &::before {
-                        content: "|";
-                        position: absolute;
-                        left: 0;
+                    font-size: @font-size_8;
+                }
+    
+                iframe {
+                    box-shadow: 0px 0px 6px #00000029;
+                    background: @color-5;
+                    padding: 3px;
+                    width: 100%;
+                    max-width: 300px;
+                }
+    
+                .tel-no {
+                    padding-right: 15px;
+                }
+    
+                .fax-no {
+                    @media (max-width: @screen__sm) {
+                        padding-left: 18px;
+                        position: relative;
+    
+                        &::before {
+                            content: "|";
+                            position: absolute;
+                            left: 0;
+                        }
                     }
                 }
-            }
-
-            .map-footer {
-                @media (max-width: @screen__sm) {
-                    display: none;
+    
+                .map-footer {
+                    @media (max-width: @screen__sm) {
+                        display: none;
+                    }
                 }
             }
         }
     }
+    
 
     .desktop-call {
         display: block;

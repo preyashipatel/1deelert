@@ -16,6 +16,7 @@ $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
 $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
 $review_model = $_portohelper->getModel('\Magento\Review\Model\Review');
 $_category_config = $_portohelper->getConfig('porto_settings/category');
+$currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
 $_category_grid_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/category_grid');
 switch ($type = $block->getType()) {
 
@@ -221,7 +222,23 @@ $image_height = ($_category_config['ratio_height'])?$_category_config['ratio_hei
                                                 <strong class="product name product-item-name">
                                                     <?= 'SKU  '. $block->escapeHtml($_item->getSKU()) ?>
                                                 </strong>
-                                                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_item); ?>
+                                                <?php if($_item->getSpecialPrice()):?>
+                                                    <div class="price-spacial-wrap">
+                                                        <span class="price-wrap">
+                                                            <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                                            <span class="product-price-new"><?= number_format($_item->getSpecialPrice(), 2, ".", "") ?></span>
+                                                        </span>
+                                                        <span class="old-price-wrap">
+                                                            <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                                            <span class="product-price-old" id="old-price-2"><?= number_format($_item->getPrice(), 2, ".", "") ?></span>
+                                                        </span>
+                                                    </div>
+                                                    <?php else:?>
+                                                        <span class="price-wrap">
+                                                            <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
+                                                            <span class="product-price"><?= number_format($_item->getPrice(), 2, ".", "") ?></span>
+                                                        </span>        
+                                                    <?php endif;?>
                                             </div>
                                         </div>
                                     </div>

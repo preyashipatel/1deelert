@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Elsnertech\Flashsale\Api\Data\FlashsaleInterface" type="Elsnertech\Flashsale\Model\Flashsale" />
+    <preference for="Elsnertech\Flashsale\Api\FlashsaleRepositoryInterface" type="Elsnertech\Flashsale\Model\FlashsaleRepository" />
+
+    <virtualType name="FlashsaleGridCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">flashsale</argument>
+            <argument name="resourceModel" xsi:type="string">Elsnertech\Flashsale\Model\ResourceModel\Flashsale</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="elsnertech_flashsale_flashsale_listing_data_source" xsi:type="string">FlashsaleGridCollection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

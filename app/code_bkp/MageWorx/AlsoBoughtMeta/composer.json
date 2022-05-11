@@ -1,0 +1,9 @@
+{
+    "name": "mageworx/module-alsoboughtmeta",
+    "version": "1.2.0",
+    "type": "metapackage",
+    "require": {
+        "mageworx/module-info": ">=1.0.0",
+        "mageworx/module-alsobought": "1.2.0"
+    }
+}

@@ -236,7 +236,7 @@ $image_height = ($_category_config['ratio_height'])?$_category_config['ratio_hei
                                                     <?php else:?>
                                                         <span class="price-wrap">
                                                             <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-                                                            <span class="product-price"><?= number_format($_item->getPrice(), 2, ".", "") ?></span>
+                                                            <span class="product-price"><?= number_format($_item->getFinalPrice(), 2, ".", "") ?></span>
                                                         </span>        
                                                     <?php endif;?>
                                             </div>

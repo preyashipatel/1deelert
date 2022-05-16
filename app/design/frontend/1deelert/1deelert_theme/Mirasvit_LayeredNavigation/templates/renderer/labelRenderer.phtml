@@ -33,7 +33,7 @@ $filterAccessor = $attributeCode . 'A' . $cacheKey . 'A';
             ?>
 
             <li data-element="filter" class="<?= implode(' ', $cssClass) ?> price-filter-custom" data-value="<?= $filterItem->getValueString() ?>">
-                <?php if ($numberOfResults >= 0): ?>
+                <?php if ($numberOfResults > 0): ?>
                     <?php
                     $url = $isItemChecked ? $filterItem->getRemoveUrl() : $filterItem->getUrl();
                     $id  = $block->getItemId($filterItem);

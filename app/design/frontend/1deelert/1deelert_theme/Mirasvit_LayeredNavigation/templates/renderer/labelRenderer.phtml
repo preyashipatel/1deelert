@@ -31,9 +31,9 @@ $filterAccessor = $attributeCode . 'A' . $cacheKey . 'A';
                 $imageUrl && $isFullWidthImage ? '_full-width' : '',
             ];
             ?>
-
+             <?php if ($numberOfResults > 0): ?>
             <li data-element="filter" class="<?= implode(' ', $cssClass) ?> price-filter-custom" data-value="<?= $filterItem->getValueString() ?>">
-                <?php if ($numberOfResults > 0): ?>
+                <?php if ($numberOfResults >= 0): ?>
                     <?php
                     $url = $isItemChecked ? $filterItem->getRemoveUrl() : $filterItem->getUrl();
                     $id  = $block->getItemId($filterItem);
@@ -58,6 +58,7 @@ $filterAccessor = $attributeCode . 'A' . $cacheKey . 'A';
                     <?= $block->getCountElement($filterItem) ?>
                 <?php endif ?>
             </li>
+            <?php endif ?>
         <?php endforeach ?>
 
         <?= $block->getSizeLimiterElement($filterAccessor) ?>

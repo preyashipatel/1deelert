@@ -1,6 +1,8 @@
 <?php
 namespace Smartwave\Megamenu\Block;
 
+use Magento\Catalog\Model\Product\Attribute\Source\Status;
+
 class Topmenu extends \Magento\Framework\View\Element\Template
 {
 
@@ -296,12 +298,13 @@ class Topmenu extends \Magento\Framework\View\Element\Template
 
     public function getProductCollectionByCategories($ids)
     {
-        //echo $ids;
         if($ids != '' && !empty($ids)){
-            // return $ids;
             $collection = $this->_productCollectionFactory->create();
             $collection->addAttributeToSelect('*');
+            $collection->addFieldToFilter('visibility', 4);
+            $collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
             $collection->addCategoriesFilter(['in' => $ids]);
+            
             return count($collection);
         }else{
             return 0;

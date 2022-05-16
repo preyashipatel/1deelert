@@ -1,6 +1,8 @@
 <?php
 namespace Elsnertech\Flashsale\Block\Adminhtml\Flashsale\Edit\Tab;
 
+use Magento\Catalog\Model\Product\Attribute\Source\Status;
+
 class Products extends \Magento\Backend\Block\Widget\Grid\Extended
 {
     /**
@@ -70,9 +72,21 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
     public function _prepareCollection()
     {
         $collection = $this->productCollectionFactory->create();
+        $collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
+        $collection->addFieldToFilter('visibility', 4);
         $collection->addAttributeToSelect('name');
         $collection->addAttributeToSelect('sku');
         $collection->addAttributeToSelect('price');
+        $collection->setFlag('has_stock_status_filter', true);
+        $collection->joinField('qty',
+        'cataloginventory_stock_item',
+        'qty',
+        'product_id=entity_id',
+        '{{table}}.stock_id=1',
+        'left'
+        )->joinTable('cataloginventory_stock_item', 'product_id=entity_id', array('stock_status' => 'is_in_stock'))
+        ->addAttributeToSelect('stock_status')
+        ->addFieldToFilter('stock_status', ['eq' => 1]);
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }

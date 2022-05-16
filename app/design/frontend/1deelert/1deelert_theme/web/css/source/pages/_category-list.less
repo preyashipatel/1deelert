@@ -158,9 +158,9 @@
             @media (max-width: @screen__xl) {
                 font-size: @font-size_7;
             }
-            // @media (max-width: @screen__sm) {
-            //     font-size: @font-size_8;
-            // }
+            @media (max-width: @screen__sm) {
+                font-weight: 600;
+            }
         }
 
         .price-spacial-wrap{
@@ -615,13 +615,12 @@
         @media (max-width: @screen__md) {
             display: none;
         }
-    }
-
-    .sorter-action[data-value="asc"] {
-        background: url('../images/sorter-desc.png');
-        background-position: center;
-        background-size: 18px;
-        background-repeat: no-repeat;
+        &.sort-asc{
+            background: url('../images/sorter-asc.png');
+            background-position: center;
+            background-size: 18px;
+            background-repeat: no-repeat;
+        }
     }
 }
 
@@ -684,6 +683,11 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
+            }
+            &.sort-asc{
+                &::before{
+                    background-image: url(../images/sorter-asc.png);
+                }
             }
         }
 

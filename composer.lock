@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e41b16b55e65acbfff6598f9917ad1f0",
+    "content-hash": "69b3aa68f93494489db7a81988293de4",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19157,6 +19157,35 @@
             "time": "2020-05-12T15:16:56+00:00"
         },
         {
+            "name": "redchamps/module-notification-bar",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:redchampsTeam/notification-bar.git",
+                "reference": "41a958b10584b848b8ac918379aa078cdc485b5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.redchamps.com//dist/redchamps/module-notification-bar/redchamps-module-notification-bar-1.0.3-9bbf79.zip",
+                "reference": "41a958b10584b848b8ac918379aa078cdc485b5f",
+                "shasum": "750b7a5e9e7e712eb635fd54e4c584f279916b6d"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "RedChamps\\NotificationBar\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "This will display a sticky notification bar on top of website.",
+            "time": "2021-05-31T10:53:30+00:00"
+        },
+        {
             "name": "seld/jsonlint",
             "version": "1.8.3",
             "source": {
@@ -27513,5 +27542,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }

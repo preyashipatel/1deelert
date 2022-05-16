@@ -65,6 +65,12 @@
     @media (max-width: @screen__sm){
         padding-bottom: 50px;
     }
+    .block-title{
+        h2 {
+            font-weight: 400;
+        }
+    }
+    
     .contactform {
         border: 1px solid #00000026;
         border-radius: 16px;
@@ -129,25 +135,62 @@
 
 
 // about page less start
+.cms-about-us{
+    .latest-product-about {
+        padding-bottom: 80px;
+        @media (max-width: @screen__md){
+            padding-bottom: 50px;
+        }
+    }
+}
 .work-section{
     .row{
         .align-items(center);
     }
     .about-work-first{
         padding: 70px 0;
+        @media (max-width: @screen__xl){
+            padding: 50px 0;
+        }
+        @media (max-width: @screen__md) {
+            padding: 50px 0 15px;
+        }
         .work-content{
             padding: 40px 0 40px 40px;
+            @media (max-width: @screen__xl){
+                padding: 30px 0 20px 20px;
+            }
+            @media (max-width: @screen__md){
+                padding: 20px 0 0;
+            }
         }
     }
     .about-work-second{
         padding-bottom: 70px;
+        @media (max-width: @screen__md){
+            padding-bottom: 30px;
+        }
+        .row{
+            @media (max-width: @screen__md){
+                flex-direction: column-reverse;
+            }
+        }
         .work-content{
             padding: 40px 40px 40px 0;
+            @media (max-width: @screen__xl){
+                padding: 20px 20px 20px 0;
+            }
+            @media (max-width: @screen__md){
+                padding: 20px 0 0;
+            }
         }
     }
     .work-image{
         img {
             width: 100%;
+            @media (max-width: @screen__md){
+                border-radius: 8px;
+            }
         }
     }
     .work-content{
@@ -156,35 +199,86 @@
             color: @color-4;
             font-weight: 400;
             margin-bottom: 20px;
+            @media (max-width: @screen__xl){
+                font-size: @font-size_2;
+                margin-bottom: 12px;
+            }
+            @media (max-width: @screen__md){
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
         }
         p{
             color: @color-8;
             letter-spacing: 0.3px;
+            @media (max-width: @screen__md){
+                margin-bottom: 10px;
+            }
         }
     }
 }
 
 .why-choose-section{
+    margin-bottom: 50px;
+    @media (max-width: @screen__md){
+        margin-bottom: 0;
+    }
+
     .block-title{
         text-align: center;
         h1{
             font-weight: 600;
             color: @color-2;
+            @media (max-width: @screen__md){
+                font-size: 20px;
+            }
         }
     }
-    .row{
-        padding: 30px 0;
-    }
     .manage-info{
-        padding: 70px 0;
+        padding: 70px 30px;
         text-align: center;
-        border: 1px solid #000000A6;
+        border: 1px solid #00000047;
         color: #666666;
         border-radius:16px;
+        @media (max-width: @screen__xl){
+            padding: 40px 20px;
+        }
+        @media (max-width: @screen__md){
+            margin-bottom: 20px;
+            padding: 30px 20px;
+            border-radius: 8px;
+        }
 
         h5{
             line-height: 20px;
-            color:@color-8;
+            color: @color-4;
+            font-weight: 400;
+            margin-bottom: 20px;    
+            font-size: 22px;
+            @media (max-width: @screen__xl){
+                margin-bottom: 12px;
+                font-size: 20px;
+            }
+            @media (max-width: @screen__md){
+                margin-bottom: 8px;
+                font-size: 18px;
+            }
+        }
+        img{
+            margin-bottom: 35px;
+            @media (max-width: @screen__xl){
+                margin-bottom: 25px;
+                max-height: 70px;
+            }
+            @media (max-width: @screen__md) {
+                max-height: 60px;
+            }
+        }
+        p{
+            margin: 0;
+            @media (max-width: @screen__md){
+                line-height: 1.5;
+            }
         }
     }
 }

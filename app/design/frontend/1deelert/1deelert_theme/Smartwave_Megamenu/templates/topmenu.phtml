@@ -22,6 +22,16 @@
 <?php $_menu = $block->getMegamenuHtml(); ?>
 
 <nav class="navigation sw-megamenu <?php if($header_type == 7 || $header_type == 8  || $header_type == 18 || $header_type == 22): ?>side-megamenu<?php endif; ?>" role="navigation">
+    
+    <ul class="mobile-main-category desktophide">
+        <li class="ui-menu-item home-catagory">
+            <a href="#" class="level-top" title="บ้าน"><span>บ้าน</span><span class="product-count">(0)</span></a>
+        </li>
+    </ul>
+    <div class="toggle-category desktophide">
+        <a href="javascript:void(0)">Category</a>
+    </div>
+    
     <ul class="slick-slider menu-slider">
         <?php echo $_menu; ?>
     </ul>

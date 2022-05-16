@@ -19,7 +19,8 @@
         "mageplaza/magento-2-social-login": "^4.1",
         "mageplaza/magento-2-thai-language-pack": "dev-master",
         "mageplaza/module-smtp": "^4.7",
-        "mirasvit/module-navigation": "*"
+        "mirasvit/module-navigation": "*",
+        "redchamps/module-notification-bar": "^1.0"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -74,6 +75,10 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "repositories": {
+        "redchamps": {
+            "type": "composer",
+            "url": "https://RkIXo16HMUDYAKLXxu4WASILzmPS:OMRKsT5QD9uNJ1Y2T5nHqPtzmeu@repo.redchamps.com/repositories/preyashi@xhtmljunkies.com-Qou2kDaI2ALi5Xp1cAZBTl7CdjCrk8ic"
+        },
         "mirasvit-lrn2": {
             "type": "composer",
             "url": "https://57051:S1OD3IB0CU@packages.mirasvit.com/57051:S1OD3IB0CU/"

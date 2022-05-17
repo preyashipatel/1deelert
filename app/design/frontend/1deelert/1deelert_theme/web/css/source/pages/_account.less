@@ -4,6 +4,8 @@
     border: 1px solid @color-4_light;
     border-radius: 15px;
     padding: 0;
+    border-top: 0;
+
     @media (max-width: @screen__sm) {
         border: 0;
         margin-bottom: 30px;
@@ -31,7 +33,7 @@
                 border-right: 1px solid @color-4_light;
             }
 
-            &:lasr-child {
+            &:last-child {
                 border-radius: 0 15px 0 0;
             }
 
@@ -43,7 +45,7 @@
                 font-size: 24px;
                 line-height: 1.2;
                 cursor: pointer;
-                border-bottom: 2px solid transparent;
+                border-bottom: 2px solid @color-6;
                 @media (max-width: @screen__md) {
                     font-size: 16px;
                     line-height: 1;
@@ -61,7 +63,7 @@
         width: 100%;
 
         .block-title {
-            font-size: 24px;
+            font-size: 22px;
             line-height: 36px;
             margin: 0;
             padding: 0 0 25px;
@@ -102,9 +104,14 @@
                     height: auto !important;
                     line-height: 1.3;
                     text-transform: capitalize;
+                    font-size: 20px;
 
                     @media (max-width: @screen__xl) {
                         padding: 12px 20px;
+                        font-size: 18px;
+                    }
+                    @media (max-width: @screen__sm){
+                        font-size: 14px;
                     }
 
                     &:hover {
@@ -154,10 +161,20 @@
             width: 50%;
             float: left;
             padding: 0 15px 25px;
+            font-size: 16px;
+            @media (max-width: @screen__sm) {
+                font-size: 14px;
+            }
 
             @media (max-width: @screen__sm) {
                 width: 100%;
                 padding: 0 0 20px;
+            }
+            .label {
+                font-size: 16px;
+                @media (max-width: @screen__sm) {
+                    font-size: 14px;
+                }
             }
 
             &.email {
@@ -199,11 +216,7 @@
             }
 
             @media (max-width: @screen__sm) {
-                font-size: 12px;
-                // float: left;
-                // text-align: left;
-                // margin-top: 0;
-                // width: 100%;
+                font-size: 14px;
             }
         }
         &.choice {
@@ -313,15 +326,44 @@
 #loginC {
     overflow: hidden;
 }
-
-
 .captcha-image .captcha-reload {
     height: auto;
 }
-
 .form.forget .actions-toolbar > .primary .action {
     background: @color-1;
     color: @color-5;
     height: auto;
     line-height: 1.2;
+}
+
+
+
+// user account pages less start here
+.account {
+    main#maincontent {
+        padding-top: 60px;
+        .sidebar.sidebar-main{
+            .block-collapsible-nav{
+                ul.nav.items{
+                    li.nav.item{
+                        border: 0;
+                        a, strong{
+                            color: @color-4;
+                            padding: 12px 0;
+                            border-bottom: 1px solid @color-2-gray;
+                            &::before{
+                                display: none;
+                            }
+                        }
+                        &.current{
+                            a, strong{
+                                color: @color-1;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -201,12 +201,13 @@ html .btn-v-dark {color: #fff !important;background-color: #222529 !important;bo
 .show-icon-tablet .header.links > li.customer-welcome > span {margin-right: -5px;}
 }
 .panel.header.show-icon-tablet .header.links li a, .panel.header.show-icon-tablet .header.links li > span {
-    padding: 8px 15px !important;
+    padding: 9px 15px !important;
     font-size: 14px !important;
     color: #4e245e !important;
     border-bottom: 1px solid #9b85a3 !important;
     font-weight: 500 !important;
-    display: block;
+    display: block !important;
+    line-height: 1.3;
 }
 .panel.header.show-icon-tablet .header.links li > span.not-logged-in {
     padding: 0 !important;
@@ -320,8 +321,7 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .minicart-wrapper .product .actions{margin-left: 5px;}
 .minicart-wrapper .product .actions > .secondary {position: absolute;z-index: 3;text-align: center;font-size: 11px;top: 6px;right: 2px;width: 20px;height: 20px;line-height: 20px;background-color: #fff;color: #222529;border-radius: 50%;box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);}
 .minicart-wrapper .product .actions > .secondary a,.minicart-wrapper .product .actions > .primary a {color: inherit;}
-.minicart-items .action.delete:before {content: '\f819';font-size: 11px;line-height: 20px;color: inherit;font-family: 'porto-icons';}
-.minicart-items .action.edit:before {content: '\f826';font-family: 'porto-icons';font-size: 14px;color: inherit;}
+.minicart-items .action.delete:before {content: '\f819'; font-size: 12px; line-height: 20px; color: inherit; font-family: 'porto-icons'; position: relative; left: 1px; font-weight: 300;}.minicart-items .action.edit:before {content: '\f826';font-family: 'porto-icons';font-size: 14px;color: inherit;}
 .minicart-wrapper .product .actions > .secondary a span, .minicart-items .action.edit > span {display: none;}
 .minicart-items .product-item-details > *:not(.product-item-name) {font-weight: 400;font-size: .8125rem;}
 .minicart-items .product-item-pricing .label {width: 30px;color: #777;}

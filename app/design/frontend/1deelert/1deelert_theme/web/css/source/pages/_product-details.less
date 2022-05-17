@@ -98,7 +98,7 @@
                     line-height: 30px;
 
                     @media (max-width: @screen__sm) {
-                        background: transparent;
+                        background: @color-6;
                         border-radius: 0;
                         padding: 0 0 0 10px;
                         height: auto;
@@ -294,7 +294,7 @@
                                     .qty-changer a {
                                         border: 0;
                                         border-radius: 0;
-                                        background: transparent;
+                                        background: @color-6;
                                         height: auto;
                                         padding: 16px 5px;
                                         top: 7px;
@@ -314,7 +314,7 @@
                                     }
 
                                     input {
-                                        background-color: transparent;
+                                        background-color: @color-6;
                                         height: auto;
                                         padding: 11px;
 
@@ -421,6 +421,7 @@
         clear: both;
         order: 3;
         width: 100%;
+        padding-bottom: 50px;
 
         @media (max-width: @screen__sm) {
             border: 1px solid #0003;
@@ -437,7 +438,7 @@
                 display: inline-block;
                 float: left;
                 margin-right: 10px;
-                border-color: transparent;
+                border-color: @color-6;
                 margin-bottom: 5px;
             }
 
@@ -496,7 +497,10 @@
     clear: both;
     order: 2;
     width: 100%;
-
+    .latest-product-section {
+        padding: 0px 0 0;
+    }
+    
     .show-more {
         display: none;
         border: 1px solid @color-1;

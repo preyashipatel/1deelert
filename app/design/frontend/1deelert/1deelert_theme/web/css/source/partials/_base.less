@@ -197,7 +197,8 @@ a,
 
 .button-primary,
 .action.primary,
-.box-tocart .action.tocart {
+.box-tocart .action.tocart,
+button.action-primary {
     padding: 13px 20px;
     font-size: @button-font_size;
     line-height: @button-line_height;
@@ -210,6 +211,7 @@ a,
     letter-spacing: 1.8px;
     .transition(all 0.5s ease);
     outline: 0;
+    line-height: 1;
 
     @media (max-width: @screen__xxl) {
         font-size: @font-size_5;
@@ -235,10 +237,13 @@ a,
         .transition(all 0.5s ease);
     }
 }
-
+.box-tocart .field.qty{
+    padding: 0;
+}
 
 .action.secondary,
-.button-secondary {
+.button-secondary,
+button.action-secondary {
     padding: 14px 30px;
     font-size: @font-size_5;
     font-weight: 400;
@@ -508,14 +513,17 @@ a,
     }
 }
 
-.breadcumb-wrapper {
+.breadcumb-wrapper, .custom-breadcrumbs .page-title-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: @color-5;
-
+    z-index: 2;
+    h1.page-title {
+        font-weight: 600;
+    }
     h4 {
         font-size: @font-size_1;
         line-height: 1;
@@ -734,7 +742,7 @@ input[type="checkbox"]:checked + label span {
         box-shadow: none;
         right: auto;
         padding: 0 15px;
-        background: transparent !important;
+        background: @color-6 !important;
         transition: none !important;
     }
 
@@ -784,7 +792,7 @@ input[type="checkbox"]:checked + label span {
         @media (max-width: @screen__sm){
             bottom: 0;
             right: auto;
-            background: transparent;
+            background: @color-6;
             width: 100%;
             height: auto;
             position: relative;
@@ -898,7 +906,7 @@ div.mage-error[generated] {
             border-top: 1px solid @colo7-7_light;
         }
         .breadcrumbs{
-            background-color: transparent;
+            background-color: @color-6;
             color: @color-4;
             @media (max-width: @screen__sm){
                 padding: 0 10px;
@@ -1012,7 +1020,7 @@ body.cms-home{
 }
 
 
-.page-layout-2columns-left{
+.catalogsearch-result-index{
     .page-title-wrapper{
         position: relative;
         background-image: url(../images/breadcrumb.jpg);
@@ -1043,5 +1051,12 @@ body.cms-home{
                 font-size: 24px;
             }
         }
+    }
+}
+
+footer.modal-footer{
+    button.action-primary, button.action-secondary{
+        height: auto;
+        font-size: 16px;
     }
 }

@@ -76,7 +76,7 @@
                     &::after {
                         border-style: solid;
                         border-width: 19px 19px 0px 19px;
-                        border-color: @color-5 transparent transparent transparent;
+                        border-color: @color-5 @color-6 @color-6 @color-6;
                         content: "";
                         position: absolute;
                         transform: rotate(90deg);
@@ -317,7 +317,7 @@
 
         @media (max-width: @screen__md) {
             opacity: 1;
-            background-color: transparent;
+            background-color: @color-6;
             letter-spacing: 1px;
             width: auto;
             background-image: url(../images/vieweye.svg);
@@ -342,7 +342,7 @@
             color: @color-2_dark;
             border: 0;
             border-radius: 0;
-            background-color: @color-5;
+            background-color: @color-5 !important;
             width: auto;
             height: auto;
             line-height: 30px;
@@ -413,7 +413,7 @@
                 line-height: 45px;
                 display: block;
                 margin: 0 auto;
-                background: @color-6;
+                background-color: @color-6 !important;
 
                 @media (max-width: @screen__md) {
                     display: none;
@@ -517,7 +517,7 @@
 
 .toolbar.toolbar-products {
     padding: 20px 0;
-    background: transparent;
+    background: @color-6;
 
     @media (max-width: @screen__md) {
         padding: 0;
@@ -922,7 +922,7 @@
             }
 
             .fotorama__nav__shaft {
-                background: transparent;
+                background: @color-6;
 
                 .fotorama__thumb-border {
                     border-color: @color-1;

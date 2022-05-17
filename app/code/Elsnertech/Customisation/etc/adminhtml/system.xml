@@ -49,10 +49,6 @@
                     <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
-                <field id="about_us_content" translate="label" type="editor" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                        <label>Content</label>
-                         <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
-                </field>
             </group>
         </section>
          <section id="carpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">

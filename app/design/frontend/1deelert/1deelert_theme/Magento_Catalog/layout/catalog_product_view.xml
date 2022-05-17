@@ -18,16 +18,23 @@
         <move element="product.info.social" destination="product.info.main" after='page.main.title'/>
         <move element="product.info.price" destination="product.info.form.options" after='product.info.options.wrapper'/>
         <move element="extra.attr" destination="product.info.main" after='product.info.social'/>
-        <referenceBlock name="product.attributes">
-            <arguments>
-                <argument name="title" translate="true" xsi:type="string">Product Details</argument>
-            </arguments>
+
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="product.attributes">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Product Details</argument>
+                    <argument name="sort_order" xsi:type="string">2</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">More Information</argument>
+                    <argument name="sort_order" xsi:type="string">3</argument>
+                </arguments>
+            </referenceBlock>
         </referenceBlock>
-        <referenceBlock name="product.info.description">
-            <arguments>
-                <argument name="title" translate="true" xsi:type="string">More Information</argument>
-            </arguments>
-        </referenceBlock>
+
+
            <referenceContainer name="content">
                 <block class="Magento\Catalog\Block\Product\View" name="extra.attr" template="Magento_Catalog::product/view/extra_attr.phtml"/>
             </referenceContainer>

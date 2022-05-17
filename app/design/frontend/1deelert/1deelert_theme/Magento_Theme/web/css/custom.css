@@ -195,10 +195,30 @@ html .btn-v-dark {color: #fff !important;background-color: #222529 !important;bo
 .panel.header.show-icon-tablet .header.links::before,.panel.header.show-icon-tablet .header.links::after {content: '';position: absolute;width: 0;height: 0;}
 .panel.header.show-icon-tablet .header.links::before {border: 6px solid;border-color: transparent transparent #ffffff transparent;z-index: 99;top: -12px;right: 20px;}
 .panel.header.show-icon-tablet .header.links::after {border: 7px solid;border-color: transparent transparent #bbbbbb transparent;z-index: 98;top: -14px;right: 19px;}
-.panel.header.show-icon-tablet .header.links li {display: block;padding: 0 10px !important;border: 0;color: #777;line-height: 19px;margin: 0;}
+/* .panel.header.show-icon-tablet .header.links li {display: block;padding: 0  !important;border: 0;color: #777;line-height: 19px;margin: 0;}
 .panel.header.show-icon-tablet .header.links li span {color: inherit;font-weight: 400;}
-.panel.header.show-icon-tablet .header.links li a {display: block;padding: 0;transition: all .2s;color: inherit;font-size: 11px;font-weight: 400;white-space: nowrap;}
+.panel.header.show-icon-tablet .header.links li a {display: block;padding: 0;transition: all .2s;color: inherit;font-size: 11px;font-weight: 400;white-space: nowrap;} */
 .show-icon-tablet .header.links > li.customer-welcome > span {margin-right: -5px;}
+}
+.panel.header.show-icon-tablet .header.links li a, .panel.header.show-icon-tablet .header.links li > span {
+    padding: 8px 15px !important;
+    font-size: 14px !important;
+    color: #4e245e !important;
+    border-bottom: 1px solid #9b85a3 !important;
+    font-weight: 500 !important;
+    display: block;
+}
+.panel.header.show-icon-tablet .header.links li > span.not-logged-in {
+    padding: 0 !important;
+    border: 0 !important;
+}
+.panel.header.show-icon-tablet .header.links li {
+    text-align: left;
+    min-width: 200px;
+}
+header.page-header.type2 .header-main .header-right > div.header-contact .show-icon-tablet.active ul.header.links {
+    display: block;
+    box-shadow: 0 2px 9px 3px rgb(0 0 0 / 10%);
 }
 .page-header .panel.wrapper {display: flex;align-items: center;flex-wrap: wrap;min-height: 40px;font-size: .7857em;font-weight: 600;}
 .page-header .panel.wrapper .header-left {display: flex;align-items: center;justify-content: flex-start;}

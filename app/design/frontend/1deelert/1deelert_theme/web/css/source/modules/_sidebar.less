@@ -129,6 +129,9 @@
         .filter-options-content {
             max-height: 240px;
             overflow-y: auto;
+            @media (max-width: @screen__md){
+                padding-right: 10px;
+            }
             @media (min-width: @screen__md){
                 display: block !important;
             }
@@ -208,6 +211,8 @@
                 .count-wrap{
                     min-width: 51px;
                     margin-left: 10px;
+                    text-align: right;
+
                     span.count{
                         position: relative;
                         padding-right: 32px;

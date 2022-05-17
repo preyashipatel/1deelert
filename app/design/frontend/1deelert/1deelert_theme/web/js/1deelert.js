@@ -274,26 +274,16 @@ define([
             console.log("Caaaa");
             $('body').removeClass('loader-removed');
         });
-        // $(document).ready(function () {
-        //     console.log($("body.cms-home")[0]);
-        //     //$('body').removeClass('loader-removed');
-        //     if($("body.cms-home")[0]){
-        //         $('body.cms-home').removeClass('loader-removed');
-        //     }else{
-        //         console.log('caa2');
-        //         setTimeout(() => {
-        //             console.log('caa');
-        //             $('body').removeClass('loader-removed');
-        //         }, 10000);
-        //     }
+        
 
-        // });
+        if ($(window).width() < 991) {
+            $('ul.slick-slider.menu-slider').hide();
+            $('.toggle-category a').click(function(){
+                $('ul.slick-slider.menu-slider').toggle();
+                $(this).toggleClass('active-a');
+            });
+        }
+
         
     }
 });
-
-
-// window.addEventListener('load', () => {
-//     let bodyEle = document.querySelector('body');
-//     bodyEle.classList.add('loader-removed');
-// });

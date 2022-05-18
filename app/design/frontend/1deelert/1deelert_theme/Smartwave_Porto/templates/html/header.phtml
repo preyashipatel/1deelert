@@ -1,5 +1,6 @@
 <?php
     $_helper = $this->helper('Smartwave\Porto\Helper\Data');
+    $storeUrl = $_helper->getBaseLinkUrl();
     $header_type = $this->getConfig('porto_settings/header/header_type');
     $header2_text = $this->getConfig('porto_settings/header/header2_text');
     $show_notice = $this->getConfig('porto_settings/general/show_site_notice');
@@ -74,23 +75,23 @@
         </div>
         <div class="header-right">
           <div class="home-link mobile-hide">
-            <a href="#"><span><?= __('Home');?></span></a>
+            <a href="<?= $storeUrl;?>"><span><?= __('Home');?></span></a>
           </div>
           <div class="about-link mobile-hide">
-            <a href="#"><span><?= __('About us');?></span></a>
+            <a href="<?= $storeUrl.'about-us';?>"><span><?= __('About us');?></span></a>
           </div>
           <div class="store-link mobile-hide">
             <span><?= __('store');?></span>
             <ul class="store-li">
-              <li><a href="#"><?= __('Office');?></a></li>
-              <li><a href="#"><?= __('mattress');?></a></li>
-              <li><a href="#"><?= __('kitchen and dining room');?></a></li>
-              <li><a href="#"><?= __('tv cabinet');?></a></li>
-              <li><a href="#"><?= __('shoe cabinet');?></a></li>
+              <li><a href="<?= $storeUrl.'a-office';?>"><?= __('Office');?></a></li>
+              <li><a href="<?= $storeUrl.'k-mettresses';?>"><?= __('mattress');?></a></li>
+              <li><a href="<?= $storeUrl.'e-kitchens';?>"><?= __('kitchen and dining room');?></a></li>
+              <li><a href="<?= $storeUrl.'f-tv-stands';?>"><?= __('tv cabinet');?></a></li>
+              <li><a href="<?= $storeUrl.'g-shoes-storages';?>"><?= __('shoe cabinet');?></a></li>
             </ul>
           </div>
           <div class="contact-link mobile-hide">
-              <a href="#"><span><?= __('contact');?></span></a>
+              <a href="<?= $storeUrl.'contact';?>"><span><?= __('contact');?></span></a>
             </div>
             <div class="mobile-hide store-lang">
               <?php echo $this->getChildHtml("store_language"); ?>

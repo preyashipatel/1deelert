@@ -189,6 +189,9 @@ html .btn-v-dark {color: #fff !important;background-color: #222529 !important;bo
 .panel.header .header.links .header.links,.customer-welcome.active .customer-menu {display: block;padding: 5px;}
 .show-icon .header.links > li.customer-welcome > span {margin-right: -5px;}
 @media (max-width: 991px) {
+    header.page-header .header.panel {
+        display: none;
+    }
 .panel.header.show-icon-tablet .top-links-icon {display: block;}
 .panel.header.show-icon-tablet .header.links {display: none;position: absolute;top: 100%;right: 0;min-width: 130px;margin: 0;padding: 5px 0;border: 1px solid #ccc;background-color: #fff !important;text-align: right;z-index: 99;box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.05);}
 .panel.header.show-icon-tablet .header.links .header.links {display: block;}
@@ -238,6 +241,16 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
   .logo {max-width: 80px;z-index: auto;}
   .panel.header .switcher {display: none;}
   .page-header .header.panel {display: none;}
+  .account .sidebar.sidebar-main .block .title strong {
+    font-size: 15px;
+    padding: 5px 0;
+}
+.sidebar-content .block-collapsible-nav .title {
+    padding: 10px 0;
+}
+.sidebar-content .block-collapsible-nav .content {
+    border-bottom: 0;
+}
 }
 @media (min-width: 992px){
 .header.panel > .header.links > li.greet.welcome + .customer-welcome {margin-left: -10px;text-align: right;}

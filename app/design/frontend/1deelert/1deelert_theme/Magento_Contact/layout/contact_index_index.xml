@@ -23,6 +23,6 @@
             </container>
         </referenceContainer>  
         <referenceBlock name="google_map" remove="true"/>
-        <referenceContainer name="form.additional.info" remove="true"/>
+        <!-- <referenceContainer name="form.additional.info" remove="true"/> -->
    </body>
 </page>

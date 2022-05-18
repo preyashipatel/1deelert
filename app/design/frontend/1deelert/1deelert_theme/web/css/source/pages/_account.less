@@ -513,6 +513,43 @@
                             }
                         }
                     }
+                    .price-box {
+                        margin: 0 0 10px;
+                    }
+                    .price-wrap {
+                        margin: 0;
+                        font-weight: 500;
+                        color: @color-1;
+                        font-size: @font-size_5;
+                        line-height: 1.2;
+                        margin-right: 10px;
+            
+                        @media (max-width: @screen__xl) {
+                            font-size: @font-size_7;
+                        }
+                        @media (max-width: @screen__sm) {
+                            font-weight: 600;
+                        }
+                    }
+            
+                    .price-spacial-wrap{
+                        .flex();
+                        .align-items(center);
+                        
+                        .old-price-wrap {
+                            color: @color-9_dark;
+                            font-size: @font-size_5;
+                            font-weight: 500;
+                            text-decoration: line-through;
+                            line-height: 1.2;
+                            @media (max-width: @screen__xl) {
+                                font-size: @font-size_7;
+                            }
+                            @media (max-width: @screen__sm) {
+                                font-size: @font-size_8;
+                            }
+                        }
+                    }
 
                     .product-item-inner{
                         margin: 0;
@@ -554,7 +591,7 @@
             }
         }
 
-        .form-address-edit{
+        form.form, .form-address-edit{
             legend.legend{
                 margin: 0 0 20px;
                 text-align: left;
@@ -583,10 +620,16 @@
                         font-size: @font-size_7;
                     }
                 }
-                &.choice.set{
+                &.choice{
                     padding: 0;
                     @media (max-width: @screen__md) {
                         padding: 0 0 10px;
+                    }
+                }
+                .control {
+                    font-size: @font-size_7;
+                    @media (max-width: @screen__md) {
+                        font-size: @font-size_8;
                     }
                 }
             }

@@ -301,7 +301,8 @@
     }
 
     > span {
-        width: 40px;
+        min-width: 40px;
+        width: auto;
         height: 40px;
         line-height: 30px;
         display: inline-block;
@@ -319,7 +320,7 @@
 
         @media (max-width: @screen__sm) {
             margin-right: 6px;
-            width: 30px;
+            min-width: 30px;
             height: 30px;
             line-height: 1;
             font-size: 18px;

@@ -411,3 +411,15 @@ if($product_type == null) {
         </script>
     <?php endif; ?>
 <?php endif; ?>
+<script type="text/javascript">
+    require([
+        'jquery'
+    ], function ($) {
+      $(".products li.product-item").each(function(){
+           var QuickView = $(this).find('.weltpixel-quickview');
+            var SourceDiv = $(this).find('.source-div');
+
+            $(QuickView).appendTo(SourceDiv);
+        })
+    });
+</script>

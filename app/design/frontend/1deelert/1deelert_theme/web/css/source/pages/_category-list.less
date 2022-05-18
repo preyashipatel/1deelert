@@ -1,4 +1,4 @@
-.page-products {
+.page-products, .cms-latest-product {
 
     .products.wrapper {
         margin: 0;
@@ -940,5 +940,29 @@
 .search.results{
     dl.block {
         display: none;
+    }
+}
+
+
+
+.cms-latest-product{
+    .column.main{
+        width: 100%;
+        padding: 60px 0;
+        .products-grid.columns3{
+            .product-item {
+                width: 25%;
+
+                @media (max-width: @screen__lg){
+                    width: 33.33333333%;
+                }
+                @media (max-width: @screen__sm){
+                    width: 50%;
+                }
+                @media (max-width: @screen__xs){
+                    width: 100%;
+                }
+            }
+        }
     }
 }

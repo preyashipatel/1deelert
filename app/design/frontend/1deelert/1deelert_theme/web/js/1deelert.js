@@ -8,11 +8,25 @@ define([
             $(this).toggleClass('social-active');
             $(this).next().toggleClass('active');
         });
-        $(".account-icon").on('click', function () {
-            $(this).toggleClass('account-active');
-            $(this).next().toggleClass('active');
+        var hide = false;
+        $(document).on('click', function (e) {
+            if (e.target == $('.porto-icon-user-2')[0]) {
+                $('.my-account.account-icon').toggleClass('account-active');
+                $('.panel.header.show-icon-tablet').toggleClass('active');
+            } else {
+                $('.my-account.account-icon').removeClass('account-active');
+                $('.panel.header.show-icon-tablet').removeClass('active');
+            }
         });
-       
+        $('#switcher-language-trigger').on('click',function(e) {
+            $('.my-account.account-icon').removeClass('account-active');
+            $('.panel.header.show-icon-tablet').removeClass('active');
+        });
+        $('.action.showcart').on('click',function(e){
+            $('.my-account.account-icon').removeClass('account-active');
+            $('.panel.header.show-icon-tablet').removeClass('active');
+         })
+
         $('#tabs li a:not(:first)').addClass('inactive');
         $('.container-acoount').hide();
         $('.container-acoount:first').show();

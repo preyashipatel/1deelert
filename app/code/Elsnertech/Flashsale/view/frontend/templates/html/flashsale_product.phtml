@@ -52,8 +52,7 @@ if($product_type == null) {
 <?php if (empty($_productCollection)): ?>
     <div class="message info empty"><div><?php echo __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
-    <?php echo $block->getToolbarHtml(); ?>
-    <?php echo $block->getAdditionalHtml(); ?>
+   
     <?php
     if ($block->getMode() == 'grid') {
         $viewMode = 'grid';

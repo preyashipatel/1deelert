@@ -80,7 +80,7 @@ if($product_type == null) {
     if($aspect_ratio)
         $image_height = $image_width;
     ?>
-        <div class="products wrapper <?php echo $viewMode; ?> <?php echo $columns; ?> products-<?php echo $viewMode; ?> <?php if($product_type == 2): ?>no-padding divider-line<?php endif; ?> <?php if($product_type == 5 || $product_type == 6 || $product_type == 7 || $product_type == 8): ?>no-padding<?php endif; ?> <?php if($product_type == 6): ?>divider-line<?php endif; ?>">
+        <div class="products wrapper grid columns3 products-grid ">
         <?php $iterator = 1; ?>
         <ol class="filterproducts products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>

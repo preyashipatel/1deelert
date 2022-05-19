@@ -12,6 +12,7 @@ define([
             $(this).toggleClass('account-active');
             $(this).next().toggleClass('active');
         });
+       
         $('#tabs li a:not(:first)').addClass('inactive');
         $('.container-acoount').hide();
         $('.container-acoount:first').show();

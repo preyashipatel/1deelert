@@ -283,4 +283,42 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
         }
         return $this->rendererListBlock;
     }
+
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        $this->pageConfig->getTitle()->set(__('products'));
+        if ($this->getProductCollection()) {
+        $toolbar = $this->getLayout()
+                   ->createBlock(
+                'Magento\Catalog\Block\Product\ProductList\Toolbar',
+                'product_list_toolbar_grid'
+                )
+                ->setTemplate('Magento_Catalog::product/list/toolbar.phtml')
+                ->setCollection($this->getProductCollection());
+
+            $pager = $this->getLayout()->createBlock(
+                'Magento\Theme\Block\Html\Pager',
+                'flashProduct.product.pager'
+            )->setAvailableLimit(array(3=>3,6=>6,9=>9))->setShowPerPage(true)->setCollection(
+                $this->getProductCollection()
+            );
+            $this->setChild('pager', $pager);
+            $this->setChild('toolbar', $toolbar);
+            $this->getProductCollection()->load();
+        }
+        return $this;
+    }
+    public function getPagerHtml()
+    {
+        return $this->getChildHtml('pager');
+    }
+    public function getToolbarHtml()
+    {
+        return $this->getChildHtml('toolbar');
+    }
+    public function getMode()
+    {
+        return $this->getChildBlock('toolbar')->getCurrentMode();
+    }
 }

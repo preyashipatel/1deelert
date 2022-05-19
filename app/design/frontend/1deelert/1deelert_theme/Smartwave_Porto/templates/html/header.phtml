@@ -366,16 +366,14 @@
       'jquery'
   ], function ($) {
       $(document).ready(function(){
-          $(".drop-menu > a").on("click", function(){
+          $(".drop-menu > a").off("click").on("click", function(){
               if($(this).parent().children(".nav-sections").hasClass("visible")) {
-                
-
-                  $(this).parent().children(".nav-sections").addClass("visible");
-                  $(this).addClass("active");
+                  $(this).parent().children(".nav-sections").removeClass("visible");
+                  $(this).removeClass("active");
               }
               else {
-                $(this).parent().children(".nav-sections").removeClass("visible");
-                  $(this).removeClass("active");
+                  $(this).parent().children(".nav-sections").addClass("visible");
+                  $(this).addClass("active");
               }
           });
       });

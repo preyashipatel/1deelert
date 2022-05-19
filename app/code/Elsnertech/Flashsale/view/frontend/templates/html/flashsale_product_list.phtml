@@ -13,19 +13,19 @@
 ?>
 
 <div class="container">
-    <div class="flase-sale-wrap">
-        <!-- <div class="text-right width60">
+    <!-- <div class="flase-sale-wrap">
+        <div class="text-right width60">
             <div id="countdown">   
             <span><span id="days"></span></span>
             <span><span id="hours"></span></span>
             <span><span id="minutes"></span></span>
             <span><span id="seconds"></span></span>
         </div>
-        </div> -->
+        </div>
         <div class="block-title width40">
             <h2 class="title"><?= $block->getFlashsaleProductsName() ?></h2>
         </div>
-    </div>
+    </div> -->
     <?php if (empty($products)): ?>
     <div class="message info empty">
         <div><?= /* @noEscape */ __('No Flash Sale Product Found.') ?></div>
@@ -104,7 +104,7 @@
                 <?php endforeach ?>
             </div>
         </ol>
-        <a href="javascript:void(0)" class="see-all-btn">See All</a>
+        <!-- <a href="javascript:void(0)" class="see-all-btn">See All</a> -->
     </div>
 </div>
 

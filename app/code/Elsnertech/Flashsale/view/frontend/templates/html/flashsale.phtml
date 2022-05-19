@@ -9,6 +9,7 @@
     $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
     $_product_label_config = $_portohelper->getConfig('porto_settings/product_label');
     $currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
+    $storeUrl = $_portohelper->getBaseLinkUrl();
 
 ?>
 
@@ -104,7 +105,7 @@
                 <?php endforeach ?>
             </div>
         </ol>
-        <a href="javascript:void(0)" class="see-all-btn">See All</a>
+        <a href="<?= $storeUrl.'flash-sale';?>" class="see-all-btn">See All</a>
     </div>
 </div>
 

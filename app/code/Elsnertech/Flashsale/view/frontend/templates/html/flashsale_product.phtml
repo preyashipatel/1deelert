@@ -11,11 +11,11 @@ use Magento\Framework\App\Action\Action;
 /**
  * Product list template
  *
- * @var $block \Smartwave\Filterproducts\Block\
+ * @var $block \Elsnertech\Flashsale\Block\
  */
 ?>
 <?php
-$_productCollection = $block->getLoadedProductCollection();
+$_productCollection = $block->getFlashsaleProducts();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
 $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
@@ -49,10 +49,11 @@ if($product_type == null) {
     $product_type = 1;
 }
 ?>
-<?php if (!$_productCollection->count()): ?>
+<?php if (empty($_productCollection)): ?>
     <div class="message info empty"><div><?php echo __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
-
+    <?php echo $block->getToolbarHtml(); ?>
+    <?php echo $block->getAdditionalHtml(); ?>
     <?php
     if ($block->getMode() == 'grid') {
         $viewMode = 'grid';
@@ -154,9 +155,9 @@ if($product_type == null) {
                                 <div class="actions-primary">
                                     <?php if ($_product->isSaleable()): ?>
                                         <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-                                        <form data-role="tocart-form" action="<?php echo $postParams['action']; ?>" method="post">
-                                            <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
-                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                        <form data-role="tocart-form" action="<?php echo isset($postParams['action']); ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php echo isset($postParams['data']['product']); ?>">
+                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo isset($postParams['data'][Action::PARAM_NAME_URL_ENCODED]); ?>">
                                             <?php echo $block->getBlockHtml('formkey')?>
                                             <button type="submit"
                                                     title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
@@ -325,9 +326,9 @@ if($product_type == null) {
                                         <?php endif; ?>
                                     <?php if ($_product->isSaleable()): ?>
                                         <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-                                        <form data-role="tocart-form" action="<?php echo $postParams['action']; ?>" method="post">
-                                            <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
-                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                        <form data-role="tocart-form" action="<?php echo isset($postParams['action']); ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php echo isset($postParams['data']['product']); ?>">
+                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo isset($postParams['data'][Action::PARAM_NAME_URL_ENCODED]); ?>">
                                             <?php if($product_type == 10):?>
                                                 <div class="qty-box">
                                                     <a href="javascript:void(0)" class="qtyminus"><i class="porto-icon-minus"></i></a>
@@ -402,6 +403,7 @@ if($product_type == null) {
             <?php endforeach; ?>
         </ol>
     </div>
+    
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
         <script type="text/x-magento-init">
         {

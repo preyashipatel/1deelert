@@ -23,16 +23,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
     <referenceContainer name="page.wrapper">
-         <container name="page.title.wrap"  before="main.content" htmlTag="div" htmlClass="page-title-head">
-            <container name="cart.banner" as="banner">
+         <!-- <container name="page.title.wrap"  before="main.content" htmlTag="div" htmlClass="page-title-head"> -->
+            <container name="cart.banner" htmlTag="div" htmlClass="inner-banner custom-breadcrumbs" before="main.content">
                 <block class="Magento\Framework\View\Element\Template" name="custom.file" template="Mageplaza_Blog::blog_banner.phtml" />
             </container>
-        </container>
+        <!-- </container> -->
         </referenceContainer>
         <referenceBlock name="mpblog.sidebar.monthly" remove="1" />
         <referenceBlock name="mpblog.copy.right" remove="1" />
         <move element="mpblog.sidebar.search" destination="columns" before="-"/>
         <move element="div.sidebar.main" destination="columns" before="-"/>
-        <move element="page.main.title" destination="page.title.wrap"  after="-"/>
+        <move element="breadcrumbs" destination="cart.banner" before="-"/>
+        <!-- <move element="page.main.title" destination="page.title.wrap"  after="-"/> -->
+        <referenceBlock name="page.main.title" remove="true"/>
     </body>
 </page>

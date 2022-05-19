@@ -109,6 +109,7 @@
         }
 
         .form.form-cart{
+            width: 75%;
             @media (max-width: @screen__lg){
                 width: 100%;
                 padding: 0;
@@ -125,9 +126,13 @@
                     tbody.cart.item{
                         .product-item-details{
                             max-width: 100%;
+                            width: auto;
                             .item-options {
                                 margin-bottom: 0;
                                 font-size: 14px;
+                            }
+                            .product-item-name a{
+                                white-space: normal;
                             }
                         }
                         span.price {
@@ -378,6 +383,9 @@
             .minicart-items{
                 .product-item-details{
                     max-width: 100%;
+                    .product-item-name a{
+                        white-space: normal;
+                    }
                 }
                 .product-item{
                     .product-item-name{

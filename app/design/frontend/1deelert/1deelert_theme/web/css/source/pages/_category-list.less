@@ -1,5 +1,4 @@
-.page-products, .cms-latest-product {
-
+.page-products, .cms-latest-product, .cms-flash-sale {
     .products.wrapper {
         margin: 0;
 
@@ -328,6 +327,75 @@
             visibility: visible;
         }
     }
+
+    .product-count {
+        font-size: @font-size_5;
+        color: @color-2_dark;
+    }
+    .sorter {
+        margin-left: auto;
+        margin-right: 0;
+        padding-right: 10px;
+    
+        @media (max-width: @screen__md) {
+            margin: 0 auto;
+            padding: 8px 0 15px;
+        }
+    
+        .sorter-label {
+            font-size: @font-size_6;
+            color: @color-2_dark;
+            margin: 0 10px 0 0;
+            font-weight: 600;
+    
+            @media (max-width: @screen__md) {
+                display: none;
+            }
+        }
+    
+        select {
+            width: auto;
+            border: 0;
+            font-size: @font-size_6;
+            color: @color-2_dark;
+            margin: 0 10px 0 0;
+            cursor: pointer;
+            background: url('../images/select-arrow.png');
+            background-repeat: no-repeat;
+            background-position: calc(100% - 5px) center;
+            max-width: initial;
+    
+            @media (max-width: @screen__md) {
+                width: max-content;
+                font-size: 13px;
+                background-size: 10px;
+                height: auto;
+            }
+        }
+    
+        .sorter-action {
+            width: 30px;
+            height: 30px;
+            background: url('../images/sorter.png');
+            background-position: center;
+            background-size: 18px;
+            background-repeat: no-repeat;
+    
+            &:before {
+                display: none;
+            }
+    
+            @media (max-width: @screen__md) {
+                display: none;
+            }
+            &.sort-asc{
+                background: url('../images/sorter-asc.png');
+                background-position: center;
+                background-size: 18px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
 }
 
 
@@ -546,79 +614,6 @@
             svg {
                 width: 21px;
             }
-        }
-    }
-}
-
-
-
-.product-count {
-    font-size: @font-size_5;
-    color: @color-2_dark;
-}
-
-
-.page-products .sorter {
-    margin-left: auto;
-    margin-right: 0;
-    padding-right: 10px;
-
-    @media (max-width: @screen__md) {
-        margin: 0 auto;
-        padding: 8px 0 15px;
-    }
-
-    .sorter-label {
-        font-size: @font-size_6;
-        color: @color-2_dark;
-        margin: 0 10px 0 0;
-        font-weight: 600;
-
-        @media (max-width: @screen__md) {
-            display: none;
-        }
-    }
-
-    select {
-        width: auto;
-        border: 0;
-        font-size: @font-size_6;
-        color: @color-2_dark;
-        margin: 0 10px 0 0;
-        cursor: pointer;
-        background: url('../images/select-arrow.png');
-        background-repeat: no-repeat;
-        background-position: calc(100% - 5px) center;
-        max-width: initial;
-
-        @media (max-width: @screen__md) {
-            width: max-content;
-            font-size: 13px;
-            background-size: 10px;
-            height: auto;
-        }
-    }
-
-    .sorter-action {
-        width: 30px;
-        height: 30px;
-        background: url('../images/sorter.png');
-        background-position: center;
-        background-size: 18px;
-        background-repeat: no-repeat;
-
-        &:before {
-            display: none;
-        }
-
-        @media (max-width: @screen__md) {
-            display: none;
-        }
-        &.sort-asc{
-            background: url('../images/sorter-asc.png');
-            background-position: center;
-            background-size: 18px;
-            background-repeat: no-repeat;
         }
     }
 }
@@ -943,9 +938,18 @@
     }
 }
 
+.mfp-iframe-holder {
+    .mfp-close {
+        background: @color-6;
+        border-radius: 100%;
+        opacity: 1;
+        font-weight: bold;
+        top: -40px;
+        right: -15px;
+    }
+}
 
-
-.cms-latest-product{
+.cms-latest-product, .cms-flash-sale{
     .column.main{
         width: 100%;
         padding: 60px 0;
@@ -966,3 +970,4 @@
         }
     }
 }
+

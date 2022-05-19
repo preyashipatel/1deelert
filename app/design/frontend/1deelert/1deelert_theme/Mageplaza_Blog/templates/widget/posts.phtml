@@ -35,7 +35,7 @@ $posts = $block->getCollection();
                     <?php foreach ($posts as $post) : ?>
                     <div class="article-items">
                         <div class="image-block">
-                            <a href="#">
+                            <a href="<?= $block->escapeUrl($post->getUrl()) ?>">
                                 <img src="<?= $block->escapeUrl($block->resizeImage($post->getImage(), '400x')) ?>"
                                     alt="new-products" width="420" height="370">
                             </a>

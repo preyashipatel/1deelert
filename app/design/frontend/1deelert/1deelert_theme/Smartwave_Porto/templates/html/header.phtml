@@ -98,7 +98,7 @@
             </div>
           <div class="header-contact">
             <?php //echo $this->getChildHtml("custom_block"); ?>
-            <span class="my-account account-icon" title="My Account"><i class="porto-icon-user-2"></i></span>
+            <span class="my-account account-icon " title="My Account"><i class="porto-icon-user-2"></i></span>
             <div class="panel header show-icon-tablet">
               <?php echo $this->getChildHtml("header.links"); ?>
             </div>
@@ -366,14 +366,16 @@
       'jquery'
   ], function ($) {
       $(document).ready(function(){
-          $(".drop-menu > a").off("click").on("click", function(){
+          $(".drop-menu > a").on("click", function(){
               if($(this).parent().children(".nav-sections").hasClass("visible")) {
-                  $(this).parent().children(".nav-sections").removeClass("visible");
-                  $(this).removeClass("active");
-              }
-              else {
+                
+
                   $(this).parent().children(".nav-sections").addClass("visible");
                   $(this).addClass("active");
+              }
+              else {
+                $(this).parent().children(".nav-sections").removeClass("visible");
+                  $(this).removeClass("active");
               }
           });
       });

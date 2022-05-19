@@ -283,17 +283,4 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
         }
         return $this->rendererListBlock;
     }
-
-    public function getPagerHtml()
-    {
-        return $this->getChildHtml('pager');
-    }
-    public function getToolbarHtml()
-    {
-        return $this->getChildHtml('toolbar');
-    }
-    public function getMode()
-    {
-        return $this->getChildBlock('toolbar')->getCurrentMode();
-    }
 }

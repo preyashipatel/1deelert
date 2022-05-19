@@ -25,7 +25,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Directory\Model\Currency $currency, 
         Registry $registry,
         CategoryFactory $categoryfactory,
-        CollectionFactory $productCollectionFactory
+        CollectionFactory $productCollectionFactory,
+        \Magento\Framework\App\Request\Http $request
     ) {
         $this->_scopeConfig = $scopeConfig;
         $this->_storeManager=$storeManager;
@@ -33,7 +34,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_currency = $currency;
         $this->_categoryFactory = $categoryfactory;
         $this->_productCollectionFactory = $productCollectionFactory;
+        $this->request = $request;
         parent::__construct($context);
+
     }
     
     public function getConfig($config_path) {
@@ -52,9 +55,17 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     } 
 
     public function getCurrentCategory() {        
+
         $category = $this->_registry->registry('current_category');
+
+    //    print_r( $this->request->getParams());exit;
+       $fillterParams = [];
+       $fillterParams = $this->request->getParams();
+
         //print_r($category);exit;
         if($category):
+
+          
             $categoryId = $category->getId();
             $category_product_collection = $this->_categoryFactory->create()->load($categoryId);
             $collection = $this->_productCollectionFactory->create();
@@ -62,8 +73,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             $collection->addFieldToFilter('visibility', 4);
             $collection->addCategoriesFilter(['in' => $categoryId]);
             $collection->addAttributeToFilter('status', Status::STATUS_ENABLED);
+            foreach($fillterParams as $k=>$fillterParam){
+                if($k != 'id' && $k != 'price'){
+                    $collection->addAttributeToFilter($k, $fillterParam);
+                }
+            }
             return count($collection);
         else :
+            echo in;exit;
             return 0;
         endif;
 

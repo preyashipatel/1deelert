@@ -211,7 +211,6 @@ button.action-primary {
     letter-spacing: 1.8px;
     .transition(all 0.5s ease);
     outline: 0;
-    line-height: 1;
 
     @media (max-width: @screen__xxl) {
         font-size: @font-size_5;
@@ -997,7 +996,7 @@ body.cms-home{
         overflow: hidden;
         &::after{
             content: "";
-            background: #000000e6;
+            background: #000;
             width: 100vw;
             height: 100vh;
             position: fixed;
@@ -1065,5 +1064,16 @@ footer.modal-footer{
     button.action-primary, button.action-secondary{
         height: auto;
         font-size: 16px;
+    }
+}
+
+body{
+    .category-menu{
+        display: block;
+    }
+    &.loader-removed{
+        .category-menu{
+            display: none;
+        }
     }
 }

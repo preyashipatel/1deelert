@@ -16,7 +16,11 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
                 <field id="login_content" translate="label" type="editor" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                        <label>Content</label>
+                        <label>Login Breadcurms Content</label>
+                         <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
+                </field>
+                <field id="reg_content" translate="label" type="editor" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Create Account Breacdcrums Content</label>
                          <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
                 </field>
             </group>
@@ -142,6 +146,20 @@
             <resource>Elsnertech_Customisation::general</resource>
              <group id="mainConfigflashsale" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Flash sale page config </label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+        </section>
+
+        <section id="paymentmethod" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Payment Method Page</label>
+            <tab>elsnertech_login</tab>
+            <resource>Elsnertech_Customisation::general</resource>
+             <group id="mainConfigpaymentmethod" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Payment Method page config </label>
                   <field id="banner_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Select Image</label>
                     <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>

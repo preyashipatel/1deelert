@@ -43,7 +43,15 @@ define([
                 $('.container-acoount').hide();
                 $('#' + t + 'C').fadeIn('slow');
             }
+            if($(this).attr('id') == 'login'){
+                $('.reg-breadcrums').hide();
+                $('.login-breadcrums').show();
+            }else{
+                $('.reg-breadcrums').show();
+            $('.login-breadcrums').hide();
+            }
         });
+       
         //Show hide passowrd 
          $("#showPasswordReg").click(function(){
             console.log('call');

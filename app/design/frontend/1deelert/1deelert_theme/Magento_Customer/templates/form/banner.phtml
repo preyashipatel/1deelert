@@ -11,10 +11,16 @@ $helper = $this->helper('Elsnertech\Customisation\Helper\Data');
 $mediaUrl = $helper->getMediaUrl();
 $bannerImage = $helper->getConfig('login/mainConfig/banner_image');
 $imageText = $helper->getConfig('login/mainConfig/login_content');
+$regImageText = $helper->getConfig('login/mainConfig/reg_content');
 ?>
 <div class="inner-banner">
     <div class="banner-image">
         <img src="<?= $mediaUrl.'theme/'.$bannerImage;?>"/>
-         <?= $imageText; ?>
+        <div class="login-breadcrums"> 
+            <?= $imageText; ?>
+        </div>
+        <div class="reg-breadcrums"  style="display:none;"> 
+             <?= $regImageText; ?>
+        </div>
     </div>
 </div>

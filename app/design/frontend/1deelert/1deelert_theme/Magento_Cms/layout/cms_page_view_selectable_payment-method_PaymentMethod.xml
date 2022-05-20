@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+         <referenceContainer name="page.wrapper">
+             <container name="payment-method.banner" htmlTag="div" htmlClass="inner-banner custom-breadcrumbs" before="main.content">
+                <block class="Magento\Framework\View\Element\Template" name="paymentmethod.file" template="Magento_Cms::payment_method_banner.phtml" />
+            </container>
+            
+        </referenceContainer>
+         <move element="breadcrumbs" destination="payment-method.banner" before="-"/>
+         <!-- <referenceBlock name="breadcrumbs" remove="true"/> -->
+  </body>
+</page>
+

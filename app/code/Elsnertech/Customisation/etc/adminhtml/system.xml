@@ -167,6 +167,20 @@
                 </field>
             </group>
         </section>
+
+        <section id="howtobuy" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>How to Buy Page</label>
+            <tab>elsnertech_login</tab>
+            <resource>Elsnertech_Customisation::general</resource>
+             <group id="mainConfighowtobuy" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>How to Buy page config </label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+        </section>
        
     </system>
 </config>

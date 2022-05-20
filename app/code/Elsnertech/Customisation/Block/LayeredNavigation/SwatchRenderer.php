@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Elsnertech\Customisation\Block\LayeredNavigation;
 
@@ -19,13 +19,13 @@ class SwatchRenderer extends \Mirasvit\LayeredNavigation\Block\Renderer\SwatchRe
    
     
      /**
-     * Get view data for option
-     *
-     * @param FilterItem $filterItem
-     * @param Option $swatchOption
-     *
-     * @return array
-     */
+      * Get view data for option
+      *
+      * @param FilterItem $filterItem
+      * @param Option $swatchOption
+      *
+      * @return array
+      */
     protected function getOptionViewData(FilterItem $filterItem, Option $swatchOption)
     {
         $customStyle = '';

@@ -322,6 +322,14 @@
     }
 }
 
+.block.block-order-details-view{
+    .block-content{
+        .box{
+            margin: 0 10px 20px;
+            padding: 0;
+        }
+    }
+}
 
 #loginC {
     overflow: hidden;
@@ -336,6 +344,18 @@
     line-height: 1.2;
 }
 
+.actions-toolbar.order-actions-toolbar{
+    .actions {
+        .flex();
+        .align-items(center);
+        .justify-content(center);
+    }
+    a.action {
+        color: @color-5;
+        font-weight: 600;
+        display: inline-block;
+    }
+}
 
 
 // user account pages less start here
@@ -468,6 +488,21 @@
                             font-size: 14px;
                             @media (max-width: @screen__sm){
                                 font-size: @font-size_8;
+                            }
+                        }
+                        span.price-excluding-tax {
+                            font-size: @font-size_6;
+                            @media (max-width: @screen__md){
+                                font-size: 14px;
+                            }
+                            @media (max-width: @screen__sm){
+                                font-size: 12px;
+                            }
+                        }
+                        .product-item-name {
+                            margin: 0;
+                            @media (max-width: @screen__sm){
+                               display: block;
                             }
                         }
                     }

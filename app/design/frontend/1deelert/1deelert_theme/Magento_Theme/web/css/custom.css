@@ -70,7 +70,7 @@ button:not(.primary) {line-height: 1em;border-radius: 0;}
 body>p{display:none}
 .no-padding{padding-left: 0;padding-right: 0;}
 .toolbar .modes>a{text-decoration:none}
-.toolbar-amount{display:none}
+/* .toolbar-amount{display:none} */
 .clearer{clear:both}
 .category-description img{max-width:100%;display: block;}
 @media (min-width:1200px){.col-xl-2-4{width:20%}
@@ -188,9 +188,19 @@ html .btn-v-dark {color: #fff !important;background-color: #222529 !important;bo
 .panel.header.show-icon .header.links li a {display: block;padding: 0;transition: all .2s;color: inherit;font-size: 1em;font-weight: 400;white-space: nowrap;}
 .panel.header .header.links .header.links,.customer-welcome.active .customer-menu {display: block;padding: 5px;}
 .show-icon .header.links > li.customer-welcome > span {margin-right: -5px;}
+table tr .product-item-name{
+    white-space: initial;
+}
 @media (max-width: 991px) {
     header.page-header .header.panel {
         display: none;
+    }
+    .order-links .item strong {
+        padding: 0 5px;
+    }
+    .order-details-items .items-qty .item {
+        line-height: 1;
+        margin-bottom: 5px;
     }
 .panel.header.show-icon-tablet .top-links-icon {display: block;}
 .panel.header.show-icon-tablet .header.links {display: none;position: absolute;top: 100%;right: 0;min-width: 130px;margin: 0;padding: 5px 0;border: 1px solid #ccc;background-color: #fff !important;text-align: right;z-index: 99;box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.05);}

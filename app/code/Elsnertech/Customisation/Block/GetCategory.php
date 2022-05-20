@@ -8,19 +8,19 @@ use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
 class GetCategory extends \Magento\Framework\View\Element\Template
-{    
+{
+
     protected $_categoryCollectionFactory;
     protected $_productRepository;
     protected $_registry;
         
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,        
+        \Magento\Backend\Block\Template\Context $context,
         \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $categoryCollectionFactory,
         \Magento\Catalog\Model\ProductRepository $productRepository,
         \Magento\Framework\Registry $registry,
         array $data = []
-        )
-        {
+    ) {
             $this->_categoryCollectionFactory = $categoryCollectionFactory;
             $this->_productRepository = $productRepository;
             $this->_registry = $registry;
@@ -39,7 +39,7 @@ class GetCategory extends \Magento\Framework\View\Element\Template
     public function getCategoryCollection($isActive = true, $level = false, $sortBy = false, $pageSize = false)
     {
         $collection = $this->_categoryCollectionFactory->create();
-        $collection->addAttributeToSelect('*');        
+        $collection->addAttributeToSelect('*');
         
         // select only active categories
         if ($isActive) {
@@ -58,20 +58,19 @@ class GetCategory extends \Magento\Framework\View\Element\Template
         
         // select certain number of categories
         if ($pageSize) {
-            $collection->setPageSize($pageSize); 
-        }    
+            $collection->setPageSize($pageSize);
+        }
         
         return $collection;
     }
     
     public function getProductById($id)
-    {        
+    {
         return $this->_productRepository->getById($id);
     }
     
     public function getCurrentProduct()
-    {        
+    {
         return $this->_registry->registry('current_product');
-    } 
-
+    }
 }

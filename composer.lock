@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69b3aa68f93494489db7a81988293de4",
+    "content-hash": "69d2326c9df3686c13da6d3889cd6d72",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17411,16 +17411,16 @@
         },
         {
             "name": "mageplaza/module-smtp",
-            "version": "4.7.0",
+            "version": "4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/magento-2-smtp.git",
-                "reference": "6043fcabc815a8d79819abfc26a5d8a18643ab4c"
+                "reference": "e1936be8c1a8196ac4b01905141b3c97ab003326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/6043fcabc815a8d79819abfc26a5d8a18643ab4c",
-                "reference": "6043fcabc815a8d79819abfc26a5d8a18643ab4c",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/e1936be8c1a8196ac4b01905141b3c97ab003326",
+                "reference": "e1936be8c1a8196ac4b01905141b3c97ab003326",
                 "shasum": ""
             },
             "require": {
@@ -17470,9 +17470,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mageplaza/magento-2-smtp/issues",
-                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.0"
+                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.1"
             },
-            "time": "2021-12-28T10:00:15+00:00"
+            "time": "2022-04-19T04:12:53+00:00"
         },
         {
             "name": "mageplaza/module-two-factor-authentication",

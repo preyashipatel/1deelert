@@ -7,7 +7,7 @@ class ImageUpload extends \Magento\Config\Model\Config\Backend\Image
      * The tail part of directory path for uploading
      */
 
-    const UPLOAD_DIR = 'theme';
+    public const UPLOAD_DIR = 'theme';
 
     /**
      * Upload max file size in kilobytes
@@ -47,7 +47,7 @@ class ImageUpload extends \Magento\Config\Model\Config\Backend\Image
     {
         $value = $this->getValue();
         $deleteFlag = is_array($value) && !empty($value['delete']);
-        $fileTmpName = $_FILES['groups']['tmp_name'][$this->getGroupId()]['fields'][$this->getField()]['value'];
+        $fileTmpName = $FILES['groups']['tmp_name'][$this->getGroupId()]['fields'][$this->getField()]['value'];
 
         if ($this->getOldValue() && ($fileTmpName || $deleteFlag)) {
             $this->_mediaDirectory->delete(self::UPLOAD_DIR . '/' . $this->getOldValue());

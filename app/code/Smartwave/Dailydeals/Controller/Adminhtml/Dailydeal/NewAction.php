@@ -26,7 +26,7 @@ class NewAction extends \Magento\Backend\App\Action
     }
 
     /**
-     * forward to edit
+     * Forward to edit
      *
      * @return \Magento\Backend\Model\View\Result\Forward
      */

@@ -16,8 +16,6 @@ use Magento\Theme\Block\Html\Pager;
 
 class SwatchRenderer extends \Mirasvit\LayeredNavigation\Block\Renderer\SwatchRenderer
 {
-   
-    
      /**
       * Get view data for option
       *

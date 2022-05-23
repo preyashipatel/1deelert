@@ -4,9 +4,9 @@ namespace Smartwave\Dailydeals\Block\Adminhtml\Dailydeal;
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
     /**
-     * Core registry
+     * $coreRegistry variable
      *
-     * @var \Magento\Framework\Registry
+     * @var [type]
      */
     protected $coreRegistry;
 

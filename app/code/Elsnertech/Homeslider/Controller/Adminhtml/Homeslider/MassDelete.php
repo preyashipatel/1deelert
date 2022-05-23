@@ -9,10 +9,27 @@ use Elsnertech\Homeslider\Model\ResourceModel\Homeslider\CollectionFactory;
 
 class MassDelete extends \Magento\Backend\App\Action
 {
+    /**
+     * $_filter variable
+     *
+     * @var [type]
+     */
     protected $_filter;
 
+    /**
+     * $_collectionFactory variable
+     *
+     * @var [type]
+     */
     protected $_collectionFactory;
 
+    /**
+     * Comment of __construct function
+     *
+     * @param Context $context
+     * @param Filter $filter
+     * @param CollectionFactory $collectionFactory
+     */
     public function __construct(
         Context $context,
         Filter $filter,
@@ -24,6 +41,11 @@ class MassDelete extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
+    /**
+     * Comment of execute function
+     *
+     * @return void
+     */
     public function execute()
     {
         $collection = $this->_filter->getCollection($this->_collectionFactory->create());
@@ -38,6 +60,11 @@ class MassDelete extends \Magento\Backend\App\Action
         return $this->resultFactory->create(ResultFactory::TYPE_REDIRECT)->setPath('*/*/index');
     }
 
+    /**
+     * Comment of _isAllowed function
+     *
+     * @return void
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Elsnertech_Homeslider::row_data_delete');

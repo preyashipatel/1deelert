@@ -19,11 +19,10 @@ class Tabs extends WidgetTabs
         $this->setDestElementId('edit_form');
         $this->setTitle(__('Flashsale Information'));
     }
-
     /**
-     * @return $this
-     * @throws \Exception
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * Comment of _prepareLayout function
+     *
+     * @return void
      */
     protected function _prepareLayout()
     {

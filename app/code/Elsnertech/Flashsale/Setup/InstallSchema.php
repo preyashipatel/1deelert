@@ -12,7 +12,11 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 class InstallSchema implements InstallSchemaInterface
 {
     /**
-     * {@inheritdoc}
+     * Comment of install function
+     *
+     * @param SchemaSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @return void
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
@@ -72,8 +76,6 @@ class InstallSchema implements InstallSchemaInterface
                 'Flashsale Table'
             );
         $installer->getConnection()->createTable($table);
-
-
         /**
          * Create table 'flashsale_product'
         */
@@ -101,8 +103,6 @@ class InstallSchema implements InstallSchemaInterface
               'Flashsale To Product Linkage Table'
           );
           $installer->getConnection()->createTable($table);
-
-
         $installer->endSetup();
     }
 }

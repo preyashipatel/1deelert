@@ -4,7 +4,7 @@ namespace Smartwave\Dailydeals\Block\Adminhtml;
 class Dailydeal extends \Magento\Backend\Block\Widget\Grid\Container
 {
     /**
-     * constructor
+     * Constructor
      *
      * @return void
      */

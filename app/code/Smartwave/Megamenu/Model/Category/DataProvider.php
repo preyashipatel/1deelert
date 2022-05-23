@@ -5,15 +5,12 @@
  */
 namespace Smartwave\Megamenu\Model\Category;
 
-/**
- * Class DataProvider
- *
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
 class DataProvider extends \Magento\Catalog\Model\Category\DataProvider
 {
     /**
-     * @return array
+     * Comment of getFieldsMap function
+     *
+     * @return void
      */
     protected function getFieldsMap()
     {

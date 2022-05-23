@@ -3,6 +3,11 @@ namespace Smartwave\Megamenu\Model\Config;
 
 class Menutype implements \Magento\Framework\Option\ArrayInterface
 {
+    /**
+     * Comment of toOptionArray function
+     *
+     * @return void
+     */
     public function toOptionArray()
     {
         return [
@@ -12,6 +17,11 @@ class Menutype implements \Magento\Framework\Option\ArrayInterface
         ];
     }
 
+    /**
+     * Comment of toArray function
+     *
+     * @return void
+     */
     public function toArray()
     {
         return [

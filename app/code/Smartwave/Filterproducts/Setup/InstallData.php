@@ -11,12 +11,13 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 /**
  * @codeCoverageIgnore
  */
-class InstallData implements InstallDataInterface {
+class InstallData implements InstallDataInterface
+{
 
     /**
-     * EAV setup factory
+     * $eavSetupFactory variable
      *
-     * @var EavSetupFactory
+     * @var [type]
      */
     private $eavSetupFactory;
 
@@ -25,19 +26,30 @@ class InstallData implements InstallDataInterface {
      *
      * @param EavSetupFactory $eavSetupFactory
      */
-    public function __construct(EavSetupFactory $eavSetupFactory) {
+    public function __construct(EavSetupFactory $eavSetupFactory)
+    {
         $this->eavSetupFactory = $eavSetupFactory;
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context) {
+    /**
+     * Undocumented function
+     *
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @return void
+     */
+    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    {
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
         
         $eavSetup->addAttribute(
-                \Magento\Catalog\Model\Product::ENTITY, 'sw_featured', [
+            \Magento\Catalog\Model\Product::ENTITY,
+            'sw_featured',
+            [
             'group' => 'Product Details',
             'type' => 'int',
             'sort_order' => 102,
@@ -46,7 +58,7 @@ class InstallData implements InstallDataInterface {
             'label' => 'Is Featured',
             'input' => 'boolean',
             'class' => '',
-            'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+            'source' => \Magento\Eav\Model\Entity\Attribute\Source\Boolean::class,
             'global' => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_GLOBAL,
             'visible' => true,
             'required' => false,
@@ -59,7 +71,7 @@ class InstallData implements InstallDataInterface {
             'used_in_product_listing' => true,
             'unique' => false,
             'apply_to' => 'simple,configurable,virtual,bundle,downloadable'
-        ]);
+                ]
+        );
     }
-
 }

@@ -17,12 +17,18 @@ class Dailydeal extends \Magento\Backend\Block\Widget\Form\Generic implements \M
      */
     protected $swDiscountTypeOptions;
 
+    /**
+     * $swDealProductOptions variable
+     *
+     * @var [type]
+     */
     protected $swDealProductOptions;
     /**
-     * constructor
+     * Comment of __construct function
      *
      * @param \Magento\Config\Model\Config\Source\Yesno $booleanOptions
      * @param \Smartwave\Dailydeals\Model\Dailydeal\Source\SwDiscountType $swDiscountTypeOptions
+     * @param \Smartwave\Dailydeals\Model\Dailydeal\Source\SwDealProduct $swDealProductOptions
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Framework\Data\FormFactory $formFactory

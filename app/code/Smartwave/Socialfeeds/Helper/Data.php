@@ -1,16 +1,22 @@
 <?php
 /**
-* Copyright © 2018 Porto. All rights reserved.
-*/
+ * Copyright © 2018 Porto. All rights reserved.
+ */
 namespace Smartwave\Socialfeeds\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    public function __construct(
-        \Magento\Framework\App\Helper\Context $context
-    ) {
-        parent::__construct($context);
-    }
+    // public function __construct(
+    //     \Magento\Framework\App\Helper\Context $context
+    // ) {
+    //     parent::__construct($context);
+    // }
+    /**
+     * Comment of getConfig function
+     *
+     * @param [type] $config_path
+     * @return void
+     */
     public function getConfig($config_path)
     {
         return $this->scopeConfig->getValue(
@@ -19,13 +25,22 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         );
     }
 
-    public function file_get_contents_curl($url, $useragent = null) {
+    /**
+     * Undocumented function
+     *
+     * @param [type] $url
+     * @param [type] $useragent
+     * @return void
+     */
+    public function fileGetContentsCurl($url, $useragent = null)
+    {
         $ch = curl_init($url);
         
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        if ($useragent)
+        if ($useragent) {
             curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
-        curl_setopt( $ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        }
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         
@@ -34,41 +49,61 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $data;
     }
         
-    function getAttribute($attrib, $tag){
+    /**
+     * Comment of getAttribute function
+     *
+     * @param [type] $attrib
+     * @param [type] $tag
+     * @return void
+     */
+    public function getAttribute($attrib, $tag)
+    {
           //get attribute from html tag
           $re = '/'.$attrib.'=["\']?([^"\' ]*)["\' ]/is';
           preg_match($re, $tag, $match);
           
-          if($match){
+        if ($match) {
             return urldecode($match[1]);
-          }else {
+        } else {
             return false;
-          }
+        }
     }
-    
-    function fetch_fb_fans($fb_id, $limit = 10){
-        $ret = array();
-        $matches = array();
-        $url = 'https://www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/' . $fb_id . '&connections=' . $limit;
+    /**
+     * Comment of function
+     *
+     * @param [type] $fb_id
+     * @param integer $limit
+     * @return void
+     */
+    public function fatchFbFans($fb_id, $limit = 10)
+    {
+        $ret = [];
+        $matches = [];
+        $url = 'https://www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/'.$fb_id.
+        '&connections='.$limit;
         
         $html = '';
-        $like_html = $this->file_get_contents_curl($url, 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0.1');
+        $like_html = $this->fileGetContentsCurl(
+            $url,
+            'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0.1'
+        );
         $doc = new \DOMDocument('1.0', 'utf-8');
         @$doc->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />' . $like_html);
-        $peopleList = array();
+        $peopleList = [];
         $i = 0;
 
-        if (!$doc)
+        if (!$doc) {
             return false;
+        }
 
-        $result = array();
+        $result = [];
         $link = $doc->getElementById('u_0_4');
         $result['link'] = 'https://www.facebook.com/'.$fb_id;
         $result['like'] = '';
         if (isset($link)) {
             foreach ($link->childNodes as $child) {
                 $result['like'] .= $link->ownerDocument->saveHTML($child);
-            } 
+            }
         }
 
         foreach ($doc->getElementsByTagName('ul')->item(0)->childNodes as $child) {
@@ -80,24 +115,28 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $fb = $this->getConfig("sw_socialfeeds/facebook_fanbox");
         $persons = 0;
         foreach ($peopleList as $key => $code) {
-            if($fb['showing_counts'] && $persons >= $fb['showing_counts'])
+            if ($fb['showing_counts'] && $persons >= $fb['showing_counts']) {
                 continue;
+            }
             $name = $this->getAttribute('title', $code);
             $nm = substr($name, 0, 7);
             //print_r(strlen($nm));echo "\n";
-            if (strlen($nm) != strlen($name)) $nm = $nm."...";
+            if (strlen($nm) != strlen($name)) {
+                $nm = $nm."...";
+            }
 
             $image = $this->getAttribute('src', $code);
             $link = $this->getAttribute('href', $code);
 
             //$data = file_get_contents($image);
             //$img_in_base64 = 'data:image/jpg;base64,' . base64_encode($data);
-            $protocols = array("http:","https:"); 
+            $protocols = ["http:","https:"];
             $img_in_base64 = str_replace($protocols, "", $image);
 
             $html .= '<div class="fb-person">';
             if ($link != "") {
-                $html .= "<a href=\"".$link."\" title=\"".$name."\" target=\"_blank\"><img src=\"".$img_in_base64."\" alt=\"\" /></a>";
+                $html .= "<a href=\"".$link."\" title=\"".$name."\" target=\"_blank\">
+                <img src=\"".$img_in_base64."\" alt=\"\" /></a>";
             } else {
                 $html .= "<span title=\"".$name."\"><img src=\"".$img_in_base64."\" alt=\"\" /></span>";
             }
@@ -108,17 +147,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $result;
     }
     
-    // get facebook fans
-    public function getFBFans() {
+    /**
+     * Comment of getFBFans function
+     *
+     * @return void
+     */
+    public function getFBFans()
+    {
         $fb = $this->getConfig("sw_socialfeeds/facebook_fanbox");
         
-        if (!$fb['enable'])
+        if (!$fb['enable']) {
             return false;
+        }
             
         $limit = $fb['showing_counts'];
         $fb_name = $fb['facebook_name'];
         
         // get page info from graph
-        return $this->fetch_fb_fans($fb_name, $limit);
+        return $this->fatchFbFans($fb_name, $limit);
     }
 }

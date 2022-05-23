@@ -11,12 +11,10 @@ class CollectionFactory
      * @var string
      */
     protected $_instanceName = null;
- 
     /**
-     * Factory constructor
+     * Comment of __construct function
      *
-     * @param \Magento\Framework\ObjectManagerInterface $objectManager
-     * @param string $instanceName
+     * @param \Elsnertech\Flashsale\Model\ResourceModel\FlashsaleProduct\Collection $instanceName
      */
     public function __construct(\Elsnertech\Flashsale\Model\ResourceModel\FlashsaleProduct\Collection $instanceName)
     {

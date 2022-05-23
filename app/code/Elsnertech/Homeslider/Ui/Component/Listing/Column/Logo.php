@@ -8,11 +8,31 @@ use Magento\Ui\Component\Listing\Columns\Column;
 
 class Logo extends Column
 {
-    const ALT_FIELD = 'title';
+    public const ALT_FIELD = 'title';
 
+    /**
+     * $storeManager variable
+     *
+     * @var string
+     */
     protected $storeManager;
+    /**
+     * $imageHelper variable
+     *
+     * @var [type]
+     */
     protected $imageHelper;
 
+    /**
+     * Comment of construct function
+     *
+     * @param ContextInterface $context
+     * @param UiComponentFactory $uiComponentFactory
+     * @param StoreManagerInterface $storeManager
+     * @param \Magento\Catalog\Helper\Image $imageHelper
+     * @param array $components
+     * @param array $data
+     */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
@@ -26,6 +46,12 @@ class Logo extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
+    /**
+     * Comment prepareDataSource function
+     *
+     * @param array $dataSource
+     * @return void
+     */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
@@ -51,6 +77,12 @@ class Logo extends Column
         return $dataSource;
     }
 
+    /**
+     * Comment getAlt function
+     *
+     * @param [type] $row
+     * @return void
+     */
     protected function getAlt($row)
     {
         $altField = $this->getData('config/altField') ?: self::ALT_FIELD;

@@ -3,11 +3,38 @@ namespace Smartwave\Dailydeals\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
+    /**
+     * $dailydealFactory variable
+     *
+     * @var [type]
+     */
     protected $dailydealFactory;
+    /**
+     * $scopeConfig variable
+     *
+     * @var [type]
+     */
     protected $scopeConfig;
+    /**
+     * $productFactory variable
+     *
+     * @var [type]
+     */
     protected $productFactory;
+    /**
+     * $loadedTimer variable
+     *
+     * @var [type]
+     */
     protected $loadedTimer;
     
+    /**
+     * Comment of __construct function
+     *
+     * @param \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param \Magento\Catalog\Model\ProductFactory $productFactory
+     */
     public function __construct(
         \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
@@ -20,6 +47,11 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->loadedTimer = 0;
     }
 
+    /**
+     * Comment of chkEnableDailydeals function
+     *
+     * @return void
+     */
     public function chkEnableDailydeals()
     {
         $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
@@ -32,6 +64,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     // Get ObjectManager Instance
+
+    /**
+     * Comment of getObjectManagerInstance function
+     *
+     * @return void
+     */
     public function getObjectManagerInstance()
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -39,10 +77,18 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
     
     //Check Dailydeal Product
+
+    /**
+     * Comment of isDealProduct function
+     *
+     * @param [type] $productId
+     * @return boolean
+     */
     public function isDealProduct($productId)
     {
-        if(!$this->chkEnableDailydeals())
+        if (!$this->chkEnableDailydeals()) {
             return false;
+        }
         $productcollection=$this->productFactory->create()->getCollection();
         $productcollection->addAttributeToSelect('*');
         $productcollection->addAttributeToFilter('entity_id', ['eq'=>$productId]);
@@ -53,7 +99,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $dailydealcollection->addFieldToFilter('sw_product_sku', ['eq'=>$sku]);
         
         if ($dailydealcollection->getSize() ==1) {
-            $objDate = $this->getObjectManagerInstance()->create('Magento\Framework\Stdlib\DateTime\DateTime');
+            $objDate = $this->getObjectManagerInstance()->create(\Magento\Framework\Stdlib\DateTime\DateTime::class);
         
             $curdate=strtotime($this->getcurrentDate());
             $Todate=strtotime($this->getDailydealToDate($sku));
@@ -70,6 +116,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     // Get Product Price
+
+    /**
+     * Comment of getProductPrice function
+     *
+     * @param [type] $sku
+     * @return void
+     */
     public function getProductPrice($sku)
     {
         $productcollection=$this->productFactory->create()->getCollection();
@@ -83,6 +136,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
     }
     // Get Bundle Discount Value
+
+    /**
+     * Comment of getbundleProductDiscount function
+     *
+     * @param [type] $sku
+     * @return void
+     */
     public function getbundleProductDiscount($sku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -90,12 +150,24 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $dailydealcollection->addFieldToFilter('sw_product_sku', ['eq'=>$sku]);
 
         if ($dailydealcollection->getFirstItem()->getSwDiscountType() ==1) {
-            return '<div style=" margin-top:20px; "><strong>Save:'.$this->getcurrencySymbol().''.number_format($dailydealcollection->getFirstItem()->getSwDiscountAmount(), 2).'</strong></div>';
+            return '<div style=" margin-top:20px; ">
+            <strong>Save:'.$this->getcurrencySymbol().''.
+            number_format($dailydealcollection->getFirstItem()->getSwDiscountAmount(), 2).
+            '</strong></div>';
         } elseif ($dailydealcollection->getFirstItem()->getSwDiscountType() ==2) {
-            return '<div style="margin-top:20px;"><strong>OFF:'.number_format($dailydealcollection->getFirstItem()->getSwDiscountAmount(), 2).'%</strong></div>';
+            return '<div style="margin-top:20px;">
+            <strong>OFF:'.number_format($dailydealcollection->getFirstItem()->getSwDiscountAmount(), 2).
+            '%</strong></div>';
         }
     }
     //Get "Product price" by ProductId
+
+    /**
+     * Comment of getDealproductbyId function
+     *
+     * @param [type] $productId
+     * @return void
+     */
     public function getDealproductbyId($productId)
     {
         $productcollection=$this->productFactory->create()->getCollection();
@@ -107,21 +179,38 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
     
     // Get Current Currency Symbol
+
+    /**
+     * Comment of getcurrencySymbol function
+     *
+     * @return void
+     */
     public function getcurrencySymbol()
     {
-        $currencySymbol=$this->getObjectManagerInstance()->create('Magento\Store\Model\StoreManagerInterface');
+        $currencySymbol=$this->getObjectManagerInstance()->create(\Magento\Store\Model\StoreManagerInterface::Class);
         return $currencySymbol->getStore()->getCurrentCurrency()->getCurrencySymbol();
     }
 
     // Get Current Date
+
+    /**
+     * Comment of getcurrentDate function
+     *
+     * @return void
+     */
     public function getcurrentDate()
     {
-         $objDate = $this->getObjectManagerInstance()->create('Magento\Framework\Stdlib\DateTime\DateTime');
+         $objDate = $this->getObjectManagerInstance()->create(\Magento\Framework\Stdlib\DateTime\DateTime::class);
          return $objDate->gmtDate("Y-m-d H:i:s");
     }
 
     // Get Collection of dailydeal
-   
+
+    /**
+     * Comment of getDailydealcollection function
+     *
+     * @return void
+     */
     public function getDailydealcollection()
     {
         $dailydealcollection=$this->dailydealFactory->create()->getCollection();
@@ -129,6 +218,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
     
     // Get Discount Value  of Dailydeal Product
+
+    /**
+     * Comment of getDealProductDiscountValue function
+     *
+     * @param [type] $dealproductsku
+     * @return void
+     */
     public function getDealProductDiscountValue($dealproductsku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -139,6 +235,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
     
     // Get Dailydeal Product with Discount Price
+
+    /**
+     * Comment of getDealProductPrice function
+     *
+     * @param [type] $dealproductsku
+     * @return void
+     */
     public function getDealProductPrice($dealproductsku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -149,6 +252,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
     
     // Get Dailydeal Product TO date
+
+    /**
+     * Comment of getDailydealToDate function
+     *
+     * @param [type] $dealproductsku
+     * @return void
+     */
     public function getDailydealToDate($dealproductsku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -158,6 +268,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $dailydealcollection->getFirstItem()->getSwDateTo();
     }
     // Get Dailydeal Product FROM Date
+
+    /**
+     * Comment of getDailydealFromDate function
+     *
+     * @param [type] $dealproductsku
+     * @return void
+     */
     public function getDailydealFromDate($dealproductsku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -168,6 +285,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
             
     // Get "OFF value" (in percentage) of Dailydeal Product
+
+    /**
+     * Comment of getDealOffValue function
+     *
+     * @param [type] $dealproductsku
+     * @return void
+     */
     public function getDealOffValue($dealproductsku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -176,7 +300,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         
         $discountType=$dailydealcollection->getFirstItem()->getSwDiscountType();
         if ($discountType ==1) {
-            $off=(($this->getProductPrice($dealproductsku)-$this->getDealProductPrice($dealproductsku))* 100)/  $this->getProductPrice($dealproductsku) ;
+            $off=(($this->getProductPrice($dealproductsku)-$this->getDealProductPrice($dealproductsku))* 100)/
+            $this->getProductPrice($dealproductsku) ;
             return $off;
         } elseif ($discountType ==2) {
             return $dailydealcollection->getFirstItem()->getSwDiscountAmount();
@@ -184,6 +309,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
     
     // Get "Save value" (In price) of dailydeal Product
+
+    /**
+     * Comment of getDealSaveValue function
+     *
+     * @param [type] $dealproductsku
+     * @return void
+     */
     public function getDealSaveValue($dealproductsku)
     {
         $dailydealcollection=$this->getDailydealcollection();
@@ -199,11 +331,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
     }
 
-    public function isLoadedTimer() {
+    /**
+     * Comment of isLoadedTimer function
+     *
+     * @return boolean
+     */
+    public function isLoadedTimer()
+    {
         return $this->loadedTimer;
     }
 
-    public function setLoadedTimer() {
+    /**
+     * Comment of setLoadedTimer function
+     *
+     * @return void
+     */
+    public function setLoadedTimer()
+    {
         $this->loadedTimer = 1;
     }
 }

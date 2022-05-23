@@ -48,11 +48,17 @@ class RangesMobile extends AbstractFieldArray
  * @return string
  * @throws \Exception
  */
-	protected function _geImageColumnRenderer() { 
-	//if( !$this->_imageRenderer ) {
-		$this->_imageRenderer = $this->getLayout()->createBlock('Elsnertech\Homeslider\Block\Adminhtml\Form\Field\MyFileRenderer','',['data' => ['is_render_to_js_template' => true,]]);
+    protected function _geImageColumnRenderer()
+    {
+    //if( !$this->_imageRenderer ) {
+        $this->_imageRenderer = $this->getLayout()->createBlock(
+            \Elsnertech\Homeslider\Block\Adminhtml\Form\Field\MyFileRenderer::class,
+            [
+                'data' => ['is_render_to_js_template' => true,]
+            ]
+        );
 
-	//}
-		return $this->_imageRenderer;
-	}
+    //}
+        return $this->_imageRenderer;
+    }
 }

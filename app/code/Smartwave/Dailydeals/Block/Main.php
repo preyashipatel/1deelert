@@ -7,13 +7,38 @@ use Magento\Catalog\Api\CategoryRepositoryInterface;
 
 class Main extends \Magento\Catalog\Block\Product\ListProduct
 {
-
-
+    /**
+     * $productFactory variable
+     *
+     * @var [type]
+     */
     protected $productFactory;
+    /**
+     * $dailydealFactory variable
+     *
+     * @var [type]
+     */
     protected $dailydealFactory;
 
+    /**
+     * $scopeConfig variable
+     *
+     * @var [type]
+     */
     protected $scopeConfig;
-        
+
+    /**
+     * Cooment of __construct function
+     *
+     * @param \Magento\Catalog\Block\Product\Context $context
+     * @param \Magento\Catalog\Model\ProductFactory $productFactory
+     * @param \Magento\Framework\Data\Helper\PostHelper $postDataHelper
+     * @param \Magento\Catalog\Model\Layer\Resolver $layerResolver
+     * @param CategoryRepositoryInterface $categoryRepository
+     * @param \Magento\Framework\Url\Helper\Data $urlHelper
+     * @param \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory
+     * @param array $data
+     */
     public function __construct(
         \Magento\Catalog\Block\Product\Context $context,
         \Magento\Catalog\Model\ProductFactory $productFactory,
@@ -34,6 +59,12 @@ class Main extends \Magento\Catalog\Block\Product\ListProduct
     }
 
     // @return Productcollection whose status is enabled
+
+    /**
+     * Cooment of getDailydealEnableProduct function
+     *
+     * @return void
+     */
     public function getDailydealEnableProduct()
     {
         $collection=$this->getDailydealCollection();
@@ -43,6 +74,11 @@ class Main extends \Magento\Catalog\Block\Product\ListProduct
         return $collection;
     }
 
+    /**
+     * Comment of getDailydealCollection function
+     *
+     * @return void
+     */
     public function getDailydealCollection()
     {
         $collection=$this->dailydealFactory->create()->getCollection();
@@ -50,6 +86,13 @@ class Main extends \Magento\Catalog\Block\Product\ListProduct
     }
 
     // Get Product Data which is common in DailydealCollection
+
+    /**
+     * Comment of getDailyDealProduct function
+     *
+     * @param [type] $productSku
+     * @return void
+     */
     public function getDailyDealProduct($productSku)
     {
         $productCollection=$this->productFactory->create()->getCollection();
@@ -60,6 +103,13 @@ class Main extends \Magento\Catalog\Block\Product\ListProduct
     }
 
     //Retrun Recently dailydeal offer Collection ( duration is 2 days before expired and 2 days ago comming soon offer)
+
+    /**
+     * Comment of recentlyDailydeal function
+     *
+     * @param [type] $productSku
+     * @return void
+     */
     public function recentlyDailydeal($productSku)
     {
        
@@ -69,7 +119,7 @@ class Main extends \Magento\Catalog\Block\Product\ListProduct
         
         if ($dailydealcollection->getSize() ==1) {
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $objDate = $objectManager->create('Magento\Framework\Stdlib\DateTime\DateTime');
+            $objDate = $objectManager->create(\Magento\Framework\Stdlib\DateTime\DateTime::class);
         
             $curdate=strtotime($objDate->gmtDate("Y-m-d H:i:s"));
             $Todate=strtotime($dailydealcollection->getFirstItem()->getSwDateTo());

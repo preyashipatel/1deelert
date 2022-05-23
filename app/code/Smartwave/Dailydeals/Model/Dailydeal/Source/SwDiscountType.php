@@ -3,12 +3,10 @@ namespace Smartwave\Dailydeals\Model\Dailydeal\Source;
 
 class SwDiscountType implements \Magento\Framework\Option\ArrayInterface
 {
-    const FIXED = 1;
-    const PERCENTAGE = 2;
-
-
+    public const FIXED = 1;
+    public const PERCENTAGE = 2;
     /**
-     * to option array
+     * To option array
      *
      * @return array
      */

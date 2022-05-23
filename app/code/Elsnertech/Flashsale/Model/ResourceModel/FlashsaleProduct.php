@@ -12,7 +12,6 @@ class FlashsaleProduct extends \Magento\Framework\Model\ResourceModel\Db\Abstrac
      *
      * @return void
      */
-    // Table Name and Primary Key column
     public function _construct()
     {
         $this->_init('flashsale_product', 'id');

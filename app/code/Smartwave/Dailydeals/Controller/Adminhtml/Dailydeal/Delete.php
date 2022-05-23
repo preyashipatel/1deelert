@@ -4,7 +4,7 @@ namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
 class Delete extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
 {
     /**
-     * execute action
+     * Execute action
      *
      * @return \Magento\Backend\Model\View\Result\Redirect
      */

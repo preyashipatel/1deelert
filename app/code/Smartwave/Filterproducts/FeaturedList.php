@@ -2,16 +2,46 @@
 
 namespace Smartwave\Filterproducts\Block;
 
-class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
-
+class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct
+{
+    /**
+     * $_catalogProductVisibility variable
+     *
+     * @var [type]
+     */
     protected $_catalogProductVisibility;
 
+    /**
+     * $_productCollectionFactory variable
+     *
+     * @var [type]
+     */
     protected $_productCollectionFactory;
 
+    /**
+     * $_categoryFactory variable
+     *
+     * @var [type]
+     */
     protected $_categoryFactory;
 
+    /**
+     * $urlHelper variable
+     *
+     * @var [type]
+     */
     protected $urlHelper;
 
+    /**
+     * Comment of __construct function
+     *
+     * @param \Magento\Catalog\Block\Product\Context $context
+     * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
+     * @param \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility
+     * @param \Magento\Catalog\Model\CategoryFactory $categoryFactory
+     * @param \Magento\Framework\Url\Helper\Data $urlHelper
+     * @param array $data
+     */
     public function __construct(
         \Magento\Catalog\Block\Product\Context $context,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
@@ -28,7 +58,13 @@ class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
         parent::__construct($context, $data);
     }
 
-    public function getProducts() {
+    /**
+     * Comment of getProducts function
+     *
+     * @return void
+     */
+    public function getProducts()
+    {
         $count = $this->getProductCount();
         $category_id = $this->getData("category_id");
         $collection = $this->_productCollectionFactory->create();
@@ -36,11 +72,11 @@ class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
 
         $collection = $this->_addProductAttributesAndPrices($collection)->addStoreFilter();
 
-        if(!$category_id) {
+        if (!$category_id) {
             $category_id = $this->_storeManager->getStore()->getRootCategoryId();
         }
         $category = $this->_categoryFactory->create()->load($category_id);
-        if(isset($category) && $category) {
+        if (isset($category) && $category) {
             $collection->addMinimalPrice()
                 ->addFinalPrice()
                 ->addTaxPercents()
@@ -49,7 +85,7 @@ class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
                 ->addAttributeToSelect('small_image')
                 ->addAttributeToSelect('thumbnail')
                 ->addAttributeToSelect($this->_catalogConfig->getProductAttributes())
-                ->addUrlRewrite() 
+                ->addUrlRewrite()
                 ->addAttributeToFilter('sw_featured', 1, 'left')
                 ->addCategoryFilter($category);
         } else {
@@ -61,7 +97,7 @@ class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
                 ->addAttributeToSelect('small_image')
                 ->addAttributeToSelect('thumbnail')
                 ->addAttributeToSelect($this->_catalogConfig->getProductAttributes())
-                ->addUrlRewrite() 
+                ->addUrlRewrite()
                 ->addAttributeToFilter('sw_featured', 1, 'left');
         }
 
@@ -72,6 +108,12 @@ class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
         return $collection;
     }
 
+    /**
+     * Comment of getAddToCartPostParams function
+     *
+     * @param \Magento\Catalog\Model\Product $product
+     * @return void
+     */
     public function getAddToCartPostParams(\Magento\Catalog\Model\Product $product)
     {
         $url = $this->getAddToCartUrl($product);
@@ -85,14 +127,27 @@ class FeaturedList extends \Magento\Catalog\Block\Product\AbstractProduct {
         ];
     }
 
-    public function getLoadedProductCollection() {
+    /**
+     * Comment of getLoadedProductCollection function
+     *
+     * @return void
+     */
+    public function getLoadedProductCollection()
+    {
         return $this->getProducts();
     }
 
-    public function getProductCount() {
+    /**
+     * Comment of getProductCount function
+     *
+     * @return void
+     */
+    public function getProductCount()
+    {
         $limit = $this->getData("product_count");
-        if(!$limit)
+        if (!$limit) {
             $limit = 10;
-        return $limit;
+            return $limit;
+        }
     }
 }

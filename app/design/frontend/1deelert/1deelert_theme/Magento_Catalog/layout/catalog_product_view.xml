@@ -8,6 +8,16 @@
     <body>        
         <referenceContainer name="product.info.main">
             <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Magento_Catalog::product/view/get-category.phtml"/>
+            <block class="Magento\Catalog\Block\Product\View" name="brand.attr" after="product.info.social" template="Magento_Catalog::product/view/brand.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.media">
+            <container name="extra.info" htmlTag="div" htmlClass="product-extra-info-mob" before="-">
+                <block class="Magento\Catalog\Block\Product\View" name="product.sku" template="Magento_Catalog::product/view/product-sku.phtml" before="-"/>
+                <block class="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist" name="view.addto.wishlist.custom"
+                       template="Magento_Wishlist::catalog/product/view/addto/wishlist.phtml" after="product.sku" />
+                <block class="Magento\Catalog\Block\Product\View" name="product.zoom" template="Magento_Catalog::product/view/zoom-option.phtml" after="-"/>          
+                       
+            </container>
         </referenceContainer>
         <!-- <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/> -->
         <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>

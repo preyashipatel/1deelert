@@ -4,32 +4,30 @@ namespace Smartwave\Dailydeals\Controller\Adminhtml;
 abstract class Dailydeal extends \Magento\Backend\App\Action
 {
     /**
-     * Dailydeal Factory
+     * $dailydealFactory variable
      *
-     * @var \Smartwave\Dailydeals\Model\DailydealFactory
+     * @var [type]
      */
     protected $dailydealFactory;
 
     /**
-     * Core registry
+     * $coreRegistry variable
      *
-     * @var \Magento\Framework\Registry
+     * @var [type]
      */
     protected $coreRegistry;
-
     /**
-     * Result redirect factory
+     * $resultRedirectFactory variable
      *
-     * @var \Magento\Backend\Model\View\Result\RedirectFactory
+     * @var [type]
      */
     protected $resultRedirectFactory;
 
     /**
-     * constructor
+     * Comment of __construct function
      *
      * @param \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory
      * @param \Magento\Framework\Registry $coreRegistry
-     * @param \Magento\Backend\Model\View\Result\RedirectFactory $resultRedirectFactory
      * @param \Magento\Backend\App\Action\Context $context
      */
     public function __construct(

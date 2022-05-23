@@ -5,9 +5,6 @@ use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magento\Framework\DataObject;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class Ranges
- */
 class Ranges extends AbstractFieldArray
 {
     /**

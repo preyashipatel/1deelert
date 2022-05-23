@@ -3,10 +3,11 @@ namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
 
 class Edit extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
 {
+
     /**
-     * Backend session
+     * $backendSession variable
      *
-     * @var \Magento\Backend\Model\Session
+     * @var [type]
      */
     protected $backendSession;
 
@@ -16,23 +17,19 @@ class Edit extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
      * @var \Magento\Framework\View\Result\PageFactory
      */
     protected $resultPageFactory;
-
     /**
-     * Result JSON factory
+     * $resultJsonFactory variable
      *
-     * @var \Magento\Framework\Controller\Result\JsonFactory
+     * @var [type]
      */
     protected $resultJsonFactory;
-
     /**
-     * constructor
+     * Comment of __construct function
      *
-     * @param \Magento\Backend\Model\Session $backendSession
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
      * @param \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory
      * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Backend\Model\View\Result\RedirectFactory $resultRedirectFactory
      * @param \Magento\Backend\App\Action\Context $context
      */
     public function __construct(
@@ -50,7 +47,7 @@ class Edit extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
     }
 
     /**
-     * is action allowed
+     * Is action allowed
      *
      * @return bool
      */
@@ -60,6 +57,8 @@ class Edit extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
     }
 
     /**
+     * Comment of execut function
+     *
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect|\Magento\Framework\View\Result\Page
      */
     public function execute()

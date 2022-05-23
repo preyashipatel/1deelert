@@ -3,17 +3,17 @@ namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
 
 abstract class InlineEdit extends \Magento\Backend\App\Action
 {
-    /**
-     * JSON Factory
-     *
-     * @var \Magento\Framework\Controller\Result\JsonFactory
-     */
-    protected $jsonFactory;
 
     /**
-     * Dailydeal Factory
+     * $jsonFactory variable
      *
-     * @var \Smartwave\Dailydeals\Model\DailydealFactory
+     * @var [type]
+     */
+    protected $jsonFactory;
+    /**
+     * $dailydealFactory variable
+     *
+     * @var [type]
      */
     protected $dailydealFactory;
 
@@ -34,9 +34,10 @@ abstract class InlineEdit extends \Magento\Backend\App\Action
         $this->dailydealFactory = $dailydealFactory;
         parent::__construct($context);
     }
-
     /**
-     * @return \Magento\Framework\Controller\ResultInterface
+     * Comment of execute function
+     *
+     * @return void
      */
     public function execute()
     {

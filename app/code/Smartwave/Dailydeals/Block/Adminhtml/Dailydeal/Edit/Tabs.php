@@ -7,7 +7,7 @@ namespace Smartwave\Dailydeals\Block\Adminhtml\Dailydeal\Edit;
 class Tabs extends \Magento\Backend\Block\Widget\Tabs
 {
     /**
-     * constructor
+     * Constructor
      *
      * @return void
      */

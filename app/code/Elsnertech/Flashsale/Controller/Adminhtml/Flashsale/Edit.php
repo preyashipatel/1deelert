@@ -53,7 +53,8 @@ class Edit extends Flashsale
         );
 
         $resultPage->getConfig()->getTitle()->prepend(__('Flashsales'));
-        $resultPage->getConfig()->getTitle()->prepend($flashsale->getId() ? $flashsale->getName() : __('New Flashsale'));
+        $resultPage->getConfig()
+        ->getTitle()->prepend($flashsale->getId() ? $flashsale->getName() : __('New Flashsale'));
 
         return $resultPage;
     }

@@ -5,8 +5,24 @@ namespace Elsnertech\Homeslider\Block\Adminhtml\Homeslider\Edit;
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
 
+    /**
+     * $systemStore variable
+     *
+     * @var [type]
+     */
     protected $systemStore;
 
+    /**
+     * Comment of __construct function
+     *
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Framework\Data\FormFactory $formFactory
+     * @param \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig
+     * @param \Elsnertech\Homeslider\Model\Status $options
+     * @param \Magento\Store\Model\System\Store $systemStore
+     * @param array $data
+     */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
@@ -22,6 +38,11 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
+    /**
+     * Comment of _prepareForm function
+     *
+     * @return void
+     */
     protected function _prepareForm()
     {
         $dateFormat = $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT);
@@ -59,13 +80,13 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'id' => 'image_text',
                 'title' => __('Image Text'),
                 'class' => 'required-entry',
-				'wysiwyg' => true,
-				'config' => $this->_wysiwygConfig->getConfig(),
+                'wysiwyg' => true,
+                'config' => $this->_wysiwygConfig->getConfig(),
                 'required' => true
             ]
         );
 
-		$fieldset->addField(
+        $fieldset->addField(
             'link',
             'text',
             [
@@ -77,7 +98,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'required' => true
             ]
         );
-        $fieldset->addType('required_image', 'Elsnertech\Homeslider\Block\Adminhtml\Helper\Image\Required');
+        $fieldset->addType('required_image', \Elsnertech\Homeslider\Block\Adminhtml\Helper\Image\Required::class);
         if ($model->getId()) {
             $fieldset->addField(
                 'image',
@@ -114,7 +135,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                         }else{
                             $("#ElsnertechHomeslider_image1").addClass("required-file");
                         }
-                        $( "#ElsnertechHomeslider_image1" ).attr( "accept", "image/x-png,image/gif,image/jpeg,image/jpg,image/png" );
+                        $( "#ElsnertechHomeslider_image1" ).attr( "accept",
+                        "image/x-png,image/gif,image/jpeg,image/jpg,image/png" );
                     });
                   });
            </script>
@@ -138,4 +160,3 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         return parent::_prepareForm();
     }
 }
-

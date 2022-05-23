@@ -10,12 +10,31 @@ use Magento\Framework\UrlInterface;
 class Action extends Column
 {
     
-    const ROW_EDIT_URL = 'homeslider/homeslider/addrow';
-    
+    public const ROW_EDIT_URL = 'homeslider/homeslider/addrow';
+    /**
+     * $_urlBuilder variable
+     *
+     * @var string
+     */
     protected $_urlBuilder;
 
+    /**
+     * $_editUrl variable
+     *
+     * @var string
+     */
     private $_editUrl;
 
+    /**
+     * Undocumented function
+     *
+     * @param ContextInterface $context
+     * @param UiComponentFactory $uiComponentFactory
+     * @param UrlInterface $urlBuilder
+     * @param array $components
+     * @param array $data
+     * @param [type] $editUrl
+     */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
@@ -29,6 +48,12 @@ class Action extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
+    /**
+     * Comment of prepareDataSource function
+     *
+     * @param array $dataSource
+     * @return void
+     */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
@@ -45,6 +70,6 @@ class Action extends Column
                 }
             }
         }
-       return $dataSource;
+        return $dataSource;
     }
 }

@@ -47,18 +47,19 @@ class Thumbnail extends Column
      */
     public function prepareDataSource(array $dataSource)
     {
-        if(isset($dataSource['data']['items'])) {
+        if (isset($dataSource['data']['items'])) {
             $fieldName = $this->getData('name');
-            foreach($dataSource['data']['items'] as & $item) {
+            foreach ($dataSource['data']['items'] as & $item) {
                 $url = '';
-                if($item[$fieldName] != '') {
-                    $url = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . $item[$fieldName];
+                if ($item[$fieldName] != '') {
+                    $url = $this->storeManager->getStore()
+                    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . $item[$fieldName];
                     $item[$fieldName . '_src'] = $url;
                     $item[$fieldName . '_orig_src'] = $url;
                     $item[$fieldName . '_link'] = $this->urlBuilder->getUrl(
-                    'name/store/edit',
-                    ['id' => $item['id']]
-                );
+                        'name/store/edit',
+                        ['id' => $item['id']]
+                    );
                 }
             }
         }

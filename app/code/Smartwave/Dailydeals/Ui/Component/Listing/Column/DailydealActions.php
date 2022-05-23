@@ -8,19 +8,19 @@ class DailydealActions extends \Magento\Ui\Component\Listing\Columns\Column
      *
      * @var string
      */
-    const URL_PATH_EDIT = 'sw_dailydeals/dailydeal/edit';
+    public const URL_PATH_EDIT = 'sw_dailydeals/dailydeal/edit';
 
     /**
      * Url path  to delete
      *
      * @var string
      */
-    const URL_PATH_DELETE = 'sw_dailydeals/dailydeal/delete';
+    public const URL_PATH_DELETE = 'sw_dailydeals/dailydeal/delete';
 
     /**
-     * URL builder
+     * $urlBuilder variable
      *
-     * @var \Magento\Framework\UrlInterface
+     * @var [type]
      */
     protected $urlBuilder;
 
@@ -44,8 +44,6 @@ class DailydealActions extends \Magento\Ui\Component\Listing\Columns\Column
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
-
-
     /**
      * Prepare Data Source
      *
@@ -77,7 +75,8 @@ class DailydealActions extends \Magento\Ui\Component\Listing\Columns\Column
                             'label' => __('Delete'),
                             'confirm' => [
                                 'title' => __('Delete "${ $.$data.sw_product_sku }"'),
-                                'message' => __('Are you sure you wan\'t to delete the Dailydeal "${ $.$data.sw_product_sku }" ?')
+                                'message' => __('Are you sure you wan\'t to delete the Dailydeal 
+                                "${ $.$data.sw_product_sku }" ?')
                             ]
                         ]
                     ];

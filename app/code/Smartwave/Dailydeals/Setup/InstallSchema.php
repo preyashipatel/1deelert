@@ -4,14 +4,14 @@ namespace Smartwave\Dailydeals\Setup;
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
     /**
-     * install tables
+     * Install tables
      *
      * @param \Magento\Framework\Setup\SchemaSetupInterface $setup
      * @param \Magento\Framework\Setup\ModuleContextInterface $context
      * @return void
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    public function install(\Magento\Framework\Setup\SchemaSetupInterface $setup, \Magento\Framework\Setup\ModuleContextInterface $context)
+    public function install($setup, $context)
     {
         $installer = $setup;
         $installer->startSetup();

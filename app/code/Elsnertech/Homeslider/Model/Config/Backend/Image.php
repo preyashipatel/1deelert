@@ -8,7 +8,7 @@ class Image extends \Magento\Config\Model\Config\Backend\Image
      * The tail part of directory path for uploading
      *
      */
-    const UPLOAD_DIR = 'theme'; // Folder save image
+    public const UPLOAD_DIR = 'theme'; // Folder save image
 
     /**
      * Return path to directory for upload file

@@ -22,15 +22,60 @@ use Magento\Framework\Reflection\DataObjectProcessor;
 
 class FlashsaleRepository implements FlashsaleRepositoryInterface
 {
-   
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $resource;
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $flashsaleFactory;
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $flashsaleCollectionFactory;
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $searchResultsFactory;
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $dataObjectHelper;
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $dataObjectProcessor;
+   /**
+    * Undocumented variable
+    *
+    * @var [type]
+    */
     protected $instances = [];
 
+    /**
+     * Editor constructor.
+     *
+     * @param ResourceFlashsale $resource
+     * @param FlashsaleInterfaceFactory $flashsaleFactory
+     * @param FlashsaleCollectionFactory $flashsaleCollectionFactory
+     * @param FlashsaleSearchResultsInterfaceFactory $searchResultsFactory
+     * @param DataObjectHelper $dataObjectHelper
+     * @param DataObjectProcessor $dataObjectProcessor
+     * @codeCoverageIgnore
+     */
     public function __construct(
         ResourceFlashsale $resource,
         FlashsaleInterfaceFactory $flashsaleFactory,
@@ -47,13 +92,23 @@ class FlashsaleRepository implements FlashsaleRepositoryInterface
         $this->dataObjectProcessor = $dataObjectProcessor;
     }
 
+    /**
+     * Comment of save function
+     *
+     * @param FlashsaleInterface $flashsale
+     * @return void
+     */
     public function save(FlashsaleInterface $flashsale)
     {
         if (false === ($flashsale instanceof AbstractModel)) {
             throw new CouldNotSaveException(__('Invalid Model'));
         }
 
-        /** @var AbstractModel $flashsale */
+        /**
+         * Comment
+         *
+         * @var AbstractModel $flashsale
+         */
         try {
             $this->resource->save($flashsale);
         } catch (\Exception $exception) {
@@ -62,10 +117,20 @@ class FlashsaleRepository implements FlashsaleRepositoryInterface
 
         return $flashsale;
     }
+    /**
+     * Comment of getById function
+     *
+     * @param [type] $flashsaleId
+     * @return void
+     */
     public function getById($flashsaleId)
     {
         if (false === array_key_exists($flashsaleId, $this->instances)) {
-            /** @var AbstractModel $flashsale */
+            /**
+             * Comment
+             *
+             * @var AbstractModel $flashsale
+             */
             $flashsale = $this->flashsaleFactory->create();
             $this->resource->load($flashsale, $flashsaleId);
             if (!$flashsale->getId()) {
@@ -75,6 +140,12 @@ class FlashsaleRepository implements FlashsaleRepositoryInterface
         }
         return $this->instances[$flashsaleId];
     }
+    /**
+     * Comment of getList function
+     *
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return void
+     */
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
         /** @var FlashsaleSearchResultsInterface $searchResults */
@@ -104,7 +175,12 @@ class FlashsaleRepository implements FlashsaleRepositoryInterface
         $collection->setCurPage($searchCriteria->getCurrentPage());
         $collection->setPageSize($searchCriteria->getPageSize());
         $teaserGroups = [];
-        /** @var Flashsale $flashsaleModel */
+
+        /**
+         * Comment
+         *
+         * @var Flashsale $flashsaleModel
+         */
         foreach ($collection as $flashsaleModel) {
             $flashsaleData = $this->flashsaleFactory->create();
             $this->dataObjectHelper->populateWithArray(
@@ -122,12 +198,22 @@ class FlashsaleRepository implements FlashsaleRepositoryInterface
         return $searchResults;
     }
 
+    /**
+     * Comment of delete function
+     *
+     * @param FlashsaleInterface $flashsale
+     * @return void
+     */
     public function delete(FlashsaleInterface $flashsale)
     {
         if (false === ($flashsale instanceof AbstractModel)) {
             throw new CouldNotDeleteException(__('Invalid Model'));
         }
-        /** @var AbstractModel $flashsale */
+        /**
+         * Comment
+         *
+         * @var AbstractModel $flashsale
+         */
         try {
             $this->resource->delete($flashsale);
         } catch (\Exception $exception) {
@@ -135,6 +221,12 @@ class FlashsaleRepository implements FlashsaleRepositoryInterface
         }
         return true;
     }
+    /**
+     * Comment of deleteById function
+     *
+     * @param [type] $flashsaleId
+     * @return void
+     */
     public function deleteById($flashsaleId)
     {
         return $this->delete($this->getById($flashsaleId));

@@ -6,11 +6,28 @@ use Magento\Framework\Controller\ResultFactory;
 
 class AddRow extends \Magento\Backend\App\Action
 {
-   
+
+    /**
+     * $coreRegistry variable
+     *
+     * @var [type]
+     */
     private $coreRegistry;
 
+    /**
+     * $HomesliderFactory variable
+     *
+     * @var [type]
+     */
     private $HomesliderFactory;
 
+    /**
+     * Comment of __construct function
+     *
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Framework\Registry $coreRegistry
+     * @param \Elsnertech\Homeslider\Model\HomesliderFactory $HomesliderFactory
+     */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
@@ -21,6 +38,11 @@ class AddRow extends \Magento\Backend\App\Action
         $this->HomesliderFactory = $HomesliderFactory;
     }
 
+    /**
+     * Comment of execute function
+     *
+     * @return void
+     */
     public function execute()
     {
         $rowId = (int) $this->getRequest()->getParam('id');
@@ -42,6 +64,11 @@ class AddRow extends \Magento\Backend\App\Action
         return $resultPage;
     }
 
+    /**
+     * Comment of _isAllowed function
+     *
+     * @return void
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Elsnertech_Homeslider::add_row');

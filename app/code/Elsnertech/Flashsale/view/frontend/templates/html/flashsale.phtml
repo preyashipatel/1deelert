@@ -24,7 +24,7 @@
         </div>
         </div>
         <div class="block-title width40">
-            <h2 class="title"><?= $block->getFlashsaleProductsName() ?></h2>
+            <h2 class="title"><?= /* @noEscape */ $block->getFlashsaleProductsName() ?></h2>
         </div>
     </div>
     <?php if (empty($products)): ?>
@@ -36,76 +36,102 @@
         <ol class="product-items widget-product-grid">
             <div class="slider slick-slider flaseSale" id="flaseSale">
                 <?php foreach ($products as $_product): ?>
-                <?php $postParams = $block->getAddToCartPostParameters($_product); ?>
+                    <?php $postParams = $block->getAddToCartPostParameters($_product); ?>
                 <li class="product-item item">
                     <div class="product-item-info">
-                        <?php 
+                        <?php
                             $image = 'category_page_grid';
-                            $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE);
+                            $productImage = $_imagehelper->init($_product, $image)
+                            ->constrainOnly(false)
+                            ->keepAspectRatio(true)
+                            ->keepFrame(false);
                             $productImageUrl = $productImage->getUrl();
                         ?>
                         <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="product-item-photo">
                             <span class="product-image-container" style="width: 240px;">
                                 <span class="product-image-wrapper" style="padding-bottom: 125%;">
-                                    <img class="product-image-photo" src="<?= $productImageUrl ?>" alt="flash-sale" width="300" height="300" /></span>
+                                    <img class="product-image-photo"
+                                    src="<?= /* @noEscape */ $productImageUrl ?>"
+                                    alt="flash-sale" width="300" height="300" /></span>
                             </span>
                             <?php
                             $product_label = "";
-                            if($_product_label_config['sale_label']) {
+                            if ($_product_label_config['sale_label']) {
                                 $orgprice = $_product->getPrice();
                                 $specialprice = $_product->getSpecialPrice();
                                 $specialfromdate = $_product->getSpecialFromDate();
                                 $specialtodate = $_product->getSpecialToDate();
                                 $today = time();
-                                if(!$specialprice)
+                                if (!$specialprice) {
                                     $specialprice = $orgprice;
-                                if($specialprice < $orgprice) {
-                                    if((is_null($specialfromdate) && is_null($specialtodate)) || ($today >= strtotime($specialfromdate) && is_null($specialtodate)) || ($today <= strtotime($specialtodate) && is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))){
-                                        if($_product_label_config['sale_label_percent']) {
+                                }
+                                if ($specialprice < $orgprice) {
+                                    if (($specialfromdate === null && $specialtodate === null)
+                                    || ($today >= strtotime($specialfromdate) && $specialtodate == null)
+                                    || ($today <= strtotime($specialtodate) && $specialfromdate === null)
+                                    || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
+                                        if ($_product_label_config['sale_label_percent']) {
                                             $save_percent = 100-round(($specialprice/$orgprice)*100);
-                                            $product_label .= '<div class="product-label sale-label">'.'-'.$save_percent.'%'.'<span>off</span></div>';
+                                            $product_label .= '<div class="product-label sale-label">'.
+                                            '-'.$save_percent.'%'.'<span>off</span></div>';
                                         } else {
-                                            $product_label .= '<div class="product-label sale-label">'.$_product_label_config['sale_label_text'].'<span>off</span></div>';
+                                            $product_label .= '<div class="product-label sale-label">'.
+                                            $_product_label_config['sale_label_text'].
+                                            '<span>off</span></div>';
                                         }
                                     }
                                 }
                             }
-                            if($product_label)
-                                echo '<div class="product-labels">'.$product_label.'</div>';
-                        ?>
+                            if ($product_label) {?>
+                                <?= /* @noEscape */ '<div class="product-labels">'. $product_label.'</div>';
+                            }
+                            ?>
                         </a>
                         <div class="product-item-details">
                             <strong class="product-item-name">
                                 <?= $block->escapeHtml('SKU  '.$_product->getSku()) ?>
                             </strong>
-                            <?php if($_product->getSpecialPrice()):?>
+                            <?php if ($_product->getSpecialPrice()):?>
                                 <div class="price-spacial-wrap">
                                 <span class="price-wrap">
-                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-                                    <span class="product-price-new"><?= number_format($_product->getSpecialPrice(), 2, ".", "") ?></span>
+                                    <span class="currecny-symbol">
+                                        <?= /* @noEscape */ $currecyHelper->getCurrentCurrencySymbol();?>
+                                    </span>
+                                    <span class="product-price-new">
+                                        <?= /* @noEscape */ number_format($_product->getSpecialPrice(), 2, ".", "") ?>
+                                    </span>
                                 </span>
                                 <span class="old-price-wrap">
-                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-                                    <span class="product-price-old" id="old-price-2"><?= number_format($_product->getPrice(), 2, ".", "") ?></span>
+                                    <span class="currecny-symbol">
+                                        <?= /* @noEscape */ $currecyHelper->getCurrentCurrencySymbol();?>
+                                    </span>
+                                    <span class="product-price-old" id="old-price-2">
+                                        <?= /* @noEscape */ number_format($_product->getPrice(), 2, ".", "") ?>
+                                    </span>
                                 </span>
                             </div>
                             <?php else:?>
                                 <span class="price-wrap">
-                                    <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-                                    <span class="product-price"><?= number_format($_product->getFinalPrice(), 2, ".", "") ?></span>
+                                    <span class="currecny-symbol">
+                                        <?= /* @noEscape */ $currecyHelper->getCurrentCurrencySymbol();?>
+                                    </span>
+                                    <span class="product-price">
+                                        <?= /* @noEscape */ number_format($_product->getFinalPrice(), 2, ".", "") ?>
+                                    </span>
                                 </span>        
                             <?php endif;?>
                             <?php
-                        if ($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
+                            $TypeID = \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE;
+                            if ($_product->getTypeId() == $TypeID) {
                                  echo $block->getProductDetailsHtml($_product);
-                        } ?>
+                            } ?>
                         </div>
                     </div>
                 </li>
                 <?php endforeach ?>
             </div>
         </ol>
-        <a href="<?= $storeUrl.'flash-sale';?>" class="see-all-btn">See All</a>
+        <a href="<?= /* @noEscape */ $storeUrl.'flash-sale';?>" class="see-all-btn">See All</a>
     </div>
 </div>
 
@@ -115,12 +141,12 @@
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
-   let toDate = new Date('<?=$flashDetails['end_date'] ?>');
+   let toDate = new Date('<?= /* @noEscape */$flashDetails['end_date'] ?>');
    let today = new Date(),
       dd = String(today.getDate()).padStart(2, "0"),
       mm = String(today.getMonth() + 1).padStart(2, "0"),
       yyyy = today.getFullYear(),
-      end_date = new Date('<?=$flashDetails['end_date'] ?>');
+      end_date = new Date('<?= /* @noEscape */$flashDetails['end_date'] ?>');
 
   const countDown = new Date(end_date).getTime(),
       x = setInterval(function() {    

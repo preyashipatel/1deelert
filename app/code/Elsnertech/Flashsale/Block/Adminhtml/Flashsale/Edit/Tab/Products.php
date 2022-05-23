@@ -9,9 +9,35 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
      * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
      */
     private $productCollectionFactory;
+    /**
+     * $attachModel variable
+     *
+     * @var [type]
+     */
     private $attachModel;
+    /**
+     * $contactFactory variable
+     *
+     * @var [type]
+     */
     private $contactFactory;
+    /**
+     * $registry variable
+     *
+     * @var [type]
+     */
     private $registry;
+    /**
+     * Comment of __construct function
+     *
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Backend\Helper\Data $backendHelper
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
+     * @param \Elsnertech\Flashsale\Model\FlashsaleProduct $flashsaleProductFactory
+     * @param \Elsnertech\Flashsale\Model\ResourceModel\Flashsale $flashsale
+     * @param array $data
+     */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
@@ -28,7 +54,8 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         parent::__construct($context, $backendHelper, $data);
     }
     /**
-     * _construct
+     * Comment of _construct function
+     *
      * @return void
      */
     public function _construct()
@@ -44,6 +71,8 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         }
     }
     /**
+     * Comment of _addColumnFilterToCollection function
+     *
      * @param \Magento\Backend\Block\Widget\Grid\Column $column
      * @return $this
      */
@@ -67,7 +96,7 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         return $this;
     }
     /**
-     * prepare collection
+     * Prepare collection
      */
     public function _prepareCollection()
     {
@@ -78,19 +107,22 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         $collection->addAttributeToSelect('sku');
         $collection->addAttributeToSelect('price');
         $collection->setFlag('has_stock_status_filter', true);
-        $collection->joinField('qty',
-        'cataloginventory_stock_item',
-        'qty',
-        'product_id=entity_id',
-        '{{table}}.stock_id=1',
-        'left'
-        )->joinTable('cataloginventory_stock_item', 'product_id=entity_id', array('stock_status' => 'is_in_stock'))
+        $collection->joinField(
+            'qty',
+            'cataloginventory_stock_item',
+            'qty',
+            'product_id=entity_id',
+            '{{table}}.stock_id=1',
+            'left'
+        )->joinTable('cataloginventory_stock_item', 'product_id=entity_id', ['stock_status' => 'is_in_stock'])
         ->addAttributeToSelect('stock_status')
         ->addFieldToFilter('stock_status', ['eq' => 1]);
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
     /**
+     * Comment of _prepareColumns function
+     *
      * @return $this
      */
     public function _prepareColumns()
@@ -147,6 +179,8 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         return parent::_prepareColumns();
     }
     /**
+     * Comment of getGridUrl function
+     *
      * @return string
      */
     public function getGridUrl()
@@ -154,6 +188,8 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         return $this->getUrl('*/*/products', ['_current' => true]);
     }
     /**
+     * Comment of getRowUrl function
+     *
      * @param  object $row
      * @return string
      */
@@ -161,6 +197,11 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
     {
         return '';
     }
+    /**
+     * Comment of _getSelectedProducts function
+     *
+     * @return void
+     */
     public function _getSelectedProducts()
     {
         $flashsaleId = $this->getRequest()->getParam('id');
@@ -199,14 +240,14 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
         return $selected;
     }
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function canShowTab()
     {
         return true;
     }
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isHidden()
     {

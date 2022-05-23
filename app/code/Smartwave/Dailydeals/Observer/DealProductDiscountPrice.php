@@ -6,10 +6,32 @@ use Magento\Framework\App\RequestInterface;
  
 class DealProductDiscountPrice implements ObserverInterface
 {
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $dailydealFactory;
+    /**
+     * $helper variable
+     *
+     * @var [type]
+     */
     protected $helper;
+    /**
+     * $scopeConfig variable
+     *
+     * @var [type]
+     */
     protected $scopeConfig;
 
+    /**
+     * Comment of __construct function
+     *
+     * @param \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory
+     * @param \Smartwave\Dailydeals\Helper\Data $helper
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     */
     public function __construct(
         \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory,
         \Smartwave\Dailydeals\Helper\Data $helper,
@@ -20,6 +42,12 @@ class DealProductDiscountPrice implements ObserverInterface
         $this->helper=$helper;
     }
 
+    /**
+     * Comment of execute function
+     *
+     * @param \Magento\Framework\Event\Observer $observer
+     * @return void
+     */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $item = $observer->getEvent()->getData('quote_item');
@@ -29,16 +57,16 @@ class DealProductDiscountPrice implements ObserverInterface
         $cartproduct_id=$item->getProductId();
        
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-       
-       
         // Check For Grouped Product
-        $product = $objectManager->create('Magento\GroupedProduct\Model\Product\Type\Grouped')->getParentIdsByChild($item->getProduct()->getId());
+        $product = $objectManager->create(\Magento\GroupedProduct\Model\Product\Type\Grouped::class)
+        ->getParentIdsByChild($item->getProduct()->getId());
         if (isset($product[0])) {
-            $product = $objectManager->create('Magento\Catalog\Model\Product')->load($product[0]);
+            $product = $objectManager->create(\Magento\Catalog\Model\Product::class)->load($product[0]);
             $groupedProductFalg=1;
             $groupedProduct=$product->getId();
         } else {
-            $product = $objectManager->create('Magento\Catalog\Model\Product')->load($item->getProduct()->getId());
+            $product = $objectManager->create(\Magento\Catalog\Model\Product::class)
+            ->load($item->getProduct()->getId());
         }
        
         $dailydealcollection=$this->dailydealFactory->create()->getCollection();
@@ -46,7 +74,7 @@ class DealProductDiscountPrice implements ObserverInterface
         $dailydealcollection->addFieldToFilter('sw_product_sku', ['eq' => $product->getSku()]);
 
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $objDate =$objectManager ->create('Magento\Framework\Stdlib\DateTime\DateTime');
+        $objDate =$objectManager ->create(\Magento\Framework\Stdlib\DateTime\DateTime::class);
        
         $curdate=strtotime($objDate->gmtDate("Y-m-d H:i:s"));
         $Todate=strtotime($dailydealcollection->getFirstItem()->getSwDateTo());
@@ -73,9 +101,12 @@ class DealProductDiscountPrice implements ObserverInterface
                         /** @var $bundleitems\Magento\Quote\Model\Quote\Item */
                     if (max($bundleItemPrice) == $bundleitems->getProduct()->getPrice()) {
                         if ($dailydealcollection->getFirstItem()->getSwDiscountType() == 1) {
-                            $finalprice=$bundleitems->getProduct()->getFinalPrice()-$dailydealcollection->getFirstItem()->getSwDiscountAmount();
+                            $finalprice=$bundleitems->getProduct()
+                            ->getFinalPrice()-$dailydealcollection->getFirstItem()->getSwDiscountAmount();
                         } elseif ($dailydealcollection->getFirstItem()->getSwDiscountType() == 2) {
-                            $finalprice=$bundleitems->getProduct()->getFinalPrice()-(($item->getProduct()->getFinalPrice()*$dailydealcollection->getFirstItem()->getSwDiscountAmount())/100);
+                            $finalprice=$bundleitems->getProduct()
+                            ->getFinalPrice()-(($item->getProduct()
+                            ->getFinalPrice()*$dailydealcollection->getFirstItem()->getSwDiscountAmount())/100);
                         }
                                 
                         $bundleitems->setCustomPrice($finalprice);
@@ -85,14 +116,14 @@ class DealProductDiscountPrice implements ObserverInterface
                         break;
                     }
                 }
-                    
-
                        $item->getProduct()->setIsSuperMode(true);
             } else {
                 if (isset($groupedProductFalg)) {
                     $groupedItemPrice=[];
                     foreach ($item->getQuote()->getAllItems() as $groupedItem) {
-                        $grouped_product = $objectManager->create('Magento\GroupedProduct\Model\Product\Type\Grouped')->getParentIdsByChild($groupedItem->getProduct()->getId());
+                        $grouped_product = $objectManager
+                        ->create(\Magento\GroupedProduct\Model\Product\Type\Grouped::class)
+                        ->getParentIdsByChild($groupedItem->getProduct()->getId());
                         if (isset($grouped_product[0])) {
                             if ($groupedProduct==$grouped_product[0]) {
                                 array_push($groupedItemPrice, $groupedItem->getProduct()->getPrice());
@@ -103,9 +134,12 @@ class DealProductDiscountPrice implements ObserverInterface
                     foreach ($item->getQuote()->getAllItems() as $groupedItem) {
                         if (min($groupedItemPrice) == $groupedItem->getProduct()->getPrice()) {
                             if ($dailydealcollection->getFirstItem()->getSwDiscountType() == 1) {
-                                $price=$groupedItem->getProduct()->getPrice()-$dailydealcollection->getFirstItem()->getSwDiscountAmount();
+                                $price=$groupedItem->getProduct()
+                                ->getPrice()-$dailydealcollection->getFirstItem()->getSwDiscountAmount();
                             } elseif ($dailydealcollection->getFirstItem()->getSwDiscountType() == 2) {
-                                $price=$groupedItem->getProduct()->getPrice()-(($groupedItem->getProduct()->getPrice()*$dailydealcollection->getFirstItem()->getSwDiscountAmount())/100);
+                                $price=$groupedItem->getProduct()
+                                ->getPrice()-(($groupedItem->getProduct()
+                                ->getPrice()*$dailydealcollection->getFirstItem()->getSwDiscountAmount())/100);
                             }
                             break;
                         }

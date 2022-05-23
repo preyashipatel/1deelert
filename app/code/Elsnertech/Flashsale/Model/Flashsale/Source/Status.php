@@ -6,9 +6,14 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Status implements OptionSourceInterface
 {
-    const ENABLED = 1;
-    const DISABLED = 0;
+    public const ENABLED = 1;
+    public const DISABLED = 0;
 
+    /**
+     * $options variable
+     *
+     * @var [type]
+     */
     protected $options = null;
 
     /**

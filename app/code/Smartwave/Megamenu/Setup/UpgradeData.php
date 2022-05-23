@@ -1,7 +1,4 @@
 <?php
-/**
-* Copyright © 2018 Porto. All rights reserved.
-*/
 
 namespace Smartwave\Megamenu\Setup;
 
@@ -17,9 +14,9 @@ use Magento\Catalog\Setup\CategorySetupFactory;
 class UpgradeData implements UpgradeDataInterface
 {
     /**
-     * Category setup factory
+     * $categorySetupFactory variable
      *
-     * @var CategorySetupFactory
+     * @var [type]
      */
     private $categorySetupFactory;
  
@@ -34,8 +31,11 @@ class UpgradeData implements UpgradeDataInterface
     }
     
     /**
-     * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     * Comment of upgrade function
+     *
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @return void
      */
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
@@ -54,7 +54,7 @@ class UpgradeData implements UpgradeDataInterface
                     'type' => 'int',
                     'label' => 'Hide This Category',
                     'input' => 'select',
-                    'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+                    'source' => \Magento\Eav\Model\Entity\Attribute\Source\Boolean::class,
                     'required' => false,
                     'sort_order' => 10,
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -64,7 +64,7 @@ class UpgradeData implements UpgradeDataInterface
                     'type' => 'varchar',
                     'label' => 'Icon Image',
                     'input' => 'image',
-                    'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
+                    'backend' => \Magento\Catalog\Model\Category\Attribute\Backend\Image::class,
                     'required' => false,
                     'sort_order' => 20,
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -78,7 +78,8 @@ class UpgradeData implements UpgradeDataInterface
                     'sort_order' => 30,
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                     'group' => 'Onepage Category',
-                    'note' => 'If this category has no "Icon Image", font icon will be shown. example to input: icon-dollar'
+                    'note' => 'If this category has no "Icon Image", 
+                    font icon will be shown. example to input: icon-dollar'
                 ],
                 'sw_ocat_category_hoverbgcolor' => [
                     'type' => 'varchar',
@@ -103,13 +104,13 @@ class UpgradeData implements UpgradeDataInterface
                 ]
             ];
             
-            foreach($menu_attributes as $item => $data) {
+            foreach ($menu_attributes as $item => $data) {
                 $categorySetup->addAttribute(\Magento\Catalog\Model\Category::ENTITY, $item, $data);
             }
             
             $idg =  $categorySetup->getAttributeGroupId($entityTypeId, $attributeSetId, 'Onepage Category');
             
-            foreach($menu_attributes as $item => $data) {
+            foreach ($menu_attributes as $item => $data) {
                 $categorySetup->addAttributeToGroup(
                     $entityTypeId,
                     $attributeSetId,

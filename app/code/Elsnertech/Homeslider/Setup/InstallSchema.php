@@ -1,11 +1,21 @@
 <?php
 
 namespace Elsnertech\Homeslider\Setup;
+
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
 
-    public function install(\Magento\Framework\Setup\SchemaSetupInterface $setup, \Magento\Framework\Setup\ModuleContextInterface $context)
-    {
+    /**
+     * Comment of install function
+     *
+     * @param \Magento\Framework\Setup\SchemaSetupInterface $setup
+     * @param \Magento\Framework\Setup\ModuleContextInterface $context
+     * @return void
+     */
+    public function install(
+        \Magento\Framework\Setup\SchemaSetupInterface $setup,
+        \Magento\Framework\Setup\ModuleContextInterface $context
+    ) {
         $installer = $setup;
         $installer->startSetup();
 
@@ -44,8 +54,6 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
         );
 
         $installer->getConnection()->createTable($table);
-
-
         $installer->getConnection()->addIndex(
             $installer->getTable('homeslider'),
             $setup->getIdxName(

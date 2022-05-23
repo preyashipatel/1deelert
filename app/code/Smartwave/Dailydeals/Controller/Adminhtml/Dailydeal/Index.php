@@ -33,7 +33,7 @@ class Index extends \Magento\Backend\App\Action
     }
 
     /**
-     * execute the action
+     * Execute the action
      *
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Framework\View\Result\Page
      */
@@ -43,26 +43,25 @@ class Index extends \Magento\Backend\App\Action
         return $this->getResultPage();
     }
     /**
-     * instantiate result page object
+     * Instantiate result page object
      *
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Framework\View\Result\Page
      */
     public function getResultPage()
     {
-        if (is_null($this->resultPage)) {
+        if ($this->resultPage === null) {
             $this->resultPage = $this->resultPageFactory->create();
         }
         return $this->resultPage;
     }
     /**
-     * set page data
+     * Set page data
      *
      * @return $this
      */
     protected function setPageData()
     {
         $resultPage = $this->getResultPage();
-        //$resultPage->setActiveMenu('Smartwave_Dailydeals::dailydeal');
         $resultPage->getConfig()->getTitle()->prepend((__('Dailydeals')));
         return $this;
     }

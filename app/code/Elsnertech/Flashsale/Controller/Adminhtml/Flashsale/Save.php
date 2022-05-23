@@ -23,10 +23,13 @@ class Save extends Flashsale
     protected $jsHelper;
 
     /**
+     * Comment of __construct function
+     *
      * @param Context $context
      * @param Registry $coreRegistry
      * @param FlashsaleRepositoryInterface $flashsaleRepository
      * @param FlashsaleInterfaceFactory $flashsaleFactory
+     * @param \Psr\Log\LoggerInterface $logger
      * @param Js $jsHelper
      */
     public function __construct(
@@ -93,8 +96,6 @@ class Save extends Flashsale
 
         return $resultRedirect->setPath('*/*/');
     }
-
-
     // public function decodeProductLinks(AbstractModel $object){
     //     if (false === $object->hasData('links')
     //         || false === array_key_exists('products', $object->getData('links'))

@@ -3,30 +3,36 @@ namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
 
 class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
 {
+
     /**
-     * Backend session
+     * $backendSession variable
      *
-     * @var \Magento\Backend\Model\Session
+     * @var [type]
      */
     protected $backendSession;
 
     /**
-     * Date filter
+     * $dateFilter variable
      *
-     * @var \Magento\Framework\Stdlib\DateTime\Filter\Date
+     * @var [type]
      */
     protected $dateFilter;
 
-    protected $productFactory;
     /**
-     * constructor
+     * $productFactory variable
      *
-     * @param \Magento\Backend\Model\Session $backendSession
+     * @var [type]
+     */
+    protected $productFactory;
+
+    /**
+     * Comment of __construct function
+     *
      * @param \Magento\Framework\Stdlib\DateTime\Filter\Date $dateFilter
      * @param \Smartwave\Dailydeals\Model\DailydealFactory $dailydealFactory
      * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Backend\Model\View\Result\RedirectFactory $resultRedirectFactory
      * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Catalog\Model\ProductFactory $productFactory
      */
     public function __construct(
         \Magento\Framework\Stdlib\DateTime\Filter\Date $dateFilter,
@@ -45,7 +51,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
     }
 
     /**
-     * run the action
+     * Run the action
      *
      * @return \Magento\Backend\Model\View\Result\Redirect
      */
@@ -97,7 +103,8 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
                           
                                 $dailydeal->setSwProductPrice($finalproductprice - $data["sw_discount_amount"]);
                             } elseif ($data["sw_discount_type"] == 2) { // For Percentage
-                                $dailydeal->setSwProductPrice($finalproductprice  - (($finalproductprice * $data["sw_discount_amount"])/100));
+                                $dailydeal->setSwProductPrice($finalproductprice-(
+                                    ($finalproductprice*$data["sw_discount_amount"])/100));
                             }
                         } else {
                             $dailydeal->setSwProductPrice(1);
@@ -149,7 +156,7 @@ class Save extends \Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal
     }
 
     /**
-     * filter values
+     * Filter values
      *
      * @param array $data
      * @return array

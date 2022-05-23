@@ -3,13 +3,27 @@ namespace Smartwave\Megamenu\Model\Attribute;
 
 class Categorylabel extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
+    /**
+     * $_helper variable
+     *
+     * @var [type]
+     */
     protected $_helper;
-    
+    /**
+     * Comment of __construct function
+     *
+     * @param \Smartwave\Megamenu\Helper\Data $helper
+     */
     public function __construct(
         \Smartwave\Megamenu\Helper\Data $helper
     ) {
         $this->_helper = $helper;
     }
+    /**
+     * Comment of getAllOptions function
+     *
+     * @return void
+     */
     public function getAllOptions()
     {
         $label1 = $this->_helper->getConfig('sw_megamenu/cat_labels/label1');

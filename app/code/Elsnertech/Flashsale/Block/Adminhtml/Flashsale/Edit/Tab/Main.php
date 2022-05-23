@@ -14,9 +14,14 @@ use Magento\Framework\Registry;
 
 class Main extends Generic implements TabInterface
 {
+
     /**
+     * Comment of __construct function
+     *
      * @param Context $context
      * @param Registry $registry
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Elsnertech\Flashsale\Model\FlashsaleProduct $flashsaleProductFactory
      * @param FormFactory $formFactory
      * @param array $data
      */
@@ -159,7 +164,7 @@ class Main extends Generic implements TabInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function canShowTab()
     {
@@ -167,12 +172,17 @@ class Main extends Generic implements TabInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isHidden()
     {
         return false;
     }
+    /**
+     * Comment of _getSelectedProducts function
+     *
+     * @return void
+     */
     public function _getSelectedProducts()
     {
         $flashsaleId = $this->getRequest()->getParam('id');

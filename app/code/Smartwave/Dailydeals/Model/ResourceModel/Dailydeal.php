@@ -34,8 +34,6 @@ class Dailydeal extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $this->date     = $date;
         parent::__construct($context);
     }
-
-
     /**
      * Initialize resource model
      *
@@ -52,7 +50,7 @@ class Dailydeal extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @param string $id
      * @return string|bool
      */
-    public function getDailydealSw_product_skuById($id)
+    public function getDailydealSwProductSkuById($id)
     {
         $adapter = $this->getConnection();
         $select = $adapter->select()
@@ -62,7 +60,7 @@ class Dailydeal extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         return $adapter->fetchOne($select, $binds);
     }
     /**
-     * before save callback
+     * Before save callback
      *
      * @param \Magento\Framework\Model\AbstractModel|\Smartwave\Dailydeals\Model\Dailydeal $object
      * @return $this

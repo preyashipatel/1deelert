@@ -3,6 +3,11 @@ namespace Smartwave\Megamenu\Model\Attribute;
 
 class Width extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
+    /**
+     * Comment of getAllOptions function
+     *
+     * @return void
+     */
     public function getAllOptions()
     {
         if (!$this->_options) {

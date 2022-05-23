@@ -9,10 +9,16 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 
 class Editor extends Field
 {
+    /**
+     * $_wysiwygConfig variable
+     *
+     * @var string
+     */
     protected $_wysiwygConfig;
 
     /**
      * Editor constructor.
+     *
      * @param Context $context
      * @param WysiwygConfig $wysiwygConfig
      * @param array $data
@@ -27,6 +33,11 @@ class Editor extends Field
         parent::__construct($context, $data);
     }
 
+    /**
+     * Description of getElementHtml here.
+     *
+     * @param AbstractElement $element
+     */
     protected function _getElementHtml(AbstractElement $element)
     {
         // set wysiwyg for element

@@ -3,26 +3,31 @@ namespace Smartwave\Dailydeals\Model\Dailydeal\Source;
 
 class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
 {
-    const FIXED = 1;
-    const PERCENTAGE = 2;
+    public const FIXED = 1;
+    public const PERCENTAGE = 2;
 
     /**
-     * to option array
+     * $productFactory variable
      *
-     * @return array
+     * @var [type]
      */
     protected $productFactory;
-
-
-
+    /**
+     * Comment of __construct function
+     *
+     * @param \Magento\Catalog\Model\ProductFactory $productFactory
+     */
     public function __construct(
         \Magento\Catalog\Model\ProductFactory $productFactory
     ) {
-
         $this->productFactory=$productFactory;
     }
 
-
+    /**
+     * Comment of toOptionArray function
+     *
+     * @return void
+     */
     public function toOptionArray()
     {
 
@@ -42,17 +47,13 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
                         $product->getTypeInstance(true)->getOptionsIds($product),
                         $product
                     );
-
-
                 foreach ($selectionCollection as $proselection) {
                     array_push($childArray, $proselection->getProductId());
                 }
             }
         }
-
-
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $currencySymbol=$objectManager->create('Magento\Store\Model\StoreManagerInterface');
+        $currencySymbol=$objectManager->create(\Magento\Store\Model\StoreManagerInterface::class);
         $currencysymbol=$currencySymbol->getStore()->getCurrentCurrency()->getCurrencySymbol();
 
         $productcollection=$this->productFactory->create()->getCollection();
@@ -66,7 +67,9 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
         foreach ($productcollection as $product) {
             $productId = $product->getId(); //this is child product id
 
-            $getproduct = $objectManager->create('Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable')->getParentIdsByChild($productId);
+            $getproduct = $objectManager
+            ->create(\Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable::class)
+            ->getParentIdsByChild($productId);
 
             if (isset($getproduct[0])) {
                 $productcollection1=$this->productFactory->create()->getCollection();
@@ -86,8 +89,6 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
                     $sku=$product->getSku();
                     $name=$product->getName();
                     $id=$product->getId();
-
-
                     $bundleproduct = $this->productFactory->create()->load($product->getId());
                     //get all the selection products used in bundle product.
                     $selectionCollection = $bundleproduct->getTypeInstance(true)
@@ -95,8 +96,6 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
                             $bundleproduct->getTypeInstance(true)->getOptionsIds($bundleproduct),
                             $bundleproduct
                         );
-
-
                     foreach ($selectionCollection as $proselection) {
                         array_push($bundleprice, $proselection->getFinalPrice());
                     }
@@ -110,8 +109,6 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
                     foreach ($associatedProducts as $_item) {
                         array_push($groupedprice, $_item->getFinalPrice());
                     }
-
-
                     $sku=$product->getSku();
                     $name=$product->getName();
                     $id=$product->getId();
@@ -123,8 +120,6 @@ class SwDealProduct implements \Magento\Framework\Option\ArrayInterface
                     $price=$product->getFinalPrice();
                 }
             }
-
-
             if ($price != 0) {
                 $options[] =
                     [ 'value'=>$sku,

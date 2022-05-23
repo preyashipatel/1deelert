@@ -3,28 +3,21 @@ namespace Smartwave\Dailydeals\Model;
 
 class Dailydeal extends \Magento\Framework\Model\AbstractModel
 {
-    /**
-     * Cache tag
-     *
-     * @var string
-     */
-    const CACHE_TAG = 'sw_dailydeals_dailydeal';
+    public const CACHE_TAG = 'sw_dailydeals_dailydeal';
 
     /**
-     * Cache tag
+     * $_cacheTag variable
      *
      * @var string
      */
     protected $_cacheTag = 'sw_dailydeals_dailydeal';
 
     /**
-     * Event prefix
+     * $_eventPrefix variable
      *
      * @var string
      */
     protected $_eventPrefix = 'sw_dailydeals_dailydeal';
-
-
     /**
      * Initialize resource model
      *
@@ -32,7 +25,7 @@ class Dailydeal extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Smartwave\Dailydeals\Model\ResourceModel\Dailydeal');
+        $this->_init(\Smartwave\Dailydeals\Model\ResourceModel\Dailydeal::class);
     }
 
     /**
@@ -46,7 +39,7 @@ class Dailydeal extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
-     * get entity default values
+     * Get entity default values
      *
      * @return array
      */

@@ -4,16 +4,16 @@ namespace Smartwave\Dailydeals\Controller\Adminhtml\Dailydeal;
 class MassDelete extends \Magento\Backend\App\Action
 {
     /**
-     * Mass Action Filter
+     * $filter variable
      *
-     * @var \Magento\Ui\Component\MassAction\Filter
+     * @var [type]
      */
     protected $filter;
 
     /**
-     * Collection Factory
+     * $collectionFactory variable
      *
-     * @var \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\CollectionFactory
+     * @var [type]
      */
     protected $collectionFactory;
 
@@ -34,10 +34,8 @@ class MassDelete extends \Magento\Backend\App\Action
         $this->collectionFactory = $collectionFactory;
         parent::__construct($context);
     }
-
-
     /**
-     * execute action
+     * Execute action
      *
      * @return \Magento\Backend\Model\View\Result\Redirect
      */

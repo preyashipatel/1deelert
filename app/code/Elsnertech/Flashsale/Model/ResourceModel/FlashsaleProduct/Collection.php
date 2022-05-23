@@ -9,6 +9,11 @@ namespace Elsnertech\Flashsale\Model\ResourceModel\FlashsaleProduct;
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
 
+    /**
+     * $_idFieldName variable
+     *
+     * @var string
+     */
     protected $_idFieldName = 'id';
     /**
      * Initialize resource collection
@@ -17,6 +22,9 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     public function _construct()
     {
-        $this->_init('Elsnertech\Flashsale\Model\FlashsaleProduct', 'Elsnertech\Flashsale\Model\ResourceModel\FlashsaleProduct');
+        $this->_init(
+            \Elsnertech\Flashsale\Model\FlashsaleProduct::class,
+            \Elsnertech\Flashsale\Model\ResourceModel\FlashsaleProduct::class
+        );
     }
 }

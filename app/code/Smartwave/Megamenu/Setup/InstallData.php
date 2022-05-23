@@ -1,7 +1,4 @@
 <?php
-/**
-* Copyright © 2018 Porto. All rights reserved.
-*/
 
 namespace Smartwave\Megamenu\Setup;
 
@@ -17,9 +14,9 @@ use Magento\Catalog\Setup\CategorySetupFactory;
 class InstallData implements InstallDataInterface
 {
     /**
-     * Category setup factory
+     * $categorySetupFactory variable
      *
-     * @var CategorySetupFactory
+     * @var [type]
      */
     private $categorySetupFactory;
  
@@ -34,8 +31,11 @@ class InstallData implements InstallDataInterface
     }
     
     /**
-     * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     * Comment of install function
+     *
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @return void
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
@@ -52,7 +52,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'int',
                 'label' => 'Hide This Menu Item',
                 'input' => 'select',
-                'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+                'source' => Magento\Eav\Model\Entity\Attribute\Source\Boolean::class,
                 'required' => false,
                 'sort_order' => 10,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -62,7 +62,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Menu Type',
                 'input' => 'select',
-                'source' => 'Smartwave\Megamenu\Model\Attribute\Menutype',
+                'source' => \Smartwave\Megamenu\Model\Attribute\Menutype::class,
                 'required' => false,
                 'sort_order' => 20,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -81,7 +81,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Sub Category Columns',
                 'input' => 'select',
-                'source' => 'Smartwave\Megamenu\Model\Attribute\Subcatcolumns',
+                'source' => \Smartwave\Megamenu\Model\Attribute\Subcatcolumns::class,
                 'required' => false,
                 'sort_order' => 40,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -91,7 +91,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Float',
                 'input' => 'select',
-                'source' => 'Smartwave\Megamenu\Model\Attribute\Floattype',
+                'source' => \Smartwave\Megamenu\Model\Attribute\Floattype::class,
                 'required' => false,
                 'sort_order' => 50,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -101,7 +101,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Category Label',
                 'input' => 'select',
-                'source' => 'Smartwave\Megamenu\Model\Attribute\Categorylabel',
+                'source' => \Smartwave\Megamenu\Model\Attribute\Categorylabel::class,
                 'required' => false,
                 'sort_order' => 60,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -111,7 +111,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Icon Image',
                 'input' => 'image',
-                'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
+                'backend' => \Magento\Catalog\Model\Category\Attribute\Backend\Image::class,
                 'required' => false,
                 'sort_order' => 70,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -141,7 +141,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Left Block Width',
                 'input' => 'select',
-                'source' => 'Smartwave\Megamenu\Model\Attribute\Width',
+                'source' => \Smartwave\Megamenu\Model\Attribute\Width::class,
                 'required' => false,
                 'sort_order' => 100,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -162,7 +162,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'varchar',
                 'label' => 'Right Block Width',
                 'input' => 'select',
-                'source' => 'Smartwave\Megamenu\Model\Attribute\Width',
+                'source' => \Smartwave\Megamenu\Model\Attribute\Width::class,
                 'required' => false,
                 'sort_order' => 120,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
@@ -192,13 +192,13 @@ class InstallData implements InstallDataInterface
             ]
         ];
         
-        foreach($menu_attributes as $item => $data) {
+        foreach ($menu_attributes as $item => $data) {
             $categorySetup->addAttribute(\Magento\Catalog\Model\Category::ENTITY, $item, $data);
         }
         
         $idg =  $categorySetup->getAttributeGroupId($entityTypeId, $attributeSetId, 'SW Menu');
         
-        foreach($menu_attributes as $item => $data) {
+        foreach ($menu_attributes as $item => $data) {
             $categorySetup->addAttributeToGroup(
                 $entityTypeId,
                 $attributeSetId,

@@ -4,26 +4,24 @@ namespace Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Grid;
 class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Collection implements \Magento\Framework\Api\Search\SearchResultInterface
 {
     /**
-     * Aggregations
+     * $aggregations variable
      *
-     * @var \Magento\Framework\Search\AggregationInterface
+     * @var [type]
      */
     protected $aggregations;
 
     /**
-     * constructor
+     * Comment of __construct function
      *
      * @param \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory
      * @param \Psr\Log\LoggerInterface $logger
      * @param \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy
      * @param \Magento\Framework\Event\ManagerInterface $eventManager
-     * @param $mainTable
-     * @param $eventPrefix
-     * @param $eventObject
-     * @param $resourceModel
-     * @param $model
-     * @param $connection
-     * @param \Magento\Framework\Model\ResourceModel\Db\AbstractDb $resource
+     * @param [type] $mainTable
+     * @param [type] $eventPrefix
+     * @param [type] $eventObject
+     * @param [type] $resourceModel
+     * @param [type] $model
      */
     public function __construct(
         \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory,
@@ -34,7 +32,7 @@ class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Col
         $eventPrefix,
         $eventObject,
         $resourceModel,
-        $model = 'Magento\Framework\View\Element\UiComponent\DataProvider\Document'
+        $model = \Magento\Framework\View\Element\UiComponent\DataProvider\Document::class
     ) {
     
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager);
@@ -43,10 +41,10 @@ class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Col
         $this->_init($model, $resourceModel);
         $this->setMainTable($mainTable);
     }
-
-
     /**
-     * @return \Magento\Framework\Search\AggregationInterface
+     * Comment of getAggregations function
+     *
+     * @return void
      */
     public function getAggregations()
     {
@@ -54,18 +52,17 @@ class Collection extends \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal\Col
     }
 
     /**
-     * @param \Magento\Framework\Search\AggregationInterface $aggregations
-     * @return $this
+     * Comment of setAggregations function
+     *
+     * @param [type] $aggregations
+     * @return void
      */
     public function setAggregations($aggregations)
     {
         $this->aggregations = $aggregations;
     }
-
-
     /**
      * Retrieve all ids for collection
-     * Backward compatibility with EAV collection
      *
      * @param int $limit
      * @param int $offset

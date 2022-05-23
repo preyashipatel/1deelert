@@ -13,6 +13,9 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Elsnertech\Homeslider\Model\Homeslider', 'Elsnertech\Homeslider\Model\ResourceModel\Homeslider');
+        $this->_init(
+            \Elsnertech\Homeslider\Model\Homeslider::class,
+            \Elsnertech\Homeslider\Model\ResourceModel\Homeslider::class
+        );
     }
 }

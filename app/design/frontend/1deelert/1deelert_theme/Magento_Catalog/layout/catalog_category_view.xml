@@ -17,5 +17,6 @@
             <container name="action-wraper-test" htmlTag="div" htmlClass="action-wraper-test" />
         </referenceContainer>
         <referenceContainer name="quick_navigation.filter_list" remove="true"/>
+        <referenceBlock name="catalog.navigation.state" remove="true" />
     </body>
 </page>

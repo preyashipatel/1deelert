@@ -7,18 +7,37 @@ use Magento\Framework\Registry;
 use Magento\Catalog\Model\CategoryFactory;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 
-
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
+    /**
+     * $_storeManager variable
+     *
+     * @var [type]
+     */
     public $_storeManager;
-
+    
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $_currency;
 
+    /**
+     * Editor constructor.
+     *
+     * @param Context $context
+     * @param ScopeConfigInterface $scopeConfig
+     * @param StoreManagerInterface $storeManager
+     * @param Currency $currency
+     * @param Registry $registry
+     * @codeCoverageIgnore
+     */
     public function __construct(
         Context $context,
         ScopeConfigInterface $scopeConfig,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Directory\Model\Currency $currency, 
+        \Magento\Directory\Model\Currency $currency,
         Registry $registry
     ) {
         $this->_scopeConfig = $scopeConfig;
@@ -26,25 +45,51 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_registry = $registry;
         $this->_currency = $currency;
         parent::__construct($context);
-
     }
     
-    public function getConfig($config_path) {
+    /**
+     * Description of getConfig here.
+     *
+     * @param string $config_path
+     */
+    public function getConfig($config_path)
+    {
         return $this->_scopeConfig->getValue($config_path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
-
-    public function getBaseUrl() {
+    /**
+     * Description of getBaseUrl here.
+     *
+     * @param
+     */
+    public function getBaseUrl()
+    {
         return $this->_storeManager->getStore()->getBaseUrl();
     }
-    public function getMediaUrl() {
+    /**
+     * Description of getMediaUrl here.
+     *
+     * @param
+     */
+    public function getMediaUrl()
+    {
         return $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
     }
-
-    public function getCurrentProduct() {        
+    /**
+     * Description of getCurrentProduct here.
+     *
+     * @param
+     */
+    public function getCurrentProduct()
+    {
         return $this->_registry->registry('current_product')->getsku();
-    } 
+    }
+    /**
+     * Description of getCurrentCurrencySymbol here.
+     *
+     * @param
+     */
     public function getCurrentCurrencySymbol()
     {
         return $this->_currency->getCurrencySymbol();
-    } 
+    }
 }

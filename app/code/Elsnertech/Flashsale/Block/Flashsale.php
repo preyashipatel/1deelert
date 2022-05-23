@@ -99,7 +99,7 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
             $flashsaleName = $flashsaleModel->getData()[0]['name'];
                     $flashsaleProductModel = $this->flashsaleProductFactory;
             return $flashsaleName;
-        }else{
+        } else {
             return $flashsaleName = '';
         }
     }
@@ -273,7 +273,11 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
     protected function getDetailsRendererList()
     {
         if (empty($this->rendererListBlock)) {
-            /** @var $layout LayoutInterface */
+            /**
+             * Comment
+             *
+             * @var LayoutInterface $layout
+             */
             $layout = $this->layoutFactory->create(['cacheable' => false]);
             $layout->getUpdate()->addHandle('catalog_widget_product_list')->load();
             $layout->generateXml();
@@ -284,23 +288,28 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
         return $this->rendererListBlock;
     }
 
+    /**
+     * Comment of _prepareLayout function
+     *
+     * @return void
+     */
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
         $this->pageConfig->getTitle()->set(__('products'));
         if ($this->getProductCollection()) {
-        $toolbar = $this->getLayout()
+            $toolbar = $this->getLayout()
                    ->createBlock(
-                'Magento\Catalog\Block\Product\ProductList\Toolbar',
-                'product_list_toolbar_grid'
-                )
+                       \Magento\Catalog\Block\Product\ProductList\Toolbar::class,
+                       'product_list_toolbar_grid'
+                   )
                 ->setTemplate('Magento_Catalog::product/list/toolbar.phtml')
                 ->setCollection($this->getProductCollection());
 
             $pager = $this->getLayout()->createBlock(
-                'Magento\Theme\Block\Html\Pager',
+                \Magento\Theme\Block\Html\Pager::class,
                 'flashProduct.product.pager'
-            )->setAvailableLimit(array(3=>3,6=>6,9=>9))->setShowPerPage(true)->setCollection(
+            )->setAvailableLimit([3=>3,6=>6,9=>9])->setShowPerPage(true)->setCollection(
                 $this->getProductCollection()
             );
             $this->setChild('pager', $pager);
@@ -309,14 +318,29 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
         }
         return $this;
     }
+    /**
+     * Comment of getPagerHtml function
+     *
+     * @return void
+     */
     public function getPagerHtml()
     {
         return $this->getChildHtml('pager');
     }
+    /**
+     * Comment of getToolbarHtml function
+     *
+     * @return void
+     */
     public function getToolbarHtml()
     {
         return $this->getChildHtml('toolbar');
     }
+    /**
+     * Comment  of getMode function
+     *
+     * @return void
+     */
     public function getMode()
     {
         return $this->getChildBlock('toolbar')->getCurrentMode();

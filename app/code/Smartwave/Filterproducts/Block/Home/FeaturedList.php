@@ -4,23 +4,51 @@ namespace Smartwave\Filterproducts\Block\Home;
 
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 
-class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct {
+class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct
+{
 
+    /**
+     * $_collection variable
+     *
+     * @var [type]
+     */
     protected $_collection;
 
+    /**
+     * $categoryRepository variable
+     *
+     * @var [type]
+     */
     protected $categoryRepository;
 
+    /**
+     * $_resource variable
+     *
+     * @var [type]
+     */
     protected $_resource;
 
+    /**
+     * Comment of __construct function
+     *
+     * @param \Magento\Catalog\Block\Product\Context $context
+     * @param \Magento\Framework\Data\Helper\PostHelper $postDataHelper
+     * @param \Magento\Catalog\Model\Layer\Resolver $layerResolver
+     * @param CategoryRepositoryInterface $categoryRepository
+     * @param \Magento\Framework\Url\Helper\Data $urlHelper
+     * @param \Magento\Catalog\Model\ResourceModel\Product\Collection $collection
+     * @param \Magento\Framework\App\ResourceConnection $resource
+     * @param array $data
+     */
     public function __construct(
-            \Magento\Catalog\Block\Product\Context $context,
-            \Magento\Framework\Data\Helper\PostHelper $postDataHelper,
-            \Magento\Catalog\Model\Layer\Resolver $layerResolver,
-            CategoryRepositoryInterface $categoryRepository,
-            \Magento\Framework\Url\Helper\Data $urlHelper,
-            \Magento\Catalog\Model\ResourceModel\Product\Collection $collection,
-            \Magento\Framework\App\ResourceConnection $resource,
-            array $data = []
+        \Magento\Catalog\Block\Product\Context $context,
+        \Magento\Framework\Data\Helper\PostHelper $postDataHelper,
+        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
+        CategoryRepositoryInterface $categoryRepository,
+        \Magento\Framework\Url\Helper\Data $urlHelper,
+        \Magento\Catalog\Model\ResourceModel\Product\Collection $collection,
+        \Magento\Framework\App\ResourceConnection $resource,
+        array $data = []
     ) {
         $this->categoryRepository = $categoryRepository;
         $this->_collection = $collection;
@@ -29,21 +57,39 @@ class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct {
         parent::__construct($context, $postDataHelper, $layerResolver, $categoryRepository, $urlHelper, $data);
     }
 
-    protected function _getProductCollection() {
+    /**
+     * Comment of _getProductCollection function
+     *
+     * @return void
+     */
+    protected function _getProductCollection()
+    {
         return $this->getProducts();
     }
 
-    public function getProducts() {
+    /**
+     * Comment of getProducts function
+     *
+     * @return void
+     */
+    public function getProducts()
+    {
         $count = $this->getProductCount();
         $category_id = $this->getData("category_id");
         $collection = clone $this->_collection;
-        $collection->clear()->getSelect()->reset(\Magento\Framework\DB\Select::WHERE)->reset(\Magento\Framework\DB\Select::ORDER)->reset(\Magento\Framework\DB\Select::LIMIT_COUNT)->reset(\Magento\Framework\DB\Select::LIMIT_OFFSET)->reset(\Magento\Framework\DB\Select::GROUP);
+        $collection->clear()
+        ->getSelect()
+        ->reset(\Magento\Framework\DB\Select::WHERE)
+        ->reset(\Magento\Framework\DB\Select::ORDER)
+        ->reset(\Magento\Framework\DB\Select::LIMIT_COUNT)
+        ->reset(\Magento\Framework\DB\Select::LIMIT_OFFSET)
+        ->reset(\Magento\Framework\DB\Select::GROUP);
 
-        if(!$category_id) {
+        if (!$category_id) {
             $category_id = $this->_storeManager->getStore()->getRootCategoryId();
         }
         $category = $this->categoryRepository->get($category_id);
-        if(isset($category) && $category) {
+        if (isset($category) && $category) {
             $collection->addMinimalPrice()
                 ->addFinalPrice()
                 ->addTaxPercents()
@@ -64,7 +110,7 @@ class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct {
                 ->addAttributeToSelect('small_image')
                 ->addAttributeToSelect('thumbnail')
                 ->addAttributeToSelect($this->_catalogConfig->getProductAttributes())
-                ->addUrlRewrite() 
+                ->addUrlRewrite()
                 ->addAttributeToFilter('sw_featured', 1, 'left');
         }
 
@@ -75,14 +121,27 @@ class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct {
         return $collection;
     }
 
-    public function getLoadedProductCollection() {
+    /**
+     * Comment of getLoadedProductCollection function
+     *
+     * @return void
+     */
+    public function getLoadedProductCollection()
+    {
         return $this->getProducts();
     }
 
-    public function getProductCount() {
+    /**
+     * Comment of getProductCount function
+     *
+     * @return void
+     */
+    public function getProductCount()
+    {
         $limit = $this->getData("product_count");
-        if(!$limit)
+        if (!$limit) {
             $limit = 10;
-        return $limit;
+            return $limit;
+        }
     }
 }

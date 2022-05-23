@@ -4,21 +4,21 @@ namespace Smartwave\Dailydeals\Model\ResourceModel\Dailydeal;
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
     /**
-     * ID Field Name
+     * $_idFieldName variable
      *
      * @var string
      */
     protected $_idFieldName = 'dailydeal_id';
 
     /**
-     * Event prefix
+     * $_eventPrefix variable
      *
      * @var string
      */
     protected $_eventPrefix = 'sw_dailydeals_dailydeal_collection';
 
     /**
-     * Event object
+     * $_eventObject variable
      *
      * @var string
      */
@@ -31,22 +31,26 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Smartwave\Dailydeals\Model\Dailydeal', 'Smartwave\Dailydeals\Model\ResourceModel\Dailydeal');
+        $this->_init(
+            \Smartwave\Dailydeals\Model\Dailydeal::class,
+            \Smartwave\Dailydeals\Model\ResourceModel\Dailydeal::class
+        );
     }
 
     /**
      * Get SQL for get record count.
-     * Extra GROUP BY strip added.
      *
      * @return \Magento\Framework\DB\Select
      */
     public function getSelectCountSql()
     {
         $countSelect = parent::getSelectCountSql();
-        $countSelect->reset(\Zend_Db_Select::GROUP);
+        $countSelect->reset(\Magento\Framework\DB\Select::GROUP);
         return $countSelect;
     }
     /**
+     * Comment of _toOptionArray function
+     *
      * @param string $valueField
      * @param string $labelField
      * @param array $additional

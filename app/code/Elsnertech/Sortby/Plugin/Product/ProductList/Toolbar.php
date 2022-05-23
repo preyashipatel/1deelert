@@ -27,7 +27,7 @@ class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
                     $this->getCurrentOrder(),
                     $this->getCurrentDirection()
                 );
-            }elseif($this->getCurrentOrder() == "newest_product"){
+            } elseif ($this->getCurrentOrder() == "newest_product") {
                 $direction = $this->getCurrentDirection();
                 // $this->_collection->getSelect()->orderBy('created_at',$direction);
                 $this->_collection->getSelect()->order('created_at', $this->getCurrentDirection());
@@ -43,5 +43,4 @@ class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
         // }
         return $this;
     }
-
 }

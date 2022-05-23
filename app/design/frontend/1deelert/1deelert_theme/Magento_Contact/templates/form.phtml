@@ -24,25 +24,25 @@
                 <div class="field name required">
                     <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
                     <div class="control">
-                        <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                        <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}" placeholder="Richard King"/>
                     </div>
                 </div>
                 <div class="field email required">
-                    <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+                    <label class="label" for="email"><span><?php echo __('Email Address') ?></span></label>
                     <div class="control">
-                        <input name="email" id="email" title="<?php echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                        <input name="email" id="email" title="<?php echo __('Email Address') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}" placeholder="abc@abc.com"/>
                     </div>
                 </div>
                 <div class="field telephone">
                     <label class="label" for="telephone"><span><?php echo __('Phone Number') ?></span></label>
                     <div class="control">
-                        <input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>" value="" class="input-text" type="text" />
+                        <input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>" value="" class="input-text" type="text" placeholder="+91 657894561"/>
                     </div>
                 </div>
                 <div class="field comment required">
-                    <label class="label" for="comment"><span><?php echo __('What’s on your mind?') ?></span></label>
+                    <label class="label" for="comment"><span><?php echo __('Message') ?></span></label>
                     <div class="control">
-                        <textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="8" data-validate="{required:true}"></textarea>
+                        <textarea name="comment" id="comment" title="<?php echo __('Message') ?>" class="input-text" cols="5" rows="8" data-validate="{required:true}" placeholder="Hello there"></textarea>
                     </div>
                 </div>
                 <?php echo $block->getChildHtml('form.additional.info'); ?>
@@ -52,8 +52,8 @@
         <div class="actions-toolbar">
             <div class="primary">
                 <input type="hidden" name="hideit" id="hideit" value="" />
-                <button type="submit" title="<?php echo __('Submit') ?>" class="action submit button-primary">
-                    <span><?php echo __('Submit') ?></span>
+                <button type="submit" title="<?php echo __('Send Message') ?>" class="action submit button-primary">
+                    <span><?php echo __('Send Message') ?></span>
                 </button>
             </div>
         </div>

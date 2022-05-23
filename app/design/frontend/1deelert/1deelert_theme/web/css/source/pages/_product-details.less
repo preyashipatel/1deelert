@@ -37,20 +37,24 @@
             }
             .towishlist{
                 display: none;
-                @media (max-width: @screen__sm) {
-                    display: inline-block;
+                &::before{
+                    content: '\e889';
+                    color: inherit;
+                    font-family: 'porto-icons';
+                    vertical-align: middle;
+                    font-size: 16px;
                 }
-            }
-            .zoom-option{
-                background-image: url(../images/resize.svg);
-                width: 32px;
-                height: 32px;
-                background-repeat: no-repeat;
-                background-size: contain;
-                display: block;
-                position: absolute;
-                right: 0;
-                z-index: 99;
+                @media (max-width: @screen__sm) {
+                    padding: 5px 6px;
+                    display: inline-block;
+                    font-size: 0;
+                    background: @color-5;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    text-align: center;
+                    border-radius: 4px;
+                }
             }
         }
         
@@ -65,6 +69,28 @@
                 }
             }
 
+            .fotorama__fullscreen-icon{
+                background-image: url(../images/resize.svg);
+                width: 32px;
+                height: 32px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: block;
+                position: absolute;
+                z-index: 99;
+                transform: translate3d(0,0,0) !important;
+                opacity: 1;
+                text-align: right;
+                left: 100% !important;
+                right: 0 !important;
+
+                &::before{
+                    display: none;
+                }
+                @media (max-width: @screen__sm){
+                    display: none;
+                }
+            }
             .fotorama__nav-wrap {
                 .fotorama__nav__shaft {
                     .fotorama__thumb-border {

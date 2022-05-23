@@ -15,8 +15,6 @@
                 <block class="Magento\Catalog\Block\Product\View" name="product.sku" template="Magento_Catalog::product/view/product-sku.phtml" before="-"/>
                 <block class="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist" name="view.addto.wishlist.custom"
                        template="Magento_Wishlist::catalog/product/view/addto/wishlist.phtml" after="product.sku" />
-                <block class="Magento\Catalog\Block\Product\View" name="product.zoom" template="Magento_Catalog::product/view/zoom-option.phtml" after="-"/>          
-                       
             </container>
         </referenceContainer>
         <!-- <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/> -->
@@ -26,7 +24,7 @@
         <move element="catalog.product.related" destination="columns" after='-'/>
         <move element="product.info.stock.sku" destination="page.main.title" after='-'/>
         <move element="product.info.social" destination="product.info.main" after='page.main.title'/>
-        <move element="product.info.price" destination="product.info.form.options" after='product.info.options.wrapper'/>
+        <!-- <move element="product.info.price" destination="product.info.form.options" after='product.info.options.wrapper'/> -->
         <move element="extra.attr" destination="product.info.main" after='product.info.social'/>
 
         <referenceBlock name="product.info.details">

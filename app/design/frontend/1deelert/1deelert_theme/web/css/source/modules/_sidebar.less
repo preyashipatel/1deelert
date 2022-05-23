@@ -10,7 +10,23 @@
         
         > div{
             width: 100%;
+
+            &.logo-filter{
+                position: absolute;
+                background: #FFF;
+                z-index: 1;
+            }
+
+            &#layered-filter-block{
+                padding-top: 70px;
+                height:~"calc(100vh - 70px)";
+                overflow: auto;
+            }
         } 
+
+        // #layered-filter-block{
+        //     height: ~"calc(100vh - 100px)";
+        // }
     }
 }
 .sidebar-content {

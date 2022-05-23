@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69d2326c9df3686c13da6d3889cd6d72",
+    "content-hash": "9954a871dbaec0adc0ff55898243c1dd",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17362,6 +17362,51 @@
                 "source": "https://github.com/mageplaza/module-core/tree/v1.4.11"
             },
             "time": "2021-07-21T06:58:49+00:00"
+        },
+        {
+            "name": "mageplaza/module-facebook-plugin",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-facebook-plugin.git",
+                "reference": "80157e5db6a04b6e28dfc5a9fc617369bbe5e5a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-facebook-plugin/zipball/80157e5db6a04b6e28dfc5a9fc617369bbe5e5a1",
+                "reference": "80157e5db6a04b6e28dfc5a9fc617369bbe5e5a1",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.5"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\FacebookPlugin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Facebook Plugin Extension",
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-facebook-plugin/issues",
+                "source": "https://github.com/mageplaza/magento-2-facebook-plugin/tree/v4.0.0"
+            },
+            "time": "2021-02-17T03:24:27+00:00"
         },
         {
             "name": "mageplaza/module-google-recaptcha",

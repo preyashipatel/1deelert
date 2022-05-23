@@ -18,6 +18,7 @@
         "mageplaza/magento-2-blog-extension": "^4.1",
         "mageplaza/magento-2-social-login": "^4.1",
         "mageplaza/magento-2-thai-language-pack": "dev-master",
+        "mageplaza/module-facebook-plugin": "4.0.0",
         "mirasvit/module-navigation": "*",
         "redchamps/module-notification-bar": "^1.0"
     },

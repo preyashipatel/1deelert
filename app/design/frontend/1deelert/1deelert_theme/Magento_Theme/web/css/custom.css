@@ -73,6 +73,9 @@ body>p{display:none}
 /* .toolbar-amount{display:none} */
 .clearer{clear:both}
 .category-description img{max-width:100%;display: block;}
+.modal-popup .modal-footer button {
+    line-height: 1;
+}
 @media (min-width:1200px){.col-xl-2-4{width:20%}
 .col-xl-9-6{width:80%}}
 @media (min-width:1220px){

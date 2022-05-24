@@ -130,6 +130,7 @@
 
             .product-info-stock-sku {
                 margin: 0;
+                .flex();
 
                 .stock {
                     margin: 0;
@@ -148,6 +149,8 @@
                         padding: 0 0 0 10px;
                         height: auto;
                         line-height: initial;
+                        font-size: 14px;
+                        margin-right: 5px;
                     }
 
                     &::before {
@@ -165,6 +168,9 @@
                             left: 0;
                         }
                     }
+                }
+                .configurable-variation-qty{
+                    color: @color-1;
                 }
             }
         }
@@ -340,6 +346,9 @@
 
                 .product-options-bottom {
                     margin: 0;
+                    .box-gotoproduct{
+                        display: none;
+                    }
                 }
                 .box-tocart {
                     border: 0;
@@ -484,16 +493,27 @@
 
                                 @media (max-width: @screen__sm) {
                                     margin: 0 10px 10px 0;
-                                    width: 42px;
-                                    height: 42px;
-                                    line-height: 42px;
+                                    width: 40px;
+                                    height: 40px;
+                                    line-height: 40px;
                                 }
 
                                 &::before {
-                                    font-size: @font-size_4;
+                                    display: none;
+                                    // font-size: @font-size_4;
 
-                                    @media (max-width: @screen__sm) {
-                                        font-size: 17px;
+                                    // @media (max-width: @screen__sm) {
+                                    //     font-size: 17px;
+                                    // }
+                                }
+
+                                &.towishlist{
+                                    background-image: url(../images/wishlist.svg);
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    background-size: 22px;
+                                    @media (max-width: @screen__sm){
+                                        background-size: 18px;
                                     }
                                 }
 

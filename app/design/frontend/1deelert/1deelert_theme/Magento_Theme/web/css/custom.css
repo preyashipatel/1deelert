@@ -357,7 +357,7 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .minicart-wrapper .block-minicart li>.product {display: flex;flex-wrap: nowrap;align-items: flex-start;}
 .minicart-items .product-item-photo {order: 2;flex: 0 0 80px;width: 80px;box-shadow: none;margin: 0;}
 .minicart-items .product-item-photo img {height: auto !important;}
-.minicart-items .product-item-details {order: 1;max-width: calc(100% - 80px);flex: 1;padding: 0 15px 0 0;display: flex;flex-wrap: wrap;align-items: flex-end;position: static;}
+.minicart-items .product-item-details {order: 1;max-width: calc(100% - 80px);flex: 1;padding: 0;display: flex;flex-wrap: wrap;align-items: flex-end;position: static;}
 .minicart-wrapper .product .actions{margin-left: 5px;}
 .minicart-wrapper .product .actions > .secondary {position: absolute;z-index: 3;text-align: center;font-size: 11px;top: 6px;right: 2px;width: 20px;height: 20px;line-height: 20px;background-color: #fff;color: #222529;border-radius: 50%;box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);}
 .minicart-wrapper .product .actions > .secondary a,.minicart-wrapper .product .actions > .primary a {color: inherit;}
@@ -368,8 +368,18 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .minicart-items .product-item-details .product.options {flex: 0 0 100%;margin-bottom: 2px;}
 .minicart-items .product-item-details .product.options dd,.minicart-items .product-item-details .product.options dt {margin: 0;}
 .minicart-items .product-item-details .details-qty {display: flex;align-items: center;}
-.minicart-items .update-cart-item {vertical-align: top;font-size: .8em;border-radius: 0;background: #222529;border: none;color: #fff;height: 20px;line-height: 1;text-transform: uppercase;border-radius: 2px;}
-.minicart-items .item-qty {height: 20px;border-radius: 0;color: #777;padding: 2px;font-size: 12px;margin: 0 5px 0 0;width: 30px;}
+.minicart-items .update-cart-item {
+    vertical-align: top;
+    font-size: .8em;
+    background: #4E245E;
+    border: none;
+    color: #fff;
+    height: auto;
+    line-height: 1;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 5px 10px;
+}.minicart-items .item-qty {height: 20px;border-radius: 0;color: #777;padding: 2px;font-size: 12px;margin: 0 5px 0 0;width: 30px;}
 .minicart-items .item-qty:focus {box-shadow: none;}
 @media (max-width: 1475px){
   .search-area.show-icon-tablet-large a.search-toggle-icon{display: inline-block; font-size: 21px; width: 40px; height: 40px; line-height: 40px; border-color: inherit;}

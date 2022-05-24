@@ -1,3 +1,6 @@
+body.checkout-index-index._has-modal {
+    height: 100vh;
+}
 .checkout-cart-index{
     .page.messages {
         margin-top: 30px;
@@ -108,6 +111,9 @@
                         letter-spacing: 0;
                         font-weight: 600;
                         border: 1px solid @color-1;
+                        @media (max-width: @screen__sm){
+                            font-size: 14px;
+                        }
                         &:hover{
                             background: @color-6;
                             color: @color-1;
@@ -403,6 +409,9 @@
                 border-bottom: 0;
                 padding-top: 0;
                 margin-top: 0;
+                div#checkout-shipping-method-load {
+                    margin-bottom: 15px;
+                }
             }
         }
 

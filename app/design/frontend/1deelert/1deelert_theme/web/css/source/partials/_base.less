@@ -229,11 +229,16 @@ button.action-primary {
         line-height: 20px;
     }
 
-    &:hover, &:focus, &:active {
+    &:hover, &:active {
         background: @button-hover-background_color;
         color: @button-hover-font_color;
         border-color: @button-hover_border_color;
         .transition(all 0.5s ease);
+    }
+    &:focus{
+        background: @button-background_color;
+        color: @button-font_color;
+        border-color: @button-border_color;
     }
 }
 .box-tocart .field.qty{

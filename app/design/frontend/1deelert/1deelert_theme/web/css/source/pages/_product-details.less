@@ -451,9 +451,16 @@
                                     height: 21px;
                                     margin-right: 14px;
                                     filter: brightness(0) invert(1);
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    @media (max-width: @screen__sm){
+                                        width: 18px;
+                                        height: 18px;
+                                        margin-right: 8px;
+                                    }
                                 }
 
-                                &:hover, &:focus{
+                                &:hover{
                                     &::before{
                                         filter: none;
                                     }
@@ -561,7 +568,8 @@
                 font-weight: 500;
 
                 @media (max-width: @screen__sm) {
-                    font-size: 12px;
+                    font-size: 13px;
+                    font-weight: 600;
 
                     &::after {
                         display: none;
@@ -648,7 +656,10 @@
     color: @color-5;
     border-radius: 10px;
     font-size: 16px;
-
+    margin-bottom: 30px;
+    @media (max-width: @screen__sm) {
+        font-size: 14px;
+    }
     > * {
         &:first-child {
             &::before {

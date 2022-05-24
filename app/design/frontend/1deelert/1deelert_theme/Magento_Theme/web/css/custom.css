@@ -195,6 +195,20 @@ table tr .product-item-name{
     white-space: initial;
 }
 @media (max-width: 991px) {
+    .field-tooltip._active .field-tooltip-content {
+        left: auto;
+        right: 0;
+        top: 35px;
+    }
+    .field-tooltip._active .field-tooltip-content::before {
+        left: auto;
+        right: 0;
+        top: -21px;
+        transform: rotate(90deg);
+    }
+    .field-tooltip .field-tooltip-content:after{
+        display: none;
+    }
     header.page-header .header.panel {
         display: none;
     }

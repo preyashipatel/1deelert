@@ -99,8 +99,8 @@
         <!-- ko foreach: getRegion('subtotalContainer') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
-    <!-- /ko -->
-  <!-- /ko -->
+    
+  
   <!-- ko if: getCartParam('possible_onepage_checkout') -->
   <div class="actions">
     <div class="primary">
@@ -120,6 +120,8 @@
         <div data-bind="html: getCartParam('extra_actions')"></div>
     </div>
   </div>
+  <!-- /ko -->
+  <!-- /ko -->
   <!-- /ko -->
   <div id="minicart-widgets" class="minicart-widgets">
       <!-- ko foreach: getRegion('promotion') -->

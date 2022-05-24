@@ -1,4 +1,7 @@
 .checkout-cart-index{
+    aside.modal-custom.custom-slide._show {
+        z-index: 999999 !important;
+    }
     .cart-container{
         padding: 80px 0 60px;
         @media (max-width: @screen__sm){
@@ -15,10 +18,18 @@
             @media (max-width: @screen__lg){
                 width: 100%;
             }
+            @media (max-width: @screen__md){
+                padding: 20px 10px;
+            }
 
             .summary.title {
                 letter-spacing: 0;
                 padding: 0 10px;
+                @media (max-width: @screen__sm){
+                    padding: 5px 10px;
+                    display: block;
+                    margin: 0;
+                }
             }
             .block {
                 .title{
@@ -170,6 +181,9 @@
                     background-color: @color-1;
                     color: @color-5;
                     border-radius: 8px !important;
+                    opacity: 1;
+                    padding: 15px 20px;
+                    line-height: 1;
                 }
             }
         }
@@ -182,6 +196,7 @@
                     background-color: @color-1;
                     color: @color-5;
                     border-radius:0 8px 8px 0;
+                    opacity: 1;
                 }
             }
         }
@@ -365,6 +380,11 @@
                 }
             }
             .checkout-payment-method{
+                .payment-method-title {
+                    @media (max-width: @screen__sm) {
+                        padding: 15px 0;
+                    }
+                }
                 .payment-methods {
                     @media (max-width: @screen__sm){
                         margin: 0;
@@ -385,6 +405,9 @@
 
         .opc-block-summary{
             font-size: 16px;
+            @media (max-width: @screen__sm){
+                margin-bottom: 0;
+            }
             .minicart-items{
                 .product-item-details{
                     max-width: 100%;
@@ -413,16 +436,26 @@
             .payment-method {
                 font-size: 16px;
                 .payment-method-content{
+                    padding: 0;
                     .actions-toolbar{
                         button.action.checkout{
                             padding: 0.8em 1.5em;
                         }
+                    }
+                    .billing-address-details {
+                        padding: 0;
+                    }
+                    .actions-toolbar {
+                        padding-bottom: 20px;
                     }
                 }
             }
         }
 
         .opc-block-shipping-information{
+            @media (max-width: @screen__sm){
+                padding: 20px;
+            }
             .shipping-information-title {
                 color: @color-2;
                 button.action{
@@ -436,6 +469,9 @@
             }
             .shipping-information-content {
                 font-size: 16px;
+                @media (max-width: @screen__sm){
+                    font-size: 14px;
+                }
             }
         }
 
@@ -476,7 +512,7 @@
 }
 body._has-modal-custom {
     .checkout-container .modal-custom-overlay{
-        z-index: 99 !important;
+        z-index: 9999 !important;
     }
 }
 
@@ -496,6 +532,7 @@ body._has-modal-custom {
                 background: @color-1;
                 padding: 13px 20px;
                 height: auto;
+                color: @color-5;
                 @media (max-width: @screen__md){
                     font-size: 14px;
                 }

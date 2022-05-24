@@ -8,9 +8,10 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="sidebar.main">
-            <container name="logo.filter" before="catalog.leftnav">
+            <container name="logo.filter" before="-">
                 <block class="Magento\Framework\View\Element\Template" name="custom.file" template="Magento_LayeredNavigation::cutom_logo.phtml" />
             </container>
         </referenceContainer>
+        <move element="catalog.leftnav" destination="sidebar.main" after="logo.filter"/>
     </body>
 </page>

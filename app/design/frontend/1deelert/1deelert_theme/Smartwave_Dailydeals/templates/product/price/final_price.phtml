@@ -54,18 +54,18 @@ $currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
             <div class="price-spacial-wrap">
                 <span class="price-wrap">
                     <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-                    <span class="product-price-new"><?= $finalPriceModel->getAmount().'.00'; ?></span>
+                    <span class="product-price-new"><?= $finalPriceModel->getAmount(); ?></span>
                 </span>
                 <span class="old-price-wrap">
                     <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-                    <span class="product-price-old" id="old-price-2"><?= $priceModel->getAmount().'.00' ;?></span>
+                    <span class="product-price-old" id="old-price-2"><?= $priceModel->getAmount() ;?></span>
                 </span>
             </div>
             
 <?php else : ?>
     <span class="price-wrap">
         <span class="currecny-symbol"><?php echo $currecyHelper->getCurrentCurrencySymbol();?></span>
-        <span class="product-price"><?= $finalPriceModel->getAmount().'.00' ?></span>
+        <span class="product-price"><?= $finalPriceModel->getAmount() ?></span>
     </span>  
     
 <?php endif; ?>

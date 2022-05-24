@@ -77,11 +77,10 @@
                 background-size: contain;
                 display: block;
                 position: absolute;
-                z-index: 99;
-                transform: translate3d(0,0,0) !important;
+                z-index: 99999;
+                transform: none !important;
                 opacity: 1;
                 text-align: right;
-                left: 100% !important;
                 right: 0 !important;
 
                 &::before{
@@ -211,6 +210,30 @@
                             color: #03A9F4;
                         }
                     }
+
+                    &.share-facebook{
+                        padding-left: 45px;
+                        @media (max-width: @screen__md){
+                            padding-left: 40px;
+                        }
+                        &::before{
+                            content: "";
+                            background-image: url(../images/facebook.svg);
+                            width: 17px;
+                            height: 17px;
+                            min-width: 16px;
+                            position: absolute;
+                            left: 18px;
+                            right: auto;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            @media (max-width: @screen__md){
+                                width: 15px;
+                                height: 15px;
+                                left: 15px;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -252,6 +275,10 @@
         }
 
         .product-info-price{
+            .price-box{
+                .flex();
+                .align-items(center);
+            }
             .normal-price {
                 margin-right: 12px;
             }
@@ -261,8 +288,6 @@
                 color: @color-1;
                 font-size: @font-size_3;
                 line-height: 1.2;
-                margin-right: 10px;
-    
                 @media (max-width: @screen__xl) {
                     font-size: @font-size_4;
                 }
@@ -405,11 +430,13 @@
                                     .flex();
                                     .align-items(center);
                                     .justify-content(center);
+                                    text-transform: none;
 
                                     @media (max-width: @screen__sm) {
                                         padding: 10px 15px;
                                         letter-spacing: 0;
                                         font-size: 13px;
+                                        text-transform: uppercase;
                                     }
 
                                     &::before{
@@ -474,10 +501,13 @@
         }
 
         .product-category {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 3px;
             line-height: 1.5;
 
+            @media (max-width: @screen__md) {
+                font-size: 16px;
+            }
             @media (max-width: @screen__sm) {
                 font-size: 14px;
             }

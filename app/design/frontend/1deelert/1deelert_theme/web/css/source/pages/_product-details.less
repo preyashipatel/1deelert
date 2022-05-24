@@ -251,6 +251,46 @@
             }
         }
 
+        .product-info-price{
+            .normal-price {
+                margin-right: 12px;
+            }
+            .price {
+                margin: 0;
+                font-weight: 500;
+                color: @color-1;
+                font-size: @font-size_3;
+                line-height: 1.2;
+                margin-right: 10px;
+    
+                @media (max-width: @screen__xl) {
+                    font-size: @font-size_4;
+                }
+                @media (max-width: @screen__sm) {
+                    font-size: @font-size_5;
+                }
+            }
+    
+            .old-price{
+                .flex();
+                .align-items(center);
+                
+                .price {
+                    color: @color-9_dark;
+                    font-size: @font-size_4;
+                    font-weight: 500;
+                    text-decoration: line-through;
+                    line-height: 1.2;
+                    @media (max-width: @screen__xl) {
+                        font-size: @font-size_5;
+                    }
+                    @media (max-width: @screen__sm) {
+                        font-size: @font-size_6;
+                    }
+                }
+            }
+        }
+
         .product-add-form {
             form {
                 .product-options-wrapper {
@@ -267,41 +307,6 @@
 
                         @media (max-width: @screen__sm) {
                             min-width: 100%;
-                        }
-                    }
-                }
-
-                .price-wrap {
-                    margin: 0;
-                    font-weight: 500;
-                    color: @color-1;
-                    font-size: @font-size_3;
-                    line-height: 1.2;
-                    margin-right: 10px;
-        
-                    @media (max-width: @screen__xl) {
-                        font-size: @font-size_4;
-                    }
-                    @media (max-width: @screen__sm) {
-                        font-size: @font-size_5;
-                    }
-                }
-        
-                .price-spacial-wrap{
-                    .flex();
-                    .align-items(center);
-                    
-                    .old-price-wrap {
-                        color: @color-9_dark;
-                        font-size: @font-size_4;
-                        font-weight: 500;
-                        text-decoration: line-through;
-                        line-height: 1.2;
-                        @media (max-width: @screen__xl) {
-                            font-size: @font-size_5;
-                        }
-                        @media (max-width: @screen__sm) {
-                            font-size: @font-size_6;
                         }
                     }
                 }

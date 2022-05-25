@@ -10,11 +10,12 @@
  */
 $welcomeMessage = $block->getWelcome();
 ?>
-<?php if ($block->getShowPart() == 'welcome') : ?>
+<?php if ($block->getShowPart() == 'welcome'): ?>
     <li class="greet welcome" data-bind="scope: 'customer'">
         <!-- ko if: customer().fullname  -->
         <span class="logged-in"
-              data-bind="text: new String('<?= $escaper->escapeHtml(__('%1!', '%1')) ?>').replace('%1', customer().fullname)">
+              data-bind="text: new String('<?=
+                $escaper->escapeHtml(__('%1!', '%1')) ?>').replace('%1', customer().fullname)">
         </span>
         <!-- /ko -->
         <!-- ko ifnot: customer().fullname  -->
@@ -36,7 +37,7 @@ $welcomeMessage = $block->getWelcome();
         }
     }
     </script>
-<?php elseif ($block->getShowPart() == 'other') :?>
+<?php elseif ($block->getShowPart() == 'other'):?>
     <?= $block->getChildHtml() ?>
 <?php endif ?>
 

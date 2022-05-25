@@ -16,8 +16,15 @@ $groupCss = $block->getGroupCss();
         <?php $layout = $block->getLayout(); ?>
         <div class="custom-top-div">
             <div class="logo-mob">
-                <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-                <?= $this->getLayout()->createBlock("Magento\Theme\Block\Html\Header\Logo")->setTemplate("Magento_Theme::html/header/logo.phtml")->toHtml();?>
+                <span data-action="toggle-nav" class="action nav-toggle">
+                    <span>
+                        <?=/* @noEscape */ __('Toggle Nav') ?>
+                    </span>
+                </span>
+                <?= $block->getLayout()
+                ->createBlock(\Magento\Theme\Block\Html\Header\Logo::class)
+                ->setTemplate("Magento_Theme::html/header/logo.phtml")
+                ->toHtml();?>
             </div>
             <?= $block->getChildHtml('store.settings'); ?>
         </div>

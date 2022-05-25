@@ -8,8 +8,9 @@ $attributeCode  = $block->getAttributeCode();
 $cacheKey       = rand(100000, 1000000);
 $filterAccessor = $attributeCode . 'A' . $cacheKey . 'A';
 ?>
-<div data-mst-nav-filter="<?= $filterAccessor ?>" class="mst-nav__label" data-mst-nav-cache-key="<?= $cacheKey ?>">
-    <?= $block->getSearchBoxElement($filterAccessor) ?>
+<div data-mst-nav-filter="<?=/* @noEscape */ $filterAccessor ?>"
+class="mst-nav__label" data-mst-nav-cache-key="<?= /* @noEscape */$cacheKey ?>">
+    <?=/* @noEscape */ $block->getSearchBoxElement($filterAccessor) ?>
 
     <ol class="items">
         <?php foreach ($block->getFilterItems() as $key => $filterItem):
@@ -32,36 +33,42 @@ $filterAccessor = $attributeCode . 'A' . $cacheKey . 'A';
             ];
             ?>
              <?php if ($numberOfResults > 0): ?>
-            <li data-element="filter" class="<?= implode(' ', $cssClass) ?> price-filter-custom" data-value="<?= $filterItem->getValueString() ?>">
-                <?php if ($numberOfResults >= 0): ?>
-                    <?php
-                    $url = $isItemChecked ? $filterItem->getRemoveUrl() : $filterItem->getUrl();
-                    $id  = $block->getItemId($filterItem);
-                    ?>
-                    <a href="<?= $escaper->escapeUrl($url) ?>" rel="<?= $block->getRelAttributeValue() ?>">
+            <li data-element="filter"
+            class="<?=/* @noEscape */ implode(' ', $cssClass) ?>price-filter-custom"
+            data-value="<?= /* @noEscape */$filterItem->getValueString() ?>">
+                    <?php if ($numberOfResults >= 0): ?>
+                        <?php
+                        $url = $isItemChecked ? $filterItem->getRemoveUrl() : $filterItem->getUrl();
+                        $id  = $block->getItemId($filterItem);
+                        ?>
+                    <a href="<?= $escaper->escapeUrl($url) ?>"
+                    rel="<?=/* @noEscape */ $block->getRelAttributeValue() ?>">
                         <?php if ($imageUrl): ?>
-                            <div class="swatch-option image" style="background: url(<?= $imageUrl ?>) no-repeat center;  background-size: auto 100%;"></div>
+                            <div class="swatch-option image"
+                            style="background: url(<?= /* @noEscape */$imageUrl ?>)
+                            no-repeat center;  background-size: auto 100%;"></div>
                         <?php endif ?>
 
                         
 
-                        <label for="<?= $id ?>">
-                            <?= $label ?>
+                        <label for="<?=/* @noEscape */ $id ?>">
+                            <?=/* @noEscape */ $label ?>
                         </label>
                         <div class="count-wrap">
-                            <input id="<?= $id ?>" type="checkbox" <?= $isItemChecked ? 'checked' : '' ?> />
-                            <?= $block->getCountElement($filterItem) ?>
+                            <input id="<?=/* @noEscape */ $id ?>"
+                            type="checkbox" <?= $isItemChecked ? 'checked' : '' ?> />
+                            <?= /* @noEscape */$block->getCountElement($filterItem) ?>
                         </div>
                     </a>
                 <?php else: ?>
-                    <?= $label ?>
-                    <?= $block->getCountElement($filterItem) ?>
+                    <?= /* @noEscape */$label ?>
+                    <?=/* @noEscape */ $block->getCountElement($filterItem) ?>
                 <?php endif ?>
             </li>
             <?php endif ?>
         <?php endforeach ?>
 
-        <?= $block->getSizeLimiterElement($filterAccessor) ?>
+        <?=/* @noEscape */ $block->getSizeLimiterElement($filterAccessor) ?>
     </ol>
 </div>
 <script type="text/x-magento-init"><?= \Zend_Json::encode([

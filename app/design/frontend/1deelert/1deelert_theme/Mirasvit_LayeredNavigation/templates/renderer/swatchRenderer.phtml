@@ -8,12 +8,17 @@ $attributeCode = $swatchData['attribute_code'];
 $attributeId   = $swatchData['attribute_id'];
 ?>
 
-<div class="swatch-attribute swatch-layered <?= $attributeCode ?> mst-nav__swatch" attribute-code="<?= $attributeCode ?>" attribute-id="<?= $attributeId ?>">
-    <div class="swatch-attribute-options clearfix" data-mst-nav-filter="<?= $attributeCode ?>">
+<div class="swatch-attribute swatch-layered <?=/* @noEscape */ $attributeCode ?> mst-nav__swatch"
+attribute-code="<?=/* @noEscape */ $attributeCode ?>"
+attribute-id="<?=/* @noEscape */ $attributeId ?>">
+    <div class="swatch-attribute-options clearfix" data-mst-nav-filter="<?=/* @noEscape */ $attributeCode ?>">
         <?php foreach ($swatchData['options'] as $optionId => $label): ?>
             <?php
             $isItemChecked = $block->isItemChecked($optionId);
-            $url           = $isItemChecked ? $block->getRemoveUrl($attributeCode, $optionId) : $block->getSwatchOptionLink($attributeCode, $optionId);
+            $url           = $isItemChecked ? $block->getRemoveUrl(
+                $attributeCode,
+                $optionId
+            ) : $block->getSwatchOptionLink($attributeCode, $optionId);
             $cssClass      = [
                 'swatch-option-link-layered',
                 $isItemChecked ? '_checked' : '',
@@ -22,12 +27,15 @@ $attributeId   = $swatchData['attribute_id'];
             $customStyle   = isset($label['custom_style']) ? $block->escapeHtmlAttr($label['custom_style']) : '';
             ?>
             <div class='swatch-wrap'>
-                <a href="<?= $url ?>" class="<?= implode(' ', $cssClass) ?>" data-element="filter" data-value="<?= $block->escapeHtmlAttr($optionId) ?>">
-                    <?php if (isset($swatchData['swatches'][$optionId]['type'])) : ?>
+                <a href="<?=/* @noEscape */ $url ?>"
+                class="<?=/* @noEscape */ implode(' ', $cssClass) ?>"
+                data-element="filter"
+                data-value="<?=/* @noEscape */ $block->escapeHtmlAttr($optionId) ?>">
+                    <?php if (isset($swatchData['swatches'][$optionId]['type'])): ?>
                         <?php switch ($swatchData['swatches'][$optionId]['type']) {
                             case '3':
                                 ?>
-                                <div class="swatch-option <?= $customStyle ?>"
+                                <div class="swatch-option <?= /* @noEscape */$customStyle ?>"
                                     tabindex="-1"
                     data-option-type="3"
                     option-type="3"
@@ -40,14 +48,23 @@ $attributeId   = $swatchData['attribute_id'];
                     data-option-tooltip-value=""
                     option-tooltip-value=""
                                 ></div>
-                                <?php break;
+                                <?php
+                                break;
                             case '2':
                                 if (isset($swatchData['swatches'][$optionId]['value'])) {
                                     $isGroupedOption = isset($swatchData['swatches'][$optionId]['grouped']);
-                                    $swatchThumbPath = $block->getSwatchFilePath('swatch_thumb', $swatchData['swatches'][$optionId]['value'], $isGroupedOption);
-                                    $swatchImagePath = $block->getSwatchFilePath('swatch_image', $swatchData['swatches'][$optionId]['value'], $isGroupedOption);
+                                    $swatchThumbPath = $block->getSwatchFilePath(
+                                        'swatch_thumb',
+                                        $swatchData['swatches'][$optionId]['value'],
+                                        $isGroupedOption
+                                    );
+                                    $swatchImagePath = $block->getSwatchFilePath(
+                                        'swatch_image',
+                                        $swatchData['swatches'][$optionId]['value'],
+                                        $isGroupedOption
+                                    );
                                 }?>
-                                <div class="swatch-option image <?= $customStyle ?>"
+                                <div class="swatch-option image <?= /* @noEscape */$customStyle ?>"
                                     tabindex="-1"
                     data-option-type="2"
                     option-type="2"
@@ -59,11 +76,13 @@ $attributeId   = $swatchData['attribute_id'];
                     option-tooltip-thumb="<?= $block->escapeUrl($swatchThumbPath) ?>"
                     data-option-tooltip-value=""
                     option-tooltip-value=""
-                                    style="background: url(<?= $block->escapeUrl($swatchImagePath) ?>) no-repeat center; background-size: initial;"></div>
-                                <?php break;
+                                    style="background: url(<?= $block->escapeUrl($swatchImagePath) ?>)
+                                    no-repeat center; background-size: initial;"></div>
+                                <?php
+                                break;
                             case '1':
                                 ?>
-                                <div class="swatch-option color <?= $customStyle ?>"
+                                <div class="swatch-option color <?= /* @noEscape */$customStyle ?>"
                                     tabindex="-1"
                     data-option-type="1"
                     option-type="1"
@@ -73,14 +92,18 @@ $attributeId   = $swatchData['attribute_id'];
                     option-label="<?= $block->escapeHtmlAttr($label['label']) ?>"
                     data-option-tooltip-thumb=""
                     option-tooltip-thumb=""
-                    data-option-tooltip-value="<?= $block->escapeHtmlAttr($swatchData['swatches'][$optionId]['value']) ?>"
+                    data-option-tooltip-value="<?=
+                    $block->escapeHtmlAttr($swatchData['swatches'][$optionId]['value']) ?>"
                     option-tooltip-value="<?= $block->escapeHtmlAttr($swatchData['swatches'][$optionId]['value']) ?>"
-                                    style="background: <?= $block->escapeHtmlAttr($swatchData['swatches'][$optionId]['value']) ?> no-repeat center; background-size: initial;"></div>
-                                <?php break;
+                                    style="background:
+                                    <?= $block->escapeHtmlAttr($swatchData['swatches'][$optionId]['value']) ?>
+                                    no-repeat center; background-size: initial;"></div>
+                                <?php
+                                break;
                             case '0':
                             default:
                                 ?>
-                                <div class="swatch-option text <?= $customStyle ?>"
+                                <div class="swatch-option text <?=/* @noEscape */ $customStyle ?>"
                                     tabindex="-1"
                     data-option-type="0"
                     option-type="0"
@@ -93,13 +116,14 @@ $attributeId   = $swatchData['attribute_id'];
                     data-option-tooltip-value=""
                     option-tooltip-value=""
                                 ><?= $block->escapeHtml($swatchData['swatches'][$optionId]['value']) ?></div>
-                                <?php break;
+                                <?php
+                                break;
                         } ?>
                     <?php endif; ?>
                 </a>
                 <span class="swatch-lable-mobile">
                     <?= $block->escapeHtmlAttr($label['label']);?>
-                    <span><?= $label['count']; ?></span>
+                    <span><?= /* @noEscape */$label['count']; ?></span>
                 </span>
             </div>
         <?php endforeach; ?>

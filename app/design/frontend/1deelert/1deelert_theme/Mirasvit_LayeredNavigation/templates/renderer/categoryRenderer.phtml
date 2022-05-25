@@ -8,16 +8,16 @@ $filterAccessor = $attributeCode . rand(100000, 1000000);
 $lastLevel     = 0;
 $filterItems   = $block->getFilterItems();
 ?>
-<div data-mst-nav-filter="<?= $filterAccessor ?>" class="mst-nav__label mst-nav__category">
-    <?= $block->getSearchBoxElement($filterAccessor) ?>
+<div data-mst-nav-filter="<?= /* @noEscape */$filterAccessor ?>" class="mst-nav__label mst-nav__category">
+    <?= /* @noEscape */$block->getSearchBoxElement($filterAccessor) ?>
 
     <ol class="items">
         <?php foreach ($filterItems as $key => $filterItem):
             $label = $filterItem->getData('label');
             $numberOfResults = $filterItem->getData('count');
             $level = $filterItem->getData('level');
-	    $isParent = $filterItem->getData('is_parent');
-	    
+            $isParent = $filterItem->getData('is_parent');
+        
             $isItemChecked = $block->isFilterItemChecked($filterItem, true);
 
             $cssClass = [
@@ -30,35 +30,37 @@ $filterItems   = $block->getFilterItems();
             ];
             ?>
 
-            <?= $level > $lastLevel
+            <?=/* @noEscape */ $level > $lastLevel
             ? str_repeat('<ol class="items">', $level - $lastLevel)
             : str_repeat('</ol>', $lastLevel - $level)
             ?>
 
-            <li data-element="filter" data-value="<?= $filterItem->getValueString() ?>" class="<?= implode(' ', $cssClass) ?> sub-cat-filter">
+            <li data-element="filter" data-value="<?= /* @noEscape */$filterItem->getValueString() ?>"
+            class="<?=/* @noEscape */ implode(' ', $cssClass) ?> sub-cat-filter">
                 <?php if ($numberOfResults >= 0): ?>
                     <?php
                     $url = $isItemChecked ? $filterItem->getRemoveUrl() : $filterItem->getUrl();
                     $id  = $block->getItemId($filterItem);
                     ?>
-                    <a href="<?= $filterItem->getData('count') > 0 ? $escaper->escapeUrl($url) : '#' ?>" rel="<?= $block->getRelAttributeValue() ?>">
-                        <input id="<?= $id ?>" type="checkbox" <?= $isItemChecked ? 'checked' : '' ?>
+                    <a href="<?= /* @noEscape */$filterItem->getData('count') > 0 ? $escaper->escapeUrl($url) : '#' ?>"
+                    rel="<?=/* @noEscape */ $block->getRelAttributeValue() ?>">
+                        <input id="<?=/* @noEscape */ $id ?>" type="checkbox" <?= $isItemChecked ? 'checked' : '' ?>
                             <?= $filterItem->getData('count') == 0 ? 'disabled' : '' ?> />
 
-                        <label for="<?= $id ?>">
-                            <span><?= $label ?></span>
-                            <?= $block->getCountElement($filterItem) ?>
+                        <label for="<?= /* @noEscape */$id ?>">
+                            <span><?= /* @noEscape */$label ?></span>
+                            <?= /* @noEscape */$block->getCountElement($filterItem) ?>
                         </label>
                     </a>
                 <?php else: ?>
-                    <span><?= $label ?></span>
-                    <?= $block->getCountElement($filterItem) ?>
+                    <span><?=/* @noEscape */ $label ?></span>
+                    <?=/* @noEscape */ $block->getCountElement($filterItem) ?>
                 <?php endif ?>
             </li>
             <?php $lastLevel = $level ?>
         <?php endforeach ?>
 
-        <?= $block->getSizeLimiterElement($filterAccessor) ?>
+        <?=/* @noEscape */ $block->getSizeLimiterElement($filterAccessor) ?>
     </ol>
 </div>
 <script type="text/x-magento-init"><?= \Zend_Json::encode([

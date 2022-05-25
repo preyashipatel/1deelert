@@ -22,7 +22,7 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
     ]);
 ?>
 </span>
-<?php if (!$block->isProductList() && $block->hasSpecialPrice()) : ?>
+<?php if (!$block->isProductList() && $block->hasSpecialPrice()): ?>
     <span class="old-price sly-old-price no-display">
         <?= /* @noEscape */ $block->renderAmount($priceModel->getAmount(), [
             'display_label'     => __('Regular Price'),
@@ -34,12 +34,12 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
     </span>
 <?php endif; ?>
 
-<?php if ($block->showMinimalPrice()) : ?>
-    <?php if ($block->getUseLinkForAsLowAs()) :?>
+<?php if ($block->showMinimalPrice()): ?>
+    <?php if ($block->getUseLinkForAsLowAs()):?>
         <a href="<?= $block->escapeUrl($block->getSaleableItem()->getProductUrl()) ?>" class="minimal-price-link">
             <?= /* @noEscape */ $block->renderAmountMinimal() ?>
         </a>
-    <?php else :?>
+    <?php else:?>
         <span class="minimal-price-link">
             <?= /* @noEscape */ $block->renderAmountMinimal() ?>
         </span>

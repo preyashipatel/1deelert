@@ -7,12 +7,12 @@
 // phpcs:disable Generic.Files.LineLength.TooLong
 
 /** @var \Magento\Customer\Block\Form\Login $block */
-$helper = $this->helper('Elsnertech\Customisation\Helper\Data');
+$helper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
 $mediaUrl = $helper->getMediaUrl();
 $bannerImage = $helper->getConfig('accountpage/mainConfigaccount/banner_image');
 ?>
 <div class="inner-banner">
     <div class="banner-image">
-        <img src="<?= $mediaUrl.'theme/'.$bannerImage;?>"/>
+        <img src="<?=/* @noEscape */ $mediaUrl.'theme/'.$bannerImage;?>"/>
     </div>
 </div>

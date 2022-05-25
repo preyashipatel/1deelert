@@ -1,5 +1,5 @@
 <?php
-$helper = $this->helper('Elsnertech\Homeslider\Helper\Data');
+$helper = $this->helper(\Elsnertech\Homeslider\Helper\Data::class);
 $storeid = $helper->getStoreId();
 ?>
 
@@ -8,17 +8,18 @@ $storeid = $helper->getStoreId();
         <?php
           $collection = $block->getResult();
           
-     foreach ($collection as $item) {
-      if($storeid == $item['store_id'] || $item['store_id'] == 0):?>
+        foreach ($collection as $item) {
+            if ($storeid == $item['store_id'] || $item['store_id'] == 0):?>
 
         <div class="item">
             <div data-th="Image" class="image-slider">
-                <img src="<?= $block->getBaseUrl().$item->getData('image'); ?>" />
+                <img src="<?=/* @noEscape */ $block->getBaseUrl().$item->getData('image'); ?>" />
             </div>
             <div class="owl-content">
-                <?= $item->getData('image_text');?>
-                <a href="<?= $block->getBaseLink().$item->getData('link'); ?>" class="banner-btn btn button-primary">
-                   <span> <?= __("Shop All");?> </span>
+                <?=/* @noEscape */ $item->getData('image_text');?>
+                <a href="<?=/* @noEscape */
+                $block->getBaseLink().$item->getData('link'); ?>" class="banner-btn btn button-primary">
+                   <span> <?=/* @noEscape */ __("Shop All");?> </span>
                 </a>
             </div>
         </div>

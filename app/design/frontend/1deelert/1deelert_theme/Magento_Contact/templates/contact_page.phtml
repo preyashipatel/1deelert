@@ -1,18 +1,18 @@
 <?php
-    $contacts_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/contacts');
+    $contacts_config = $this->helper(\Smartwave\Porto\Helper\Data::class)->getConfig('porto_settings/contacts');
     $_infoblock = $contacts_config['infoblock'];
     $_customblock = $contacts_config['customblock'];
     
-    if($_customblock) {
-        $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
-        if($block) {
-            $block->setBlockId($_customblock);
-        }
-        if($block){
-            echo '<div class="row"><div class="col-md-12">'.$block->toHtml().'</div></div>';
-        }
+if ($_customblock) {
+        $block = $this->getLayout()->createBlock(\Magento\Cms\Block\Block::class);
+    if ($block) {
+        $block->setBlockId($_customblock);
     }
+    if ($block) {
+        echo '<div class="row"><div class="col-md-12">'.$block->toHtml().'</div></div>';
+    }
+}
 ?>
 <div class="row">
-    <div class="col-md-12"><?php echo $this->getChildHtml('contactForm')?></div>
+    <div class="col-md-12"><?=/* @noEscape */ $this->getChildHtml('contactForm')?></div>
 </div>

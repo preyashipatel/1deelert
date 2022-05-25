@@ -10,8 +10,8 @@
 <?php if($header_type == 10): ?>
 <div class="position-relative">
 <?php endif;?>
-<header class="page-header type<?php echo $header_type; ?>" >
-<?php echo $this->getChildHtml("header_customer_form_login"); ?>
+<header class="page-header type<?= /* @noEscape */ $header_type; ?>" >
+<?= /* @noEscape */ $this->getChildHtml("header_customer_form_login"); ?>
 <?php if($header_type == 1): ?>
   <div class="main-panel-top">
       <div class="container">
@@ -19,18 +19,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -39,71 +39,71 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-center">
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
-  <?php echo $this->getChildHtml("navigation.sections"); ?>
+  <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
 <?php elseif($header_type == 2): ?>
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-wrap">
         <div class="header-left">
-          <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-          <?php echo $this->getChildHtml("logo"); ?>
+          <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+          <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
         </div>
         <div class="header-center">
           <div class="search-area show-icon-tablet">
             <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-            <?php echo $this->getChildHtml("top.search"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
           </div>
         </div>
         <div class="header-right">
           <div class="home-link mobile-hide">
-            <a href="<?= $storeUrl;?>"><span><?= __('Home');?></span></a>
+            <a href="<?= /* @noEscape */ $storeUrl;?>"><span><?= /* @noEscape */ __('Home');?></span></a>
           </div>
           <div class="about-link mobile-hide">
-            <a href="<?= $storeUrl.'about-us';?>"><span><?= __('About us');?></span></a>
+            <a href="<?=/* @noEscape */ $storeUrl.'about-us';?>"><span><?=/* @noEscape */ __('About us');?></span></a>
           </div>
           <div class="store-link mobile-hide">
-            <span><?= __('Store');?></span>
+            <span><?=/* @noEscape */ __('Store');?></span>
             <ul class="store-li">
-              <li><a href="<?= $storeUrl.'a-office';?>"><?= __('Office');?></a></li>
-              <li><a href="<?= $storeUrl.'k-mettresses';?>"><?= __('Mattress');?></a></li>
-              <li><a href="<?= $storeUrl.'e-kitchens';?>"><?= __('Kitchen and dining room');?></a></li>
-              <li><a href="<?= $storeUrl.'f-tv-stands';?>"><?= __('Tv cabinet');?></a></li>
-              <li><a href="<?= $storeUrl.'g-shoes-storages';?>"><?= __('Shoe cabinet');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'a-office';?>"><?=/* @noEscape */ __('Office');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'k-mettresses';?>"><?=/* @noEscape */ __('Mattress');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'e-kitchens';?>"><?= /* @noEscape */__('Kitchen and dining room');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'f-tv-stands';?>"><?=/* @noEscape */ __('Tv cabinet');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'g-shoes-storages';?>"><?= /* @noEscape */__('Shoe cabinet');?></a></li>
             </ul>
           </div>
           <div class="contact-link mobile-hide">
-              <a href="<?= $storeUrl.'contact';?>"><span><?= __('Contact');?></span></a>
+              <a href="<?=/* @noEscape */ $storeUrl.'contact';?>"><span><?=/* @noEscape */ __('Contact');?></span></a>
             </div>
             <div class="mobile-hide store-lang">
-              <?php echo $this->getChildHtml("store_language"); ?>
+              <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
             </div>
           <div class="header-contact">
             <?php //echo $this->getChildHtml("custom_block"); ?>
             <span class="my-account account-icon " title="My Account"><i class="porto-icon-user-2"></i></span>
             <div class="panel header show-icon-tablet">
-              <?php echo $this->getChildHtml("header.links"); ?>
+              <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
             </div>
           </div>
-          <?php echo $this->getChildHtml("minicart"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
         </div>
       </div>
       <div class="header-menu-custom">
@@ -111,28 +111,28 @@
       </div>
     </div>
   </div>
-  <?php echo $this->getChildHtml("navigation.sections"); ?>
+  <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
 <?php elseif($header_type == 3): ?>
   <div class="main-panel-top">
       <div class="container">
           <div class="main-panel-inner">
               <div class="panel wrapper">
                 <div class="header-left">
-                  <?php echo $header2_text;?>
+                  <?= /* @noEscape */ $header2_text;?>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
                   <span class="separator"></span>
                   <div class="panel header">
-                    <?php echo $this->getChildHtml("currency"); ?>
-                    <?php echo $this->getChildHtml("store_language"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -141,20 +141,20 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-right">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
         <div class="header-contact">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -162,32 +162,32 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-center">
-        <?php echo $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
         <div class="panel header">
-          <?php echo $this->getChildHtml("currency"); ?>
-          <?php echo $this->getChildHtml("store_language"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
         </div>
         <div class="header-links panel header show-icon">
           <div class="top-links-icon">
-            <a href="javascript:;"><?php echo __('Links');?></a>
+            <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
           </div>
-          <?php echo $this->getChildHtml("header.links"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
         </div>
         <div class="header-contact">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -198,18 +198,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -218,21 +218,21 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
         <span class="separator"></span>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
         </div>
         <span class="separator"></span>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -243,19 +243,19 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                    <?php echo $this->getChildHtml("currency"); ?>
-                    <?php echo $this->getChildHtml("store_language"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
                   <span class="separator"></span>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -265,27 +265,27 @@
     <div class="header content header-row">
       <div class="header-left">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
         </div>
       </div>
       <div class="header-center">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
-  <?php echo $this->getChildHtml("navigation.sections"); ?>
+  <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
 <?php elseif($header_type == 7): ?>
   <div class="main-panel-top">
       <div class="container">
@@ -293,18 +293,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -313,22 +313,22 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-center">
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -342,9 +342,9 @@
         <div class="col-lg-3 sidebar">
           <div class="drop-menu">
             <a href="javascript:void(0)">
-              <?php echo $toggle_text; ?>
+              <?= /* @noEscape */ $toggle_text; ?>
             </a>
-            <?php echo $this->getChildHtml("navigation.sections"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
           </div>
         </div>
         <div class="col-lg-9">
@@ -385,13 +385,13 @@
           <div class="main-panel-inner">
               <div class="panel wrapper">
                 <div class="panel header">
-                    <?php echo $this->getChildHtml("currency"); ?>
-                    <?php echo $this->getChildHtml("store_language"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                 </div>
                 <div class="header-cart">
-                  <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
-                  <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
-                  <?php echo $this->getChildHtml("minicart"); ?>
+                  <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+                  <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+                  <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
                 </div>
               </div>
           </div>
@@ -400,24 +400,24 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
       <div class="header-center">
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
         <div class="panel header">
           <div class="top-links-icon">
-            <a href="javascript:;"><?php echo __('Links');?></a>
+            <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
           </div>
-          <?php echo $this->getChildHtml("header.links"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
         </div>
       </div>
       <div class="header-right">
-        <?php echo $this->getChildHtml("custom_block"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
       </div>
     </div>
   </div>
@@ -489,12 +489,12 @@
           <div class="main-panel-inner">
               <div class="panel wrapper">
                 <div class="header-left">
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
                 <div class="header-right">
-                  <?php echo $this->getChildHtml("navigation.sections"); ?>
-                  <?php echo $this->getChildHtml("currency"); ?>
-                  <?php echo $this->getChildHtml("store_language"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                 </div>
               </div>
           </div>
@@ -503,26 +503,26 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right">
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
         <div class="panel header my-account show-icon ml-lg-4 mr-1">
           <div class="top-links-icon">
             <a href="javascript:;"><i class="porto-icon-user-2"></i></a>
           </div>
-          <?php echo $this->getChildHtml("header.links"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
         </div>
         <span class="separator"></span>
         <div class="header-contact mr-1">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
         <span class="separator"></span>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -533,18 +533,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -553,18 +553,18 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-right">
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="my-wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="my-wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
 </div>
@@ -574,12 +574,12 @@
           <div class="main-panel-inner">
               <div class="panel wrapper">
                 <div class="header-left">
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
                 <div class="header-right">
-                  <?php echo $this->getChildHtml("custom_block"); ?>
-                  <?php echo $this->getChildHtml("currency"); ?>
-                  <?php echo $this->getChildHtml("store_language"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                 </div>
               </div>
           </div>
@@ -588,7 +588,7 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <?php echo $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right">
         <div class="porto-popup-menu">
@@ -600,26 +600,26 @@
             </span>
             <span class="close"><span></span><span></span></span>
           </button>
-          <?php echo $this->getChildHtml("navigation.sections"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
         </div>
         <span class="separator"></span>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
         <span class="separator"></span>
         <div class="panel header my-account show-icon px-sm-1">
           <div class="top-links-icon">
             <a href="javascript:;"><i class="porto-icon-user-2"></i></a>
           </div>
-          <?php echo $this->getChildHtml("header.links"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
         </div>
         <span class="separator"></span>
         <div class="header-contact mr-1">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
         <span class="separator"></span>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -653,29 +653,29 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                   <span class="separator"></span>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
                 <div class="header-right">
-                  <?php echo $this->getChildHtml("custom_block"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
                   <span class="separator"></span>
                   <div class="search-area show-icon">
                     <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-                    <?php echo $this->getChildHtml("top.search"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
                   </div>
                   <div class="panel header show-icon">
                     <div class="top-links-icon">
                       <a href="javascript:;"><i class="porto-icon-user-2"></i></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
                   <div class="header-contact">
-                    <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+                    <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
                   </div>
-                  <?php echo $this->getChildHtml("minicart"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
                 </div>
               </div>
           </div>
@@ -684,13 +684,13 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left flex-1">
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-center">
-        <?php echo $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right flex-1">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
       </div>
     </div>
   </div>
@@ -702,26 +702,26 @@
                   <div class="header-left">
                     <div class="search-area show-icon-tablet">
                       <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-                      <?php echo $this->getChildHtml("top.search"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
                     </div>
                   </div>
                   <div class="header-right">
                     <div class="items-inner d-flex align-items-center">
                       <div class="panel header">
-                          <?php echo $this->getChildHtml("currency"); ?>
-                          <?php echo $this->getChildHtml("store_language"); ?>
+                          <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                          <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                       </div>
-                      <?php echo $this->getChildHtml("custom_block_top"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                       <div class="panel header show-icon">
                         <div class="top-links-icon">
                           <a href="javascript:;"><i class="porto-icon-user-2"></i></a>
                         </div>
-                        <?php echo $this->getChildHtml("header.links"); ?>
+                        <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                       </div>
                       <div class="header-contact">
-                        <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+                        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
                       </div>
-                      <?php echo $this->getChildHtml("minicart"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
                     </div>
                   </div>
                 </div>
@@ -731,11 +731,11 @@
     <div class="header-main">
       <div class="header content header-row">
         <div class="header-left flex-1">
-          <?php echo $this->getChildHtml("navigation.sections"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
         </div>
         <div class="header-center">
-          <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-          <?php echo $this->getChildHtml("logo"); ?>
+          <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+          <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
         </div>
         <div class="header-right d-flex flex-1"></div>
       </div>
@@ -792,11 +792,11 @@
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -806,31 +806,31 @@
     <div class="header content header-row">
       <div class="header-left flex-1">
         <div class="panel header">
-            <?php echo $this->getChildHtml("currency"); ?>
-            <?php echo $this->getChildHtml("store_language"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
         </div>
       </div>
       <div class="header-center">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right flex-1">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist ml-4" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist ml-4" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
   <div class="header-bottom">
     <div class="header-row">
-      <div class="header-col header-left flex-1"><?php echo $this->getChildHtml("custom_block_menu"); ?></div>
-      <div class="header-col header-center flex-1"><?php echo $this->getChildHtml("navigation.sections"); ?></div>
+      <div class="header-col header-left flex-1"><?= /* @noEscape */ $this->getChildHtml("custom_block_menu"); ?></div>
+      <div class="header-col header-center flex-1"><?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?></div>
       <div class="header-col header-right flex-1">
         <div class="search-area show-icon">
-          <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i><span class="search-text"><?php echo __('Search')?></span></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i><span class="search-text"><?= /* @noEscape */ __('Search')?></span></span></a>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
     </div>
@@ -872,18 +872,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                    <?php echo $this->getChildHtml("currency"); ?>
-                    <?php echo $this->getChildHtml("store_language"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -892,23 +892,23 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
-        <?php echo $this->getChildHtml("custom_block_menu"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("custom_block_menu"); ?>
         <span class="separator"></span>
       </div>
       <div class="header-right">
         <div class="search-area show-icon-tablet-large">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
         <span class="separator"></span>
-        <?php echo $this->getChildHtml("custom_block"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
         <div class="header-contact">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -919,18 +919,18 @@
                 <div class="panel wrapper">
                   <div class="header-left">
                     <div class="panel header">
-                        <?php echo $this->getChildHtml("currency"); ?>
-                        <?php echo $this->getChildHtml("store_language"); ?>
+                        <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                        <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                     </div>
                   </div>
                   <div class="header-right">
                     <div class="panel header show-icon-tablet">
                       <div class="top-links-icon">
-                        <a href="javascript:;"><?php echo __('Links');?></a>
+                        <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                       </div>
-                      <?php echo $this->getChildHtml("header.links"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                     </div>
-                    <?php echo $this->getChildHtml("custom_block_top"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                   </div>
                 </div>
             </div>
@@ -939,23 +939,23 @@
     <div class="header-main">
       <div class="header content header-row">
         <div class="header-col header-left">
-          <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-          <?php echo $this->getChildHtml("logo"); ?>
+          <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+          <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
           <div class="search-area show-icon-tablet">
             <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-            <?php echo $this->getChildHtml("top.search"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
           </div>
         </div>
         <div class="header-col header-right">
           <div class="header-contact">
-            <?php echo $this->getChildHtml("custom_block"); ?>
-            <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+            <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+            <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
           </div>
-          <?php echo $this->getChildHtml("minicart"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
         </div>
       </div>
     </div>
-    <?php echo $this->getChildHtml("navigation.sections"); ?>
+    <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
 <?php elseif($header_type == 17): ?>
   <div class="main-panel-top">
       <div class="container">
@@ -963,18 +963,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -983,20 +983,20 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-col header-left">
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-col header-center">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-col header-right">
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-sm-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-sm-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -1007,18 +1007,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -1027,7 +1027,7 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-col header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
         <div class="header-contact">
         <?php
             $custom_block_id_18 =$this->getConfig('porto_settings/header/static_block_18');
@@ -1038,13 +1038,13 @@
         </div>
       </div>
       <div class="header-col header-center">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-col header-right">
-        <?php echo $this->getChildHtml("custom_block"); ?>
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist ml-lg-4 mr-2" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist ml-lg-4 mr-2" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -1057,10 +1057,10 @@
               $secondary_menu_18 =$this->getConfig('porto_settings/header/secondary_menu_18');
           ?>
           <div class="menu-title closed">
-            <div class="toggle"></div><?php echo $toggle_text;?>
+            <div class="toggle"></div><?= /* @noEscape */ $toggle_text;?>
           </div>
           <div class="toggle-menu-wrap side-nav-wrap" style="display: none;">
-            <?php echo $this->getChildHtml("navigation.sections"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
           </div>
         </div>
         <div class="second-menu-block">
@@ -1078,7 +1078,7 @@
       <div class="header-col header-right">
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
     </div>
@@ -1152,12 +1152,12 @@
           <div class="main-panel-inner">
               <div class="panel wrapper">
                 <div class="header-col header-left">
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
                 <div class="header-col header-right">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
               </div>
@@ -1167,23 +1167,23 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-col header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-col header-right">
         <div class="panel header my-account show-icon">
           <div class="top-links-icon">
             <a href="javascript:;"><i class="porto-icon-user-2"></i></a>
           </div>
-          <?php echo $this->getChildHtml("header.links"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
         </div>
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-2" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-2" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -1193,18 +1193,18 @@
           <div class="main-panel-inner">
               <div class="panel wrapper">
                 <div class="header-left">
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
                   <div class="panel header">
-                    <?php echo $this->getChildHtml("currency"); ?>
-                    <?php echo $this->getChildHtml("store_language"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
               </div>
@@ -1214,20 +1214,20 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
       </div>
       <div class="header-right">
         <div class="search-area show-icon">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
         <div class="header-contact">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account mr-1" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-2" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account mr-1" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-2" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
@@ -1242,11 +1242,11 @@
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -1256,29 +1256,29 @@
     <div class="header content header-row">
       <div class="header-left d-none d-lg-block">
         <div class="panel header">
-            <?php echo $this->getChildHtml("currency"); ?>
-            <?php echo $this->getChildHtml("store_language"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+            <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
         </div>
       </div>
       <div class="header-center">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-right">
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
     </div>
   </div>
   <div class="header-bottom main-menu-wrap">
     <div class="header-row container">
-      <div class="header-col header-left"><?php echo $this->getChildHtml("navigation.sections"); ?></div>
+      <div class="header-col header-left"><?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?></div>
       <div class="header-col header-right">
         <div class="header-inner">
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
-          <?php echo $this->getChildHtml("minicart"); ?>
+          <a href="<?= /* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
         </div>
       </div>
     </div>
@@ -1319,22 +1319,22 @@
         <div class="main-panel-inner">
             <div class="panel wrapper">
               <div class="header-left">
-                <?php echo $this->getConfig('porto_settings/header/header22_text') ? $this->getConfig('porto_settings/header/header22_text') : '';?>
+                <?= /* @noEscape */ $this->getConfig('porto_settings/header/header22_text') ? $this->getConfig('porto_settings/header/header22_text') : '';?>
               </div>
               <div class="header-right">
                 <div class="panel header">
-                  <?php echo $this->getChildHtml("currency"); ?>
-                  <?php echo $this->getChildHtml("store_language"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("currency"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("store_language"); ?>
                 </div>
                 <span class="separator"></span>
                 <div class="panel header show-icon-tablet">
                   <div class="top-links-icon">
-                    <a href="javascript:;"><?php echo __('Links');?></a>
+                    <a href="javascript:;"><?= /* @noEscape */ __('Links');?></a>
                   </div>
-                  <?php echo $this->getChildHtml("header.links"); ?>
+                  <?= /* @noEscape */ $this->getChildHtml("header.links"); ?>
                 </div>
                 <span class="separator"></span>
-                <?php echo $this->getChildHtml("custom_block_top"); ?>
+                <?= /* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
               </div>
             </div>
         </div>
@@ -1343,20 +1343,24 @@
 <div class="header-main">
   <div class="header content header-row">
     <div class="header-left">
-      <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-      <?php echo $this->getChildHtml("logo"); ?>
+      <span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+      <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
       <div class="search-area show-icon-tablet">
         <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-        <?php echo $this->getChildHtml("top.search"); ?>
+        <?= /* @noEscape */ $this->getChildHtml("top.search"); ?>
       </div>
     </div>
     <div class="header-right">
       <div class="header-contact">
-        <?php echo $this->getChildHtml("custom_block"); ?>
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
-        <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+        <?= /* @noEscape */ $this->getChildHtml("custom_block"); ?>
+        <a href="<?=/* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>"
+        class="wishlist" title="Wishlist">
+        <i class="porto-icon-wishlist-2"></i></a>
+        <a href="<?=/* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>"
+        class="my-account" title="My Account">
+        <i class="porto-icon-user-2"></i></a>
       </div>
-      <?php echo $this->getChildHtml("minicart"); ?>
+      <?=/* @noEscape */ $this->getChildHtml("minicart"); ?>
     </div>
   </div>
 </div>
@@ -1367,13 +1371,14 @@
           $toggle_text = $this->getConfig('porto_settings/header/toggle_text_22');
           $secondary_menu_22 =$this->getConfig('porto_settings/header/secondary_menu_22');
           $toggle_action = $this->getConfig('porto_settings/header/toggle_action_22');
-      ?>
-      <div id="main-toggle-menu" class="main-toggle-menu closed<?php if($toggle_action == '2'):?> show-hover<?php endif;?>">
+        ?>
+      <div id="main-toggle-menu"
+      class="main-toggle-menu closed<?php if ($toggle_action == '2'):?> show-hover<?php endif;?>">
         <div class="menu-title closed">
-          <div class="toggle"></div><?php echo $toggle_text;?>
+          <div class="toggle"></div><?=/* @noEscape */ $toggle_text;?>
         </div>
         <div class="toggle-menu-wrap side-nav-wrap">
-          <?php echo $this->getChildHtml("navigation.sections"); ?>
+          <?=/* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
         </div>
       </div>
       <div class="second-menu-block">
@@ -1381,8 +1386,8 @@
           <nav class="navigation sw-megamenu ">
             <?php
                 $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
-                if($block) $block->setBlockId($secondary_menu_22);
-                if($block) echo $block->toHtml();
+            if ($block) {$block->setBlockId($secondary_menu_22);}
+            if ($block) {echo $block->toHtml();}
             ?>
           </nav>
         </div>
@@ -1391,10 +1396,10 @@
     <div class="header-col header-right">
       <?php
           $custom_block_id_22 =$this->getConfig('porto_settings/header/static_block_22');
-          $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
-          if($block) $block->setBlockId($custom_block_id_22);
-          if($block) echo $block->toHtml();
-      ?>
+          $block = $this->getLayout()->createBlock(\Magento\Cms\Block\Block::class);
+        if ($block) { $block->setBlockId($custom_block_id_22);}
+        if ($block) { echo $block->toHtml();}
+        ?>
     </div>
   </div>
   <script type="text/javascript">
@@ -1444,18 +1449,18 @@
               <div class="panel wrapper">
                 <div class="header-left">
                   <div class="panel header">
-                      <?php echo $this->getChildHtml("currency"); ?>
-                      <?php echo $this->getChildHtml("store_language"); ?>
+                      <?=/* @noEscape */ $this->getChildHtml("currency"); ?>
+                      <?=/* @noEscape */ $this->getChildHtml("store_language"); ?>
                   </div>
                 </div>
                 <div class="header-right">
                   <div class="panel header show-icon-tablet">
                     <div class="top-links-icon">
-                      <a href="javascript:;"><?php echo __('Links');?></a>
+                      <a href="javascript:;"><?=/* @noEscape */ __('Links');?></a>
                     </div>
-                    <?php echo $this->getChildHtml("header.links"); ?>
+                    <?=/* @noEscape */ $this->getChildHtml("header.links"); ?>
                   </div>
-                  <?php echo $this->getChildHtml("custom_block_top"); ?>
+                  <?=/* @noEscape */ $this->getChildHtml("custom_block_top"); ?>
                 </div>
               </div>
           </div>
@@ -1464,28 +1469,32 @@
   <div class="header-main">
     <div class="header content header-row">
       <div class="header-left">
-        <span data-action="toggle-nav" class="action nav-toggle"><span><?php echo __('Toggle Nav') ?></span></span>
-        <?php echo $this->getChildHtml("logo"); ?>
+        <span data-action="toggle-nav" class="action nav-toggle"><span><?=/* @noEscape */ __('Toggle Nav') ?></span></span>
+        <?=/* @noEscape */ $this->getChildHtml("logo"); ?>
       </div>
       <div class="header-center">
         <div class="search-area show-icon-tablet">
           <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
-          <?php echo $this->getChildHtml("top.search"); ?>
+          <?=/* @noEscape */ $this->getChildHtml("top.search"); ?>
         </div>
       </div>
       <div class="header-right">
         <div class="header-contact">
-          <?php echo $this->getChildHtml("custom_block"); ?>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account"><i class="porto-icon-user-2"></i></a>
-          <a href="<?php echo $_helper->getBaseLinkUrl(). 'wishlist' ?>" class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist"><i class="porto-icon-wishlist-2"></i></a>
+          <?=/* @noEscape */ $this->getChildHtml("custom_block"); ?>
+          <a href="<?=/* @noEscape */ $_helper->getBaseLinkUrl(). 'customer/account/' ?>"
+          class="my-account m-l-xs mr-1 mr-lg-2" title="My Account">
+          <i class="porto-icon-user-2"></i></a>
+          <a href="<?=/* @noEscape */ $_helper->getBaseLinkUrl(). 'wishlist' ?>"
+          class="wishlist mr-1 mr-lg-2 pr-lg-1" title="Wishlist">
+          <i class="porto-icon-wishlist-2"></i></a>
         </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        <?=/* @noEscape */ $this->getChildHtml("minicart"); ?>
       </div>
     </div>
   </div>
 <?php endif; ?>
 </header>
-<?php if($header_type == 10): ?>
+<?php if ($header_type == 10): ?>
 </div>
 <?php endif; ?>
 <?php

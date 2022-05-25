@@ -89,8 +89,9 @@ $formData = $block->getFormData();
             </div>
         </div>
          <div class="field choice">
-            <input type="checkbox" name="show-password" title="Show Password" id="showPasswordReg" class="checkbox" data-role="show-password">
-            <label for="showPasswordReg" class="label"><span><?= __('Show Password');?></span></label>
+            <input type="checkbox" name="show-password" title="Show Password"
+            id="showPasswordReg" class="checkbox" data-role="show-password">
+            <label for="showPasswordReg" class="label"><span><?= /* @noEscape */__('Show Password');?></span></label>
         </div>
         <?php if ($block->isNewsletterEnabled()): ?>
             <div class="field choice newsletter">
@@ -350,9 +351,9 @@ script;
                 "regionInputId": "#region",
                 "postcodeId": "#zip",
                 "form": "#form-validate",
-                "regionJson": <?= $regionJson ?>,
-                "defaultRegion": <?= $regionId ?>,
-                "countriesWithOptionalZip": <?= $countriesWithOptionalZip ?>
+                "regionJson": <?=/* @noEscape */ $regionJson ?>,
+                "defaultRegion": <?=/* @noEscape */ $regionId ?>,
+                "countriesWithOptionalZip": <?=/* @noEscape */ $countriesWithOptionalZip ?>
             }
         }
     }

@@ -1,10 +1,10 @@
-<?php 
+<?php
 $_product = $block->getProduct();
 $brnad = $_product->getResource()->getAttribute('brand')->getFrontend()->getValue($_product);
 ?>
-<?php if($brnad != ''):?>
+<?php if ($brnad != ''):?>
         <p class="product-category">
             <span class="attr-label">Brand:</span>
-            <span><?=  $brnad ;?></span>
+            <span><?= /* @noEscape */ $brnad ;?></span>
         </p>
 <?php endif;?>

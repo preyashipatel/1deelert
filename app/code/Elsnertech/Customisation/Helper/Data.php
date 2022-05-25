@@ -6,6 +6,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Registry;
 use Magento\Catalog\Model\CategoryFactory;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
+use Magento\Framework\Pricing\PriceCurrencyInterface;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
@@ -30,6 +31,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param ScopeConfigInterface $scopeConfig
      * @param StoreManagerInterface $storeManager
      * @param Currency $currency
+     * @param PriceCurrencyInterface $priceCurrency
      * @param Registry $registry
      * @codeCoverageIgnore
      */
@@ -38,12 +40,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         ScopeConfigInterface $scopeConfig,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Directory\Model\Currency $currency,
+        PriceCurrencyInterface $priceCurrency,
         Registry $registry
     ) {
         $this->_scopeConfig = $scopeConfig;
         $this->_storeManager=$storeManager;
         $this->_registry = $registry;
         $this->_currency = $currency;
+        $this->priceCurrency = $priceCurrency;
+
         parent::__construct($context);
     }
     
@@ -90,6 +95,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getCurrentCurrencySymbol()
     {
-        return $this->_currency->getCurrencySymbol();
+        //  $this->_currency->getCurrencySymbol();
+        return $this->priceCurrency->getCurrencySymbol();
     }
 }

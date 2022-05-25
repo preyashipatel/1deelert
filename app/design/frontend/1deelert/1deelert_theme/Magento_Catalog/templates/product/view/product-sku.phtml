@@ -1,4 +1,4 @@
-<?php $deelert_helper = $this->helper('Elsnertech\Customisation\Helper\Data');?>
+<?php $deelert_helper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);?>
 <div class="product-sku">
-    <?= __('SKU')." ".$deelert_helper->getCurrentProduct()?>
+    <?= /* @noEscape */ __('SKU')." ".$deelert_helper->getCurrentProduct()?>
 </div>

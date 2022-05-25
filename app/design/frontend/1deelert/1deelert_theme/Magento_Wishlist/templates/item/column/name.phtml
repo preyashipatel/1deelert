@@ -12,11 +12,13 @@ $product = $item->getProduct();
 ?>
 <div class="product details product-item-details">
 <div class="product-sku">
-     <span><?= __('Sku');?> : </span
-     ><span class="sku-number"><?= $product->getSku();?></span>
+     <span><?=/* @noEscape */ __('Sku');?> : </span
+     ><span class="sku-number"><?= /* @noEscape */$product->getSku();?></span>
 </div>
 <strong class="product name product-item-name">
-    <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $block->escapeHtmlAttr($product->getName()) ?>" class="product-item-link">
+    <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>"
+    title="<?= $block->escapeHtmlAttr($product->getName()) ?>"
+    class="product-item-link">
         <?= $block->escapeHtml($product->getName()) ?>
     </a>
 </strong>

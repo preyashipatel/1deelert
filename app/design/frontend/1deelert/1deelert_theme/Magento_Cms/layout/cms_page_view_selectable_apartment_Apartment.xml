@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+         <referenceContainer name="page.wrapper">
+             <container name="apartment.banner" htmlTag="div" htmlClass="inner-banner custom-breadcrumbs" before="main.content">
+                <block class="Magento\Framework\View\Element\Template" name="apartment.file" template="Magento_Cms::apartment_banner.phtml" />
+            </container>
+            
+        </referenceContainer>
+         <move element="breadcrumbs" destination="apartment.banner" before="-"/>
+         <!-- <referenceBlock name="breadcrumbs" remove="true"/> -->
+  </body>
+</page>
+

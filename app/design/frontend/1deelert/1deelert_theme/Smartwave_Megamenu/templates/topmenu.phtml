@@ -30,7 +30,7 @@ if ($_config['general']['enable']) {
     
     <ul class="mobile-main-category desktophide">
         <li class="ui-menu-item home-catagory">
-            <a href="#" class="level-top" title="บ้าน"><span>บ้าน</span><span class="product-count">(0)</span></a>
+            <a href="#" class="level-top" title="บ้าน"><span><?= __('Home');?></span></a>
         </li>
     </ul>
     <div class="toggle-category desktophide">
@@ -40,6 +40,26 @@ if ($_config['general']['enable']) {
     <ul class="slick-slider menu-slider">
         <?=/* @noEscape */ $_menu; ?>
     </ul>
+    <!-- <div class="cms-page-link">
+        <li class="ui-menu-item cms-catagory">
+                <a href="#" class="level-top" title="บ้าน"><?= __('Apartment');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="#" class="level-top" title="บ้าน"><?= __('Condominium');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="#" class="level-top" title="บ้าน"><?= __('Lazada Shopee');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="#" class="level-top" title="บ้าน"><?= __('Contact Us');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="#" class="level-top" title="บ้าน"><?= __('How To Order');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="#" class="level-top" title="บ้าน"><?= __('Payment Method');?></a>
+        </li>
+    </div> -->
     <div class="category-menu">
         <span class="down-arrow"></span>
         <div class="category-lists">

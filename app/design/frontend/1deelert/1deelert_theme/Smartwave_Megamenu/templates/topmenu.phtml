@@ -16,6 +16,8 @@
     $_config = $_helper->getConfig('sw_megamenu');
     $columnsLimit = 0;
     $header_type = $_helper->getConfig('porto_settings/header/header_type');
+    $elsnerHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
+    $storeUrl = $elsnerHelper->getBaseUrl();
 
 if ($_config['general']['enable']) {
     ?>
@@ -40,26 +42,38 @@ if ($_config['general']['enable']) {
     <ul class="slick-slider menu-slider">
         <?=/* @noEscape */ $_menu; ?>
     </ul>
-    <!-- <div class="cms-page-link">
+    <div class="cms-page-link">
         <li class="ui-menu-item cms-catagory">
-                <a href="#" class="level-top" title="บ้าน"><?= __('Apartment');?></a>
+                <a href="<?= $storeUrl.'flash-sale';?>" class="level-top" title="บ้าน"><?= __('Flash Sales');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="#" class="level-top" title="บ้าน"><?= __('Condominium');?></a>
+                <a href="<?= $storeUrl.'promotion';?>" class="level-top" title="บ้าน"><?= __('Promotions');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="#" class="level-top" title="บ้าน"><?= __('Lazada Shopee');?></a>
+                <a href="<?= $storeUrl.'latest-product';?>" class="level-top" title="บ้าน"><?= __('Best Sellers');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="#" class="level-top" title="บ้าน"><?= __('Contact Us');?></a>
+                <a href="<?= $storeUrl.'how-to-buy';?>" class="level-top" title="บ้าน"><?= __('How To Buy');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="#" class="level-top" title="บ้าน"><?= __('How To Order');?></a>
+                <a href="<?= $storeUrl.'payment-method';?>" class="level-top" title="บ้าน"><?= __('Payment Option');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="#" class="level-top" title="บ้าน"><?= __('Payment Method');?></a>
+                <a href="<?= $storeUrl.'condominium';?>" class="level-top" title="บ้าน"><?= __('Furniture Set');?></a>
         </li>
-    </div> -->
+        <li class="ui-menu-item cms-catagory">
+                <a href="<?= $storeUrl.'lazada';?>" class="level-top" title="บ้าน"><?= __('Buy from other platform');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="<?= $storeUrl.'apartment';?>" class="level-top" title="บ้าน"><?= __('Apartment');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="<?= $storeUrl.'about-us';?>" class="level-top" title="บ้าน"><?= __('About Us');?></a>
+        </li>
+        <li class="ui-menu-item cms-catagory">
+                <a href="<?= $storeUrl.'contact';?>" class="level-top" title="บ้าน"><?= __('Contact Us');?></a>
+        </li>
+    </div>
     <div class="category-menu">
         <span class="down-arrow"></span>
         <div class="category-lists">

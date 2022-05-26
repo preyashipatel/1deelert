@@ -351,6 +351,7 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                                 <?php endif; ?>
                                 <?php endif; ?>
                                 <?php if ($block->getMode() == 'list'): ?>
+                                    <div class="source-div">                                   
                                 <?php if($_category_config['addtowishlist']): ?>
                                 <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
                                     <a href="#"
@@ -378,6 +379,7 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                                     <span><?php echo __('Add to Compare') ?></span>
                                 </a>
                                 <?php endif; ?>
+                                </div> 
                             </div>
                         </div>
                         <?php endif; ?>

@@ -534,8 +534,13 @@
                     border: 1px solid @color-2-gray;
                     padding: 20px;
                     border-radius: 10px;
+                    @media (max-width: @screen__lg){
+                        width: ~"calc(50% - 10px)";
+                        margin: 10px 5px;
+                    }
                     @media (max-width: @screen__sm){
-                        margin-top: 20px;
+                        width: 100%;
+                        margin: 6px 0;
                     }
                     a.product-item-photo {
                         box-shadow: none;
@@ -605,7 +610,8 @@
                         .product-item-actions{
                             margin: 0;
                             .action {
-                                font-size: @font-size_7;
+                                font-size: 12px;
+                                line-height: 1.5;
                                 border: 1px solid;
                                 padding: 7px 18px;
                                 border-radius: 8px;
@@ -629,6 +635,7 @@
                 height: auto;
                 color: @color-5;
                 min-height: 45px;
+                line-height: 1.5;
                 @media (max-width: @screen__sm) {
                     font-size: 12px;
                     min-height: 40px;

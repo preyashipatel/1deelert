@@ -641,6 +641,9 @@ form#checkout_multishipping_form{
                     color: @color-1;
                     margin: 0;
                 }
+                a.action {
+                    font-size: 16px;
+                }
                 dl.item-options {
                     font-size: @font-size_6;
                     margin: 5px 0 0;
@@ -702,6 +705,44 @@ form#checkout_multishipping_form{
                         }
                     }
                 }
+                select {
+                    min-width: 100px;
+                    padding-right: 25px;
+                }
+            }
+        }
+    }
+    .table-wrapper {
+        overflow-x: auto;
+    }
+    .actions-toolbar {
+        padding-bottom: 80px;
+        .primary {
+            float: none;
+            margin: 0;
+        }
+        button.action{
+            padding: 13px 20px;
+            font-size: 14px;
+            line-height: 1.3;
+            font-weight: 400;
+            background: @button-background_color;
+            color: @button-font_color;
+            border-radius: @button-border_radius;
+            border: 1px solid;
+            border-color: @button-border_color;
+            letter-spacing: 1.8px;
+            .transition(all 0.5s ease);
+            height: auto;
+            outline: 0;
+            text-transform: uppercase;
+            margin: 5px 0;
+
+            &:hover, &:focus {
+                background: @button-hover-background_color;
+                color: @button-hover-font_color;
+                border-color: @button-hover_border_color;
+                .transition(all 0.5s ease);
             }
         }
     }

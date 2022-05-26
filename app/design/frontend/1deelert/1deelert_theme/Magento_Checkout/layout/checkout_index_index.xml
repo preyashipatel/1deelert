@@ -8,11 +8,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="page.wrapper">
-            <container name="page.title.wrap"  before="main.content" htmlTag="div" htmlClass="page-title-head">
+            <!-- <container name="page.title.wrap"  before="main.content" htmlTag="div" htmlClass="page-title-head">
                 <container name="cart.banner" as="banner">
                     <block class="Magento\Framework\View\Element\Template" name="custom.file" template="Magento_Checkout::checkout_banner.phtml" />
                 </container>
-            </container>
+            </container> -->
         </referenceContainer>
     </body>
 </page>

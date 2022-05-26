@@ -120,7 +120,25 @@ class LatestList extends \Magento\Catalog\Block\Product\ListProduct
 
         return $collection;
     }
+    /**
+     * Total number of products in current category.
+     *
+     * @return int
+     */
+    public function getTotalNumCount()
+    {
+        return $this->getProductCount();;
+    }
 
+    /**
+     * Total number of products in current category.
+     *
+     * @return int
+     */
+    public function getTotalNum()
+    {
+        return $this->getProducts()->getSize();
+    }
     /**
      * Comment of getLoadedProductCollection function
      *
@@ -183,6 +201,15 @@ class LatestList extends \Magento\Catalog\Block\Product\ListProduct
     public function getPagerHtml()
     {
         return $this->getChildHtml('pager');
+    }
+    /**
+     * Retrieve additional blocks html
+     *
+     * @return string
+     */
+    public function getAdditionalHtml()
+    {
+        return $this->getChildHtml('additional');
     }
     /**
      * Comment of getToolbarHtml function

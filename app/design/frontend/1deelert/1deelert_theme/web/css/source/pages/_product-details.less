@@ -22,6 +22,10 @@
         }
         .product-extra-info-mob{
             position: relative;
+            padding-left: 120px;
+            @media (max-width: @screen__sm) {
+                padding: 0;
+            }
             .product-sku {
                 border-radius: 4px;
                 background: @color-1;
@@ -29,10 +33,13 @@
                 font-size: 12px;
                 padding: 7px 12px;
                 line-height: 1.4;
-                display: none;
-    
+                display: inline-block;
+                position: absolute;
+                z-index: 9999;
+
                 @media (max-width: @screen__sm) {
                     display: inline-block;
+                    position: relative;
                 }
             }
             .towishlist{
@@ -279,7 +286,7 @@
                 }
             }
         }
-
+        
         .product-info-price{
             .price-box{
                 .flex();
@@ -301,6 +308,9 @@
                 }
                 @media (max-width: @screen__sm) {
                     font-size: @font-size_5;
+                }
+                .currecny-symbol {
+                    padding-right: 2px;
                 }
             }
     
@@ -698,6 +708,51 @@
 
         &:hover {
             color: @color-5;
+        }
+    }
+}
+
+.products-grid.wishlist{
+    .product-item{
+        .price-box.price-final_price{
+            .price-as-configured{
+                .flex();
+                margin: 0;
+            }
+            .price{
+                margin: 0;
+                font-weight: 500;
+                color: @color-1;
+                font-size: 18px;
+                line-height: 1.2;
+                margin-right: 12px;
+                .flex();
+                @media (max-width: @screen__xl) {
+                    font-size: 14px;
+                }
+               
+                .currecny-symbol {
+                    padding-right: 2px;
+                }
+            }
+            .old-price{
+                .flex();
+                .align-items(center);
+                
+                .price, .old-price-wrap {
+                    color: @color-9_dark;
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-decoration: line-through;
+                    line-height: 1.2;
+                    @media (max-width: @screen__xl) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .tooltip.wrapper.product-item-tooltip {
+            display: none;
         }
     }
 }

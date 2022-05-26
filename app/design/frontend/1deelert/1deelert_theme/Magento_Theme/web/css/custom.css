@@ -83,7 +83,16 @@ body>p{display:none}
 }
 @media (min-width:1440px){.d-sl-inline-block{display:inline-block!important}}
 input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"],
-input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], textarea, select {background-color: #ffffff;color: #777;border-color: rgba(0,0,0,.09);border-radius: 0;height: auto;padding: 8px 12px;font-size: .85rem;font-family: inherit;}
+input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], textarea, select {
+    background-color: rgba(102, 102, 102, 0.05);
+    border: 0;
+    border-radius: 8px;
+    color: #000000;
+    font-size: 15px;
+    padding: 8px 15px;
+    line-height: 32px;
+    height: auto;
+}
 select:focus,input:focus {box-shadow: none !important;}
 .product-name{color:#333}
 .swatch-input{position:absolute;top:-999em;visibility:hidden;opacity:0}
@@ -336,6 +345,10 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .block-search .action.search:hover:before{color: inherit;}
 .search-autocomplete {margin: 0;}
 .product-item-photo {padding: 0;border: none;border-radius: 0;}
+.field-error {
+    color: red;
+    font-size: 12px;
+}
 /*minicart*/
 .minicart-items-wrapper{max-height:250px}
 .minicart-wrapper .block-minicart { padding: 10px 15px 5px;font-size: .8125rem;line-height: 1.5;font-weight: 700;}
@@ -346,10 +359,10 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .minicart-wrapper .block-minicart .subtotal {padding: 15px 10px 25px;text-align: left;text-transform: uppercase;font-size: 14px;display: flex;align-items: center;letter-spacing: .14px;line-height: 24px;}
 .minicart-wrapper .block-minicart .subtotal > span.label {display: flex;align-items: center;}
 .minicart-wrapper .block-minicart .subtotal .amount {margin-left: auto;}
-.minicart-wrapper .block-minicart .subtotal .amount .price {color: inherit;font-size: 15px;font-weight: 700;}
+.minicart-wrapper .block-minicart .subtotal .amount .price {    color: #4E245E;    font-size: 15px;font-weight: 700;}
 .minicart-wrapper .block-minicart .block-content > .actions {padding: 0 10px 10px;}
 .block-minicart .block-content > .actions > .primary .action.primary {font-family: inherit;font-size: 12px;letter-spacing: 0.5px;text-transform: uppercase;padding: .875rem 1.5rem;border-radius: 8px;float: none;width: 100%;font-weight: 600;margin-bottom: 10px;height: auto;line-height: inherit;color: #fff;background-color: #4E245E;border: none;}
-.minicart-items .product-item-details .price,.price-including-tax, .price-excluding-tax {font-weight: 400;color: #69696B;font-size: .8125rem;}
+.minicart-items .product-item-details .price,.price-including-tax, .price-excluding-tax {font-weight: 600;    color: #4E245E;    font-size: .8125rem;}
 .minicart-items .product-item-name {display: block;text-decoration: none;font-size: 1.0769em;line-height: 1.4;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin-bottom: .5rem;color: #222529;font-weight: 700;flex: 0 0 100%;}
 .minicart-items .product-item-name a {color: inherit !important;font-size: inherit;display: block;font-weight: inherit;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin: 0;line-height: inherit;letter-spacing: inherit;}
 .minicart-items .product-item-name a:hover {text-decoration: none;}

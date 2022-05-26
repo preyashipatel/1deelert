@@ -9,5 +9,6 @@
     <body>
         <referenceBlock name="custom_link" remove="1"/>
          <attribute name="class" value="loader-removed"/>
+         <move element="page.main.title" destination="page.wrapper" after="porto_header"/>
     </body>
 </page>

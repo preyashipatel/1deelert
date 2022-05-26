@@ -14,7 +14,7 @@ $configuredPrice = $block->getPrice();
 $configuredRegularPrice = $block->getPriceType(
     \Magento\Catalog\Pricing\Price\ConfiguredPriceInterface::CONFIGURED_REGULAR_PRICE_CODE
 );
-$currecyHelper = $block->helper(\Elsnertech\Customisation\Helper\Data::class);
+$currecyHelper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
 ?>
 <?php if ($configuredPrice->getAmount()->getValue() < $configuredRegularPrice->getAmount()->getValue()): ?>
         <div class="price-spacial-wrap">

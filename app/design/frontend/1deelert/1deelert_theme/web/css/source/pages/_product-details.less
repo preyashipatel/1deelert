@@ -380,29 +380,6 @@
                                 @media (max-width: @screen__sm) {
                                     width: 90px;
                                 }
-
-                                .qty-changer a {
-                                    border: 0;
-                                    border-radius: 0;
-                                    background: @color-6;
-                                    height: auto;
-                                    padding: 16px 5px;
-                                    top: 7px;
-
-                                    @media (max-width: @screen__sm) {
-                                        padding: 15px 5px;
-                                        top: 4px;
-                                    }
-
-                                    &.qty-inc {
-                                        border-left: 1px solid @color-3_light;
-                                    }
-
-                                    &.qty-dec {
-                                        border-right: 1px solid @color-3_light;
-                                    }
-                                }
-
                                 input {
                                     background-color: @color-6;
                                     height: auto;
@@ -422,6 +399,27 @@
                                     bottom: -16px;
                                     min-width: 220px;
                                     left: 0;
+                                }
+                            }
+                            .qty-changer a {
+                                border: 0;
+                                border-radius: 0;
+                                background: @color-6;
+                                height: auto;
+                                padding: 16px 5px;
+                                top: 7px;
+
+                                @media (max-width: @screen__sm) {
+                                    padding: 15px 5px;
+                                    top: 4px;
+                                }
+
+                                &.qty-inc {
+                                    border-left: 1px solid @color-3_light;
+                                }
+
+                                &.qty-dec {
+                                    border-right: 1px solid @color-3_light;
                                 }
                             }
                         }
@@ -561,12 +559,14 @@
         order: 3;
         width: 100%;
         padding-bottom: 50px;
+        padding-top: 30px;
 
         @media (max-width: @screen__sm) {
             border: 1px solid #0003;
             border-radius: 8px;
             padding: 12px 10px;
             margin-bottom: 30px;
+            padding-top: 30px;
         }
 
         .data.item.title {

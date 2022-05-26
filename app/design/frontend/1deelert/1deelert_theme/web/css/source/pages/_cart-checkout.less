@@ -293,6 +293,7 @@ body.checkout-index-index._has-modal {
             font-weight: 600;
             font-size: 16px;
             letter-spacing: 0.5px;
+            margin: 10px 0;
         }
         .secondary{
             a.action.remind{
@@ -331,7 +332,8 @@ body.checkout-index-index._has-modal {
             }
         }
         .opc-wrapper{
-            .shipping-address-item.selected-item {
+            .shipping-address-item{
+                padding: 1em 2.5em 1em 1em;
                 border-color: @color-1;
                 font-size: 15px;
                 line-height: 1.6;
@@ -569,6 +571,138 @@ body._has-modal-custom {
         @media (max-width: @screen__md){
             font-size: 14px;
             padding: 10px 20px;
+        }
+    }
+}
+
+
+.multishipping-checkout_address-newshipping{
+    .form-address-edit{
+        padding: 0 0 80px;
+        .fieldset{
+            .legend{
+                color: @color-2_dark;
+                font-weight: 600;
+                border-bottom: 1px solid @color-9_dark;
+                padding: 10px 0;
+            }
+            .field {
+                margin: 0;
+                padding: 0 0 15px;
+                &.choice{
+                    padding-bottom: 5px;
+                    label.label {
+                        font-size: 14px;
+                    }
+                }
+                .nested {
+                    margin-top: 10px;
+                }
+            }
+            .label {
+                font-size: 15px;
+                font-weight: 600;
+                margin: 0;
+            }
+        }
+        .actions-toolbar{
+            text-align: center;
+            .primary{
+                float: none;
+            }
+            button.action{
+                background-color: @color-1;
+                color: @color-5;
+                border-radius: 8px;
+                opacity: 1;
+                margin: 0;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+form#checkout_multishipping_form{
+    .title strong {
+        font-weight: 700;
+    }
+    table.items.table{
+        thead{
+            background-color: @color-1;
+            th{
+                color: @color-5;
+                padding: 10px 20px;
+            }
+        }
+        tbody{
+            td{
+                padding: 10px 20px;
+                a {
+                    color: @color-1;
+                    margin: 0;
+                }
+                dl.item-options {
+                    font-size: @font-size_6;
+                    margin: 5px 0 0;
+                }
+                .field.qty {
+                    padding: 0;
+                    width: 104px;
+                    position: relative;
+                    @media (max-width: @screen__sm) {
+                        width: 90px;
+                    }
+                    .control {
+                        border: 1px solid @color-3;
+                        border-radius: 4px;
+
+                        @media (max-width: @screen__sm) {
+                            width: 90px;
+                        }
+                        input {
+                            background-color: @color-6;
+                            height: auto;
+                            padding: 11px;
+
+                            @media (max-width: @screen__sm) {
+                                padding: 9px;
+                                width: 30px;
+                                font-size: 14px;
+                            }
+                        }
+
+                        div#qty-error {
+                            position: absolute;
+                            font-size: 11px;
+                            line-height: 1.2;
+                            bottom: -16px;
+                            min-width: 220px;
+                            left: 0;
+                        }
+                    }
+                    .qty-changer a {
+                        border: 0;
+                        border-radius: 0;
+                        background: @color-6;
+                        height: auto;
+                        padding: 16px 5px;
+                        top: 7px;
+
+                        @media (max-width: @screen__sm) {
+                            padding: 15px 5px;
+                            top: 4px;
+                        }
+
+                        &.qty-inc {
+                            border-left: 1px solid @color-3_light;
+                        }
+
+                        &.qty-dec {
+                            border-right: 1px solid @color-3_light;
+                        }
+                    }
+                }
+            }
         }
     }
 }

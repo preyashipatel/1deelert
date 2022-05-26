@@ -66,7 +66,7 @@ define([
         });
 
         var viewportWidth = $(window).width();
-        if (viewportWidth > 767) {
+        if (viewportWidth > 991) {
             $('.menu-slider').slick({
                 draggable: true,
                 accessibility: false,

@@ -694,3 +694,33 @@
         }
     }
 }
+
+form.form.password.forget, .form.password.reset {
+    max-width: 720px;
+    margin: 50px auto 80px;
+    border: 1px solid @color-4_light;
+    border-radius: 15px;
+    padding: 30px;
+
+    @media (max-width: @screen__sm){
+        margin: 0 auto 40px;
+        padding: 20px;
+    }
+    .field.note{
+        font-size: 22px;
+        @media (max-width: @screen__md) {
+            font-size: 20px;
+        }
+        @media (max-width: @screen__sm) {
+            font-size: 18px;
+        }
+    }
+    button.captcha-reload:hover{
+        color: @color-5;
+    }
+    .actions-toolbar{
+        button.action{
+            color: @color-5 !important;
+        }
+    }
+}

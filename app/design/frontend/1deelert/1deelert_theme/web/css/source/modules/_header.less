@@ -1544,3 +1544,39 @@ header.page-header.type2 .nav-sections .nav-sections-items .nav-sections-item-co
         left: 0;
     }
 }
+
+.nav-before-open {
+    body {
+        @media (max-width: @screen__md) {
+            overflow: inherit;
+        }
+    }
+    &.nav-open{
+        body {
+            @media (max-width: @screen__md) {
+                overflow: hidden;
+            }
+        } 
+    }
+
+    .page-wrapper{
+        @media (max-width: @screen__md) {
+            overflow: inherit;
+        }
+    }
+
+    &.nav-open{
+        .page-wrapper {
+            @media (max-width: @screen__md) {
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+
+header.page-header.type2 .nav-sections .nav-sections-items .nav-sections-item-content ul.header.links li.link.authorization-link {
+    @media (max-width: @screen__md) {
+    display: block;
+}
+}

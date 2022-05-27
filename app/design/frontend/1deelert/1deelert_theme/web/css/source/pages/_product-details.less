@@ -44,13 +44,6 @@
             }
             .towishlist{
                 display: none;
-                &::before{
-                    content: '\e889';
-                    color: inherit;
-                    font-family: 'porto-icons';
-                    vertical-align: middle;
-                    font-size: 16px;
-                }
                 @media (max-width: @screen__sm) {
                     padding: 5px 6px;
                     display: inline-block;
@@ -60,7 +53,12 @@
                     right: 0;
                     top: 0;
                     text-align: center;
-                    border-radius: 4px;
+                    background-image: url(../images/wishlist.svg);
+                    border-radius: 6px;
+                    background-repeat: no-repeat;
+                    background-size: 16px;
+                    background-position: center;
+                    width: 31px;
                 }
             }
         }

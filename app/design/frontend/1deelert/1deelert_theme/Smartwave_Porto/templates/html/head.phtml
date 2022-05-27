@@ -1,6 +1,6 @@
 <?php
-    $_helper = $this->helper('Smartwave\Porto\Helper\Cssconfig');
-    $porto_helper = $this->helper('Smartwave\Porto\Helper\Data');
+    $_helper = $this->helper(\Smartwave\Porto\Helper\Cssconfig::class);
+    $porto_helper = $this->helper(\Smartwave\Porto\Helper\Data::class);
     $_redirect_cart = $porto_helper->getConfig('checkout/cart/redirect_to_cart');
 ?>
 <?php //Include Google fonts character subsets (such as extended latin, cyrillic)
@@ -13,18 +13,18 @@
     $font_sizes = "%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic";
 ?>
 <?php if (isset($d['font']['custom']) && $d['font']['custom'] && $d['font']['font_family'] == 'google'): ?>
-<link rel="stylesheet" href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $d['font']['google_font_family']).$font_sizes; echo $charSubset; ?>' type='text/css' />
+<link rel="stylesheet" href='//fonts.googleapis.com/css?family=<?=/* @noEscape */ str_replace(' ', '+', $d['font']['google_font_family']).$font_sizes; echo $charSubset; ?>' type='text/css' />
 <?php else: ?>
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" type="text/css" media="screen"/>
 <?php endif;?>
 <link href="//fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800" rel="stylesheet">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" type="text/css" media="screen"/>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo $_helper->getDesignFile()?>">
+<link rel="stylesheet" type="text/css" media="all" href="<?=/* @noEscape */ $_helper->getDesignFile()?>">
 
 <script type="text/javascript">
 var redirect_cart = false;
-<?php if($_redirect_cart):?>
+<?php if ($_redirect_cart):?>
     redirect_cart = true;
 <?php endif;?>
 var porto_config = {
@@ -72,12 +72,12 @@ require([
                 }
                 <?php if ($this->getConfig('porto_settings/header/sticky_header_logo')): ?>
                 <?php
-                if($logo_src = $this->getConfig('porto_settings/header/sticky_header_logo_src')){
+                if ($logo_src = $this->getConfig('porto_settings/header/sticky_header_logo_src')) {
                     $folderName = \Smartwave\Porto\Model\Config\Backend\Image\Stickylogo::UPLOAD_DIR;
                     $path = $folderName . '/' . $logo_src;
                     $imageUrl = $porto_helper->getBaseUrl() . $path;
                 ?>
-                $(".sticky-logo img").attr("src","<?php echo $imageUrl; ?>");
+                $(".sticky-logo img").attr("src","<?=/* @noEscape */ $imageUrl; ?>");
                 <?php
                 }
                 ?>
@@ -130,6 +130,6 @@ require([
 <?php endif; ?>
 });
 </script>
-<?php if($this->getConfig('porto_settings/general/smartlayers')): ?>
+<?php if ($this->getConfig('porto_settings/general/smartlayers')): ?>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58378513496862c5"></script>
 <?php endif; ?>

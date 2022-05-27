@@ -293,11 +293,7 @@ define([
         $(window).on('load', function() {
             $('body').removeClass('loader-removed');
         });
-        $('.weltpixel_quickview_button_v2').click(function () {
-            console.log("Caaaa");
-            $('body').removeClass('loader-removed');
-        });
-        
+        $("header.page-header.type2 .nav-sections .nav-sections-items .nav-sections-item-content ul.header.links:first-child li.authorization-link a[data-post]").parent().hide();
 
         if ($(window).width() < 991) {
             $('ul.slick-slider.menu-slider').hide();

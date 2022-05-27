@@ -4,11 +4,11 @@
    $showCompare = true;
    $showCart = true;
    $flashDetails = $block->getFlashsaleDetails();
-   $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
-   $_helper = $this->helper('Magento\Catalog\Helper\Output');
-    $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
+   $_imagehelper = $this->helper(\Magento\Catalog\Helper\Image::class);
+   $_helper = $this->helper(\Magento\Catalog\Helper\Output::class);
+    $_portohelper = $this->helper(\Smartwave\Porto\Helper\Data::class);
     $_product_label_config = $_portohelper->getConfig('porto_settings/product_label');
-    $currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
+    $currecyHelper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
     $storeUrl = $_portohelper->getBaseLinkUrl();
 
 ?>

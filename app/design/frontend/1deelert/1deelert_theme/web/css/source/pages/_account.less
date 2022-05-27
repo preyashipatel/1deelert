@@ -724,3 +724,101 @@ form.form.password.forget, .form.password.reset {
         }
     }
 }
+
+.wishlist.table-wrapper{
+    table{
+        thead{
+            background-color: @color-1;
+            th{
+                color: @color-5;
+                padding: 10px 20px;
+            }
+        }
+        tbody{
+            td{
+                padding: 10px 20px;
+            }
+            .product.photo{
+                float: left;
+                .product-image-wrapper{
+                    padding: 0 !important;
+                    height: auto;
+                }
+                img.product-image-photo {
+                    max-width: 100px;
+                    position: relative;
+                    margin: 0;
+                }
+            }
+            .price-box{
+                .price-wrap , span.price{
+                    margin: 0;
+                    font-weight: 500;
+                    color: @color-1;
+                    font-size: 20px;
+                    line-height: 1.2;
+                    margin-right: 12px;
+                    .flex();
+                    @media (max-width: @screen__xl) {
+                        font-size: 18px;
+                    }
+                    @media (max-width: @screen__sm) {
+                        font-size: 16px;
+                    }
+                    .currecny-symbol {
+                        padding-right: 2px;
+                    }
+                }
+                span.old-price{
+                    span.price{
+                        color: @color-9_dark;
+                        font-size:20px;
+                        font-weight: 500;
+                        text-decoration: line-through;
+                        line-height: 1.2;
+                        @media (max-width: @screen__xl) {
+                            font-size: 18px;
+                        }
+                        @media (max-width: @screen__sm) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .price-spacial-wrap{
+                    .flex();
+                    .old-price-wrap {
+                        color: @color-9_dark;
+                        font-size:20px;
+                        font-weight: 500;
+                        text-decoration: line-through;
+                        line-height: 1.2;
+                        @media (max-width: @screen__xl) {
+                            font-size: 18px;
+                        }
+                        @media (max-width: @screen__sm) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+            button.action.tocart {
+                padding: 10px 20px;
+                font-size: 14px;
+                line-height: 1.3;
+                font-weight: 400;
+                background: @button-background_color;
+                color: @button-font_color;
+                border-radius: @button-border_radius;
+                border: 1px solid;
+                border-color: @button-border_color;
+                letter-spacing: 1px;
+                .transition(all 0.5s ease);
+                outline: 0;
+            }
+            .towishlist {
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="elsnertech_payslip::main" title="PaySlip" module="Elsnertech_PaySlip" sortOrder="10" resource="Elsnertech_PaySlip::main"/>
+        <add id="elsnertech_payslip::sub" title="Manage PaySlip Grid" module="Elsnertech_PaySlip" sortOrder="10" parent="elsnertech_payslip::main" action="elsnertech_payslip/index" resource="Elsnertech_PaySlip::sub"/>
+    </menu>
+</config>
+

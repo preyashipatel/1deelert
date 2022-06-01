@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string" translate="true">Home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Home</item>
+                    <item name="label" xsi:type="string" translate="true">Home</item>
+                    <item name="link" xsi:type="string">{{baseUrl}}</item>
+                </argument>
+            </action>
+             <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string" translate="true">Pay Slip</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Pay Slip</item>
+                    <item name="label" xsi:type="string" translate="true">Pay Slip</item>
+                </argument>
+            </action>
+            </referenceBlock>
+            <referenceContainer name="content">
+                <block class="Elsnertech\PaySlip\Block\PaySlip" name="payslip.list" template="payslip.phtml"></block>
+            </referenceContainer>
+            <referenceContainer name="page.wrapper">
+                <container name="payslip.banner" htmlTag="div" htmlClass="inner-banner custom-breadcrumbs" before="main.content">
+                    <block class="Magento\Framework\View\Element\Template" name="payslip.file" template="Magento_Cms::payslip_banner.phtml" />
+                </container>
+                
+            </referenceContainer>
+            <move element="breadcrumbs" destination="payslip.banner" before="-"/>
+    </body>
+</page>

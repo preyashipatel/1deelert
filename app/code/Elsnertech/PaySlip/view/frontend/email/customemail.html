@@ -1,0 +1,33 @@
+<!--@subject PaySlip Information @-->
+
+{{template config_path="design/email/header_template"}}
+
+<div>
+    <label for="name">Name :</label> {{var name}}
+</div>
+<br>
+<div>
+    <label for="email">Email :</label> {{var email}}
+</div>
+<br>
+<div>
+    <label for="phone">Phone :</label> {{var phone}}
+</div>
+<br>
+<div>
+    <label for="address"> Address :</label> {{var address}}
+</div>
+<br>
+<div>
+    <label for="transfer_date">Transfer Date :</label> {{var transfer_date}}
+</div>
+<br>
+<div>
+    <label for="purchase_order_number">Purchase Order Number :</label> {{var purchase_order_number}}
+</div>
+<br>
+<div>
+    <label for="note"> Note :</label> {{var note}}
+</div>
+
+{{template config_path="design/email/footer_template"}}

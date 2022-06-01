@@ -14,7 +14,7 @@
 				var $html = $('html');
 				var $obj = $('.columns .mobile-sidebar');
 				if (!$obj.parents().find('.sidebar-overlay').length) {
-					$('<div class="sidebar-overlay"></div>').insertBefore($obj);
+					$('<div class="sidebar-overlay test"></div>').insertBefore($obj);
 				}
 				if ($html.hasClass('sidebar-opened')) {
 					$html.removeClass('sidebar-opened');

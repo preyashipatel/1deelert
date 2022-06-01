@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Created By : Nidhi Parikh
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="payslip" resource="default" engine="innodb" comment="PaySlip">
+      <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" 
+      identity="true" comment="ID" />
+      <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+      <column xsi:type="varchar" name="phone" nullable="false" length="255" comment="Phone"/>
+      <column xsi:type="text" name="address" nullable="false" comment="Address"/>
+      <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email"/>
+      <column xsi:type="date" name="transfer_date" nullable="true"  comment="Transfer Date"/>
+      <column xsi:type="int" name="purchase_order_number" nullable="true"  comment="Purchase Order Number"/>
+      <column xsi:type="text" name="transfer_proof_image" nullable="true" comment="Transfer Proof Image"/>
+      <column xsi:type="text" name="note" nullable="true" comment="Note"/>
+      <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" comment="Created At" />
+      <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="true" comment="Updated At" />
+
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id" />
+      </constraint>
+   </table>
+</schema>

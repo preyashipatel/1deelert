@@ -1,0 +1,103 @@
+<script src="https://www.google.com/recaptcha/api.js" type="text/javascript" xml="space"></script>
+<div class="invoice-wrapper">
+<div class="invoice-head">
+    <h1><?=/* @noEscape */ __('Request a tax invoice') ?></h1>
+    <p><?=/* @noEscape */ __('need a tax invoice Please fill out your information completely') ?></p>
+</div>
+<div class="invoice-form">
+    <form action="<?= /* @noEscape */ $block->getBaseUrl().'taxinvoice/index/save'; ?>" method="post" id="addData" class="form"
+                data-mage-init='{"validation":{}}' onSubmit="return checkCaptcha() ;">
+
+            <div class="field name required">
+                <label class="label" for="title"><span><?=/* @noEscape */ __('Name') ?><strong class="formRequired">(*)</strong></span></label>
+                <div class="control">
+                    <input name="name" id="name" class="input-text" type="text"
+                        data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                </div>
+            </div>
+
+            <div class="field name required">
+                <label class="label" for="title"><span><?=/* @noEscape */ __('Company name/shop name') ?></span></label>
+                <div class="control">
+                    <input name="c_sname" id="c_sname" class="input-text" type="text">
+                </div>
+            </div>
+
+            <div class="field name required">
+                <label class="label" for="title"><span><?= /* @noEscape */__('Tax Identification Number') ?><strong class="formRequired">(*)</strong></span></label>
+                <div class="control">
+                    <input name="taxidentificationNumber" id="taxidentificationNumber" class="input-text" type="text" data-validate="{required:true}">
+                </div>
+            </div>
+
+            <div class="field name required">
+                <label class="label" for="title">
+                    <span>
+                        <?=/* @noEscape */ __('Address') ?>
+                        <strong class="formRequired">(*)</strong>
+                    </span>
+                </label>
+                <div class="control">
+                    <textarea name="address" id="address" class="input-text" > </textarea>
+                </div>
+            </div>
+
+            <div class="field name required">
+                <label class="label" for="title"><span><?=/* @noEscape */ __('Receipt Number') ?></span></label>
+                <div class="control">
+                    <input name="receiptNumber" id="receiptNumber" class="input-text" type="text"
+                    data-validate="{required:true}">
+                </div>
+            </div>
+
+            <div class="field name required">
+                <label class="label" for="title">
+                    <span>
+                        <?=/* @noEscape */ __('Email') ?>
+                        <strong class="formRequired">(*)</strong>
+                    </span>
+                </label>
+                <div class="control">
+                    <input name="email" id="email" class="input-text" type="text"
+                    data-validate="{required:true, 'validate-email':true}">
+                </div>
+            </div>
+
+            <div class="field name required">
+                <label class="label" for="title"><span><?=/* @noEscape */ __('Note') ?></span></label>
+                <div class="control">
+                    <textarea name="note" id="note" class="input-text" > </textarea>
+                </div>
+            </div>
+
+            <div class="form-group required">   
+            <div class="g-recaptcha required" id="recaptcha"
+                    data-sitekey="6LfTMjUgAAAAALCjaROV6Y-iVprlpSRNSlEQO2n3">
+            </div>
+                    <div style="display:none" id="error-msg">
+                        <span><?=/* @noEscape */ __('This is a required field.') ?></span>
+                    </div>
+            </div>
+        <button type="submit" class="registerbtn btn button-primary">
+            <span>
+                <?=/* @noEscape */ __('Send Information') ?>
+            </span>
+        </button>
+        </div>
+
+    </form>
+</div>
+</div>
+<script>
+    function checkCaptcha() {
+        if ((jQuery('#g-recaptcha-response').val()) === '') {
+            jQuery('#error-msg').css('display', 'block');
+            jQuery('#error-msg').css('color', '#df280a');
+            jQuery('#error-msg').css('font-size', 13);
+            return false;
+        }
+        else {
+            jQuery('#error-msg').css('display', 'none');
+        }
+    }
+</script>

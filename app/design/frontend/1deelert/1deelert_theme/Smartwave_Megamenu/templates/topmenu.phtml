@@ -16,7 +16,7 @@
     $_config = $_helper->getConfig('sw_megamenu');
     $columnsLimit = 0;
     $header_type = $_helper->getConfig('porto_settings/header/header_type');
-    $elsnerHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
+    $elsnerHelper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
     $storeUrl = $elsnerHelper->getBaseUrl();
 
 if ($_config['general']['enable']) {
@@ -32,7 +32,7 @@ if ($_config['general']['enable']) {
     
     <ul class="mobile-main-category desktophide">
         <li class="ui-menu-item home-catagory">
-            <a href="#" class="level-top" title="บ้าน"><span><?= __('Home');?></span></a>
+            <a href="#" class="level-top" title="บ้าน"><span><?=/* @noEscape */ __('Home');?></span></a>
         </li>
     </ul>
     <div class="toggle-category desktophide">
@@ -44,34 +44,44 @@ if ($_config['general']['enable']) {
     </ul>
     <div class="cms-page-link">
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'flash-sale';?>" class="level-top" title="บ้าน"><?= __('Flash Sales');?></a>
+                <a href="<?=/* @noEscape */ $storeUrl.'flash-sale';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Flash Sales');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'promotion';?>" class="level-top" title="บ้าน"><?= __('Promotions');?></a>
+                <a href="<?=/* @noEscape */ $storeUrl.'promotion';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Promotions');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'latest-product';?>" class="level-top" title="บ้าน"><?= __('Best Sellers');?></a>
+                <a href="<?= /* @noEscape */$storeUrl.'latest-product';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Best Sellers');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'how-to-buy';?>" class="level-top" title="บ้าน"><?= __('How To Buy');?></a>
+                <a href="<?= /* @noEscape */$storeUrl.'how-to-buy';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('How To Buy');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'payment-method';?>" class="level-top" title="บ้าน"><?= __('Payment Option');?></a>
+                <a href="<?= /* @noEscape */$storeUrl.'payment-method';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Payment Option');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'condominium';?>" class="level-top" title="บ้าน"><?= __('Furniture Set');?></a>
+                <a href="<?= /* @noEscape */$storeUrl.'condominium';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Furniture Set');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'lazada';?>" class="level-top" title="บ้าน"><?= __('Buy from other platform');?></a>
+                <a href="<?= /* @noEscape */$storeUrl.'lazada';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Buy from other platform');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'apartment';?>" class="level-top" title="บ้าน"><?= __('Apartment');?></a>
+                <a href="<?=/* @noEscape */ $storeUrl.'apartment';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Apartment');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'about-us';?>" class="level-top" title="บ้าน"><?= __('About Us');?></a>
+                <a href="<?=/* @noEscape */ $storeUrl.'about-us';?>" class="level-top"
+                title="บ้าน"><?= /* @noEscape */__('About Us');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= $storeUrl.'contact';?>" class="level-top" title="บ้าน"><?= __('Contact Us');?></a>
+                <a href="<?= /* @noEscape */$storeUrl.'contact';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Contact Us');?></a>
         </li>
     </div>
     <div class="category-menu">

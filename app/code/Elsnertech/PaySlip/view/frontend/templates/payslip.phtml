@@ -1,0 +1,67 @@
+<div class="invoice-wrapper">
+<div class="invoice-head">
+    <h1><?=/* @noEscape */ __('Pay Slip');?></h1>
+</div>
+<div class="invoice-form">
+    <form class="" action="<?php echo $block->getBaseUrl().'payslip/index/save'; ?>" id="elsnertech-payslip-form" method="post" enctype='multipart/form-data'  data-mage-init='{"validation": {}}'>
+        <fieldset class="fieldset">
+        
+            <!-- <div class="field note no-label">Write here anything you want.</div> -->
+            <div class="field name">
+                <label class="label" for="name"><span><?= __('Name')?></span></label>
+                <div class="control">
+                    <input name="name" id="name" title="Name" value="" class="input-text" type="text" data-validate="{required:true}">
+                </div>
+            </div>
+            <div class="field phone">
+                <label class="label" for="phone"><span><?= __('Phone')?></span></label>
+                <div class="control">
+                    <input name="phone" id="phone" title="Phone" value="" class="input-text" type="text" data-validate="{required:true}">
+                </div>
+            </div>
+            <div class="field address">
+                <label class="label" for="address"><span><?= __('Address')?></span></label>
+                <div class="control">
+                    <textarea name="address" id="address" title="Address" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+                </div>
+            </div>
+            <div class="field email">
+                <label class="label" for="email"><span><?=__('Email')?></span></label>
+                <div class="control">
+                    <input name="email" id="email" title="Email" value="" class="input-text" type="email" data-validate="{required:true}">
+                </div>
+            </div>
+            <div class="field transfer_date">
+                <label class="label" for="transfer_date"><span><?= __('Transfer Date')?></span></label>
+                <div class="control">
+                    <input name="transfer_date" id="transfer_date" title="Transfer Date" value="" class="input-text" type="date">
+                </div>
+            </div>
+            <div class="field purchase_order_number">
+                <label class="label" for="purchase_order_number"><span><?= __('Purchase Order Number')?></span></label>
+                <div class="control">
+                    <input name="purchase_order_number" id="purchase_order_number" title="Purchase Order Number" value="" class="input-text" type="text">
+                </div>
+            </div>
+            <div class="field transfer_proof_image">
+                <label class="label" for="transfer_proof_image"><span><?= __('Transfer Proof Image')?></span></label>
+                <div class="control">
+                    <input name="transfer_proof_image" id="transfer_proof_image" title="Transfer Proof Image" value="" class="input-text" type="file">
+                </div>
+            </div>
+            <div class="field note">
+                <label class="label" for="note"><span><?= __('Note');?></span></label>
+                <div class="control">
+                    <textarea name="note" id="note" title="Note" class="input-text" cols="5" rows="3" ></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" title="Submit" class="registerbtn btn button-primary">
+                    <span><?= __('Send Information');?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

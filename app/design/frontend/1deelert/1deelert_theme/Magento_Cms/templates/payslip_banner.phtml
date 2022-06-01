@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+$helper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
+$mediaUrl = $helper->getMediaUrl();
+$bannerImage = $helper->getConfig('payslip/general/payslip_image');
+?>
+<div class="banner-image">
+    <img src="<?= /* @noEscape */$mediaUrl.'theme/'.$bannerImage;?>"/>
+        
+</div>

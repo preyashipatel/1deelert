@@ -9,7 +9,8 @@ shim: {
 },
 map: {
         '*': {
-            deelert: 'js/1deelert'
+            deelert: 'js/1deelert',
+            'Mirasvit_LayeredNavigation/js/lib/nprogress':'Mirasvit_LayeredNavigation/js/lib/nprogress'
         }
     }
 };

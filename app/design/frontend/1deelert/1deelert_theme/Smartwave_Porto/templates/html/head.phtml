@@ -6,20 +6,26 @@
 <?php //Include Google fonts character subsets (such as extended latin, cyrillic)
     $d = $this->getConfig('porto_design');
     $charSubset = "";
-    if (isset($d['font']['char_latin_ext']) && $d['font']['char_latin_ext']==1 )
+    if (isset($d['font']['char_latin_ext']) && $d['font']['char_latin_ext']==1)
         $charSubset .= ',latin-ext';
     if (isset($d['font']['char_subset']) && $d['font']['char_subset'])
         $charSubset .= ','.$d['font']['char_subset'];
     $font_sizes = "%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic";
 ?>
 <?php if (isset($d['font']['custom']) && $d['font']['custom'] && $d['font']['font_family'] == 'google'): ?>
-<link rel="stylesheet" href='//fonts.googleapis.com/css?family=<?=/* @noEscape */ str_replace(' ', '+', $d['font']['google_font_family']).$font_sizes; echo $charSubset; ?>' type='text/css' />
+<link rel="stylesheet" href='//fonts.googleapis.com/css?family=<?=/* @noEscape */
+str_replace(' ', '+', $d['font']['google_font_family']).$font_sizes;
+echo $charSubset; ?>' type='text/css' />
 <?php else: ?>
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" type="text/css" media="screen"/>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic
+%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" 
+type="text/css" media="screen"/>
 <?php endif;?>
 <link href="//fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800" rel="stylesheet">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" type="text/css" media="screen"/>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400
+%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;v1&amp;subset=latin%2Clatin-ext" 
+type="text/css" media="screen"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?=/* @noEscape */ $_helper->getDesignFile()?>">
 
 <script type="text/javascript">
@@ -60,7 +66,9 @@ require([
                 $('.page-header:not(.sticky-header)').css("height",$('.page-header:not(.sticky-header)').height()+'px');
                 $('.page-header').addClass("sticky-header");
                 scrolled = true;
-                if($(".page-header").hasClass("type1") || $(".page-header").hasClass("type2") || $(".page-header").hasClass("type6")) {
+                if($(".page-header").hasClass("type1") ||
+                $(".page-header").hasClass("type2") ||
+                $(".page-header").hasClass("type6")) {
                   $('.page-header .minicart-wrapper').after('<div class="minicart-place hide"></div>');
                   var minicart = $('.page-header .minicart-wrapper').detach();
                   $('.page-header .navigation').append(minicart);
@@ -71,23 +79,25 @@ require([
                   <?php endif; ?>
                 }
                 <?php if ($this->getConfig('porto_settings/header/sticky_header_logo')): ?>
-                <?php
-                if ($logo_src = $this->getConfig('porto_settings/header/sticky_header_logo_src')) {
-                    $folderName = \Smartwave\Porto\Model\Config\Backend\Image\Stickylogo::UPLOAD_DIR;
-                    $path = $folderName . '/' . $logo_src;
-                    $imageUrl = $porto_helper->getBaseUrl() . $path;
-                ?>
+                    <?php
+                    if ($logo_src = $this->getConfig('porto_settings/header/sticky_header_logo_src')) {
+                        $folderName = \Smartwave\Porto\Model\Config\Backend\Image\Stickylogo::UPLOAD_DIR;
+                        $path = $folderName . '/' . $logo_src;
+                        $imageUrl = $porto_helper->getBaseUrl() . $path;
+                        ?>
                 $(".sticky-logo img").attr("src","<?=/* @noEscape */ $imageUrl; ?>");
-                <?php
-                }
-                ?>
+                        <?php
+                    }
+                    ?>
                 <?php endif; ?>
             }
             if(160>=$(window).scrollTop() && scrolled){
                 $('.page-header.sticky-header').css("height",'auto');
                 $('.page-header').removeClass("sticky-header");
                 scrolled = false;
-                if($(".page-header").hasClass("type1") || $(".page-header").hasClass("type2") || $(".page-header").hasClass("type6")) {
+                if($(".page-header").hasClass("type1") ||
+                $(".page-header").hasClass("type2") ||
+                $(".page-header").hasClass("type6")) {
                   var minicart;
                   minicart = $('.page-header .navigation .minicart-wrapper').detach();
                   $('.minicart-place').after(minicart);

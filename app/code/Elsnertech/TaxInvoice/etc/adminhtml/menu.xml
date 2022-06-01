@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    <add id="Elsnertech_TaxInvoice::taxinvoice" title="Tax Invoice Data" module="Elsnertech_TaxInvoice" sortOrder="51" resource="Elsnertech_TaxInvoice::taxinvoice"/>
+        <add id="Elsnertech_TaxInvoice::invoice" title="Data" module="Elsnertech_TaxInvoice" sortOrder="10" action="admintaxinvoice/invoice" resource="Elsnertech_TaxInvoice::invoice"  parent="Elsnertech_TaxInvoice::taxinvoice"/>
+    </menu>
+</config>

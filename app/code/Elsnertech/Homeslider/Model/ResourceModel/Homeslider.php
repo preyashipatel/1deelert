@@ -13,7 +13,7 @@ class Homeslider extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     /**
      * $_date variable
      *
-     * @var [type]
+     * @var string
      */
     protected $_date;
 
@@ -22,7 +22,7 @@ class Homeslider extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      *
      * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $date
-     * @param [type] $resourcePrefix
+     * @param string $resourcePrefix
      */
     public function __construct(
         \Magento\Framework\Model\ResourceModel\Db\Context $context,

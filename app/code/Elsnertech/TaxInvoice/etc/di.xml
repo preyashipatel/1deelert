@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="admintaxinvoice_invoice_listing_data_source" xsi:type="string">Elsnertech\TaxInvoice\Model\ResourceModel\Invoice\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Elsnertech\TaxInvoice\Model\ResourceModel\Invoice\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">tax_invoice</argument>
+            <argument name="resourceModel" xsi:type="string">Elsnertech\TaxInvoice\Model\ResourceModel\Invoice</argument>
+        </arguments>
+    </virtualType>
+</config>

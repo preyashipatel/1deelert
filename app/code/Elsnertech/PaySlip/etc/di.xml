@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    
+     <virtualType name="Elsnertech\PaySlip\Model\ResourceModel\PaySlip\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">payslip</argument>
+            <argument name="resourceModel" xsi:type="string">Elsnertech\PaySlip\Model\ResourceModel\PaySlip</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="elsnertech_payslip_index_listing_data_source" xsi:type="string">Elsnertech\PaySlip\Model\ResourceModel\PaySlip\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="\Magento\Framework\Mail\Template\TransportBuilder" type="Elsnertech\PaySlip\Model\Mail\TransportBuilder" />
+   
+</config>

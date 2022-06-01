@@ -636,6 +636,13 @@
                 color: @color-5;
                 min-height: 45px;
                 line-height: 1.5;
+                border: 1px solid  @color-1;
+                background: @color-1;
+                &:hover{
+                    background: @color-6;
+                    color: @color-1;
+                    border: 1px solid  @color-1;
+                }
                 @media (max-width: @screen__sm) {
                     font-size: 12px;
                     min-height: 40px;
@@ -720,7 +727,14 @@ form.form.password.forget, .form.password.reset {
     }
     .actions-toolbar{
         button.action{
-            color: @color-5 !important;
+            color: @color-5;
+            background-color: @color-1;
+            border: 1px solid  @color-1;
+            &:hover{
+                background: @color-6;
+                color: @color-1;
+                border: 1px solid  @color-1;
+            }
         }
     }
 }
@@ -809,15 +823,92 @@ form.form.password.forget, .form.password.reset {
                 background: @button-background_color;
                 color: @button-font_color;
                 border-radius: @button-border_radius;
-                border: 1px solid;
-                border-color: @button-border_color;
                 letter-spacing: 1px;
                 .transition(all 0.5s ease);
                 outline: 0;
+                border: 1px solid  @color-1;
+                &:hover{
+                    background: @color-6;
+                    color: @color-1;
+                    border: 1px solid  @color-1;
+                }
+                @media (max-width: @screen__sm){
+                    display: block;
+                }
             }
             .towishlist {
                 font-size: 14px;
                 font-weight: 600;
+            }
+        }
+    }
+}
+
+
+// taxinvoice page css
+
+.invoice-wrapper {
+    padding: 70px 0 80px;
+    @media (max-width: @screen__sm){
+        padding: 50px 0;
+    }
+
+    .invoice-head {
+        text-align: center;
+        h1 {
+            font-weight: 700;
+            @media (max-width: @screen__sm) {
+                font-size: 24px;
+                margin: 0;
+            }
+        }
+    }
+
+    .invoice-form {
+        max-width: 900px;
+        border-radius: 15px;
+        padding: 50px;
+        border-top: 0;
+        margin: 40px auto;
+        border: 1px solid @color-4_light;
+        @media (max-width: @screen__sm) {
+            padding: 30px;
+            margin: 30px auto;
+        }
+
+        .field{
+            margin-bottom: 20px;
+
+            .label {
+                font-size: @font-size_6;
+                margin-bottom: 2px;
+                font-weight: 600;
+                display: block;
+                @media (max-width: @screen__sm) {
+                    font-size: @font-size_7;
+                }
+            }
+        }
+        .registerbtn{
+            font-size: @font-size_6;
+            background-color: @color-1;
+            color: @color-5;
+            border-radius: 8px;
+            opacity: 1;
+            padding: 15px 20px;
+            line-height: 1;
+            border: 1px solid  @color-1;
+            text-transform: uppercase;
+
+            &:hover{
+                background: @color-6;
+                color: @color-1;
+                border: 1px solid  @color-1;
+            }
+
+            @media (max-width: @screen__sm) {
+                font-size: @font-size_7;    
+                width: 100%;
             }
         }
     }

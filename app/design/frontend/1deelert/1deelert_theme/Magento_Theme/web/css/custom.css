@@ -349,6 +349,9 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
     color: red;
     font-size: 12px;
 }
+.abs-sidebar-totals tbody .amount, .abs-sidebar-totals tfoot .amount, .cart-totals tbody .amount, .cart-totals tfoot .amount, .opc-block-summary .table-totals tbody .amount, .opc-block-summary .table-totals tfoot .amount {
+    color: #4e245e;
+}
 /*minicart*/
 .minicart-items-wrapper{max-height:250px}
 .minicart-wrapper .block-minicart { padding: 10px 15px 5px;font-size: .8125rem;line-height: 1.5;font-weight: 700;}
@@ -361,7 +364,11 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .minicart-wrapper .block-minicart .subtotal .amount {margin-left: auto;}
 .minicart-wrapper .block-minicart .subtotal .amount .price {    color: #4E245E;    font-size: 15px;font-weight: 700;}
 .minicart-wrapper .block-minicart .block-content > .actions {padding: 0 10px 10px;}
-.block-minicart .block-content > .actions > .primary .action.primary {font-family: inherit;font-size: 12px;letter-spacing: 0.5px;text-transform: uppercase;padding: .875rem 1.5rem;border-radius: 8px;float: none;width: 100%;font-weight: 600;margin-bottom: 10px;height: auto;line-height: inherit;color: #fff;background-color: #4E245E;border: none;}
+.block-minicart .block-content > .actions > .primary .action.primary { font-family: inherit;font-size: 12px;letter-spacing: 0.5px;text-transform: uppercase;padding: .875rem 1.5rem;border-radius: 8px;float: none;width: 100%;font-weight: 600;margin-bottom: 10px;height: auto;line-height: inherit;color: #fff;background-color: #4E245E; border: 1px solid #4E245E; }
+.block-minicart .block-content > .actions > .primary .action.primary:hover{
+    color: #4E245E;
+    background: transparent;
+}
 .minicart-items .product-item-details .price,.price-including-tax, .price-excluding-tax {font-weight: 600;    color: #4E245E;    font-size: .8125rem;}
 .minicart-items .product-item-name {display: block;text-decoration: none;font-size: 1.0769em;line-height: 1.4;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin-bottom: .5rem;color: #222529;font-weight: 700;flex: 0 0 100%;}
 .minicart-items .product-item-name a {color: inherit !important;font-size: inherit;display: block;font-weight: inherit;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin: 0;line-height: inherit;letter-spacing: inherit;}

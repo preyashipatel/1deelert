@@ -35,7 +35,7 @@
                 line-height: 1.4;
                 display: inline-block;
                 position: absolute;
-                z-index: 9999;
+                z-index: 800;
 
                 @media (max-width: @screen__sm) {
                     display: inline-block;
@@ -479,6 +479,9 @@
                                 }
 
                                 &:hover{
+                                    background: @color-6;
+                                    color: @color-1;
+                                    border: 1px solid  @color-1;
                                     &::before{
                                         filter: none;
                                     }

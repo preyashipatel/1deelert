@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="tax_invoice" resource="default" engine="innodb" comment="tax_invoice">
+      <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" 
+      identity="true" comment="Id" />
+      <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+      <column xsi:type="varchar" name="c_sname" nullable="false" length="255" comment="Company/Shop Name"/>
+      <column xsi:type="varchar" name="taxidentificationNumber" nullable="false" comment="Tax Identification Number"/>
+      <column xsi:type="varchar" name="address" nullable="false" length="255" comment="Address"/>
+      <column xsi:type="varchar" name="receiptNumber" nullable="true"  comment="Receipt Number"/>
+      <column xsi:type="varchar" name="email" nullable="true"  comment="Purchase Order Number"/>
+      <column xsi:type="varchar" name="note" nullable="true" comment="Note"/>
+
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id" />
+      </constraint>
+   </table>
+</schema>

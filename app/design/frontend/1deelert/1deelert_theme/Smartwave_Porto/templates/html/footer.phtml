@@ -1,6 +1,6 @@
 <?php
     $footer = $this->getConfig('porto_settings/footer');
-    $helper = $this->helper('Elsnertech\Customisation\Helper\Data');
+    $helper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
    $mediaUrl = $helper->getMediaUrl();
    $storeUrl = $helper->getBaseUrl();
 ?>
@@ -12,24 +12,29 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 ">
                     <div data-content-type="html" data-appearance="default" data-element="main" data-decoded="true">
                         <div class="widget contact-info">
-                            <h3 class="widget-title"><?= __('contact list') ?></h3>
+                            <h3 class="widget-title"><?=/* @noEscape */ __('contact list') ?></h3>
                             <div class="contact-info contact-info-block">
                                 <ul class="contact-details">
                                     <li>
-                                        <span><?= __('1364-68 Sukhumvit Road') ?>, <?= __('Near Soi 76 (same side as Imperial Samrong)') ?>,
-                                            <?= __('Samut Prakan Province 10270') ?>, <?= __('Thailand') ?>.</span>
+                                        <span><?=/* @noEscape */ __('1364-68 Sukhumvit Road') ?>,
+                                        <?=/* @noEscape */ __('Near Soi 76 (same side as Imperial Samrong)') ?>,
+                                            <?=/* @noEscape */ __('Samut Prakan Province 10270') ?>,
+                                            <?=/* @noEscape */ __('Thailand') ?>.</span>
                                     </li>
 
-                                    <li><b class='tel-no'><?= __('Tel: 02-7455981, 02-7455982') ?></b><b class='fax-no'><?= __('Fax: 02-7455598') ?></b></li>
+                                    <li><b class='tel-no'><?=/* @noEscape */ __('Tel: 02-7455981, 02-7455982') ?></b>
+                                    <b class='fax-no'><?= /* @noEscape */__('Fax: 02-7455598') ?></b></li>
                                     <li>
                                         <div class="map-footer">
-                                            <iframe width="300px" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%E0%B8%96%E0%B8%99%E0%B8%99%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%B8%E0%B8%A1%E0%B8%A7%E0%B8%B4%E0%B8%97,%20%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%8B%E0%B8%AD%E0%B8%A2%2076%20(%E0%B8%9D%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%B4%E0%B8%A1%E0%B8%9E%E0%B8%B5%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%A5%E0%B8%AA%E0%B8%B3%E0%B9%82%E0%B8%A3%E0%B8%87)%20,%20%E0%B8%88%E0%B8%B1%E0%B8%87%E0%B8%AB%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%2010270,%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B9%84%E0%B8%97%E0%B8%A2.+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/marine-gps/">shipping gps</a>
+                                            <iframe width="300px" height="200px" frameborder="0"
+                                            scrolling="no" marginheight="0" marginwidth="0"
+                                            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%E0%B8%96%E0%B8%99%E0%B8%99%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%B8%E0%B8%A1%E0%B8%A7%E0%B8%B4%E0%B8%97,%20%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%8B%E0%B8%AD%E0%B8%A2%2076%20(%E0%B8%9D%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%B4%E0%B8%A1%E0%B8%9E%E0%B8%B5%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%A5%E0%B8%AA%E0%B8%B3%E0%B9%82%E0%B8%A3%E0%B8%87)%20,%20%E0%B8%88%E0%B8%B1%E0%B8%87%E0%B8%AB%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%2010270,%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B9%84%E0%B8%97%E0%B8%A2.+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/marine-gps/">shipping gps</a>
                                             </iframe>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="desktop-hide-cont">
-                                    <h3 class="widget-title"><?= __('Hotline') ?></h3>
+                                    <h3 class="widget-title"><?=/* @noEscape */ __('Hotline') ?></h3>
                                     <div class="footer-call">
                                         <a href="tel:086-600-4332"> 086-600-4332 </a>
                                     </div>
@@ -42,13 +47,17 @@
                 <div class="col-lg-2 col-md-4 col-sm-4 col-6">
                     <div data-content-type="html" data-appearance="default" data-element="main" data-decoded="true">
                         <div class="widget_text widget widget_custom_html">
-                            <h3 class="widget-title"><?= __('help') ?></h3>
+                            <h3 class="widget-title"><?=/* @noEscape */ __('HELP') ?></h3>
                             <div class="textwidget custom-html-widget">
                                 <ul>
-                                    <li><a href="<?= $storeUrl.'interior';?>"><?= __('Interior') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'blog.html';?>"><?= __('Article') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'apartment';?>"><?= __('Apartment') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'condominium';?>"><?= __('Condominium') ?></a></li>
+                                    <li><a href="<?=/* @noEscape */ $storeUrl.'interior';?>">
+                                    <?=/* @noEscape */ __('Interior') ?></a></li>
+                                    <li><a href="<?=/* @noEscape */ $storeUrl.'blog.html';?>">
+                                    <?=/* @noEscape */ __('Article') ?></a></li>
+                                    <li><a href="<?=/* @noEscape */ $storeUrl.'apartment';?>">
+                                    <?= /* @noEscape */__('Apartment') ?></a></li>
+                                    <li><a href="<?=/* @noEscape */ $storeUrl.'condominium';?>">
+                                    <?=/* @noEscape */ __('Condominium') ?></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,14 +66,19 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                     <div data-content-type="html" data-appearance="default" data-element="main" data-decoded="true">
                         <div class="widget_text widget widget_custom_html">
-                            <h3 class="widget-title"><?= __('website menu') ?></h3>
+                            <h3 class="widget-title"><?= /* @noEscape */__('website menu') ?></h3>
                             <div class="textwidget custom-html-widget">
                                 <ul>
-                                    <li><a href="<?= $storeUrl.'lazada';?>"><?= __('Lazada Shopee') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'#';?>"><?= __('Tax invoice') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'#';?>"><?= __('Payment invoice') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'term-and-condition';?>"><?= __('Order Cancellation and Return Policy') ?></a></li>
-                                    <li><a href="<?= $storeUrl.'latest-product';?>"><?= __('Latest product') ?></a></li>
+                                    <li><a href="<?=/* @noEscape */ $storeUrl.'lazada';?>">
+                                    <?=/* @noEscape */ __('Lazada Shopee') ?></a></li>
+                                    <li><a href="<?= /* @noEscape */$storeUrl.'taxinvoice';?>">
+                                    <?=/* @noEscape */ __('Tax invoice') ?></a></li>
+                                    <li><a href="<?= /* @noEscape */$storeUrl.'payslip';?>">
+                                    <?=/* @noEscape */__('Payment invoice') ?></a></li>
+                                    <li><a href="<?=/* @noEscape */ $storeUrl.'term-and-condition';?>">
+                                    <?=/* @noEscape */ __('Order Cancellation and Return Policy') ?></a></li>
+                                    <li><a href="<?= /* @noEscape */$storeUrl.'latest-product';?>">
+                                    <?=/* @noEscape */ __('Latest product') ?></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -77,29 +91,41 @@
                             <div>
                                 <div class="column-inner">
                                     <div class="desktop-call">
-                                        <h3 class="widget-title"><?= __('HOTLINE') ?></h3>
+                                        <h3 class="widget-title"><?=/* @noEscape */ __('HOTLINE') ?></h3>
                                         <div class="footer-call">
                                             <a href="tel:086-600-4332"> 086-600-4332 </a>
                                         </div>
                                     </div>
                                     <div class="footer-line">
-                                        <span><?= __('Line ID:') ?></span><a href="Https://line.me/R/ti/p/%40nrb3227f" target="_blank">@ 1deelert</a>
+                                        <span>
+                                            <?=/* @noEscape */ __('Line ID:') ?>
+                                        </span>
+                                        <a href="Https://line.me/R/ti/p/%40nrb3227f" target="_blank">@ 1deelert</a>
                                     </div>
                                     <div class="social-link">
-                                        <a href="" rel="nofollow" target="_blank" title="Facebook" class="social-footer">
-                                            <img src="<?= $mediaUrl.'theme/icon-fb.png'?>" alt="footer" width="29" height="29">
+                                        <a href="" rel="nofollow" target="_blank" title="Facebook"
+                                        class="social-footer">
+                                            <img src="<?= /* @noEscape */$mediaUrl.'theme/icon-fb.png'?>"
+                                            alt="footer" width="29" height="29">
                                         </a>
-                                        <a href="" rel="nofollow" target="_blank" title="Instagram" class="social-footer" alt="footer" width="300" height="300">
-                                            <img src="<?= $mediaUrl.'theme/icon-insta.png'?>" alt="footer" width="29" height="29">
+                                        <a href="" rel="nofollow" target="_blank" title="Instagram"
+                                        class="social-footer" alt="footer" width="300" height="300">
+                                            <img src="<?=/* @noEscape */ $mediaUrl.'theme/icon-insta.png'?>"
+                                            alt="footer" width="29" height="29">
                                         </a>
                                         <a href="" rel="nofollow" target="_blank" title="Line" class="social-footer">
-                                            <img src="<?= $mediaUrl.'theme/icon-link.png'?>" alt="footer" width="29" height="29">
+                                            <img src="<?=/* @noEscape */ $mediaUrl.'theme/icon-link.png'?>"
+                                            alt="footer" width="29" height="29">
                                         </a>
                                     </div>
                                     <div class="widget ">
                                         <picture>
-                                           <a href="https://www.trustmarkthai.com/callbackData/popup.php?data=0c89201d6-33-5-6f174ba41a7470b2c477a55516460c654272&markID=firstmar" target="_blank">
-                                               <img src="<?= $mediaUrl.'theme/footer-1.png'?>" alt="footer" width="230" height="48">
+                                           <a 
+                                           href="https://www.trustmarkthai.com/callbackData/popup.php?data=0c89201
+                                           d6-33-5-6f174ba41a7470b2c477a55516460c654272&markID=firstmar"
+                                           target="_blank">
+                                               <img src="<?=/* @noEscape */ $mediaUrl.'theme/footer-1.png'?>"
+                                               alt="footer" width="230" height="48">
                                             </a>
                                         </picture>
                                     </div>
@@ -111,8 +137,10 @@
 
             </div>
             <div class="footer-last">
-                <img class="desktop-imagelast" src="<?= $mediaUrl.'theme/footer-bottom.png'?>" alt="footer" width="915" height="74">
-                <img class="mobile-imagelast" src="<?= $mediaUrl.'theme/footer-mb.png'?>" alt="footer" width="915" height="74">
+                <img class="desktop-imagelast" src="<?=/* @noEscape */ $mediaUrl.'theme/footer-bottom.png'?>"
+                alt="footer" width="915" height="74">
+                <img class="mobile-imagelast" src="<?=/* @noEscape */ $mediaUrl.'theme/footer-mb.png'?>"
+                alt="footer" width="915" height="74">
             </div>
         </div>
         <div class="footer-bottom">
@@ -120,10 +148,14 @@
 
                 <div class="custom-block f-left"><span>Nueng deelert</span></div>
 
-                <div class="custom-block f-center"><span><a href="<?= $storeUrl.'term-and-condition';?>">Privacy Policy | Terms of use</a></span></div>
+                <div class="custom-block f-center">
+                    <span>
+                        <a href="<?=/* @noEscape */ $storeUrl.'term-and-condition';?>">Privacy Policy | Terms of use</a>
+                    </span>
+                </div>
 
                 <div class="custom-block f-right">
-                    <address><?php echo $footer['footer_bottom_copyrights'] ?></address>
+                    <address><?=/* @noEscape */ $footer['footer_bottom_copyrights'] ?></address>
                 </div>
 
             </div>
@@ -134,12 +166,21 @@
 </div>
 <div class="social-chat-icons">
     <div class="social-chat">
-        <span class="help-btn"><?= __('Need help?');?></span>
+        <span class="help-btn"><?= /* @noEscape */__('Need help?');?></span>
     </div>
     <ul class="footer-social-icon">
-        <li><a href="https://line.me/R/ti/p/%40nrb3227f" rel="nofollow" target="_blank" title="Line" class="share-Line"><img src="<?= $mediaUrl.'theme/default/Icon awesome-line.png'?>" alt="footer" width="80" height="80" /></a></li>
-        <li><a href="https://www.facebook.com/1deelert/" rel="nofollow" target="_blank" title="Facebook" class="share-facebook"><img src="<?= $mediaUrl.'theme/default/Icon awesome-facebook-messenger.png'?>" alt="footer" width="80" height="80" /></a></li>
-        <li><a href="tel:086-600-4332" rel="nofollow" target="_blank" title="Phone" class="share-instagram"><img src="<?= $mediaUrl.'theme/default/Icon zocial-call.png'?>" alt="footer" width="80" height="80" /></a></li>
+        <li><a href="https://line.me/R/ti/p/%40nrb3227f" rel="nofollow" target="_blank"
+        title="Line" class="share-Line">
+        <img src="<?= /* @noEscape */$mediaUrl.'theme/default/Icon awesome-line.png'?>"
+        alt="footer" width="80" height="80" /></a></li>
+        <li><a href="https://www.facebook.com/1deelert/" rel="nofollow" target="_blank"
+        title="Facebook" class="share-facebook">
+        <img src="<?=/* @noEscape */ $mediaUrl.'theme/default/Icon awesome-facebook-messenger.png'?>"
+        alt="footer" width="80" height="80" /></a></li>
+        <li><a href="tel:086-600-4332" rel="nofollow" target="_blank"
+        title="Phone" class="share-instagram">
+        <img src="<?= /* @noEscape */$mediaUrl.'theme/default/Icon zocial-call.png'?>"
+        alt="footer" width="80" height="80" /></a></li>
     </ul>
 </div>
 

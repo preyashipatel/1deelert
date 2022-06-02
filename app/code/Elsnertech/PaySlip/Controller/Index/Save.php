@@ -91,7 +91,7 @@ class Save extends \Magento\Framework\App\Action\Action
 
             $this->inlineTranslation->suspend();           
             $sender = [
-                // 'name' => $data['name'],
+                'name' => $data['name'],
                 'email' => $data['email']
             ];
              
@@ -137,34 +137,6 @@ class Save extends \Magento\Framework\App\Action\Action
                 $resultRedirect = $this->resultRedirectFactory->create();
                 return $resultRedirect->setPath('payslip');
             }
-            
-             
-            // $transport = $this->_transportBuilder
-            // ->setTemplateIdentifier('customemail_email_template')
-            // ->setTemplateOptions(
-            //     [
-            //         'area' => 'frontend',
-            //         'store' => $this->storeManager->getStore()->getId()
-            //     ]
-            //     )
-            //     ->setTemplateVars([
-            //         'name'  => $data['name'],
-            //         'email'  => $data['email'],
-            //         'phone'  => $data['phone'],
-            //         'address'  => $data['address'],
-            //         'transfer_date'  => $data['transfer_date'],
-            //         'purchase_order_number'  => $data['purchase_order_number'],
-            //         'note'  => $data['note']
-            //     ])
-            //     ->setFromByScope($sender)
-            //     ->addTo($sentToEmail,$sentToName)
-            //     ->addAttachment(file_get_contents($filePath),$result['type'],Zend_Mime::DISPOSITION_ATTACHMENT,Zend_Mime::ENCODING_BASE64,$fileName) //Attachment goes here.
-            //     //->addTo('owner@example.com','owner')
-            //     ->getTransport();
-                 
-            //     $transport->sendMessage();
-                 
-            //     $this->inlineTranslation->resume();
         }else{
             $this->messageManager->addErrorMessage(__('Data was not saved.'));
         }

@@ -62,7 +62,7 @@ class Save extends \Magento\Framework\App\Action\Action
         if(isset($_FILES['transfer_proof_image']['name']) && $_FILES['transfer_proof_image']['name'] != '') {
             try{
                 $uploaderFactory = $this->uploaderFactory->create(['fileId' => 'transfer_proof_image']);
-                $uploaderFactory->setAllowedExtensions(['jpg', 'jpeg', 'pdf', 'png']);
+                $uploaderFactory->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png', 'pdf', 'docx', 'doc']);
                 // $imageAdapter = $this->adapterFactory->create();
                 // $uploaderFactory->addValidateCallback('custom_image_upload',$imageAdapter,'validateUploadFile');
                 $uploaderFactory->setAllowRenameFiles(true);
@@ -75,7 +75,7 @@ class Save extends \Magento\Framework\App\Action\Action
                         __('File cannot be saved to path: $1', $destinationPath)
                     );
                 }
-                
+                // echo"<pre>";print_r($result);die();
                 $imagePath = $result['file'];
                 $data['transfer_proof_image'] = $imagePath;
             } catch (\Exception $e) {
@@ -91,7 +91,7 @@ class Save extends \Magento\Framework\App\Action\Action
 
             $this->inlineTranslation->suspend();           
             $sender = [
-                'name' => $data['name'],
+                // 'name' => $data['name'],
                 'email' => $data['email']
             ];
              

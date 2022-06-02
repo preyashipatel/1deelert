@@ -117,13 +117,14 @@ class Save extends \Magento\Framework\App\Action\Action
                 ->setFrom($sender)
                 // ->setFromByScope($sender)
                 ->addTo($sentToEmail)
+                ->setSubject("Tax Invoice || 'name' => $post['name'] ");
                 ->getTransport();
                  
                 $transport->sendMessage();
                  
                 $this->_inlineTranslation->resume();
                 $this->messageManager->addSuccess('Email sent successfully');
-                $this->_redirect('taxinvoice/index/index');
+                $this->_redirect('taxinvoice/*/*');
             }
                  
         } catch (\Exception $e) {

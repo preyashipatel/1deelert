@@ -8,7 +8,6 @@ define([
             $(this).toggleClass('social-active');
             $(this).next().toggleClass('active');
         });
-        var hide = false;
         $(document).on('click', function (e) {
             if (e.target == $('.porto-icon-user-2')[0]) {
                 $('.my-account.account-icon').toggleClass('account-active');

@@ -95,7 +95,7 @@ class Save extends \Magento\Framework\App\Action\Action
                 'email' => $data['email']
             ];
              
-            $sentToEmail = $this->scopeConfig ->getValue('payslip/general/email',\Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+            $sentToEmail = $this->scopeConfig ->getValue('cmsConfig/mainConfigPayslip/email',\Magento\Store\Model\ScopeInterface::SCOPE_STORE);
             // $sentToName = "Nidhi Parikh";
             $templateOptions = [
                 'area' => 'frontend',

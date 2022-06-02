@@ -1,61 +1,6 @@
-<!--@vars {
-"var logo_width":"Logo width",
-"var logo_height":"Logo Height",
-"var template_styles|raw":"Customer Name",
-"var logo_url":"Logo url",
-"var logo_alt":"Logo Alt",
-"var name":"Name",
-"var email":"Email",
-"var c_sname":"Company/Shop Name",
-"var taxidentificationNumber":"Tax Identification Number",
-"var address":"Address",
-"var receiptNumber":"Receipt Number",
-"var note":"Note",
-} @-->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <style type="text/css">
-        {{var template_styles|raw}}
+<!--@subject TaxInvoice Information - {{var name}}  @-->
 
-        {{css file="css/email.css"}}
-    </style>
-</head>
-<body>
-{{inlinecss file="css/email-inline.css"}}
-
-<!-- Begin wrapper table -->
-<table class="wrapper" width="100%">
-    <tr>
-        <td class="wrapper-inner" align="center">
-            <table class="main" align="center">
-                <tr>
-                    <td class="header">
-                        <a class="logo" href="{{store url=""}}">
-                            <img
-                                {{if logo_width}}
-                                    width="{{var logo_width}}"
-                                {{else}}
-                                    width="180"
-                                {{/if}}
-
-                                {{if logo_height}}
-                                    height="{{var logo_height}}"
-                                {{/if}}
-
-                                src="{{var logo_url}}"
-                                alt="{{var logo_alt}}"
-                                border="0"
-                            />
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="main-content">
-                    <!-- Begin Content -->
+{{template config_path="design/email/header_template"}}
 <div>
     <label for="name">Name :</label> {{var name}}
 </div>

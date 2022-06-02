@@ -9,8 +9,8 @@
 /** @var \Magento\Customer\Block\Form\Login $block */
 $helper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
 $mediaUrl = $helper->getMediaUrl();
-$bannerImage = $helper->getConfig('aboutus/mainConfigabout/banner_image');
-$imageText = $helper->getConfig('aboutus/mainConfigabout/about_us_content');
+$bannerImage = $helper->getConfig('cmsConfig/mainConfigAboutus/banner_image');
+$imageText = $helper->getConfig('cmsConfig/mainConfigAboutus/about_us_content');
 ?>
 <div class="banner-image">
     <img src="<?=/* @noEscape */ $mediaUrl.'theme/'.$bannerImage;?>"/>

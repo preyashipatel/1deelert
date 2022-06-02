@@ -9,7 +9,7 @@
 /** @var \Magento\Customer\Block\Form\Login $block */
 $helper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
 $mediaUrl = $helper->getMediaUrl();
-$bannerImage = $helper->getConfig('texinvoice/mainConfigtaxinvoice/taxinvoice_image');
+$bannerImage = $helper->getConfig('cmsConfig/mainConfigTaxinvoice/taxinvoice_image');
 ?>
 <div class="banner-image">
     <img src="<?= /* @noEscape */$mediaUrl.'theme/'.$bannerImage;?>"/>

@@ -101,7 +101,7 @@ class Save extends \Magento\Framework\App\Action\Action
                 ];
              
                 $sentToEmail = $this->_scopeConfig ->getValue(
-                    'texinvoice/general/email',
+                    'cmsConfig/mainConfigTaxinvoice/email',
                     \Magento\Store\Model\ScopeInterface::SCOPE_STORE
                 );
 

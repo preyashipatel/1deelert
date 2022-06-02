@@ -4,28 +4,184 @@
         <tab id="elsnertech_login" translate="label" sortOrder="1000">
             <label>Elsnertech</label>
         </tab>
-        <section id="login" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Login Page</label>
+        <section id="cmsConfig" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>CMS Page Config</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
-            <group id="mainConfig" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Login registration page config </label>
-                  <field id="banner_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <group id="mainConfigAboutus" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>About Us Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Select Image</label>
                     <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
-                <field id="login_content" translate="label" type="editor" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            </group>
+
+            <group id="mainConfigContact" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Contact Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+                <field id="contact_us_content" translate="label" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Content</label>
+                         <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
+                </field>
+            </group>
+
+            <group id="mainConfigBlog" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Blog Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigApartment" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Apartment Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigCondominium" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Condominium Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigLazada" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Lazada Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigHowtobuy" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>How to Buy Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigInterior" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Interior Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigTermandcondition" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Term and Condition Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigPaymentmethod" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Payment Method Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+        </section>
+
+        <section id="accountConfig" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Account Page Config</label>
+            <tab>elsnertech_login</tab>
+            <resource>Elsnertech_Customisation::general</resource>
+
+            <group id="mainConfigLogin" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Login Registration Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+                <field id="login_content" translate="label" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Login Breadcurms Content</label>
                          <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
                 </field>
-                <field id="reg_content" translate="label" type="editor" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="reg_content" translate="label" type="editor" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Create Account Breacdcrums Content</label>
                          <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
                 </field>
             </group>
+
+            <group id="mainConfigCheckout" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Checkout Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+                <field id="checkout_content" translate="label" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Content</label>
+                         <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
+                </field>
+            </group>
+
+            <group id="mainConfigCart" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cart Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+
+            <group id="mainConfigMyaccount" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>My Account Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
         </section>
-        <section id="contactus" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+
+        <section id="customConfig" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Custom Page Config</label>
+            <tab>elsnertech_login</tab>
+            <resource>Elsnertech_Customisation::general</resource>
+
+            <group id="mainConfigFlashsale" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Flash Sale Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+            
+            <group id="mainConfigLatestproduct" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Latest Product Page</label>
+                  <field id="banner_image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Elsnertech\Customisation\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">theme</base_url>
+                </field>
+            </group>
+        </section>
+        <!-- <section id="contactus" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Contact Page Config</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -41,8 +197,8 @@
                          <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
                 </field>
             </group>
-        </section>
-        <section id="aboutus" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        </section> -->
+        <!-- <section id="aboutus" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>About us Page Config</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -54,8 +210,8 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
-         <section id="carpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        </section> -->
+         <!-- <section id="carpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Cart Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -67,8 +223,8 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
-        <section id="checkoutpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        </section> -->
+        <!-- <section id="checkoutpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Checkout Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -84,8 +240,8 @@
                          <frontend_model>Elsnertech\Customisation\Block\Adminhtml\Editor</frontend_model>
                 </field>
             </group>
-        </section>
-        <section id="blogpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        </section> -->
+        <!-- <section id="blogpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Blog Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -97,8 +253,8 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
-        <section id="accountpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        </section> -->
+        <!-- <section id="accountpage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Account Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -110,9 +266,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="termandcondition" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="termandcondition" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Term and Condition Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -124,9 +280,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="latestproduct" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="latestproduct" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Latest Product Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -138,9 +294,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="flashsale" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="flashsale" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Flash sale Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -152,9 +308,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="paymentmethod" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="paymentmethod" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Payment Method Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -166,9 +322,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="howtobuy" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="howtobuy" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>How to Buy Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -180,9 +336,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="apartment" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="apartment" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Apartment Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -194,9 +350,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="condominium" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="condominium" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Condominium Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -208,9 +364,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="lazada" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="lazada" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Lazada Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -222,9 +378,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
        
-        <section id="interior" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="interior" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Interior Page Config</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -236,9 +392,9 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>
+        </section> -->
 
-        <section id="texinvoice" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <!-- <section id="texinvoice" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Tex Invoice Page</label>
             <tab>elsnertech_login</tab>
             <resource>Elsnertech_Customisation::general</resource>
@@ -250,6 +406,6 @@
                     <base_url type="media" scope_info="1">theme</base_url>
                 </field>
             </group>
-        </section>  
+        </section>   -->
     </system>
 </config>

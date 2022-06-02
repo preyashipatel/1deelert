@@ -2,18 +2,16 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="elsnertech" translate="label" class="elsnertech" sortOrder="100">
-            <label>elsnertech</label>
+        <tab id="elsnertech_login" translate="label" sortOrder="1000">
+            <label>Elsnertech</label>
         </tab>
-        <section id="payslip" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
-                 showInStore="1">
-            <class>separator-top</class>
-            <label>PaySlip</label>
-            <tab>elsnertech</tab>
-            <resource>Elsnertech_PaySlip::config_payslip</resource>
-            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
-                   showInStore="1">
-                <label>Pay Slip Config</label>
+        <section id="cmsConfig" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>CMS Page Config</label>
+            <tab>elsnertech_login</tab>
+            <resource>Elsnertech_PaySlip::general</resource>
+
+            <group id="mainConfigPayslip" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pay Slip Page</label>
                 <field id="email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Email</label>
                 </field>

@@ -117,7 +117,6 @@ class Save extends \Magento\Framework\App\Action\Action
                 ->setFrom($sender)
                 // ->setFromByScope($sender)
                 ->addTo($sentToEmail)
-                ->setSubject("Tax Invoice || 'name' => $post['name'] ")
                 ->getTransport();
                  
                 $transport->sendMessage();

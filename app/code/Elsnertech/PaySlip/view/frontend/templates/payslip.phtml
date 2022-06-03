@@ -1,6 +1,6 @@
 <div class="invoice-wrapper">
 <div class="invoice-head">
-    <h1><?=/* @noEscape */ __('Pay Slip');?></h1>
+    <h1><?=/* @noEscape */ __('payslip');?></h1>
 </div>
 <div class="invoice-form">
     <form class="" action="<?php echo $block->getBaseUrl().'payslip/index/save'; ?>" id="elsnertech-payslip-form" method="post" enctype='multipart/form-data'  data-mage-init='{"validation": {}}'>
@@ -65,3 +65,9 @@
         </div>
     </form>
 </div>
+<?php
+echo $this->getLayout()
+->createBlock('Magento\Cms\Block\Block')
+->setBlockId('above_footer_block')
+->toHtml();
+?>

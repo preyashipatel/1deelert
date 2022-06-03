@@ -12,10 +12,10 @@
                 </argument>
             </action>
              <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string" translate="true">Pay Slip</argument>
+                <argument name="crumbName" xsi:type="string" translate="true">payslip</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string" translate="true">Pay Slip</item>
-                    <item name="label" xsi:type="string" translate="true">Pay Slip</item>
+                    <item name="title" xsi:type="string" translate="true">payslip</item>
+                    <item name="label" xsi:type="string" translate="true">payslip</item>
                 </argument>
             </action>
             </referenceBlock>

@@ -1,4 +1,13 @@
 .catalog-product-view {
+    .fotorama-item {
+        .fotorama__stage {
+            border: 0;
+            @media (max-width: @screen__md){
+                background-color: @color-5;
+            }
+        }
+    }
+    
     main#maincontent {
         padding-top: 45px;
 
@@ -62,12 +71,13 @@
                 }
             }
         }
-        
 
         .fotorama-item {
             .fotorama__stage {
                 border: 0;
-
+                @media (max-width: @screen__md){
+                    background-color: @color-5;
+                }
                 .fotorama__stage__frame img.zoomImg {
                     width: 100% !important;
                     height: 100% !important;
@@ -490,8 +500,8 @@
                         }
 
                         .moved-add-to-links {
-                            display: block;
-                            width: 100%;
+                            // display: block;
+                            // width: 100%;
 
                             @media (max-width: @screen__sm) {
                                 width: auto;

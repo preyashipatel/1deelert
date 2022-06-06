@@ -9,6 +9,7 @@ define([
             $(this).next().toggleClass('active');
         });
         $(document).on('click', function (e) {
+            $("html").removeClass("nav-before-open");
             if (e.target == $('.porto-icon-user-2')[0]) {
                 $('.my-account.account-icon').toggleClass('account-active');
                 $('.panel.header.show-icon-tablet').toggleClass('active');
@@ -87,7 +88,7 @@ define([
             dots: false,
             swipeToSlide: true,
             infinite: false,
-            speed: 500,
+            speed: 800,
         });
 
         $(document).ready(function () {
@@ -101,7 +102,7 @@ define([
                 dots: false,
                 swipeToSlide: true,
                 infinite: true,
-                speed: 500,
+                speed: 1000,
                 responsive: [
                     {
                         breakpoint: 1470,
@@ -143,7 +144,7 @@ define([
                 dots: false,
                 swipeToSlide: true,
                 infinite: true,
-                speed: 500,
+                speed: 900,
                 responsive: [
                     {
                         breakpoint: 1470,
@@ -206,7 +207,7 @@ define([
                 dots: false,
                 swipeToSlide: true,
                 infinite: true,
-                speed: 500,
+                speed: 900,
                 responsive: [
                     {
                         breakpoint: 1200,
@@ -256,7 +257,7 @@ define([
                 dots: true,
                 swipeToSlide: true,
                 infinite: true,
-                speed: 500,
+                speed: 900,
                 responsive: [
                     {
                         breakpoint: 991,

@@ -123,7 +123,7 @@ class Save extends \Magento\Framework\App\Action\Action
                  
                 $this->_inlineTranslation->resume();
                 $this->messageManager->addSuccess('Email sent successfully');
-                $this->_redirect('taxinvoice/*/*');
+                $this->_redirect('taxinvoice/index/index');
             }
                  
         } catch (\Exception $e) {

@@ -1,0 +1,39 @@
+<?php
+
+use Elsnertech\EverCrumbs\Block\Evercrumbs;
+/** @var Evercrumbs $block */
+
+$crumbs = $block->getCrumbs(); ?>
+<?php if ($crumbs && is_array($crumbs)): ?>
+<?php $i = 0; ?>
+<div class="breadcrumb-wrapper">
+    <div class="container">
+<div class="breadcrumbs">
+    <ul class="items" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+            <?php $i++; ?>
+            <?php if($crumbName == 0):?>
+                <li class="item home" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="<?= /* @escapeNotVerified */ $crumbInfo['link'] ?>" title="<?= $block->escapeHtml($crumbInfo['title']) ?>">
+                  <span itemprop="name"><?= $block->escapeHtml($crumbInfo['label']) ?></span>
+                </a>
+            </li>
+        <?php else :?>
+            <li class="item <?= /* @escapeNotVerified */ $crumbName ?>" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <?php if ($crumbInfo['link']) : ?>
+                <a itemprop="item" href="<?= /* @escapeNotVerified */ $crumbInfo['link'] ?>" title="<?= $block->escapeHtml($crumbInfo['title']) ?>">
+                  <span itemprop="name"><?= $block->escapeHtml($crumbInfo['label']) ?></span>
+                </a>
+            <?php else: ?>
+				<span itemprop="name"><?= $block->escapeHtml($crumbInfo['label']) ?></span>
+                <meta itemprop="item" content="<?= /* @escapeNotVerified */ $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]) ?>" />
+            <?php endif; ?>
+            <?php endif; ?>
+                <meta itemprop="position" content="<?= $i ?>" />
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+</div>
+</div>
+<?php endif; ?>

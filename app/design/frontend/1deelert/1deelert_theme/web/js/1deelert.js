@@ -297,11 +297,12 @@ define([
 
         if ($(window).width() < 991) {
             $('ul.slick-slider.menu-slider').hide();
-            $('.toggle-category a').click(function(){
+            $('#category a').click(function(){
                 $('ul.slick-slider.menu-slider').toggle();
                 $(this).toggleClass('active-a');
             });
         }
+       
 
         
     }

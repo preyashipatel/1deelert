@@ -85,22 +85,36 @@
           <div class="home-link mobile-hide">
             <a href="<?= /* @noEscape */ $storeUrl;?>"><span><?= /* @noEscape */ __('Home');?></span></a>
           </div>
-          <div class="about-link mobile-hide">
-            <a href="<?=/* @noEscape */ $storeUrl.'about-us';?>"><span><?=/* @noEscape */ __('About us');?></span></a>
+          <div class="store-link mobile-hide">
+            <span><?=/* @noEscape */ __('Payment');?></span>
+            <ul class="store-li">
+              <li><a href="<?= /* @noEscape */$storeUrl.'how-to-buy';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('How To Buy');?></a></li>
+                <li><a href="<?= /* @noEscape */$storeUrl.'payment-method';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Payment Option');?></a></li>
+            </ul>
           </div>
           <div class="store-link mobile-hide">
-            <span><?=/* @noEscape */ __('Store');?></span>
+            <span><?=/* @noEscape */ __('Menu');?></span>
             <ul class="store-li">
-              <li><a href="<?=/* @noEscape */ $storeUrl.'a-office';?>">
-              <?=/* @noEscape */ __('Office');?></a></li>
-              <li><a href="<?=/* @noEscape */ $storeUrl.'k-mettresses';?>">
-              <?=/* @noEscape */ __('Mattress');?></a></li>
-              <li><a href="<?=/* @noEscape */ $storeUrl.'e-kitchens';?>">
-              <?= /* @noEscape */__('Kitchen and dining room');?></a></li>
-              <li><a href="<?=/* @noEscape */ $storeUrl.'f-tv-stands';?>">
-              <?=/* @noEscape */ __('Tv cabinet');?></a></li>
-              <li><a href="<?=/* @noEscape */ $storeUrl.'g-shoes-storages';?>">
-              <?= /* @noEscape */__('Shoe cabinet');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'about-us';?>">
+              <?=/* @noEscape */ __('About us');?></a></li>
+              <li><a href="<?=/* @noEscape */ $storeUrl.'flash-sale';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Flash Sales');?></a></li>
+              <li><<a href="<?=/* @noEscape */ $storeUrl.'promotion';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Promotions');?> <a href="<?= /* @noEscape */$storeUrl.'latest-product';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Best Sellers');?></a></li>
+              
+                <li><a href="<?= /* @noEscape */$storeUrl.'condominium';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Furniture Set');?></a></li>
+                 <li>
+                <a href="<?= /* @noEscape */$storeUrl.'lazada';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Buy from other platform');?></a>
+        </li>
+        <li>
+                <a href="<?=/* @noEscape */ $storeUrl.'apartment';?>" class="level-top"
+                title="บ้าน"><?=/* @noEscape */ __('Apartment');?></a>
+        </li>
             </ul>
           </div>
           <div class="contact-link mobile-hide">

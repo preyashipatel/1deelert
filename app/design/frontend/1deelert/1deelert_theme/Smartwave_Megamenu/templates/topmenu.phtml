@@ -35,14 +35,17 @@ if ($_config['general']['enable']) {
             <a href="#" class="level-top" title="บ้าน"><span><?=/* @noEscape */ __('Home');?></span></a>
         </li>
     </ul>
-    <div class="toggle-category desktophide">
+    <div class=" toggle-category desktophide" id="category">
         <a href="javascript:void(0)"><?= /* @noEscape */__('Category');?></a>
     </div>
     
     <ul class="slick-slider menu-slider">
         <?=/* @noEscape */ $_menu; ?>
     </ul>
-    <div class="cms-page-link">
+  <!--   <div class="desktophide toggle-category" id="custMenu">
+        <a href="javascript:void(0)"><?= /* @noEscape */__('Menu');?></a>
+    </div> -->
+    <ul class="cms-page-link">
         <li class="ui-menu-item cms-catagory">
                 <a href="<?=/* @noEscape */ $storeUrl.'flash-sale';?>" class="level-top"
                 title="บ้าน"><?=/* @noEscape */ __('Flash Sales');?></a>
@@ -83,7 +86,7 @@ if ($_config['general']['enable']) {
                 <a href="<?= /* @noEscape */$storeUrl.'contact';?>" class="level-top"
                 title="บ้าน"><?=/* @noEscape */ __('Contact Us');?></a>
         </li>
-    </div>
+    </ul>
     <div class="category-menu">
         <span class="down-arrow"></span>
         <div class="category-lists">

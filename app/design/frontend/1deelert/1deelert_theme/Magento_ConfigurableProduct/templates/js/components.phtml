@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<script>
+/*Where there is only one option left in the dropdowns, autoselect it.*/
+/*require(['jquery'], function($){ 
+    $('select[id^="attribute"]').change(function(){
+        var picked = this;
+        setTimeout(function() {
+                autoselect(picked);  //do the autoselect after everything else.
+        }, 0);
+
+    });
+    function autoselect(picked){
+        var nextsel = $(picked).parent().parent().next().find('select[id^="attribute"]');
+        // console.log($(nextsel).children().length);
+        if($(nextsel).children().length > 2){
+            $(nextsel).find(':nth-child(2)', picked).prop('selected',true);
+            $(nextsel).change();
+        };
+    };
+});*/
+</script>
+<?= $block->getChildHtml() ?>

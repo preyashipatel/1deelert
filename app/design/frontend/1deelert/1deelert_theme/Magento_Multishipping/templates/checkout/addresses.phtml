@@ -42,7 +42,7 @@
                                     <span><?php /* @escapeNotVerified */ echo __('Qty') ?></span>
                                 </label>
                                 <div class="control">
-                                    <input type="number" data-multiship-item-id="<?php /* @escapeNotVerified */ echo $_item->getSku() ?>" id="ship-<?php /* @escapeNotVerified */ echo $_index ?>-<?php /* @escapeNotVerified */ echo $_item->getQuoteItemId() ?>-qty" name="ship[<?php /* @escapeNotVerified */ echo $_index ?>][<?php /* @escapeNotVerified */ echo $_item->getQuoteItemId() ?>][qty]" value="<?php echo $block->escapeHtml($_item->getQty()) ?>" size="2" class="input-text qty" data-validate="{number: true}"/>
+                                    <input type="number" data-multiship-item-id="<?php /* @escapeNotVerified */ echo $_item->getSku() ?>" id="ship-<?php /* @escapeNotVerified */ echo $_index ?>-<?php /* @escapeNotVerified */ echo $_item->getQuoteItemId() ?>-qty" name="ship[<?php /* @escapeNotVerified */ echo $_index ?>][<?php /* @escapeNotVerified */ echo $_item->getQuoteItemId() ?>][qty]" value="<?php echo $block->escapeHtml($_item->getQty()) ?>" size="2" class="input-text qty" data-validate="{number: true,'validate-greater-than-zero':true}"/>
                                 </div>
                                 <div class="qty-changer">
                                     <a href="javascript:void(0)" class="qty-inc"><i class="porto-icon-up-dir"></i></a>

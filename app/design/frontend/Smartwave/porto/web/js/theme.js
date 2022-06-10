@@ -159,24 +159,24 @@ require([
             // Get its current value
             var currentVal = parseInt($(this).parents('form').find('input[name="qty"]').val());
             // If it isn't undefined or its greater than 0
-            if (!isNaN(currentVal) && currentVal > 0) {
+            if (!isNaN(currentVal) && currentVal > 1) {
                 // Decrement one
                 $(this).parents('form').find('input[name="qty"]').val(currentVal - 1);
             } else {
                 // Otherwise put a 0 there
-                $(this).parents('form').find('input[name="qty"]').val(0);
+                $(this).parents('form').find('input[name="qty"]').val(1);
             }
         });
         $(".qty-inc").unbind('click').click(function(){
             if($(this).parents('.field.qty,.control.qty').find("input.input-text.qty").is(':enabled')){
-                $(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val((+$(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val() + 1) || 0);
+                $(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val((+$(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val() + 1) || 1);
                 $(this).parents('.field.qty,.control.qty').find("input.input-text.qty").trigger('change');
                 $(this).focus();
             }
         });
         $(".qty-dec").unbind('click').click(function(){
             if($(this).parents('.field.qty,.control.qty').find("input.input-text.qty").is(':enabled')){
-                $(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val(($(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val() - 1 > 0) ? ($(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val() - 1) : 0);
+                $(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val(($(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val() - 1 > 1) ? ($(this).parents('.field.qty,.control.qty').find("input.input-text.qty").val() - 1) : 1);
                 $(this).parents('.field.qty,.control.qty').find("input.input-text.qty").trigger('change');
                 $(this).focus();
             }

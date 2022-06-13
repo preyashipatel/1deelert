@@ -522,11 +522,6 @@
 
                                 &::before {
                                     display: none;
-                                    // font-size: @font-size_4;
-
-                                    // @media (max-width: @screen__sm) {
-                                    //     font-size: 17px;
-                                    // }
                                 }
 
                                 &.towishlist{
@@ -536,6 +531,9 @@
                                     background-size: 22px;
                                     @media (max-width: @screen__sm){
                                         background-size: 18px;
+                                    }
+                                    &.added{
+                                        background-image: url(../images/heart-filled.svg);
                                     }
                                 }
 

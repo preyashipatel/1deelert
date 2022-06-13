@@ -10,14 +10,15 @@
     $('select[id^="attribute"]').change(function(){
         var picked = this;
         setTimeout(function() {
-                autoselect(picked);  //do the autoselect after everything else.
-        }, 0);
+                autoselect(picked,this.value);  //do the autoselect after everything else.
+        }, 100);
 
     });
-    function autoselect(picked){
+    function autoselect(picked,selectVal){
         var nextsel = $(picked).parent().parent().next().find('select[id^="attribute"]');
-        // console.log($(nextsel).children().length);
-        if($(nextsel).children().length > 2){
+        // console.log($(nextsel).children().val());
+        nextSalVal = $(nextsel).children().val();
+        if($(nextsel).children().length > 0){
             $(nextsel).find(':nth-child(2)', picked).prop('selected',true);
             $(nextsel).change();
         };

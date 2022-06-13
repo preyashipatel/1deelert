@@ -556,6 +556,7 @@
                         @media (max-width: @screen__sm) {
                             color: @color-2;
                             font-weight: 600;
+                            font-size: 12px;
                         }
                         span.sku-number {
                             @media (max-width: @screen__sm) {
@@ -613,14 +614,18 @@
                                 font-size: 12px;
                                 line-height: 1.5;
                                 border: 1px solid;
-                                padding: 7px 18px;
+                                padding: 9px 18px;
                                 border-radius: 8px;
                                 text-transform: uppercase;
                                 font-weight: 600;
                                 @media (max-width: @screen__md){
                                     font-size: @font-size_8;
                                     border: 1px solid;
-                                    padding: 5px 15px;
+                                    padding: 6px 13px;
+                                }
+                                @media (max-width: @screen__sm){
+                                    font-size: 10px;
+                                    padding: 5px 10px;
                                 }
                             }
                         }

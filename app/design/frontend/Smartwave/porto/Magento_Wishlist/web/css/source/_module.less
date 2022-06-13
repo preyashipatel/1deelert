@@ -27,6 +27,9 @@
             );
         }
     }
+    .form-wishlist-items ~ .toolbar.wishlist-toolbar {
+        display: none;
+    }
 
     .account .table-wrapper .data.table.wishlist {
         .lib-table-bordered(
@@ -96,6 +99,7 @@
         }
         .product-item-name {
             margin-right: @indent__m;
+           
         }
     }
 
@@ -328,6 +332,8 @@
         .products-grid {
             .product-items {
                 margin: 0;
+                display: flex;
+                flex-wrap: wrap;
             }
             .product-item {
                 margin-bottom: @indent__base;

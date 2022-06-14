@@ -571,7 +571,7 @@ define([
                     ' data-thumb-height="' + height + '"';
 
                 attr += thumb !== '' ? ' data-option-tooltip-thumb="' + thumb + '"' : '';
-                attr += value !== '' ? ' data-option-tooltip-value="' + value + '"' : '';
+                attr += value !== '' ? ' data-option-tooltip-value="' + label + '"' : '';
 
                 swatchImageWidth = _.has(sizeConfig, 'swatchImage') ? sizeConfig.swatchImage.width : 30;
                 swatchImageHeight = _.has(sizeConfig, 'swatchImage') ? sizeConfig.swatchImage.height : 20;
@@ -582,7 +582,7 @@ define([
 
                 if (type === 0) {
                     // Text
-                    html += '<div class="' + optionClass + ' text" ' + attr + '>' + (value ? value : label) +
+                    html += '<div class="' + optionClass + ' text" ' + attr + '>' + label +
                         '</div>';
                 } else if (type === 1) {
                     // Color

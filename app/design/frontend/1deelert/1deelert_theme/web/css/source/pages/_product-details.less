@@ -558,6 +558,27 @@
             }
         }
 
+        .product-options-wrapper{
+            .swatch-opt{
+                margin-bottom: 10px;
+                .swatch-option{
+                    padding: 12px 15px;
+                    border-radius: 8px;
+                    outline: none;
+                    box-shadow: none;
+
+                    @media (max-width: @screen__sm) {
+                        padding: 8px 12px;
+                    }
+
+                    &.selected{
+                        background-color: @color-1;
+                        border-color: @color-1;
+                        color: @color-5;
+                    }
+                }
+            }
+        }
         .product-category {
             font-size: 18px;
             margin-bottom: 3px;

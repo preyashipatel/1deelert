@@ -1,0 +1,36 @@
+<!--@subject TaxInvoice Information - {{var name}}  @-->
+
+{{template config_path="design/email/header_template"}}
+<div>
+    <label for="name">Name :</label> {{var name}}
+</div>
+<br>
+<div>
+    <label for="email">Email :</label> {{var email}}
+</div>
+<br>
+<div>
+    <label for="email">Product Name :</label> {{var email}}
+</div>
+<br>
+<div>
+    <label for="email">Product SKU :</label> {{var email}}
+</div>
+<br>
+<div>
+    <label for="note"> Inquiry :</label> {{var inquiry}}
+</div>
+
+</td>
+</tr>
+<tr>
+    <td class="footer">
+        <p class="closing">{{trans "Thank you, %store_name" store_name=$store.frontend_name}}!</p>
+    </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- End wrapper table -->
+</body>

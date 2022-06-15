@@ -1,14 +1,16 @@
 <?php
 
-namespace Elsnertech\Wishlist\Helper;
+namespace Elsnertech\Wishlist\Controller\Index;
 use \Magento\Framework\App\Helper\AbstractHelper;
-use \Magento\Framework\App\Helper\Context;
+use \Magento\Framework\App\Action\Context;
 use \Magento\Wishlist\Model\Wishlist;
 use \Magento\Framework\App\Http\Context as HttpContext;
 use \Magento\Framework\Registry;
 use \Magento\Catalog\Model\CategoryFactory;
+use Magento\Framework\App\Action\Action;
 
-class Data extends AbstractHelper
+
+class wishlistClass extends Action
 {
 
     public $categoryFactory;
@@ -25,14 +27,23 @@ class Data extends AbstractHelper
     public function __construct(
         Context $context,
         Wishlist $wishlist,
-        HttpContext $httpContext
+        HttpContext $httpContext,
+        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
         
     ) {
         $this->wishlist = $wishlist;
         $this->httpContext = $httpContext;
+        $this->resultJsonFactory = $resultJsonFactory;
         parent::__construct($context);
     }
-    
+    public function execute() {
+        $result = $this->resultJsonFactory->create();
+        $wishlistData = $this->wishlistCollation();
+        if ($this->getRequest()->isAjax()) 
+        {
+            return $result->setData($wishlistData);
+        }
+    }
     /**
      * @return bool
      */
@@ -50,23 +61,19 @@ class Data extends AbstractHelper
     {
        return $id = $this->httpContext->getValue('id');
     }
-    public function getProductCollectionFromCategory($productid)
-    {
+
+    public function wishlistCollation(){
         $customerId = $this->getLoginUserId();
-        
+        $wishlistRecord = array();
         if($this->isCustomerLoggedIn()) {
 
             $wishlistData = $this->wishlist->loadByCustomerId($customerId)->getItemCollection();
 
-            $wishlistRecord = array();
+            
             foreach($wishlistData as $wishlistCallection) {
                 array_push($wishlistRecord, $wishlistCallection->getProduct()->getId());
             }
-            if(in_array($productid,$wishlistRecord)){
-                return 1;
-            } else {
-                return 0;
-            }
         }
+        return $wishlistRecord;
     }
 }

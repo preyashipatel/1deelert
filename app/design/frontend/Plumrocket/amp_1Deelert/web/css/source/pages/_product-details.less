@@ -558,27 +558,6 @@
             }
         }
 
-        .product-options-wrapper{
-            .swatch-opt{
-                margin-bottom: 10px;
-                .swatch-option{
-                    padding: 12px 15px;
-                    border-radius: 8px;
-                    outline: none;
-                    box-shadow: none;
-
-                    @media (max-width: @screen__sm) {
-                        padding: 8px 12px;
-                    }
-
-                    &.selected{
-                        background-color: @color-1;
-                        border-color: @color-1;
-                        color: @color-5;
-                    }
-                }
-            }
-        }
         .product-category {
             font-size: 18px;
             margin-bottom: 3px;
@@ -594,9 +573,6 @@
             span.attr-label {
                 color: @color-1;
             }
-        }
-        a#button{
-            cursor: pointer;
         }
     }
 
@@ -789,119 +765,6 @@
         }
         .tooltip.wrapper.product-item-tooltip {
             display: none;
-        }
-    }
-}
-
-aside.modal-popup.modal-slide._inner-scroll{
-    .modal-inner-wrap {
-        max-width: 1200px;
-    }
-    header.modal-header{
-        button.action-close {
-            background: @color-1;
-            opacity: 1;
-            color: @color-5;
-            width: 30px;
-            height: 30px;
-            padding: 0;
-            line-height: 1;
-            transform: rotate(0);
-            &::after{
-                top: 12px;
-                left: 13px;
-                transform: rotate(45deg);
-                color: @color-5;
-            }
-            &::before{
-                top: 14px;
-                left: 7px;
-                transform: rotate(45deg);
-                color: @color-5;
-            }
-        }
-    }
-}
-
-div#modal-content-0 {
-    max-height: 80vh;
-}
-.modal-popup.modal-slide{
-    .modal-body-content.inquiry-modal{
-        padding: 20px 0 0;
-        // max-height: 85vh;
-        // overflow-y: auto;
-        // overflow-x: hidden;
-
-        .heading-inquiry{
-            padding: 0 0 30px;
-            h1 {
-                font-size: 28px;
-                font-weight: 600;
-                text-align: center;
-                margin: 0;
-                @media (max-width: @screen__md){
-                    font-size: 24px;
-                }
-                @media (max-width: @screen__sm){
-                    font-size: 20px;
-                }
-            }
-        }
-        .product-name{
-            h3 {
-                margin: 0;
-                @media (max-width: @screen__sm){
-                    font-size: 16px;
-                }
-            }
-            p {
-                font-size: 16px;
-                @media (max-width: @screen__md){
-                    font-size: 14px;
-                }
-                @media (max-width: @screen__sm){
-                    font-size: 12px;
-                    line-height: 1.2;
-                }
-            }
-        }
-        .product-image{
-            span.product-image-wrapper {
-                padding-bottom: 0% !important;
-                height: auto;
-                .product-image-photo {
-                    position: relative;
-                    height: 100%;
-                    @media (max-width: @screen__sm){
-                        max-height: 300px;
-                        object-fit: contain;
-                    }
-                }
-            }
-        }
-        .inquiry-form{
-            .field{
-                margin-bottom: 10px;
-                label.label {
-                    font-size: 14px;
-                    font-weight: 600;
-                    line-height: 1;
-                    @media (max-width: @screen__sm){
-                        font-size: 12px;
-                    }
-                }
-            }
-            button.registerbtn{
-                background-color: @color-1;
-                color: @color-5;
-                border-radius: 8px;
-                font-size: 18px;
-                letter-spacing: 1px;
-                @media (max-width: @screen__md){
-                    font-size: 14px;
-                }
-            }
         }
     }
 }

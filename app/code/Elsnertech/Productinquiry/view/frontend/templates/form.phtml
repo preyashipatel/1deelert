@@ -1,0 +1,113 @@
+<?php
+$helper = $this->helper(Elsnertech\Productinquiry\Helper\Data::class);
+$name = $helper->getLoginUserName();
+$email = $helper->getLoginUserEmail();
+
+
+$product = $block->getProduct();
+$productId = $product->getId();
+$productname = $product->getName();
+$productsku = $product->getSku();
+$productDescription = $product->getData('short_description');
+$_imagehelper = $this->helper(\Magento\Catalog\Helper\Image::class);
+
+?>
+
+
+<a id="button"><?=/* @noEscape */ __('Ask for more information about the product.')  ?></a>
+
+<div id="modal">
+    <div class="modal-body-content inquiry-modal">
+
+        <div class="heading-inquiry">
+            <h1><?=/* @noEscape */ __('Ask for more information about the product.')  ?></h1>
+        </div>
+        <div class="product-name">
+            <h3><?=/* @noEscape */ $productname ?></h3>
+            <p><?= $productDescription ?></p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image">
+                    <?php
+                    $image = 'category_page_grid';
+                    $productImage = $_imagehelper->init($product, $image)
+                        ->constrainOnly(false)
+                        ->keepAspectRatio(true)
+                        ->keepFrame(false);
+                    $productImageUrl = $productImage->getUrl();
+                    ?>
+                    <span class="product-image-container" style="width: 240px;">
+                        <span class="product-image-wrapper" style="padding-bottom: 125%;">
+                            <img class="product-image-photo" src="<?= /* @noEscape */ $productImageUrl ?>" alt="flash-sale" width="300" height="300" /></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="inquiry-form">
+                    <form action="<?= /* @noEscape */ $block->getBaseUrl() . 'productinquiry/index/save'; ?>" method="post" id="addData" class="form" data-mage-init='{"validation":{}}'>
+
+                        <input name="productname" id="productname" class="input-text" type="hidden" value="<?= $productname; ?>">
+                        <input name="productsku" id="productsku" class="input-text" type="hidden" value="<?= $productsku; ?>">
+
+                        <div class="field name required">
+                            <label class="label" for="title">
+                                <span>
+                                    <?=/* @noEscape */ __('Name') ?>
+                                    <strong class="formRequired">(*)</strong>
+                                </span>
+                            </label>
+                            <div class="control">
+                                <input name="name" id="name" class="input-text" type="text" value="<?= $name; ?>" data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+
+                        <div class="field name required">
+                            <label class="label" for="title">
+                                <span>
+                                    <?=/* @noEscape */ __('Email') ?>
+                                    <strong class="formRequired">(*)</strong>
+                                </span>
+                            </label>
+                            <div class="control">
+                                <input name="email" id="email" class="input-text" type="text" value="<?= $email; ?>" data-validate="{required:true, 'validate-email':true}">
+                            </div>
+                        </div>
+
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?=/* @noEscape */ __('Please write your question....(character at least 20, max. 1000 characters)') ?></span></label>
+                            <div class="control">
+                                <textarea name="inquiry" id="inquiry" class="input-text"> </textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="registerbtn btn button-primary">
+                            <span>
+                                <?=/* @noEscape */ __('Send Information') ?>
+                            </span>
+                        </button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"
+    ], function($, modal) {
+
+        var options = {
+            type: 'popup',
+            responsive: true,
+            buttons: false,
+            innerScroll: true
+        };
+
+        var popup = modal(options, $('#modal'));
+        $("#button").click(function() {
+            $('#modal').modal('openModal');
+        });
+    });
+</script>

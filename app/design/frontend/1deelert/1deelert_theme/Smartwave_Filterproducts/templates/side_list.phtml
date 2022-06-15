@@ -40,7 +40,6 @@ if($aspect_ratio)
 if(!$image_height) {
     $image_height = ($_category_config['ratio_height'])?$_category_config['ratio_height']:300;
 }
-$helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
 ?>
 <?php if (!$_productCollection->count()): ?>
     <div class="message info empty"><div><?php echo __('We can\'t find products matching the selection.') ?></div></div>
@@ -73,8 +72,7 @@ $helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
                             $productImageUrl = $productImage->getUrl();
                         ?>
                             <img class="product-image-photo default_image <?php if(!$_lazyload): ?>porto-lazyload<?php endif;?>" <?php if(!$_lazyload): ?>data-<?php endif; ?>src="<?php echo $productImageUrl; ?>" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" alt="<?php //echo $productImage->getLabel();?>"/>
-                                <?php $checkClass = $helper->getProductCollectionFromCategory($_product->getId());?>
-                            <span                               class="action towishlist actions-secondary"
+                            <span class="action towishlist actions-secondary"
                                title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
@@ -151,16 +149,6 @@ $helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
                 <?php if(($iterator % 3) == 0 || $iterator == $_productCollection->count()): ?>
                 </div>
                 <?php endif; ?>
-                <script>
-                require(['jquery', 'jquery/ui'], function($){
-                $(document).ready(function() { 
-                        var checkClass = <?= $checkClass;?>;
-                        if(checkClass === 1){
-                            $('#<?= $_product->getId()?>wishlistSidebar').addClass('added');
-                        }
-                    });
-                });
-                </script>
             <?php endforeach; ?>
         </div>
     </div>
@@ -174,3 +162,23 @@ $helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
         </script>
     <?php endif; ?>
 <?php endif; ?>
+<script type="text/javascript">
+    require(["jquery"],function($) {
+        $(document).ready(function() {
+            var customurl = "<?php echo $currecyHelper->getBaseUrl().'wishlistclassadd/index/wishlistclass'?>";
+            var param = 'ajax=1';
+            $.ajax({
+                showLoader: true,
+                url: customurl,
+                data: param,
+                type: "POST",
+                dataType: 'json'
+            }).done(function (data) {
+                console.log(data);
+                $(data).each(function(index, value){
+                    $('#'+value+'wishlistSidebar').addClass('added');
+                });
+            });
+        });
+    });
+</script>

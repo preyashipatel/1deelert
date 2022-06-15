@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Elsnertech_Productinquiry::productinquiry" title="Product Inquiry Data" module="Elsnertech_Productinquiry" sortOrder="51" resource="Elsnertech_Productinquiry::productinquiry"/>
+        <add id="Elsnertech_Productinquiry::inquiry" title="Data" module="Elsnertech_Productinquiry" sortOrder="10" action="adminproductinquiry/inquiry" resource="Elsnertech_Productinquiry::inquiry"  parent="Elsnertech_Productinquiry::productinquiry"/>
+    </menu>
+</config>

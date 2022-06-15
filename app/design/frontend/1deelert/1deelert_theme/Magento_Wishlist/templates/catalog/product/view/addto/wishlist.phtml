@@ -8,14 +8,14 @@
 ?>
 
 
-<?php
-    $helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
-    $product = $block->getProduct();
+<?php $product = $block->getProduct(); 
+    $currecyHelper = $this->helper('Elsnertech\Customisation\Helper\Data');
 ?>
 
 <?php if ($block->isWishListAllowed()) : ?>
     <a href="#"
        class="action towishlist"
+       id="<?= $product->getId()?>wishlistProduct"
        data-post='<?= /* @noEscape */ $block->getWishlistParams() ?>'
        data-action="add-to-wishlist"><span><?= $block->escapeHtml(__('Add to Wish List')) ?></span></a>
 
@@ -27,14 +27,23 @@
         }
     }
 </script>
-<script>
-require(['jquery', 'jquery/ui'], function($){
-    $(document).ready(function() { 
-            var checkClass = <?= $helper->getProductCollectionFromCategory($product->getId());?>;
-            console.log(checkClass);
-            if(checkClass){
-                $('.action.towishlist').addClass('added');
-            }
+<script type="text/javascript">
+    require(["jquery"],function($) {
+        $(document).ready(function() {
+            var customurl = "<?php echo $currecyHelper->getBaseUrl().'wishlistclassadd/index/wishlistclass'?>";
+            var param = 'ajax=1';
+            $.ajax({
+                showLoader: true,
+                url: customurl,
+                data: param,
+                type: "POST",
+                dataType: 'json'
+            }).done(function (data) {
+                console.log(data);
+                $(data).each(function(index, value){
+                    $('#'+value+'wishlistProduct').addClass('added');
+                });
+            });
         });
     });
 </script>

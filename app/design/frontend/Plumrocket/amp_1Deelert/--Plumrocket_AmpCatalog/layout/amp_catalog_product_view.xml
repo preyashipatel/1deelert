@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright Â© 2021 Deelert. All rights reserved.
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>        
+        <referenceContainer name="product.info.main">
+            <block class="Elsnertech\Customisation\Block\GetCategory" name="product_category_details" after="product.info.social" template="Plumrocket_AmpCatalog::product/view/get-category.phtml"/>
+            <block class="Magento\Catalog\Block\Product\View" name="brand.attr" after="product.info.social" template="Plumrocket_AmpCatalog::product/view/brand.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.media">
+            <container name="extra.info" htmlTag="div" htmlClass="product-extra-info-mob" before="-">
+                <block class="Magento\Catalog\Block\Product\View" name="product.sku" template="Plumrocket_AmpCatalog::product/view/product-sku.phtml" before="-"/>
+                <block class="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist" name="view.addto.wishlist.custom"
+                       template="Magento_Wishlist::catalog/product/view/addto/wishlist.phtml" after="product.sku" />
+            </container>
+        </referenceContainer>
+        <!-- <move element="catalog.product.related" destination="sidebar.additional" after="product_view_custom_block"/> -->
+        <move element="product.info.stock.sku" destination="product.info.main" after="page.main.title"/>
+        <move element="product.info.overview" destination="product.info.details" />
+        <move element="product.info.description" destination="product.info.details" />
+        <move element="catalog.product.related" destination="columns" after='-'/>
+        <move element="product.info.stock.sku" destination="page.main.title" after='-'/>
+        <move element="product.info.social" destination="product.info.main" after='page.main.title'/>
+        <!-- <move element="product.info.price" destination="product.info.form.options" after='product.info.options.wrapper'/> -->
+        <move element="extra.attr" destination="product.info.main" after='product.info.social'/>
+
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="product.attributes">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Product Details</argument>
+                    <argument name="sort_order" xsi:type="string">2</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">More Information</argument>
+                    <argument name="sort_order" xsi:type="string">3</argument>
+                </arguments>
+            </referenceBlock>
+        </referenceBlock>
+
+
+           <referenceContainer name="content">
+                <block class="Magento\Catalog\Block\Product\View" name="extra.attr" template="Plumrocket_AmpCatalog::product/view/extra_attr.phtml"/>
+            </referenceContainer>
+        <referenceBlock name="product.info.overview">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Description</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="prev_next_products" remove="true"/>
+        <referenceBlock name="product.info.sku" remove="true"/>
+    </body>
+</page>

@@ -27,6 +27,7 @@ $_category_grid_config = $_portohelper->getConfig('porto_settings/category_grid'
 $_product_label_config = $_portohelper->getConfig('porto_settings/product_label');
 $_lazyload = $_portohelper->getConfig('porto_settings/optimization/lazyload');
 $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scroller');
+$helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
 ?>
 <?php $iterator = 1; ?>
 <?php if (!$_productCollection->count()): ?>
@@ -157,7 +158,8 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                                 <?php if ($block->getMode() == 'grid'): ?>
                             <div class="source-div">
                             <?php //$record = $helper->getWishlistByCustomerId($customerId,$_product->getId());?>
-                                <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()):?>
+                                <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()):
+                                    $checkClass = $helper->getProductCollectionFromCategory($_product->getId());?>
                                     <a href="#"
                                         id="<?= $_product->getId();?>wishlist"
                                        class="action towishlist actions-secondary"
@@ -344,7 +346,17 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                     </div>
                 </div>
                 <?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
-                
+                <script>
+                require(['jquery', 'jquery/ui'], function($){
+                $(document).ready(function() { 
+                        var checkClass = <?= $checkClass;?>;
+                        if(checkClass === 1){
+                            console.log(checkClass);
+                            $('#<?= $_product->getId()?>wishlist').addClass('added');
+                        }
+                    });
+                });
+                </script>
             <?php endforeach; ?>
         </ol>
     </div>
@@ -399,22 +411,3 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
 <?php
     echo $block->getChildHtml('filter_toggle');
 ?>
-<script type="text/javascript">
-    require(["jquery"],function($) {
-        $(document).ready(function() {
-            var customurl = "<?php echo $currecyHelper->getBaseUrl().'wishlistclassadd/index/wishlistclass'?>";
-            var param = 'ajax=1';
-            $.ajax({
-                showLoader: true,
-                url: customurl,
-                data: param,
-                type: "POST",
-                dataType: 'json'
-            }).done(function (data) {
-                $(data).each(function(index, value){
-                    $('#'+value+'wishlist').addClass('added');
-                });
-            });
-        });
-    });
-</script>

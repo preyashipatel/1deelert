@@ -156,7 +156,6 @@ $helper = $this->helper(\Elsnertech\Wishlist\Helper\Data::class);
                 $(document).ready(function() { 
                         var checkClass = <?= $checkClass;?>;
                         if(checkClass === 1){
-                            console.log(checkClass);
                             $('#<?= $_product->getId()?>wishlistSidebar').addClass('added');
                         }
                     });

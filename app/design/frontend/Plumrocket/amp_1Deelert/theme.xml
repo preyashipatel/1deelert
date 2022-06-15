@@ -1,9 +1,0 @@
-<!--
-/**
-* Copyright © 2022 Elsner. All rights reserved.
-*/
--->
-<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
-    <title>amp_1Deelert</title>
-	<parent>1deelert/1deelert_theme</parent>
-</theme>

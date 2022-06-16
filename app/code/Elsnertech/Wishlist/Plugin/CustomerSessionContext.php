@@ -52,17 +52,17 @@ class CustomerSessionContext
         	false
     	);
 
-    	// $this->httpContext->setValue(
-        // 	'customer_name',
-        // 	$this->customerSession->getCustomer()->getName(),
-        // 	false
-    	// );
+    	$this->httpContext->setValue(
+        	'customer_name',
+        	$this->customerSession->getCustomer()->getName(),
+        	false
+    	);
 
-    	// $this->httpContext->setValue(
-        // 	'customer_email',
-        // 	$this->customerSession->getCustomer()->getEmail(),
-        // 	false
-    	// );
+    	$this->httpContext->setValue(
+        	'customer_email',
+        	$this->customerSession->getCustomer()->getEmail(),
+        	false
+    	);
 
     	return $proceed($request);
     }

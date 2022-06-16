@@ -118,13 +118,20 @@ class Save extends \Magento\Framework\App\Action\Action
                 // ->setFromByScope($sender)
                 ->addTo($sentToEmail)
                 ->getTransport();
+                    
                  
+                try {
                 $transport->sendMessage();
                  
                 $this->_inlineTranslation->resume();
                 $this->messageManager->addSuccess('Email sent successfully');
                 $this->_redirect('taxinvoice/index/index');
+            } catch (Exception $e) {
+                $this->messageManager->addError(__('Email was not sent.'));
+                /** @var Redirect $resultRedirect */
+                $this->_redirect('taxinvoice/index/index');;
             }
+        }
                  
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage($e, __("We can\'t submit your request, Please try again."));

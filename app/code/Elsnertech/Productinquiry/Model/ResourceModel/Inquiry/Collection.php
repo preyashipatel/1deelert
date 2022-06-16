@@ -11,6 +11,11 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         $this->_init(
             \Elsnertech\Productinquiry\Model\Inquiry::class,
             \Elsnertech\Productinquiry\Model\ResourceModel\Inquiry::class
+            // \Elsnertech\Productinquiry\Model\ResourceModel\Inquiry::class->joinLeft(
+            //     ['cp' => $this->getTable('catalog_product_entity')],
+            //     'mainTable.productsku = cp.sku',
+            //     ['*']
+            //   );
         );
     }
 }

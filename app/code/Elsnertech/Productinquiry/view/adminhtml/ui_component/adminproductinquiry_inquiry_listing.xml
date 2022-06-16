@@ -86,6 +86,19 @@
                 </item>
             </argument>
         </filters>
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Delete selected items?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="adminproductinquiry/Inquiry/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+        </massaction>
         <paging name="listing_paging">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -99,9 +112,7 @@
         </paging>
     </container>
 
-    <!--   -->
     <columns name="adminproductinquiry_inquiry_listing_columns">
-
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="storageConfig" xsi:type="array">
@@ -152,7 +163,18 @@
                 </item>
             </argument>
         </column>
-        <column name="name">
+        <column name="img" class="Elsnertech\Productinquiry\Ui\Component\Listing\Column\Thumbnail">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+	           <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+      		   <item name="altField" xsi:type="string">store image</item>
+                   <item name="filter" xsi:type="string">text</item>
+                   <item name="label" xsi:type="string" translate="true">Image</item>
+                   <item name="sortOrder" xsi:type="number">1</item>
+               </item>
+           </argument>
+        </column>
+        <column name="productname">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -162,11 +184,12 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="label" xsi:type="string" translate="true">Product Name</item>
+                    <item name="sortOrder" xsi:type="number">2</item>
                 </item>
             </argument>
         </column>
-        <column name="email">
+        <column name="productsku">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -176,7 +199,8 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Email</item>
+                    <item name="label" xsi:type="string" translate="true">Product SKU</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
                 </item>
             </argument>
         </column>
@@ -191,10 +215,11 @@
                         </item>
                     </item>
                     <item name="label" xsi:type="string" translate="true">Inquiry</item>
+                    <item name="sortOrder" xsi:type="number">4</item>
                 </item>
             </argument>
         </column>
-          <column name="productname">
+        <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -204,12 +229,12 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Product Name</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="sortOrder" xsi:type="number">5</item>
                 </item>
             </argument>
         </column>
-
-        <column name="productsku">
+        <column name="email">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -219,7 +244,8 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Product SKU</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                    <item name="sortOrder" xsi:type="number">6</item>
                 </item>
             </argument>
         </column>

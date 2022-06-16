@@ -4,6 +4,8 @@ namespace Elsnertech\Productinquiry\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
 use Elsnertech\Productinquiry\Model\InquiryFactory;
+use Magento\Framework\Controller\ResultFactory; 
+
 
 class Save extends \Magento\Framework\App\Action\Action
 {
@@ -72,12 +74,13 @@ class Save extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $post = (array)$this->getRequest()->getPost();
+        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         try {
             if ($post) {
                 $inquiry = $this->inquiry->create();
                 $inquiry->setData($post)->save();
-                $this->messageManager->addSuccessMessage(__("Data Saved Successfully."));
-            //Send Mail
+                
+                //Send Mail
                 $this->_inlineTranslation->suspend();
 
                 $sender = [
@@ -112,15 +115,16 @@ class Save extends \Magento\Framework\App\Action\Action
                 ->getTransport();
                  
                 try {
-                $transport->sendMessage();
-                 
-                $this->_inlineTranslation->resume();
-                $this->messageManager->addSuccess('Email sent successfully');
-                $this->_redirect('*/*/*');
-            } catch (Exception $e) {
-                $this->messageManager->addError(__('Email was not sent.'));
-                $this->_redirect('/*/*');
-            }
+                    $transport->sendMessage();
+                    $this->_inlineTranslation->resume();
+                    $this->messageManager->addSuccess('Email sent successfully');
+                    $resultRedirect->setUrl($this->_redirect->getRefererUrl());
+                    return $resultRedirect;
+                } catch (Exception $e) {
+                    $this->messageManager->addError(__('Email was not sent.'));
+                    $resultRedirect->setUrl($this->_redirect->getRefererUrl());
+                    return $resultRedirect;
+                }
             }
                  
         } catch (\Exception $e) {

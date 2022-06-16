@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="elsner" translate="label" sortOrder="1000">
+            <label>Pwa</label>
+        </tab>
+        <section id="elsner" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>General Settings</label>
+            <tab>elsner</tab>
+            <resource>Elsner_Pwa::pwa_settings</resource>
+
+            <group id="homescreen" translate="label" type="text" sortOrder="199" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Add to Home Screen Button</label>
+                <field id="homescreen_enable" translate="label" type="select" sortOrder="99" showInDefault="1" showInWebsite="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="app_name" translate="label" type="text" sortOrder="299" showInDefault="1" showInWebsite="1">
+                    <label>App Name</label>
+                    <depends>
+                        <field id="*/*/homescreen_enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="app_short_name" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1">
+                    <label>App Short Name</label>
+                    <depends>
+                        <field id="*/*/homescreen_enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="home_screen_icon" translate="label" type="text" sortOrder="399" showInDefault="1" showInWebsite="1">
+                    <label>Icon URL (png)</label>
+                    <comment>Image Size : 512x512</comment>
+                    <depends>
+                        <field id="*/*/homescreen_enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="theme_color" translate="label" type="text" sortOrder="499" showInDefault="1" showInWebsite="1">
+                    <label>Theme Color</label>
+                    <frontend_model>Elsner\Pwa\Block\System\Config\Color</frontend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="*/*/homescreen_enable">1</field>
+                    </depends>
+                </field>
+                <field id="background_color" translate="label" type="text" sortOrder="599" showInDefault="1" showInWebsite="1">
+                    <label>Background Color</label>
+                    <frontend_model>Elsner\Pwa\Block\System\Config\Color</frontend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="*/*/homescreen_enable">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -274,44 +274,6 @@ define([
                     ]
             });
 
-
-            // sticky js
-                // var doc = document.documentElement;
-                // var w = window;
-                // var prevScroll = w.scrollY || doc.scrollTop;
-                // var curScroll;
-                // var direction = 0;
-                // var prevDirection = 0;
-                // var header = document.getElementsByClassName('header.page-header');
-            
-                // var checkScroll = function() {
-                //     curScroll = w.scrollY || doc.scrollTop;
-                //     if (curScroll > prevScroll) { 
-                //         direction = 2;
-                //     }
-                //     else if (curScroll < prevScroll) { 
-                //         direction = 1;
-                //     }
-                //     if (direction !== prevDirection) {
-                //         toggleHeader(direction, curScroll);
-                //     }
-                //     prevScroll = curScroll;
-                //   };
-            
-                // var toggleHeader = function(direction, curScroll) {
-                //     if (direction === 2 && curScroll > 52) { 
-                //         jQuery('header.page-header').addClass('sticky-active');
-                //         $('body').addClass('fixed-header');
-                //         prevDirection = direction;
-                //     }
-                //     else if (direction === 1) {
-                //         jQuery('header.page-header').removeClass('sticky-active');
-                //         $('body').removeClass('fixed-header');
-                //         prevDirection = direction;
-                //     }
-                // };
-                // window.addEventListener('scroll', checkScroll);
-
             $(window).scroll(function(){
                 if ($(window).scrollTop() >= 300) {
                     $('body').addClass('fixed-header');
@@ -326,8 +288,11 @@ define([
         });
 
         // $('body').addClass('loader-removed');
-        $(window).on('load', function() {
-            $('body').removeClass('loader-removed');
+       $( document ).ready(function() {
+        console.log('before');
+           $('body').removeClass('loader-removed');
+           console.log('after');
+           
         });
         $("header.page-header.type2 .nav-sections .nav-sections-items .nav-sections-item-content ul.header.links:first-child li.authorization-link a[data-post]").parent().hide();
 

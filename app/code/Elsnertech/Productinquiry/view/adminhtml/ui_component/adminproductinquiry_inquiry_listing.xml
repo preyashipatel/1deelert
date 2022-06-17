@@ -169,7 +169,7 @@
 	           <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
       		   <item name="altField" xsi:type="string">store image</item>
                    <item name="filter" xsi:type="string">text</item>
-                   <item name="label" xsi:type="string" translate="true">Image</item>
+                   <item name="label" xsi:type="string" translate="true">Product Image</item>
                    <item name="sortOrder" xsi:type="number">1</item>
                </item>
            </argument>
@@ -214,7 +214,7 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Inquiry</item>
+                    <item name="label" xsi:type="string" translate="true">Product Inquiry</item>
                     <item name="sortOrder" xsi:type="number">4</item>
                 </item>
             </argument>

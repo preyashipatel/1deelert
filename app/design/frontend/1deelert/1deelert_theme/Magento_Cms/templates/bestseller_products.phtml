@@ -11,11 +11,11 @@ use Magento\Framework\App\Action\Action;
 /**
  * Product list template
  *
- * @var $block \Elsnertech\Flashsale\Block\
+ * @var $block \Smartwave\Filterproducts\Block\
  */
 ?>
 <?php
-$_productCollection = $block->getFlashsaleProducts();
+$_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
 $_portohelper = $this->helper('Smartwave\Porto\Helper\Data');
@@ -49,11 +49,15 @@ if($product_type == null) {
     $product_type = 1;
 }
 ?>
-<?php if (empty($_productCollection)): ?>
+<?php if (!$_productCollection->count()): ?>
     <div class="message info empty"><div><?php echo __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
+    <div class="toolbar-custom-latest">
+        <p class="toolbar-amount product-count"><span class="toolbar-number"><?= $block->getTotalNumCount();?></span><?= __('Items');?></p>
+    </div>
     <?= $block->getToolbarHtml() ?>
     <?= $block->getAdditionalHtml() ?>
+   
     <?php
     if ($block->getMode() == 'grid') {
         $viewMode = 'grid';
@@ -78,7 +82,7 @@ if($product_type == null) {
     $image_width = ($_category_config['ratio_width'])?$_category_config['ratio_width']:300;
     $image_height = ($_category_config['ratio_height'])?$_category_config['ratio_height']:300;
     $aspect_ratio = $_category_config['aspect_ratio'];
-    if($aspect_ratio)
+    if ($aspect_ratio)
         $image_height = $image_width;
     ?>
         <div class="products wrapper <?php echo $viewMode; ?> <?php echo $columns; ?> products-<?php echo $viewMode; ?> <?php if($product_type == 2): ?>no-padding divider-line<?php endif; ?> <?php if($product_type == 5 || $product_type == 6 || $product_type == 7 || $product_type == 8): ?>no-padding<?php endif; ?> <?php if($product_type == 6): ?>divider-line<?php endif; ?>">
@@ -155,9 +159,9 @@ if($product_type == null) {
                                 <div class="actions-primary">
                                     <?php if ($_product->isSaleable()): ?>
                                         <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-                                        <form data-role="tocart-form" action="<?php echo isset($postParams['action']); ?>" method="post">
-                                            <input type="hidden" name="product" value="<?php echo isset($postParams['data']['product']); ?>">
-                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo isset($postParams['data'][Action::PARAM_NAME_URL_ENCODED]); ?>">
+                                        <form data-role="tocart-form" action="<?php echo $postParams['action']; ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
                                             <?php echo $block->getBlockHtml('formkey')?>
                                             <button type="submit"
                                                     title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
@@ -182,7 +186,7 @@ if($product_type == null) {
                                        aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                        data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
                                        data-action="add-to-wishlist"
-                                       id="<?=$_product->getId()?>falsh"
+                                       id="<?=$_product->getId();?>wishlistseller"
                                        role="button">
                                         <span><?php echo __('Add to Wish List') ?></span>
                                     </a>
@@ -327,9 +331,9 @@ if($product_type == null) {
                                         <?php endif; ?>
                                     <?php if ($_product->isSaleable()): ?>
                                         <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-                                        <form data-role="tocart-form" action="<?php echo isset($postParams['action']); ?>" method="post">
-                                            <input type="hidden" name="product" value="<?php echo isset($postParams['data']['product']); ?>">
-                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo isset($postParams['data'][Action::PARAM_NAME_URL_ENCODED]); ?>">
+                                        <form data-role="tocart-form" action="<?php echo ($postParams['action']); ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+                                            <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
                                             <?php if($product_type == 10):?>
                                                 <div class="qty-box">
                                                     <a href="javascript:void(0)" class="qtyminus"><i class="porto-icon-minus"></i></a>
@@ -404,7 +408,6 @@ if($product_type == null) {
             <?php endforeach; ?>
         </ol>
     </div>
-    
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
         <script type="text/x-magento-init">
         {
@@ -440,7 +443,7 @@ if($product_type == null) {
                 dataType: 'json'
             }).done(function (data) {
                 $(data).each(function(index, value){
-                    $('#'+value+'flash').addClass('added');
+                    $('#'+value+'wishlistseller').addClass('added');
                 });
             });
         });

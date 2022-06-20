@@ -186,6 +186,7 @@ if($product_type == null) {
                                        aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                        data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
                                        data-action="add-to-wishlist"
+                                       id="<?=$_product->getId();?>latest"
                                        role="button">
                                         <span><?php echo __('Add to Wish List') ?></span>
                                     </a>
@@ -427,5 +428,24 @@ if($product_type == null) {
 
             $(QuickView).appendTo(SourceDiv);
         })
+    });
+</script>
+<script type="text/javascript">
+    require(["jquery"],function($) {
+        $(document).ready(function() {
+            var customurl = "<?php echo $currecyHelper->getBaseUrl().'wishlistclassadd/index/wishlistclass'?>";
+            var param = 'ajax=1';
+            $.ajax({
+                showLoader: true,
+                url: customurl,
+                data: param,
+                type: "POST",
+                dataType: 'json'
+            }).done(function (data) {
+                $(data).each(function(index, value){
+                    $('#'+value+'latest').addClass('added');
+                });
+            });
+        });
     });
 </script>

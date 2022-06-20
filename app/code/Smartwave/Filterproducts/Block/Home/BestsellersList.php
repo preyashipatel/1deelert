@@ -152,4 +152,70 @@ class BestsellersList extends \Magento\Catalog\Block\Product\ListProduct
             return $limit;
         }
     }
+    /**
+     * Comment of _prepareLayout function
+     *
+     * @return void
+     */
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        $this->pageConfig->getTitle()->set(__('products'));
+        if ($this->_getProductCollection()) {
+            $toolbar = $this->getLayout()
+                   ->createBlock(
+                       'Magento\Catalog\Block\Product\ProductList\Toolbar',
+                       'product_list_toolbar'
+                   )
+                ->setTemplate('Magento_Catalog::product/list/toolbar.phtml')
+                ->setCollection($this->_getProductCollection());
+
+            $pager = $this->getLayout()->createBlock(
+                \Magento\Theme\Block\Html\Pager::class,
+                'AllProduct.product.pager'
+            )->setAvailableLimit([3=>3,6=>6,9=>9])->setShowPerPage(true)->setCollection(
+                $this->_getProductCollection()
+            );
+            $this->setChild('pager', $pager);
+            $this->setChild('toolbar', $toolbar);
+            $this->_getProductCollection()->load();
+        }
+        return $this;
+    }
+    /**
+     * Comment of getPagerHtml function
+     *
+     * @return void
+     */
+    public function getPagerHtml()
+    {
+        return $this->getChildHtml('pager');
+    }
+    /**
+     * Retrieve additional blocks html
+     *
+     * @return string
+     */
+    public function getAdditionalHtml()
+    {
+        return $this->getChildHtml('additional');
+    }
+    /**
+     * Comment of getToolbarHtml function
+     *
+     * @return void
+     */
+    public function getToolbarHtml()
+    {
+        return $this->getChildHtml('toolbar');
+    }
+    /**
+     * Comment of getMode function
+     *
+     * @return void
+     */
+    public function getMode()
+    {
+        return $this->getChildBlock('toolbar')->getCurrentMode();
+    }
 }

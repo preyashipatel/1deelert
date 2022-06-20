@@ -1319,6 +1319,25 @@ body>.custom-html .mfp-close:before{content:'';position:absolute;width:17px;top:
 	.nav-open .page-wrapper {
 	    width: 100%;
 	}
+    .modal-popup .modal-header, .modal-popup .modal-content, .modal-popup .modal-footer {
+        padding: 0;
+    }
+    
+    .modal-popup.confirm .modal-inner-wrap {
+        padding: 30px;
+    }
+    
+    .modal-popup.confirm .modal-inner-wrap footer.modal-footer {
+        margin-top: 15px;
+    }
+    
+    .modal-popup.confirm .modal-inner-wrap footer.modal-footer button {
+        font-size: 14px;
+        line-height: 1.2;
+        padding: 10px 15px;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
 }
 .footer-top-links > li {
     display: inline-block;

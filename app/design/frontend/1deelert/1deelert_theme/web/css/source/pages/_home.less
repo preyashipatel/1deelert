@@ -540,6 +540,9 @@
             .transition(all 0.5s ease);
             height: 100% !important;
             filter: grayscale(100%);
+            @media (max-width: @screen__sm){
+                filter: grayscale(0%);
+            }
         }
     }
 }
@@ -874,6 +877,9 @@
             padding: 0 5px;
         }
 
+        div[class^='swatch-opt-']{
+            display: none;
+        }
         .price-spacial-wrap{
             max-width: 50%;
             .flex();

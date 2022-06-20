@@ -81,8 +81,7 @@ class Save extends \Magento\Framework\App\Action\Action
             if ($post) {
                 $invoice = $this->_invoice->create();
                 $invoice->setData($post)->save();
-                $this->messageManager->addSuccessMessage(__("Data Saved Successfully."));
-            // Send Mail
+                // Send Mail
                 $this->_inlineTranslation->suspend();
 
                 $sender = [

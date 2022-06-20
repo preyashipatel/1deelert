@@ -130,6 +130,7 @@ define([
                             slidesToShow: 1,
                             centerMode: true,
                             centerPadding: '90px',
+                            speed: 600,
                         }
                         }
                     ]
@@ -225,6 +226,7 @@ define([
                         breakpoint: 767,
                         settings: {
                             slidesToShow: 3,
+                            speed: 400,
                         }
                         },
                     ]
@@ -289,10 +291,7 @@ define([
 
         // $('body').addClass('loader-removed');
        $( document ).ready(function() {
-        console.log('before');
-           $('body').removeClass('loader-removed');
-           console.log('after');
-           
+            $('body').removeClass('loader-removed');
         });
         $("header.page-header.type2 .nav-sections .nav-sections-items .nav-sections-item-content ul.header.links:first-child li.authorization-link a[data-post]").parent().hide();
 

@@ -314,6 +314,10 @@ header.page-header.type2 {
 
                 &.minicart-wrapper {
                     margin-right: 0;
+                    @media (max-width: @screen__md){
+                        margin: 0;
+                        padding-left: 5px;
+                    }
                 }
 
                 &.switcher-language {
@@ -352,6 +356,7 @@ header.page-header.type2 {
                         margin: 0;
                         .justify-content(flex-end);
                         .flex-direction(row-reverse);
+                        padding: 0 5px;
                     }
 
                     .my-account {
@@ -468,6 +473,7 @@ header.page-header.type2 {
                                 border-bottom: 1px solid @color-1_light;
                                 color: @color-1;
                                 font-size: 17px;
+                                text-transform: none;
                             }
 
                             &.greet.welcome {

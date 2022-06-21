@@ -1,4 +1,4 @@
-.page-products, .cms-latest-product, .cms-flash-sale {
+.page-products, .cms-latest-product, .cms-flash-sale, .cms-bestseller {
     .products.wrapper {
         margin: 0;
 
@@ -1026,7 +1026,7 @@
     }
 }
 
-.cms-latest-product{
+.cms-latest-product, .cms-bestseller{
     .toolbar-custom-latest {
         float: left;
     }
@@ -1130,9 +1130,9 @@
                 line-height: 38px;
             }
         }
-        .price-box{
+        .price-box {
             margin: 10px 0;
-            .price-wrap, span.normal-price .price{
+            .price-wrap, span.normal-price .price {
                 color: @color-1;
                 font-weight: 500;
                 font-size: @font-size_4;
@@ -1140,7 +1140,7 @@
                     font-size: @font-size_5;
                 }
             }
-            .old-price .price , span.old-price-wrap{
+            .old-price .price , span.old-price-wrap {
                 font-size: @font-size_5;
                 font-weight: 500;
                 color: @color-9_dark;
@@ -1150,7 +1150,7 @@
                 }
             }
         }
-        .attribute.value{
+        .attribute.value {
             span, h1{
                 font-size: @font-size_5 !important;
                 @media (max-width: @screen__sm){

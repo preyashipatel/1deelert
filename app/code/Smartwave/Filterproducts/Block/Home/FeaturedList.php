@@ -141,7 +141,7 @@ class FeaturedList extends \Magento\Catalog\Block\Product\ListProduct
         $limit = $this->getData("product_count");
         if (!$limit) {
             $limit = 10;
-            return $limit;
         }
+        return $limit;
     }
 }

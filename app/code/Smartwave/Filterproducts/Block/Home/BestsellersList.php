@@ -149,8 +149,8 @@ class BestsellersList extends \Magento\Catalog\Block\Product\ListProduct
         $limit = $this->getData("product_count");
         if (!$limit) {
             $limit = 10;
-            return $limit;
         }
+        return $limit;
     }
     /**
      * Comment of _prepareLayout function
@@ -217,5 +217,15 @@ class BestsellersList extends \Magento\Catalog\Block\Product\ListProduct
     public function getMode()
     {
         return $this->getChildBlock('toolbar')->getCurrentMode();
+    }
+
+    /**
+     * Total number of products in current category.
+     *
+     * @return int
+     */
+    public function getTotalNumCount()
+    {
+        return $this->getProductCount();
     }
 }

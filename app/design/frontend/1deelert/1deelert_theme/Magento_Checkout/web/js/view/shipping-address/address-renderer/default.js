@@ -45,7 +45,7 @@
             * @return {String}
          */
         getBaseUrl: function (addressId) {
-            var customLink = urlBuilder.build('customer/address/edit/id/'+addressId+'?checkout=true');
+            var customLink = urlBuilder.build('customer/address/edit/id/'+addressId);
             return customLink;
         },
 

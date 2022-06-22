@@ -1,4 +1,11 @@
 var config = {
+config: {
+        mixins: {
+            'mage/collapsible': {
+                'js/mage/collapsible-mixin': true
+            }
+        }
+    },
 paths: {
         slick: 'js/slick'
     },

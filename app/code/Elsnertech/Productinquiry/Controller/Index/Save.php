@@ -93,7 +93,8 @@ class Save extends \Magento\Framework\App\Action\Action
                 'productsku' => $post['productsku'],
                 'name' => $post['name'],
                 'email' => $post['email'],
-                'inquiry' => $post['inquiry']
+                'inquiry' => $post['inquiry'],
+                'productimage' => $post['productimage']
                 ];
                 
              

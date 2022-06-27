@@ -353,7 +353,9 @@
         padding-bottom: 50px;
     }
 }
-
+.moduletable {
+    padding-bottom: 50px;
+}
 .h100 {
     .flex();
     width: 100%;
@@ -383,5 +385,25 @@
 .paym_descript{
     .block-title{
         text-align: left;
+    }
+}
+
+.taxinvoice-index-index, .payslip-index-index{
+    .page.messages {
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 60px;
+        padding: 0 15px;
+        @media (max-width: @screen__md){
+            max-width: 95%;
+            margin-top: 40px;
+        }
+        @media (max-width: @screen__sm){
+            max-width: 100%;
+            margin-top: 30px;
+        }
+        .message {
+            margin: 0;
+        }
     }
 }

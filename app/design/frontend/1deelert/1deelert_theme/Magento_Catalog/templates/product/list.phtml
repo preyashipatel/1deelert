@@ -257,6 +257,7 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                                         <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
                                             <a href="#"
                                                class="action towishlist actions-secondary"
+                                               id="<?= $_product->getId();?>wishlist"
                                                title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                                aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                                data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
@@ -299,6 +300,7 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                                 <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
                                     <a href="#"
                                        class="action towishlist actions-secondary"
+                                       id="<?= $_product->getId();?>wishlist"
                                        title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                        aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                        data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
@@ -313,6 +315,7 @@ $_inscroll = $_portohelper->getConfig('layered_navigation/general/infinite_scrol
                                 <?php if($_category_config['addtowishlist']): ?>
                                 <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
                                     <a href="#"
+                                        id="<?= $_product->getId();?>wishlist"
                                        class="action towishlist actions-secondary"
                                        title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                        aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"

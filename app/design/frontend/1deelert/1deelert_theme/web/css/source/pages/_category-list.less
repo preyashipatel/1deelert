@@ -315,6 +315,22 @@
                         margin: 0;
                     }
                 }
+
+                &.towishlist{
+                    background-image: url(../images/wishlist.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 22px;
+                    @media (max-width: @screen__sm){
+                        background-size: 18px;
+                    }
+                    &.added{
+                        background-image: url(../images/heart-filled.svg);
+                    }
+                    &::before{
+                        display: none;
+                    }
+                }
             }
         }
 

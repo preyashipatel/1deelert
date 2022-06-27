@@ -85,9 +85,11 @@ class Save extends \Magento\Framework\App\Action\Action
     	$payslip = $this->_payslip->create();
         $payslip->setData($data);
         if($payslip->save()){
+            if(isset($result)){
             // Send Mail
-            $filePath = $result['path'].$result['file'];
-            $fileName = $result['name'];
+                $filePath = $result['path'].$result['file'];
+                $fileName = $result['name'];
+            }
 
             $this->inlineTranslation->suspend();           
             $sender = [

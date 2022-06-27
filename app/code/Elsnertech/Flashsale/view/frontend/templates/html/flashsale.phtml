@@ -24,7 +24,7 @@
         </div>
         </div>
         <div class="block-title width40">
-            <h2 class="title"><?= /* @noEscape */ $block->getFlashsaleProductsName() ?></h2>
+            <h2 class="title"><?= /* @noEscape */ __($block->getFlashsaleProductsName()) ?></h2>
         </div>
     </div>
     <?php if (empty($products)): ?>
@@ -131,7 +131,7 @@
                 <?php endforeach ?>
             </div>
         </ol>
-        <a href="<?= /* @noEscape */ $storeUrl.'flash-sale';?>" class="see-all-btn">See All</a>
+        <a href="<?= /* @noEscape */ $storeUrl.'flash-sale';?>" class="see-all-btn"><?=/* @noEscape */ __("See All");?></a>
     </div>
 </div>
 

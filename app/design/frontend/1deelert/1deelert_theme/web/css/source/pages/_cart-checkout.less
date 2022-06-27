@@ -330,15 +330,31 @@ body.checkout-index-index._has-modal {
             height: auto;
             line-height: 1;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 0.5px;
             margin: 0 10px 0 0;
             border: 1px solid  @color-1;
+            width: auto;
 
             &:hover{
                 background: @color-6;
                 color: @color-1;
                 border: 1px solid  @color-1;
+            }
+        }
+        .edit-address-link {
+            position: relative;
+            left: 0;
+            right: auto;
+            &::before{
+                display: none;
+            }
+            span {
+                clip: initial;
+                position: relative;
+                width: auto;
+                height: auto;
+                margin: 0;
             }
         }
         .secondary{
@@ -383,8 +399,28 @@ body.checkout-index-index._has-modal {
                 border-color: @color-1;
                 font-size: 15px;
                 line-height: 1.6;
+                @media (max-width: @screen__xl){
+                    width: 45%;
+                }
+                @media (max-width: @screen__md){
+                    width: 100%;
+                }
                 &::after{
                     background: @color-1;
+                }
+                a.Edit {
+                    background-color: @color-1;
+                    color: @color-5;
+                    border-radius: 8px;
+                    padding: 0.8em 1.5em;
+                    height: auto;
+                    line-height: 1;
+                    font-weight: 600;
+                    font-size: 14px;
+                    letter-spacing: 0.5px;
+                    margin: 0 10px 0 0;
+                    border: 1px solid @color-1;
+                    display: inline-block;
                 }
             }
             .checkout-shipping-address{
@@ -432,6 +468,11 @@ body.checkout-index-index._has-modal {
                         padding-bottom: 0;
                         td {
                             font-size: 16px;
+                        }
+                        td#label_carrier_null_tablerate {
+                            @media (max-width: @screen__sm){
+                                display: none;
+                            }
                         }
                     }
                 }

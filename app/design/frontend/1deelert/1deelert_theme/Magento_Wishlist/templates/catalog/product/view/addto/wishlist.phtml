@@ -14,8 +14,7 @@
 
 <?php if ($block->isWishListAllowed()) : ?>
     <a href="#"
-       class="action towishlist"
-       id="<?= $product->getId()?>wishlistProduct"
+       class="action towishlist <?= $product->getId()?>wishlistProduct"
        data-post='<?= /* @noEscape */ $block->getWishlistParams() ?>'
        data-action="add-to-wishlist"><span><?= $block->escapeHtml(__('Add to Wish List')) ?></span></a>
 
@@ -41,7 +40,7 @@
             }).done(function (data) {
                 console.log(data);
                 $(data).each(function(index, value){
-                    $('#'+value+'wishlistProduct').addClass('added');
+                    $('.'+value+'wishlistProduct').addClass('added');
                 });
             });
         });

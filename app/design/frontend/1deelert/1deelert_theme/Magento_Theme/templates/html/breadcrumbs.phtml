@@ -7,18 +7,18 @@
 <?php if ($crumbs && is_array($crumbs)): ?>
 <div class="breadcumb-wrapper">
     <?php $lastCrums = end($crumbs);?>
-    <h4><?= /* @noEscape */$lastCrums['label'];?></h4>
+    <h4><?= /* @noEscape */ __($lastCrums['label']);?></h4>
     <ul class="items">
         <?php foreach ($crumbs as $crumbName => $crumbInfo): ?>
-            <li class="item <?= $block->escapeHtmlAttr($crumbName) ?>">
+            <li class="item <?= __($block->escapeHtmlAttr($crumbName)) ?>">
                 <?php if ($crumbInfo['link']): ?>
-                    <a href="<?= $block->escapeUrl($crumbInfo['link']); ?>"
-                    title="<?= $block->escapeHtml($crumbInfo['title']); ?>" >
-                        <?= $block->escapeHtml($crumbInfo['label']) ?>
+                    <a href="<?= __($block->escapeUrl($crumbInfo['link'])); ?>"
+                    title="<?=__($block->escapeHtml($crumbInfo['title'])); ?>" >
+                        <?= __($block->escapeHtml($crumbInfo['label'])) ?>
                     </a>
                 <?php endif; ?>
             <?php if ($crumbInfo['last']): ?>
-                <strong><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+                <strong><?= __($block->escapeHtml($crumbInfo['label'])) ?></strong>
             <?php endif; ?>
             </li>
             

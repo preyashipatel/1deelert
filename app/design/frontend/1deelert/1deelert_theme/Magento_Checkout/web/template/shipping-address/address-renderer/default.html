@@ -15,7 +15,7 @@
         <text args="$parent.getCustomAttributeLabel(element)"></text>
         <br/>
     </each>
-    <a  attr="'href': getBaseUrl(address().customerAddressId)" visible="!address().isEditable()" class="Edit">Edit</a>
+    <a  attr="'href': getBaseUrl(address().customerAddressId)" visible="!address().isEditable()" class="Edit"><span translate="'Edit Address'"></span></a>
     <button visible="address().isEditable()" type="button"
             class="action edit-address-link"
             click="editAddress">

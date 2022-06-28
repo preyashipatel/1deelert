@@ -40,8 +40,8 @@ class UrlComparatorTest extends TestCase
     public function isEqualDataProvider(): array
     {
         return [
-            ['/api/v1/instance_client/registration', '/api/v1/instance_client/registration', '{}', true],
-            ['/api/v1/instance_client/registration', '/api/v1/instance_client/ping', '{}', false],
+            ['/api/v1/instance/registration', '/api/v1/instance/registration', '{}', true],
+            ['/api/v1/instance/registration', '/api/v1/instance_client/ping', '{}', false],
             ['/api/v1/instance_client/{}/collect', '/api/v1/instance_client/test/collect', '{}', true],
             ['/api/v1/instance_client/test/collect', '/api/v1/instance_client/test2/collect', '{}', false]
         ];

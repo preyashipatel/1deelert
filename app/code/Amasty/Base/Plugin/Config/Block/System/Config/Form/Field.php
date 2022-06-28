@@ -34,7 +34,7 @@ class Field
         $html,
         \Magento\Framework\Data\Form\Element\AbstractElement $element
     ) {
-        if (strpos($html, 'tooltip-content') !== false) {
+        if (strpos((string)$html, 'tooltip-content') !== false) {
             $html = $this->replaceString($html);
         }
 

@@ -53,7 +53,7 @@ class RequestManager
     {
         /** @var Curl $curl */
         $curl = $this->curlFactory->create();
-        $url = $this->urlBuilder->build('/api/v1/instance_client/registration');
+        $url = $this->urlBuilder->build('/api/v1/instance/registration');
         $postParams = json_encode(['domain' => $domain]);
 
         return $curl->request($url, $postParams);

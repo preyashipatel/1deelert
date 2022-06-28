@@ -61,7 +61,7 @@
     <type name="Amasty\Base\Utils\Http\Response\Entity\ConfigPool">
         <arguments>
             <argument name="configs" xsi:type="array">
-                <item name="/api/v1/instance_client/registration" xsi:type="object">
+                <item name="/api/v1/instance/registration" xsi:type="object">
                     Amasty\Base\Model\LicenceService\Response\Entity\Config\RegisteredInstance
                 </item>
             </argument>

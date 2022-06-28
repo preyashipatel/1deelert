@@ -61,7 +61,7 @@ class Curl
         );
 
         $responseData = $curl->read();
-        $responseData = json_decode($responseData, true);
+        $responseData = json_decode($responseData, true) ?? [];
         $httpCode = $curl->getInfo(CURLINFO_HTTP_CODE);
 
         if (!in_array($httpCode, [200, 204])) {

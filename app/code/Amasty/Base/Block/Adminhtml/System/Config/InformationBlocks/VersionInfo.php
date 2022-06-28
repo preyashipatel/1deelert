@@ -107,7 +107,7 @@ class VersionInfo extends Template
                 $name = $this->getCurrentModuleFeedData()['name'];
                 $name = str_replace(' for Magento 2', '', $name);
             } else {
-                $name = __('Extension');
+                $name = (string)__('Extension');
             }
         }
 

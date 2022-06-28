@@ -87,7 +87,7 @@ class RequestManagerTest extends TestCase
     private function registerInstanceInit(): array
     {
         $domain = 'https://amasty.com';
-        $path = '/api/v1/instance_client/registration';
+        $path = '/api/v1/instance/registration';
         $url = 'https://amasty-licence.com' . $path;
         $postParams = json_encode(['domain' => $domain]);
         $curlMock = $this->createPartialMock(Curl::class, ['request']);

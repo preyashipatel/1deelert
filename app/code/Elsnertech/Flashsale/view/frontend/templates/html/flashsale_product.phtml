@@ -319,6 +319,7 @@ if($product_type == null) {
                                                aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                                data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
                                                data-action="add-to-wishlist"
+                                                id="<?=$_product->getId()?>flash"
                                                role="button">
                                                 <span><?php echo __('Add to Wish List') ?></span>
                                             </a>
@@ -361,6 +362,7 @@ if($product_type == null) {
                                        aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                        data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
                                        data-action="add-to-wishlist"
+                                        id="<?=$_product->getId()?>flash"
                                        role="button">
                                         <span><?php echo __('Add to Wish List') ?></span>
                                     </a>

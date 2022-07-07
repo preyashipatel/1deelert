@@ -7,14 +7,13 @@ $socialButtonsType = $block->getButtonShapeClass();
 $enabledLabels = $block->getButtonLabelState();
 ?>
 <?php if (count($enabledSocials)): ?>
-    <span class="amsl-separator">
+    <span class="amsl-login">
         <span class="amsl-icon"><?= $escaper->escapeHtml(__('or'))?></span>
     </span>
     <div class="amsl-social-wrapper">
         <div class="amsl-social-login <?= ($enabledLabels && $socialButtonsType) ? '-labeled-buttons' : ''?>">
             <p class="amsl-error -social" data-am-js="am-social-error"></p>
-            <span class="amsl-title"><?= $escaper->escapeHtml(__('Login with Your Social Profile')) ?></span>
-            <span class="amsl-title -short"><?= $escaper->escapeHtml(__('Login with')) ?></span>
+            
             <div class="amsl-buttons" data-amslogin="button-wrap">
                 <?php foreach ($enabledSocials as $social): ?>
                     <div class="amsl-button-wrapper
@@ -27,7 +26,7 @@ $enabledLabels = $block->getButtonLabelState();
                             <span class="amsl-social-icon"></span>
                             <?php if ($socialButtonsType && $enabledLabels): ?>
                                 <span class="amsl-text">
-                                    <?= $escaper->escapeHtml(__('Continue with %1', $social['label'])) ?>
+                                    <?= /* @noEscape */ $escaper->escapeHtml(__('Continue with %1', $social['label'])) ?>
                                 </span>
                             <?php endif;?>
                         </a>

@@ -31,6 +31,6 @@
             </container>
         </referenceContainer>
         <referenceBlock name="page.main.title" remove="true"/>
-        <move element="social-login-popup-authentication-social-login" destination="customer.login.container" after="-"/>
+        <move element="amsociallogin-social-below_login" destination="customer.login.container" after="-"/>
     </body>
 </page>

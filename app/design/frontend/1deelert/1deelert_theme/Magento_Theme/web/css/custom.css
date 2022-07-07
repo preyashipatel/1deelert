@@ -361,7 +361,7 @@ header.page-header.type2 .header-main .header-right > div.header-contact .show-i
 .minicart-wrapper .block-minicart .subtotal .amount {margin-left: auto;}
 .minicart-wrapper .block-minicart .subtotal .amount .price {    color: #4E245E;    font-size: 15px;font-weight: 700;}
 .minicart-wrapper .block-minicart .block-content > .actions {padding: 0 10px 10px;}
-.block-minicart .block-content > .actions > .primary .action.primary { font-family: inherit;font-size: 12px;letter-spacing: 0.5px;text-transform: uppercase;padding: .875rem 1.5rem;border-radius: 8px;float: none;width: 100%;font-weight: 600;margin-bottom: 10px;height: auto;line-height: inherit;color: #fff;background-color: #4E245E; border: 1px solid #4E245E; }
+.block-minicart .block-content > .actions > .primary .action.primary { font-family: inherit;font-size: 15px;letter-spacing: 0.5px;text-transform: none;padding: .675rem 1.5rem;border-radius: 8px;float: none;width: 100%;font-weight: 600;margin-bottom: 10px;height: auto;line-height: inherit;color: #fff;background-color: #4E245E; border: 1px solid #4E245E; }
 .block-minicart .block-content > .actions > .primary .action.primary:hover{
     color: #4E245E;
     background: transparent;

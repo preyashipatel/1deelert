@@ -816,6 +816,8 @@ aside.modal-popup.modal-slide._inner-scroll{
             line-height: 1;
             transform: rotate(0);
             z-index: 9;
+            text-transform: none;
+
             &::after{
                 top: 12px;
                 left: 13px;
@@ -910,7 +912,9 @@ div#modal-content-0 {
                 color: @color-5;
                 border-radius: 8px;
                 font-size: 18px;
-                letter-spacing: 1px;
+                letter-spacing: 0.5px;
+                text-transform: none;
+
                 @media (max-width: @screen__md){
                     font-size: 14px;
                 }

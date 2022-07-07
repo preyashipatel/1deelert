@@ -53,5 +53,11 @@
         </referenceBlock>
         <referenceBlock name="prev_next_products" remove="true"/>
         <referenceBlock name="product.info.sku" remove="true"/>
+
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.custombutton" template="Magento_Catalog::product/view/custombutton.phtml"/>
+        </referenceContainer>
+        <move element="product.info.custombutton" destination="product.info.main" after="product.info.price" />
+
     </body>
 </page>

@@ -606,6 +606,42 @@
         a#button{
             cursor: pointer;
         }
+
+        .bt-line {
+            margin-top: 20px;
+            a.btn-primary {
+                border-radius: 8px;
+                background: #3ace00;
+                color: #fff;
+                box-shadow: inset 0 0 13px #54b948;
+                line-height: 1.1;
+                display: inline-block;
+                padding: 14px 30px 14px 65px;
+                letter-spacing: 0.5px;
+                font-weight: 500;
+                position: relative;
+                min-height: 45px;
+                @media (max-width: @screen__md) {
+                    min-height: 40px;
+                }
+                &::before{
+                    content: "";
+                    background-image: url(../images/line-messenger-logo.png);
+                    width: 40px;
+                    height: 40px;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    top: 4px;
+                    left: 20px;
+                    @media (max-width: @screen__md){
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+        }
+
     }
 
     .product.info {

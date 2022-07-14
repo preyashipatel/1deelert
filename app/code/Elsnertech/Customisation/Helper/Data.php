@@ -98,4 +98,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         //  $this->_currency->getCurrencySymbol();
         return $this->priceCurrency->getCurrencySymbol();
     }
+
+    public function getCurrentCategory()
+    {
+        $category = $this->_registry->registry('current_category');//get current category
+    }
 }

@@ -151,6 +151,7 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
                         ->addFinalPrice()
                         ->addTaxPercents()
                         ->addAttributeToSelect('*')
+                        ->addUrlRewrite()
                         ->addFieldToFilter('entity_id', ['in' => $flashproducts]);
         } else {
             return $flashsaleModel;

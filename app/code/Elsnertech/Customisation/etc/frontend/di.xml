@@ -3,7 +3,9 @@
     <preference for="Mirasvit\LayeredNavigation\Block\Renderer\SwatchRenderer" type="Elsnertech\Customisation\Block\LayeredNavigation\SwatchRenderer" />
     <preference for="Magento\Customer\Controller\Address\FormPost" type="Elsnertech\Customisation\Controller\Address\FormPost" />
 
-    <!-- <type name="Magento\Customer\Controller\Address\FormPost">
-      <plugin name="formplug" type="Elsnertech\Customisation\Plugin\FormPost" sortOrder="1"/>
-   </type> -->
+
+   <preference for="Magento\Catalog\Model\Product\Url"  type="Elsnertech\Customisation\Model\Url" />
+ <type name="Magento\UrlRewrite\Controller\Router">
+        <plugin name="aroundMatch" type="Elsnertech\Customisation\Controller\RouterData" sortOrder="10" disabled="false"/>
+    </type>    
 </config>

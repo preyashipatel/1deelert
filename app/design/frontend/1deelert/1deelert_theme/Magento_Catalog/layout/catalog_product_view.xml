@@ -58,6 +58,8 @@
             <block class="Magento\Catalog\Block\Product\View" name="product.info.custombutton" template="Magento_Catalog::product/view/line_btn.phtml"/>
         </referenceContainer>
         <move element="product.info.custombutton" destination="product.info.main" after="productinquiry" />
-
+        <referenceContainer name="product.info.social">
+            <block class="Magento\Catalog\Block\Product\View" name="product_view_addthis_links" before="-" template="Magento_Catalog::product/view/addthis.phtml"/>
+        </referenceContainer>
     </body>
 </page>

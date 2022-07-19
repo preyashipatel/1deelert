@@ -217,7 +217,7 @@ if($product_type == null) {
                 <?php echo($iterator == count($_productCollection)+1) ? '</div>' : '' ?>
             <?php endforeach; ?>
         </div>
-        <a href="<?= $storeUrl.'latest-product';?>" class="see-all-btn"><?= /* @noEscape */ __('See All')?></a>
+        <a href="<?= $storeUrl.'latest-products.html';?>" class="see-all-btn"><?= /* @noEscape */ __('See All')?></a>
     </div>
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
         <script type="text/x-magento-init">

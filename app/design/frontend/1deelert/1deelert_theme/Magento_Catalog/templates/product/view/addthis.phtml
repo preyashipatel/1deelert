@@ -1,6 +1,4 @@
-<?php $_product = \Magento\Framework\App\ObjectManager::getInstance()
-->get(\Magento\Framework\Registry::class)
-->registry('product');?>
+<?php $_product = $block->getProduct();?>
 <div class="product-share">
   <div class="share-links">
     <a href="https://www.facebook.com/sharer.php?u=<?=/* @noEscape */ $_product->getProductUrl();?>"

@@ -72,6 +72,7 @@
         <div class="header-left">
           <span data-action="toggle-nav" class="action nav-toggle">
             <span><?= /* @noEscape */ __('Toggle Nav') ?></span></span>
+            
           <?= /* @noEscape */ $this->getChildHtml("logo"); ?>
         </div>
         <div class="header-center">
@@ -82,8 +83,10 @@
           </div>
         </div>
         <div class="header-right">
+
           <div class="home-link mobile-hide">
             <a href="<?= /* @noEscape */ $storeUrl;?>"><span><?= /* @noEscape */ __('Home');?></span></a>
+           
           </div>
           <div class="store-link mobile-hide">
             <span><?=/* @noEscape */ __('Order Channel');?></span>

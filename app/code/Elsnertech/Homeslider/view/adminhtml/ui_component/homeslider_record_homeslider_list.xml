@@ -133,7 +133,7 @@
                 </item>
             </argument>
         </column>
-        <column name="store_id" class="Elsnertech\Homeslider\Ui\Component\Listing\Column\Store">
+        <!-- <column name="store_id" class="Elsnertech\Homeslider\Ui\Component\Listing\Column\Store">
            <argument name="data" xsi:type="array">
                <item name="config" xsi:type="array">
                <item name="component" xsi:type="string">Elsnertech_Homeslider/js/ui/grid/columns/html</item>
@@ -141,7 +141,7 @@
                <item name="label" xsi:type="string" translate="true">Store View</item>
                </item>
            </argument>
-       </column>
+       </column> -->
        <!-- Add Action with each row of Homeslider and for this we will create a class Action -->
        <actionsColumn name="actions" class="Elsnertech\Homeslider\Ui\Component\Listing\Homeslider\Column\Action">
            <argument name="data" xsi:type="array">

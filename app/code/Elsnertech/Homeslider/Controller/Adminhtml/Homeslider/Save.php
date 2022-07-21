@@ -70,7 +70,8 @@ class Save extends \Magento\Backend\App\Action
         if (isset($data['id'])) {
             $id = $data['id'];
         }
-        $filename = $FILES['image']['name'];
+        $files = $this->getRequest()->getFiles()->toArray();
+        $filename = $files['image']['name'];
         $coll = $this->_mymodulemodelFactory->create();
         $col1 = $coll->getdata();
         $camweara_images = '/theme/';
@@ -95,7 +96,7 @@ class Save extends \Magento\Backend\App\Action
                             //     mkdir($mediapath.'slider_images/', 0777, true);
                             // }
                             $path = $mediapath.$camweara_images;
-                            move_uploaded_file($FILES['image']['tmp_name'], $path.$filename);
+                            move_uploaded_file($files['image']['tmp_name'], $path.$filename);
                             $data['image'] = 'theme/'.$filename;
                 } else {
                     $data['image'] = $rowData->getimage();
@@ -123,7 +124,7 @@ class Save extends \Magento\Backend\App\Action
                     $mediaDir = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath();
                     $mediapath = $this->_mediaBaseDirectory = rtrim($mediaDir, '/');
                     $path = $mediapath.$camweara_images;
-                    move_uploaded_file($FILES['image']['tmp_name'], $path.$filename);
+                    move_uploaded_file($files['image']['tmp_name'], $path.$filename);
                     $data['image'] = 'homeslider/'.$filename;
                 } else {
                     $data['image'] = $rowData->getImage();
@@ -134,7 +135,7 @@ class Save extends \Magento\Backend\App\Action
                     $mediaDir = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath();
                     $mediapath = $this->_mediaBaseDirectory = rtrim($mediaDir, '/');
                     $path = $mediapath.$camweara_images;
-                    move_uploaded_file($FILES['image2']['tmp_name'], $path.$filename1);
+                    move_uploaded_file($files['image2']['tmp_name'], $path.$filename1);
                     $data['image2'] = $camweara_images.$filename1;
                 } else {
                     if (isset($data['image2']['delete'])) {
@@ -172,7 +173,7 @@ class Save extends \Magento\Backend\App\Action
                               $mediaDir = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath();
                               $mediapath = $this->_mediaBaseDirectory = rtrim($mediaDir, '/');
                              $path = $mediapath.$camweara_images;
-                              move_uploaded_file($FILES['image']['tmp_name'], $path.$filename);
+                              move_uploaded_file($files['image']['tmp_name'], $path.$filename);
                              $data['image'] = 'theme/'.$filename;
                     } else {
                         $data['image'] = $rowData->getImage();

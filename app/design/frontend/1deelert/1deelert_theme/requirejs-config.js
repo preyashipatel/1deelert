@@ -16,8 +16,10 @@ shim: {
 },
 map: {
         '*': {
-            deelert: 'js/1deelert',
             'Mirasvit_LayeredNavigation/js/lib/nprogress':'Mirasvit_LayeredNavigation/js/lib/nprogress'
         }
-    }
+    },
+deps:[
+    'js/1deelert'
+]
 };

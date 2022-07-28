@@ -3,7 +3,7 @@ $helper = $this->helper(\Elsnertech\Homeslider\Helper\Data::class);
 $storeid = $helper->getStoreId();
 ?>
 
-    <div id="homeSlider" class="owl-carousel owl-theme banner web-banner">
+    <div id="homeSlider" class="slider slick-slider  banner web-banner">
 
         <?php
           $collection = $block->getResult();
@@ -27,14 +27,9 @@ $storeid = $helper->getStoreId();
         <?php } ?>
 
     </div>
-
-
-<script type="text/javascript">
-    require([
-        'jquery',
-        'owl.carousel/owl.carousel.min'
-    ], function($) {
-        $("#homeSlider").owlCarousel({
+<script data="js" type="text/javascript">
+    
+        $("#homeSlider").slick({
             margin: 0,
             nav: true,
             navText: ["<i class='porto-icon-chevron-left'></i>", "<i class='porto-icon-chevron-right'></i>"],
@@ -56,5 +51,5 @@ $storeid = $helper->getStoreId();
                 }
             }
         });
-    });
+    
 </script>

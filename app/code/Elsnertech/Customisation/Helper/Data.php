@@ -8,6 +8,8 @@ use Magento\Catalog\Model\CategoryFactory;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 
+
+
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
@@ -23,7 +25,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @var [type]
      */
     protected $_currency;
-
+    protected $_context;
     /**
      * Editor constructor.
      *
@@ -41,14 +43,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Directory\Model\Currency $currency,
         PriceCurrencyInterface $priceCurrency,
-        Registry $registry
+        Registry $registry,
+        \Magento\Framework\App\Action\Context $_context
     ) {
         $this->_scopeConfig = $scopeConfig;
         $this->_storeManager=$storeManager;
         $this->_registry = $registry;
         $this->_currency = $currency;
         $this->priceCurrency = $priceCurrency;
-
+        $this->context = $_context;
         parent::__construct($context);
     }
     
@@ -103,4 +106,17 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $category = $this->_registry->registry('current_category');//get current category
     }
+
+    /**
+     * Description of getLayout here.
+     *
+     * @param
+     */
+    public function getLayout()
+    {
+        $request = $this->context->getRequest();
+        $pagename = $request->getFullActionName();
+        return $pagename;
+    }
+     
 }

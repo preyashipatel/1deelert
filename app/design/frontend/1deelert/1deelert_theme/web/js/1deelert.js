@@ -2,8 +2,8 @@ define([
         "jquery",
         'slick'
     ], function ($) {
-    "use strict";
-    return function customFooter(config, element) {
+        "use strict";
+
         $(".social-chat").on('click', function () {
             $(this).toggleClass('social-active');
             $(this).next().toggleClass('active');
@@ -54,43 +54,12 @@ define([
        
         //Show hide passowrd 
          $("#showPasswordReg").click(function(){
-            console.log('call');
             $(this).prop("checked") ?  $("#password").prop("type", "text") : $("#password").prop("type", "password");
             $(this).prop("checked") ?  $("#password-confirmation").prop("type", "text") : $("#password-confirmation").prop("type", "password");
         });
         
-        $('.category-lists').hide();
-        $(".down-arrow").click(function(){
-            $('.category-lists').toggle();
-            $(this).toggleClass('arrow-active');
-        });
-
         var viewportWidth = $(window).width();
-        if (viewportWidth > 991) {
-            $('.menu-slider').slick({
-                draggable: true,
-                accessibility: false,
-                variableWidth: true,
-                slidesToShow: 1,
-                arrows: false,
-                dots: false,
-                swipeToSlide: true,
-                infinite: false,
-                speed: 500,
-            });
-        }
-        $('.menu-slider-custom').slick({
-            draggable: true,
-            accessibility: false,
-            variableWidth: true,
-            slidesToShow: 1,
-            arrows: false,
-            dots: false,
-            swipeToSlide: true,
-            infinite: false,
-            speed: 800,
-        });
-
+        
         $(document).ready(function () {
             var viewportWidth = $(window).width();
             $('.flaseSale').slick({
@@ -289,10 +258,7 @@ define([
             
         });
 
-        // $('body').addClass('loader-removed');
-       $( document ).ready(function() {
-            $('body').removeClass('loader-removed');
-        });
+       
         $("header.page-header.type2 .nav-sections .nav-sections-items .nav-sections-item-content ul.header.links:first-child li.authorization-link a[data-post]").parent().hide();
 
         if ($(window).width() < 991) {
@@ -303,7 +269,4 @@ define([
             });
         }
        
-
-        
-    }
 });

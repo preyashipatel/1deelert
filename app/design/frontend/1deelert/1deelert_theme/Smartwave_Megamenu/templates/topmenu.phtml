@@ -32,7 +32,7 @@ if ($_config['general']['enable']) {
     
     <ul class="mobile-main-category desktophide">
         <li class="ui-menu-item home-catagory">
-            <a href="#" class="level-top" title="บ้าน"><span><?=/* @noEscape */ __('Home');?></span></a>
+            <a href="<?= /* @noEscape */ $storeUrl;?>" class="level-top" title="บ้าน"><span><?=/* @noEscape */ __('Home');?></span></a>
         </li>
     </ul>
     <div class=" toggle-category desktophide" id="category">
@@ -51,23 +51,19 @@ if ($_config['general']['enable']) {
                 title="<?=/* @noEscape */ __('Flash sales');?>"><?=/* @noEscape */ __('Flash sales');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?=/* @noEscape */ $storeUrl.'promotion';?>" class="level-top"
+                <a href="<?=/* @noEscape */ $storeUrl.'products/3/promotion.html';?>" class="level-top"
                 title="<?=/* @noEscape */ __('Promotions');?>"><?=/* @noEscape */ __('Promotions');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?=/* @noEscape */ $storeUrl.'promotion';?>" class="level-top"
-                title="<?=/* @noEscape */ __('Promotions');?>"><?=/* @noEscape */ __('Promotions');?></a>
-        </li>
-        <li class="ui-menu-item cms-catagory">
-                <a href="<?= /* @noEscape */$storeUrl.'bestseller';?>" class="level-top"
+                <a href="<?= /* @noEscape */$storeUrl.'mproduct/best-seller.html';?>" class="level-top"
                 title="<?=/* @noEscape */ __('Best Sellers');?>"><?=/* @noEscape */ __('Best Sellers');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= /* @noEscape */$storeUrl.'how-to-buy';?>" class="level-top"
+                <a href="<?= /* @noEscape */$storeUrl.'buy-payment/how-to-buy.html';?>" class="level-top"
                 title="<?=/* @noEscape */ __('How to order');?>"><?=/* @noEscape */ __('How to order');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">
-                <a href="<?= /* @noEscape */$storeUrl.'payment-method';?>" class="level-top"
+                <a href="<?= /* @noEscape */$storeUrl.'payment';?>" class="level-top"
                 title="<?=/* @noEscape */ __('Payment method');?>"><?=/* @noEscape */ __('Payment method');?></a>
         </li>
         <li class="ui-menu-item cms-catagory">

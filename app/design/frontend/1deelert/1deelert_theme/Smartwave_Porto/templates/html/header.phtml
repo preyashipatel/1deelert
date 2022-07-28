@@ -1,5 +1,7 @@
 <?php
     $_helper = $this->helper(\Smartwave\Porto\Helper\Data::class);
+    $_layout = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
+    $checkPage = $_layout->getLayout();
     $storeUrl = $_helper->getBaseLinkUrl();
     $header_type = $this->getConfig('porto_settings/header/header_type');
     $header2_text = $this->getConfig('porto_settings/header/header2_text');
@@ -104,7 +106,7 @@
               <?=/* @noEscape */ __('About us');?></a></li>
               <li><a href="<?=/* @noEscape */ $storeUrl.'flash-sale';?>" class="level-top"
                 title="<?=/* @noEscape */ __('Flash Sales');?>"><?=/* @noEscape */ __('Flash Sales');?></a></li>
-              <li><a href="<?=/* @noEscape */ $storeUrl.'mproduct/promotion.html';?>" class="level-top"
+              <li><a href="<?=/* @noEscape */ $storeUrl.'products/3/promotion.html';?>" class="level-top"
                 title="<?=/* @noEscape */ __('Promotions');?>"><?=/* @noEscape */ __('Promotions');?></a></li>
               
                 <li><a href="<?= /* @noEscape */$storeUrl.'condominium';?>" class="level-top"
@@ -1615,6 +1617,88 @@
 </div>
 <?php endif; ?>
 <?php
-    if ($show_notice && $show_notice == 2)
+if ($show_notice && $show_notice == 2)
         echo $this->getChildHtml("porto_custom_notice");
 ?>
+<?php $checkPage = $_layout->getLayout();
+if($checkPage == 'checkout_index_index' || $checkPage == 'checkout_cart_index'):?>
+<script  type="text/javascript">
+     require([
+        'jquery',
+        'slick'
+    ], function($) {
+$( document ).ready(function() {
+    $('body').removeClass('loader-removed');
+    $('.category-lists').hide();
+      $(".down-arrow").click(function(){
+          $('.category-lists').toggle();
+          $(this).toggleClass('arrow-active');
+      });
+    var viewportWidth = $(window).width();
+        if (viewportWidth > 991) {
+            $('.menu-slider').slick({
+                draggable: true,
+                accessibility: false,
+                variableWidth: true,
+                slidesToShow: 1,
+                arrows: false,
+                dots: false,
+                swipeToSlide: true,
+                infinite: false,
+                speed: 500,
+            });
+        }
+        $('.menu-slider-custom').slick({
+            draggable: true,
+            accessibility: false,
+            variableWidth: true,
+            slidesToShow: 1,
+            arrows: false,
+            dots: false,
+            swipeToSlide: true,
+            infinite: false,
+            speed: 800,
+        });
+});
+});
+</script>
+<?php else:?>
+<script data="js" src="<?php echo $block->getViewFileUrl('Elsnertech_Homeslider::js/jquery.min.js'); ?>"></script>
+<script data="js" src="<?php echo $block->getViewFileUrl('Elsnertech_Homeslider::js/slick.js'); ?>"></script>
+<script data="js" src="<?php echo $block->getViewFileUrl('Elsnertech_Homeslider::js/slick.min.js'); ?>"></script>
+<script  data="js" type="text/javascript">
+    $( document ).ready(function() {
+    $('body').removeClass('loader-removed');
+    $('.category-lists').hide();
+      $(".down-arrow").click(function(){
+          $('.category-lists').toggle();
+          $(this).toggleClass('arrow-active');
+      });
+    var viewportWidth = $(window).width();
+        if (viewportWidth > 991) {
+            $('.menu-slider').slick({
+                draggable: true,
+                accessibility: false,
+                variableWidth: true,
+                slidesToShow: 1,
+                arrows: false,
+                dots: false,
+                swipeToSlide: true,
+                infinite: false,
+                speed: 500,
+            });
+        }
+        $('.menu-slider-custom').slick({
+            draggable: true,
+            accessibility: false,
+            variableWidth: true,
+            slidesToShow: 1,
+            arrows: false,
+            dots: false,
+            swipeToSlide: true,
+            infinite: false,
+            speed: 800,
+        });
+});
+</script>
+<?php endif;?>

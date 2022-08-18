@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright © 2017 EaDesign by Eco Active S.R.L. All rights reserved.
+See LICENSE for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_model_service_quote_submit_before">
+        <observer instance="Elsnertech\CustomAddressAttr\Observer\Sales\QuoteSubmitBefore"
+                name="Elsnertech_CustomAddressAttr_Observer_Sales_QuoteSubmitBefore"/>
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="neo_ordercomment_observer_orderneo" instance="Elsnertech\CustomAddressAttr\Observer\OrderPlace" />
+    </event>
+</config>

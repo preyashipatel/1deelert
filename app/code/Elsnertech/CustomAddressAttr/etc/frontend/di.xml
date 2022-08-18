@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+Copyright © 2017 EaDesign by Eco Active S.R.L. All rights reserved.
+See LICENSE for license details.
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="Elsnertech_shipping_address_fields" xsi:type="object">Elsnertech\CustomAddressAttr\Block\Checkout\Address\Fields\ShippingLayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type> -->
+
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="Elsnertech_billing_address_fields" type="Elsnertech\CustomAddressAttr\Plugin\Checkout\BillingLayoutProcessor" sortOrder="1000"/>
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="add_custom_field_checkout_form" type="Elsnertech\CustomAddressAttr\Model\Plugin\Checkout\LayoutProcessor" sortOrder="100"/>
+    </type>
+</config>

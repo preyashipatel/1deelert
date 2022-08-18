@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-
-<!-- /**
-* @author Elsner Team
-* @copyright Copyright © Elsner Technologies Pvt. Ltd (https://www.elsner.com/)
-* @package Elsnertech_SpeedBooster
-*/ -->
+<!--
+/**
+ * @author Elsner Team
+ * @copyright Copyright © Elsner Technologies Pvt. Ltd (https://www.elsner.com/)
+ * @package Elsnertech_SpeedBooster
+ */
+-->
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
    <body>

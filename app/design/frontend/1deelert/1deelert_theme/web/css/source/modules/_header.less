@@ -734,7 +734,7 @@ header.page-header.type2 {
                 span.down-arrow{
                     position: absolute;
                     right: 0;
-                    top: -33px;
+                    top: -28px;
                     cursor: pointer;
                     transition: 0.3s ease-in-out;
                     font-size: 12px;
@@ -773,6 +773,9 @@ header.page-header.type2 {
                         z-index: 2;
                         margin-left: -5px;
                         margin-right: -5px; 
+                        .cust-menu-wrap {
+                            display: inline-block;
+                        }
                         li{
                             margin: 0;
                             display: inline-block;
@@ -1166,7 +1169,7 @@ header.page-header.type2 {
                 nav.navigation.sw-megamenu {
                     padding: 0;
                     @media (max-width: @screen__md){
-                        max-height: ~"calc(100vh - 195px)";
+                        max-height: ~"calc(100vh - 220px)";
                         overflow-y: auto;
                     }
 
@@ -1341,6 +1344,9 @@ header.page-header.type2 {
                                 padding: 0;
                                 position: relative;
                                 z-index: 2;
+                                .cust-menu-wrap {
+                                    display: inline-block;
+                                }
                                 li{
                                     margin: 0;
                                     a {

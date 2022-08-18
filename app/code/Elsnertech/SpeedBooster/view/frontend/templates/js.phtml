@@ -7,7 +7,21 @@
 ?>
 <script data="lezzy">
 
-    var lazy_load_js=1;var lazy_load_by_px=200;var internal_js_delay_load = 10000;var js_delay_load = 500;var internal_css_delay_load = 10000;var google_fonts_delay_load = 100;var lazy_load_css=[];var googlefont=[];blank_image_webp_url = "http://www.authentickratom.com/media/blank.pngw3.webp";var upload_path="/home/u1d47d3f0c2bd9/public_html/pub"; var webp_path="/home/u1d47d3f0c2bd9/public_html/pub/w3-webp";var w3_first_js = false;
+    var lazy_load_js=1;
+    var lazy_load_by_px=200;
+    var internal_js_delay_load = 10000;
+    var js_delay_load = 500;
+    var internal_css_delay_load = 10000;
+    var google_fonts_delay_load = 100;
+    var lazy_load_css=[];
+    var googlefont=[];
+    blank_image_webp_url = "";
+    var upload_path=""; 
+    var webp_path="";
+    // blank_image_webp_url = "http://www.authentickratom.com/media/blank.pngw3.webp";
+    // var upload_path="/home/u1d47d3f0c2bd9/public_html/pub"; 
+    // var webp_path="/home/u1d47d3f0c2bd9/public_html/pub/w3-webp";    
+    var w3_first_js = false;
             
             var w3_int_first_js = false;
             var wnw_first_inner_js = false;
@@ -224,6 +238,7 @@
                     if(script.getAttribute("type") !== null && script.getAttribute("type") == "lazyload_int"){
                         if(script.getAttribute("data-src") != null){
                             var s = w3_load_js_uri(script);
+                                console.log("internal js loaded");
                                 s.onload=function(){
                                     w3_external_single_loaded = 1;
                                     load_intJS();
@@ -235,6 +250,7 @@
                                 }
                             
                         }else{
+                            console.log(script);
                             w3_load_inline_js_single(script);
                             load_intJS();
                         }
@@ -247,6 +263,8 @@
                 
             }
             function w3_load_inline_js_single(script){
+                console.log("single",w3_external_single_loaded);
+
                 if(!w3_external_single_loaded){
                     setTimeout(function(){w3_load_inline_js_single(script);},200);
                     return false;

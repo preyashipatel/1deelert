@@ -9,6 +9,9 @@
 /** @var \Magento\Framework\Escaper $escaper */
 /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
 $viewModel = $block->getViewModel();
+$getAddressAttrVal = $this->helper('Elsnertech\Customisation\Helper\Data');
+$getSubDist= $getAddressAttrVal->getCustomerAddress('sub_distric');
+$getDist= $getAddressAttrVal->getCustomerAddress('distric');
 ?>
 <?php $_company = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Company::class) ?>
 <?php $_telephone = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Telephone::class) ?>
@@ -22,11 +25,18 @@ $viewModel = $block->getViewModel();
 
 <?php $_vatidValidationClass = $viewModel->addressGetAttributeValidationClass('vat_id'); ?>
 <?php $_cityValidationClass = $viewModel->addressGetAttributeValidationClass('city'); ?>
+<?php $_subDistrictValidationClass = $viewModel->addressGetAttributeValidationClass('sub_district'); ?>
+<?php $_districtValidationClass = $viewModel->addressGetAttributeValidationClass('district'); ?>
 <?php $_postcodeValidationClass_value = $viewModel->addressGetAttributeValidationClass('postcode'); ?>
 <?php $_postcodeValidationClass = $_postcodeValidationClass_value; ?>
 <?php $_streetValidationClass = $viewModel->addressGetAttributeValidationClass('street'); ?>
 <?php $_streetValidationClassNotRequired = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
 <?php $_regionValidationClass = $viewModel->addressGetAttributeValidationClass('region'); ?>
+<?php 
+// echo '<pre>';
+// print_r($block->getAddress()->__toArray());
+// exit;
+?>
 <form class="form-address-edit"
       action="<?= $escaper->escapeUrl($block->getSaveUrl()) ?>"
       method="post"
@@ -151,6 +161,33 @@ $viewModel = $block->getViewModel();
                        id="city">
             </div>
         </div>
+        <div class="field district required">
+            <label class="label" for="district">
+                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('distric') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       name="district"
+                       value="<?= $getDist;?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('distric')) ?>"
+                       class="input-text <?= $escaper->escapeHtmlAttr($_districtValidationClass) ?>"
+                       id="district">
+            </div>
+        </div>
+        <div class="field sub_district required">
+            <label class="label" for="district">
+                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('sub_distric') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       name="sub_district"
+                       value="<?= $getSubDist;?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('sub_distric')) ?>"
+                       class="input-text <?= $escaper->escapeHtmlAttr($_subDistrictValidationClass) ?>"
+                       id="district">
+            </div>
+        </div>
+        
         <div class="field zip required">
             <label class="label" for="zip">
                 <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('postcode') ?></span>

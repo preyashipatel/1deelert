@@ -221,18 +221,6 @@
                 </var>
             </var>
         </var>
-
-       
-        <var name="magnifier">
-                    <var name="fullscreenzoom">10</var>  <!-- Zoom for fullscreen (integer)-->
-                    <var name="top">400</var> <!-- Top position of magnifier -->
-                    <var name="left">1000</var> <!-- Left position of magnifier -->
-                    <var name="width">300</var> <!-- Width of magnifier block -->
-                    <var name="height">300</var> <!-- Height of magnifier block -->
-                    <var name="eventType">hover</var> <!-- Action that atcivates zoom (hover/click) -->
-                    <var name="enabled">true</var> <!-- Turn on/off magnifier (true/false) -->
-                    <var name="mode">inside</var> <!-- Zoom type (outside/inside) -->
-        </var>
         <var name="breakpoints">
             <var name="mobile">
                 <var name="conditions">

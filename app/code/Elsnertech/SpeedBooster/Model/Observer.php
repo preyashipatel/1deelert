@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author Elsner Team
  * @copyright Copyright © Elsner Technologies Pvt. Ltd (https://www.elsner.com/)
@@ -11,14 +10,14 @@ declare(strict_types=1);
 namespace Elsnertech\SpeedBooster\Model;
 
 use Magento\Framework\Event\ObserverInterface;
-use Elsnertech\SpeedBooster\Helper\Data;
+use Elsnertech\SpeedBooster\Model\Config;
 
 class Observer implements ObserverInterface
 {
     /**
      * @var Data
      */
-    protected $_helper;
+    protected $_config;
     /**
      * $_storeManager variable
      *
@@ -31,16 +30,16 @@ class Observer implements ObserverInterface
      *
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      * @param \Magento\Framework\App\Action\Context $contaxt
-     * @param Data $helper
+     * @param Data $config
      */
     public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Action\Context $contaxt,
-        Data $helper
+        Config $config
     ) {
         $this->_storeManager = $storeManager;
         $this->getContaxt = $contaxt;
-        $this->_helper = $helper;
+        $this->_config = $config;
     }
 
     /**
@@ -55,7 +54,7 @@ class Observer implements ObserverInterface
         $pagename = $request->getFullActionName();
 
         $baseUrl =$this->_storeManager->getStore()->getBaseUrl();
-        if (!$this->_helper->isEnabled()) {
+        if (!$this->_config->isEnabled()) {
             return;
         }
         $response = $observer->getEvent()->getData('response');

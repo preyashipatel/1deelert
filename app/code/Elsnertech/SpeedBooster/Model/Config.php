@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author Elsner Team
  * @copyright Copyright © Elsner Technologies Pvt. Ltd (https://www.elsner.com/)
@@ -8,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace Elsnertech\SpeedBooster\Helper;
+namespace Elsnertech\SpeedBooster\Model;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
 
-class Data extends AbstractHelper
+class Config extends AbstractHelper
 {
     /**
      * Data constructor.

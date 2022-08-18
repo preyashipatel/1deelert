@@ -398,7 +398,7 @@ class Topmenu extends \Magento\Framework\View\Element\Template
                 if (count($children) > 0 || (($menu_type=="fullwidth" || $menu_type=="staticwidth") &&
                 ($menu_top_content || $menu_left_content || $menu_right_content || $menu_bottom_content)))
                     $item_class .= 'parent ';
-                $html .= '<li class="uiui-menu-item '.($category->getName()=="บ้าน" ? 'home-catagory ' : '').
+                $html .= '<div class="cust-menu-wrap"><li class="ui-menu-item '.($category->getName()=="บ้าน" ? 'home-catagory ' : '').
                 $item_class.$sw_menu_float_type.'">';
                 if (count($children) > 0) {
                     $html .= '<div class="open-children-toggle"></div>';
@@ -457,7 +457,7 @@ class Topmenu extends \Magento\Framework\View\Element\Template
                     }
                     $html .= '</div>';
                 }
-                $html .= '</li>';
+                $html .= '</li></div>';
             }
         }
         $html .= $this->getCustomBlockHtml('after');

@@ -9,7 +9,8 @@
     if ($show_notice && $show_notice == 1)
         echo $this->getChildHtml("porto_custom_notice");
 ?>
-<?php if ($header_type == 10): ?>
+<!-- <div class="custom-click"><h1>Hello come</h1></div>
+ --><?php if ($header_type == 10): ?>
 <div class="position-relative">
 <?php endif;?>
 <header class="page-header type<?= /* @noEscape */ $header_type; ?>" >
@@ -141,12 +142,12 @@
           <?= /* @noEscape */ $this->getChildHtml("minicart"); ?>
         </div>
       </div>
-      <div class="header-menu-custom">
-             <?= $this->getLayout()
-                ->createBlock(\Smartwave\Megamenu\Block\Topmenu::class)
+       <div class="header-menu-custom">
+          <?= $this->getLayout()
+                ->createBlock(\Magento\Theme\Block\Html\Topmenu::class)
                 ->setTemplate("Smartwave_Megamenu::topmenuCustom.phtml")
                 ->toHtml();?>
-      </div>
+       </div>
     </div>
   </div>
     <?= /* @noEscape */ $this->getChildHtml("navigation.sections"); ?>
@@ -1629,26 +1630,16 @@ if($checkPage == 'checkout_index_index' || $checkPage == 'checkout_cart_index'):
     ], function($) {
 $( document ).ready(function() {
     $('body').removeClass('loader-removed');
+    $(".sw-megamenu .category-lists ul").append($('.menu-slider').html());
     $('.category-lists').hide();
-      $(".down-arrow").click(function(){
-          $('.category-lists').toggle();
-          $(this).toggleClass('arrow-active');
-      });
+    $(".down-arrow").click(function(){
+        $('.category-lists').toggle();
+        $(this).toggleClass('arrow-active');
+    });
+
     var viewportWidth = $(window).width();
-        if (viewportWidth > 991) {
-            $('.menu-slider').slick({
-                draggable: true,
-                accessibility: false,
-                variableWidth: true,
-                slidesToShow: 1,
-                arrows: false,
-                dots: false,
-                swipeToSlide: true,
-                infinite: false,
-                speed: 500,
-            });
-        }
-        $('.menu-slider-custom').slick({
+    if (viewportWidth > 991) {
+        $('.menu-slider').slick({
             draggable: true,
             accessibility: false,
             variableWidth: true,
@@ -1657,8 +1648,28 @@ $( document ).ready(function() {
             dots: false,
             swipeToSlide: true,
             infinite: false,
-            speed: 800,
+            speed: 500,
         });
+    }
+
+    //mobileMenu
+    $(".sw-megamenu-mobile").append($('.sw-megamenu').html());
+    $(".sw-megamenu-mobile ul").removeClass('menu-slider');
+    $(".sw-megamenu-mobile ul").addClass('menu-slider-custom');
+    $(".sw-megamenu-mobile .toggle-category").remove();
+    $(".sw-megamenu-mobile .mobile-main-category").remove();
+    $(".sw-megamenu-mobile .cms-page-link").remove();
+    // $('.menu-slider-custom').slick({
+    //     draggable: true,
+    //     accessibility: false,
+    //     variableWidth: true,
+    //     slidesToShow: 1,
+    //     arrows: false,
+    //     dots: false,
+    //     swipeToSlide: true,
+    //     infinite: false,
+    //     speed: 800,
+    // });
 });
 });
 </script>
@@ -1668,37 +1679,89 @@ $( document ).ready(function() {
 <script data="js" src="<?php echo $block->getViewFileUrl('Elsnertech_Homeslider::js/slick.min.js'); ?>"></script>
 <script  data="js" type="text/javascript">
     $( document ).ready(function() {
+
     $('body').removeClass('loader-removed');
+    //desktopMenu
+    $(".desktop-menu .category-lists ul").append($('.menu-slider').html());
     $('.category-lists').hide();
+
       $(".down-arrow").click(function(){
+        console.log('caa');
           $('.category-lists').toggle();
           $(this).toggleClass('arrow-active');
+          // $('.category-lists .menu-slider-custom').slick('unslick');
       });
-    var viewportWidth = $(window).width();
-        if (viewportWidth > 991) {
-            $('.menu-slider').slick({
-                draggable: true,
-                accessibility: false,
-                variableWidth: true,
-                slidesToShow: 1,
-                arrows: false,
-                dots: false,
-                swipeToSlide: true,
-                infinite: false,
-                speed: 500,
-            });
-        }
-        $('.menu-slider-custom').slick({
-            draggable: true,
-            accessibility: false,
-            variableWidth: true,
-            slidesToShow: 1,
-            arrows: false,
-            dots: false,
-            swipeToSlide: true,
-            infinite: false,
-            speed: 800,
-        });
+
+      var viewportWidth = $(window).width();
+      if (viewportWidth > 991) {
+          $('.menu-slider').slick({
+              draggable: true,
+              accessibility: false,
+              variableWidth: true,
+              slidesToShow: 1,
+              arrows: false,
+              dots: false,
+              swipeToSlide: true,
+              infinite: false,
+              speed: 500,
+          });
+      }
+
+      $('.menu-slider-custom').slick({
+          draggable: true,
+          accessibility: false,
+          variableWidth: true,
+          slidesToShow: 2,
+          arrows: false,
+          dots: false,
+          swipeToSlide: true,
+          infinite: true,
+          speed: 800,
+      });
+
+      $('.flaseSale').slick({
+          draggable: true,
+          accessibility: false,
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false,
+          swipeToSlide: true,
+          infinite: true,
+          speed: 1000,
+          responsive: [
+              {
+                  breakpoint: 1470,
+                  settings: {
+                      slidesToShow: 5,
+                  }
+                  },
+              {
+                  breakpoint: 1200,
+                  settings: {
+                      slidesToShow: 4,
+                  }
+                  },
+              {
+                  breakpoint: 992,
+                  settings: {
+                      slidesToShow: 2,
+                      centerMode: true,
+                      centerPadding: '50px',
+                  }
+                  },
+              {
+                  breakpoint: 575,
+                  settings: {
+                      slidesToShow: 1,
+                      centerMode: true,
+                      centerPadding: '90px',
+                      speed: 600,
+                  }
+                  }
+              ]
+      });
+         
 });
 </script>
 <?php endif;?>

@@ -39,6 +39,8 @@ class CorrectImagesInAjaxResponse
     }
     
     /**
+     * After Get Product Media Gallery
+     *
      * @param SwatchesDataHelper $dataHelper
      * @param array $data
      * @return mixed[]
@@ -53,6 +55,8 @@ class CorrectImagesInAjaxResponse
     }
     
     /**
+     * Replace Urls
+     *
      * @param mixed[] $data
      * @return mixed[]
      */

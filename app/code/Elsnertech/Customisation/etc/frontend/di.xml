@@ -3,7 +3,7 @@
     <preference for="Mirasvit\LayeredNavigation\Block\Renderer\SwatchRenderer" type="Elsnertech\Customisation\Block\LayeredNavigation\SwatchRenderer" />
     <preference for="Magento\Customer\Controller\Address\FormPost" type="Elsnertech\Customisation\Controller\Address\FormPost" />
 
-
+    <preference for="Magento\Theme\Block\Html\Topmenu" type="Elsnertech\Customisation\Plugin\Topmenu" />
    <preference for="Magento\Catalog\Model\Product\Url"  type="Elsnertech\Customisation\Model\Url" />
     <type name="Magento\UrlRewrite\Controller\Router">
         <plugin name="aroundMatch" type="Elsnertech\Customisation\Controller\RouterData" sortOrder="10" disabled="false"/>
@@ -20,4 +20,5 @@
            <argument name="blockId" xsi:type="string">checkout_cms_block</argument>
        </arguments>
    </type>   
+    
 </config>

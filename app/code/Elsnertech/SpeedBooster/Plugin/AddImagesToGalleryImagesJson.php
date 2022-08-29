@@ -47,6 +47,8 @@ class AddImagesToGalleryImagesJson
     }
     
     /**
+     * After Get Gallery Images Json
+     *
      * @param Gallery $subject
      * @param string $galleryImagesJson
      * @return string
@@ -63,6 +65,8 @@ class AddImagesToGalleryImagesJson
     }
     
     /**
+     * Append Images
+     *
      * @param array $images
      * @return array
      */

@@ -27,6 +27,8 @@ class ConvertorListing
     }
 
     /**
+     * Add Convertor
+     *
      * @param ConvertorInterface $convertor
      * @return void
      */
@@ -36,6 +38,8 @@ class ConvertorListing
     }
 
     /**
+     * Get Convertors
+     *
      * @return ConvertorInterface[]
      */
     public function getConvertors(): array

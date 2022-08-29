@@ -1,39 +1,22 @@
 <?php
 /**
- * Copyright © 2018 Porto. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
  */
 
-?>
-<?php
 /**
  * Top menu for store
  *
- * @see \Smartwave\Megamenu\Block\Topmenu
+ * @var $block \Magento\Theme\Block\Html\Topmenu
  */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit);
+$elsnerHelper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
+$storeUrl = $elsnerHelper->getBaseUrl();
 ?>
-<?php
-    $_helper = $this->helper(\Smartwave\Megamenu\Helper\Data::class);
-    $_config = $_helper->getConfig('sw_megamenu');
-    $columnsLimit = 0;
-    $header_type = $_helper->getConfig('porto_settings/header/header_type');
-    $elsnerHelper = $this->helper(\Elsnertech\Customisation\Helper\Data::class);
-    $storeUrl = $elsnerHelper->getBaseUrl();
 
-if ($_config['general']['enable']) {
-    ?>
-    <?php //$_menu = $block->getMegamenuHtml(); 
-            $columnsLimit = $block->getColumnsLimit() ?: 0;
-$_menu = $block->getHtml('level-top', 'submenu', $columnsLimit)
-    ?>
-
-
-<nav class="navigation sw-megamenu
-    <?php if ($header_type == 7 ||
-    $header_type == 8 ||
-    $header_type == 18 ||
-    $header_type == 22): ?>side-megamenu<?php endif; ?>"
-    role="navigation">
-    
+<nav class="navigation navigation sw-megamenu" data-action="navigation">
     <ul class="mobile-main-category desktophide">
         <li class="ui-menu-item home-catagory">
             <a href="<?= /* @noEscape */ $storeUrl;?>" class="level-top" title="บ้าน"><span><?=/* @noEscape */ __('Home');?></span></a>
@@ -42,13 +25,10 @@ $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit)
     <div class=" toggle-category desktophide" id="category">
         <a href="javascript:void(0)"><?= /* @noEscape */__('Category');?></a>
     </div>
-    
-    <ul class="slick-slider menu-slider">
-        <?=/* @noEscape */ $_menu; ?>
+    <ul class="slick-slider menu-slider" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @noEscape */ $_menuHtml?>
+        <?= $block->getChildHtml() ?>
     </ul>
-  <!--   <div class="desktophide toggle-category" id="custMenu">
-        <a href="javascript:void(0)"><?= /* @noEscape */__('Menu');?></a>
-    </div> -->
     <ul class="cms-page-link">
         <li class="ui-menu-item cms-catagory">
                 <a href="<?=/* @noEscape */ $storeUrl.'flash-sale';?>" class="level-top"
@@ -91,34 +71,10 @@ $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit)
                 title="<?=/* @noEscape */ __('Contact Us');?>"><?=/* @noEscape */ __('Contact Us');?></a>
         </li>
     </ul>
-    <div class="category-menu desktop-menu">
+    <div class="category-menu">
         <span class="down-arrow"></span>
         <div class="category-lists">
-            <ul>
-              
-            </ul>
+            <ul></ul>
         </div>
     </div>
 </nav>
-<script type="text/javascript">
-    require([
-        'jquery',
-        'Smartwave_Megamenu/js/sw_megamenu'
-    ], function ($) {
-        $(".sw-megamenu").swMegamenu();
-    });
-</script>
-    <?php
-} else {
-    ?>
-    <?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit); ?>
-
-<nav class="navigation sw-megamenu" role="navigation">
-    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
-        <?=/* @noEscape */ $_menu; ?>
-    </ul>
-</nav>
-
-    <?php
-}
-?>

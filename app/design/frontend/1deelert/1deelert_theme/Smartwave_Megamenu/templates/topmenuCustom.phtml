@@ -19,7 +19,10 @@
 
 if ($_config['general']['enable']) {
     ?>
-    <?php $_menu = $block->getMegamenuHtml(); ?>
+    <?php //$_menu = $block->getMegamenuHtml();
+        $columnsLimit = $block->getColumnsLimit() ?: 0;
+        $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit);
+     ?>
 
 <nav class="navigation sw-megamenu
     <?php if ($header_type == 7 ||

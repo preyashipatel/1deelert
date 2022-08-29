@@ -35,6 +35,8 @@ class ConvertWrapper
     }
 
     /**
+     * Convert
+     *
      * @param string $sourceImageFilename
      * @param string $destinationImageFilename
      * @throws ConversionFailedException
@@ -47,6 +49,8 @@ class ConvertWrapper
     }
 
     /**
+     * Get Options
+     *
      * @return array
      * @throws InvalidConvertorException
      */

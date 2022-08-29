@@ -16,6 +16,8 @@ use Magento\Store\Model\ScopeInterface;
 class Config extends AbstractHelper
 {
     /**
+     * Construct
+     *
      * Data constructor.
      * @param Context $context
      */

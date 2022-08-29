@@ -65,7 +65,9 @@ class Convertor implements ConvertorInterface
     }
 
     /**
-     * @param string $imageUrl
+     * Convert Image
+     *
+     * @param Image $image
      * @return Image
      * @throws ConvertorException
      * @throws FileSystemException
@@ -88,8 +90,10 @@ class Convertor implements ConvertorInterface
     }
 
     /**
-     * @param string $imageUri
-     * @param string|null $destinationImageUri
+     * Convert
+     *
+     * @param string $sourceImagePath
+     * @param string $targetImagePath
      * @return bool
      * @throws ConvertorException
      */

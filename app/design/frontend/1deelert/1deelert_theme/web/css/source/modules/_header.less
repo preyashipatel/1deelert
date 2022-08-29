@@ -1186,21 +1186,22 @@ header.page-header.type2 {
                             list-style: none;
 
                             @media (max-width: @screen__md){
+                                border-top: 1px solid @colo7-7_light;
                                 &.parent {
-                                    a.level-top{
+                                    position: relative;
+                                    &::after{
+                                        content: '\e81c';
+                                        font-family: 'porto-icons';
+                                        color: inherit;
+                                        font-size: 16px;
+                                        display: block;
+                                        right: 22px;
+                                        position: absolute;
+                                        top: 18px;
+                                    }
+                                    &.ui-state-active{
                                         &::after{
-                                            content: '\e81c';
-                                            font-family: 'porto-icons';
-                                            color: inherit;
-                                            font-size: 16px;
-                                            display: block;
-                                            margin-top: 3px;
-                                            right: 22px;
-                                        }
-                                        &.ui-state-active{
-                                            &::after{
-                                                transform: rotate(180deg);
-                                            }
+                                            transform: rotate(180deg);
                                         }
                                     }
                                 }
@@ -1222,7 +1223,6 @@ header.page-header.type2 {
                                 position: relative;
                                 
                                 @media (max-width: @screen__md){
-                                    border-top: 1px solid @colo7-7_light;
                                     font-weight: 500;
                                     line-height: 1.3;
                                 }
@@ -1239,6 +1239,10 @@ header.page-header.type2 {
                                 width: 100% !important;
                                 height: auto !important;
                                 background: @color-6;
+                                padding: 0;
+                                .level1 {
+                                    padding-left: 40px;
+                                }
 
                                 ul.subchildmenu {
                                     padding-left: 50px;
@@ -1473,6 +1477,9 @@ header.page-header.type2 {
 
             @media (max-width: @screen__sm) {
                 margin-right: 20px;
+            }
+            .submenu{
+                width: 0;
             }
 
             .level-top {

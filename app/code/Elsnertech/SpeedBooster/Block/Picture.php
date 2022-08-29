@@ -158,7 +158,7 @@ class Picture extends Template
 
     /**
      * Get Alt Text
-     * 
+     *
      * @return string
      */
     public function getAltText(): string
@@ -168,7 +168,7 @@ class Picture extends Template
 
     /**
      * Set Alt Text
-     * 
+     *
      * @param string $altText
      * @return Picture
      */

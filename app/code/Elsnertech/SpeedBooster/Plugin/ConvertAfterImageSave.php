@@ -13,6 +13,7 @@ use Elsnertech\SpeedBooster\Config\Config;
 use Elsnertech\SpeedBooster\Convertor\ConvertorListing;
 use Elsnertech\SpeedBooster\Exception\ConvertorException;
 use Elsnertech\SpeedBooster\Image\ImageFactory;
+use Psr\Log\LoggerInterface;
 
 class ConvertAfterImageSave
 {
@@ -35,21 +36,27 @@ class ConvertAfterImageSave
      * ConvertAfterImageSave constructor.
      * @param ConvertorListing $convertorListing
      * @param Config $config
+     * @param LoggerInterface $logger
+     * @param ImageFactory $imageFactory
      */
     public function __construct(
         ConvertorListing $convertorListing,
         Config $config,
+        LoggerInterface $logger,
         ImageFactory $imageFactory
     ) {
         $this->convertorListing = $convertorListing;
         $this->config = $config;
+        $this->logger = $logger;
         $this->imageFactory = $imageFactory;
     }
 
     /**
+     * After Save
+     *
      * @param Image $subject
      * @param mixed $return
-     * @param null $destination
+     * @param string $destination
      * @return void
      */
     public function afterSave(Image $subject, $return, $destination = null)
@@ -67,6 +74,7 @@ class ConvertAfterImageSave
             try {
                 $convertor->convertImage($image);
             } catch (ConvertorException $e) {
+                $this->logger->info('Exception Generated');
             }
         }
     }

@@ -66,6 +66,8 @@ class BrowserSupport implements ArgumentInterface
     }
 
     /**
+     * Has Webp Support
+     *
      * @return bool
      */
     public function hasWebpSupport(): bool
@@ -90,6 +92,8 @@ class BrowserSupport implements ArgumentInterface
     }
 
     /**
+     * Accepts Webp Header
+     *
      * @return bool
      */
     public function acceptsWebpHeader(): bool
@@ -102,6 +106,8 @@ class BrowserSupport implements ArgumentInterface
     }
 
     /**
+     * Is Chrome Browser
+     *
      * @return bool
      */
     public function isChromeBrowser(): bool
@@ -119,6 +125,8 @@ class BrowserSupport implements ArgumentInterface
     }
 
     /**
+     * Has Cookie
+     *
      * @return bool
      */
     public function hasCookie(): bool

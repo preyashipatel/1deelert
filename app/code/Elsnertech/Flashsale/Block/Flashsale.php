@@ -116,6 +116,7 @@ class Flashsale extends \Magento\Catalog\Block\Product\AbstractProduct implement
             $flashsaleDetails['name'] = $flashsaleModel->getData()[0]['name'];
             $flashsaleDetails['start_date'] = $flashsaleModel->getData()[0]['start_date'];
             $flashsaleDetails['end_date'] = $flashsaleModel->getData()[0]['end_date'];
+            $flashsaleDetails['status'] = $flashsaleModel->getData()[0]['status'];
         }
         return $flashsaleDetails;
     }

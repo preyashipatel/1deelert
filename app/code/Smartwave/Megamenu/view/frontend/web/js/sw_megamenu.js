@@ -68,7 +68,7 @@
                 }, 300);
             }
         });
-        $("li.ui-menu-item > .open-children-toggle").off("click").on("click", function(){
+        /*$("li.ui-menu-item > .open-children-toggle").off("click").on("click", function(){
             if(!$(this).parent().children(".submenu").hasClass("opened")) {
                 $(this).parent().children(".submenu").addClass("opened");
                 $(this).parent().children("a").addClass("ui-state-active");
@@ -76,6 +76,17 @@
             else {
                 $(this).parent().children(".submenu").removeClass("opened");
                 $(this).parent().children("a").removeClass("ui-state-active");
+            }
+        });*/
+        
+        $("li.level-top.parent").on("click", function(){
+            if(!$(this).children(".submenu").hasClass("opened")) {
+                $(this).children(".submenu").addClass("opened");
+                $(this).addClass("ui-state-active");
+            }
+            else {
+                $(this).children(".submenu").removeClass("opened");
+                $(this).removeClass("ui-state-active");
             }
         });
     };

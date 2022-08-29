@@ -50,6 +50,8 @@ class AddImagesToConfigurableJsonConfig
     }
     
     /**
+     * After Get JsonConfig
+     *
      * @param Configurable $subject
      * @param string $jsonConfig
      * @return string
@@ -71,6 +73,8 @@ class AddImagesToConfigurableJsonConfig
     }
     
     /**
+     * Append Images
+     *
      * @param array $images
      * @return array
      */

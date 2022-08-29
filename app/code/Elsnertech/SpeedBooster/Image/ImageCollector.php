@@ -37,6 +37,8 @@ class ImageCollector
     }
     
     /**
+     * Collect
+     *
      * @param string $imageUrl
      * @return Image[]
      */

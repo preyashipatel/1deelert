@@ -14,6 +14,8 @@ use Elsnertech\SpeedBooster\Image\Image;
 interface ConvertorInterface
 {
     /**
+     * Convert Image
+     *
      * @param Image $image
      * @return image
      * @throws ConvertorException

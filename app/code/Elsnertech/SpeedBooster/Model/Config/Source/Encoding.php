@@ -12,6 +12,11 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Encoding implements OptionSourceInterface
 {
+    /**
+     * To Option Array
+     *
+     * @return Image[]
+     */
     public function toOptionArray()
     {
         return [

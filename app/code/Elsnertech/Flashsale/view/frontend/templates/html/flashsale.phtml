@@ -1,9 +1,11 @@
 <?php
+   
+   $flashDetails = $block->getFlashsaleDetails();
+   if($flashDetails['status'] == 1){
    $products = $block->getFlashsaleProducts();
    $showWishlist = true;
    $showCompare = true;
    $showCart = true;
-   $flashDetails = $block->getFlashsaleDetails();
    $_imagehelper = $this->helper(\Magento\Catalog\Helper\Image::class);
    $_helper = $this->helper(\Magento\Catalog\Helper\Output::class);
     $_portohelper = $this->helper(\Smartwave\Porto\Helper\Data::class);
@@ -170,3 +172,4 @@
       }, 0)
   }());</script>
 <?php endif; ?>
+<?php } ?>

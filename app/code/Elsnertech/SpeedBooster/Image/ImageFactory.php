@@ -25,6 +25,8 @@ class ImageFactory
     private $urlConvertor;
 
     /**
+     * Construct
+     *
      * @param ObjectManagerInterface $objectManager
      * @param UrlConvertor $urlConvertor
      */
@@ -37,6 +39,8 @@ class ImageFactory
     }
 
     /**
+     * Create From Path
+     *
      * @param string $path
      * @return Image
      * @throws NotFoundException
@@ -48,6 +52,8 @@ class ImageFactory
     }
 
     /**
+     * Create From Url
+     *
      * @param string $url
      * @return Image
      * @throws NotFoundException

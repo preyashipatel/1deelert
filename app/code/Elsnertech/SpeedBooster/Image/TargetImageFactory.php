@@ -46,6 +46,8 @@ class TargetImageFactory
     }
     
     /**
+     * Create
+     *
      * @param Image $image
      * @param string $suffix
      * @return Image
@@ -59,6 +61,8 @@ class TargetImageFactory
     }
     
     /**
+     * Get Target File Name
+     *
      * @param Image $image
      * @param string $suffix
      * @return string
@@ -72,6 +76,8 @@ class TargetImageFactory
     }
     
     /**
+     * Get Target Hash
+     *
      * @param Image $image
      * @return string
      */
@@ -85,6 +91,8 @@ class TargetImageFactory
     }
     
     /**
+     * Get Target Path From Image
+     *
      * @param Image $image
      * @return string
      * @throws FileSystemException

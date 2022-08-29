@@ -59,7 +59,12 @@ class ReplaceBlockHtml implements ObserverInterface
         $this->layout = $layout;
         $this->config = $config;
     }
-    
+    /**
+     * Execuste
+     *
+     * @param Observer $observer
+     * @return string
+     */
     public function execute(Observer $observer)
     {
         $block = $observer->getEvent()->getBlock();

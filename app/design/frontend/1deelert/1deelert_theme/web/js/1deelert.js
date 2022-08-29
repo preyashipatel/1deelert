@@ -3,11 +3,11 @@ define([
         'slick'
     ], function ($) {
         "use strict";
-
-        $(".social-chat").on('click', function () {
+       $(".social-chat").on('click', function () {
             $(this).toggleClass('social-active');
             $(this).next().toggleClass('active');
         });
+
         $(document).on('click', function (e) {
             $("html").removeClass("nav-before-open");
             if (e.target == $('.porto-icon-user-2')[0]) {
@@ -62,48 +62,7 @@ define([
         
         $(document).ready(function () {
             var viewportWidth = $(window).width();
-            $('.flaseSale').slick({
-                draggable: true,
-                accessibility: false,
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                arrows: false,
-                dots: false,
-                swipeToSlide: true,
-                infinite: true,
-                speed: 1000,
-                responsive: [
-                    {
-                        breakpoint: 1470,
-                        settings: {
-                            slidesToShow: 5,
-                        }
-                        },
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 4,
-                        }
-                        },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2,
-                            centerMode: true,
-                            centerPadding: '50px',
-                        }
-                        },
-                    {
-                        breakpoint: 575,
-                        settings: {
-                            slidesToShow: 1,
-                            centerMode: true,
-                            centerPadding: '90px',
-                            speed: 600,
-                        }
-                        }
-                    ]
-            });
+            
             if (viewportWidth > 767) {
             $('.relate-product-slick').slick({
                 draggable: true,

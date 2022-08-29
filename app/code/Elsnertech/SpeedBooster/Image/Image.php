@@ -33,6 +33,8 @@ class Image
     }
     
     /**
+     * Get Path
+     *
      * @return string
      */
     public function getPath(): string
@@ -41,6 +43,8 @@ class Image
     }
     
     /**
+     * Get Url
+     *
      * @return string
      */
     public function getUrl(): string
@@ -49,6 +53,8 @@ class Image
     }
     
     /**
+     * Get Mime Type
+     *
      * @return string
      */
     public function getMimetype(): string
@@ -57,6 +63,8 @@ class Image
     }
     
     /**
+     * Get code
+     *
      * @return string
      */
     public function getCode(): string
@@ -77,6 +85,8 @@ class Image
     }
     
     /**
+     * To String
+     *
      * @return string
      */
     public function __toString(): string
